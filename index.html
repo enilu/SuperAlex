@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="description" content="儿童晨间流程激励游戏，帮助孩子养成良好的早晨习惯">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="晨光冲锋队">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏃</text></svg>">
+    <title>晨光冲锋队 - 儿童晨间流程激励游戏</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- 首次访问引导层 -->
+    <div id="introOverlay" class="overlay">
+        <div class="intro-content">
+            <h2>欢迎来到晨光冲锋队！</h2>
+            <p>这是你的早晨闯关游戏！每完成一步，点这里✅</p>
+            <button id="startButton">开始游戏</button>
+        </div>
+    </div>
+
+    <!-- 主游戏界面 -->
+    <div id="gameContainer" class="container hidden">
+        <!-- 顶部状态栏 -->
+        <div class="status-bar">
+            <div id="currentDate" class="date">2023年7月15日 星期六</div>
+            <div id="achievementCount" class="achievement">闪电完成: 0</div>
+            <button id="settingsButton" class="settings-button">⚙️</button>
+        </div>
+
+        <!-- 任务卡片 -->
+        <div class="task-card">
+            <div class="task-icon" id="taskIcon">🛏️</div>
+            <h1 id="taskName" class="task-name">准备开始</h1>
+            <div class="timer-container">
+                <div id="countdown" class="countdown">00:00</div>
+                <div id="timeStatus" class="time-status">准备开始</div>
+            </div>
+            <button id="completeButton" class="complete-button">✅ 我完成了！</button>
+        </div>
+
+        <!-- 进度条 -->
+        <div class="progress-container">
+            <div id="progressBar" class="progress-bar"></div>
+            <div class="progress-text" id="progressText">0/4</div>
+        </div>
+
+        <!-- 勋章展示区域 -->
+        <div id="medalSection" class="medal-section hidden">
+            <div class="medal-icon">🏆</div>
+            <h2 id="medalTitle" class="medal-title"></h2>
+            <p id="medalDescription" class="medal-description"></p>
+        </div>
+    </div>
+
+    <!-- 完成所有任务的庆祝界面 -->
+    <div id="celebrationScreen" class="overlay hidden">
+        <div class="celebration-content">
+            <h1>🎉 恭喜！</h1>
+            <p id="celebrationMessage">今日晨光冲锋圆满完成！你真棒！</p>
+            <p>准备出发上学吧！</p>
+        </div>
+    </div>
+    
+    <!-- 设置弹窗 -->
+    <div id="settingsModal" class="modal-overlay hidden">
+        <div class="settings-content">
+            <h2>⚙️ 设置</h2>
+            <div class="settings-section">
+                <h3>🔊 音效设置</h3>
+                <div id="soundPackSection" class="sound-pack-section">
+                    <p>选择音效包：</p>
+                    <div class="sound-pack-buttons">
+                        <button class="sound-pack-button" data-pack="default">默认音效</button>
+                        <button class="sound-pack-button" data-pack="video1">音效包1</button>
+                        <button class="sound-pack-button" data-pack="video2">音效包2</button>
+                    </div>
+                    <p class="sound-pack-info">当前使用: <span id="currentSoundPack">默认音效</span></p>
+                    <small class="sound-pack-hint">提示：将自定义音效文件放入sounds/对应目录即可</small>
+                </div>
+            </div>
+            <div class="settings-section">
+                <h3>📊 数据管理</h3>
+                <div class="settings-buttons">
+                    <button id="resetTodayButton" class="settings-action-button">
+                        🔄 重置今天数据
+                    </button>
+                    <button id="resetWeekButton" class="settings-action-button">
+                        🔄 重置本周数据
+                    </button>
+                </div>
+            </div>
+            <button id="closeSettingsButton" class="settings-close-button">
+                ✕ 关闭
+            </button>
+        </div>
+    </div>
+
+    <!-- 使用ES模块方式引入主应用，内部会自动加载其他依赖 -->
+    <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

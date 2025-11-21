@@ -1,0 +1,851 @@
+/* 晨光冲锋队 - 儿童晨间流程激励游戏样式 */
+
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 根元素变量 */
+:root {
+    --primary-color: #FF6B6B;
+    --secondary-color: #4ECDC4;
+    --accent-color: #FFD166;
+    --text-color: #292F36;
+    --light-bg: #F7FFF7;
+    --dark-bg: #292F36;
+    --success-color: #06D6A0;
+    --warning-color: #FFD166;
+    --danger-color: #EF476F;
+    --border-radius: 20px;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+    touch-action: manipulation;
+}
+
+/* 覆盖层基础样式 */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+/* 首次访问引导样式 */
+.intro-content {
+    text-align: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 90%;
+    animation: pulse 2s infinite;
+}
+
+.intro-content h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.intro-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* 主容器样式 */
+.container {
+    max-width: 100%;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 状态栏样式 */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+/* 设置按钮样式 */
+.settings-button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.settings-button:active {
+    transform: scale(0.95);
+}
+
+.date {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.achievement {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* 任务卡片样式 */
+.task-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.task-icon {
+    font-size: 8rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.task-name {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* 计时器容器 */
+.timer-container {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.countdown {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+/* 不同状态的计时器颜色 */
+.countdown.normal {
+    color: var(--text-color);
+}
+
+.countdown.warning {
+    color: var(--warning-color);
+    animation: pulse-warning 1s infinite;
+}
+
+.countdown.danger {
+    color: var(--danger-color);
+    animation: pulse-danger 0.5s infinite;
+}
+
+.time-status {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* 完成按钮样式 */
+.complete-button {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 25px 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(6, 214, 160, 0.3);
+    transition: all 0.3s ease;
+    min-width: 280px;
+}
+
+.complete-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(6, 214, 160, 0.4);
+}
+
+.complete-button:active {
+    transform: scale(0.95);
+}
+
+/* 进度条样式 */
+.progress-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #E0E0E0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+.progress-bar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.progress-text {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* 勋章展示区域 */
+.medal-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 209, 102, 0.2);
+    border-radius: var(--border-radius);
+    animation: celebrate 1s ease-in-out infinite alternate;
+}
+
+.medal-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.medal-title {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.medal-description {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+/* 庆祝界面样式 */
+.celebration-content {
+    text-align: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 90%;
+    animation: celebrate 2s ease-in-out infinite alternate;
+}
+
+.celebration-content h1 {
+    font-size: 3rem;
+    color: var(--success-color);
+    margin-bottom: 20px;
+}
+
+.celebration-content p {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* 成就通知样式 */
+.achievement-notification {
+    position: fixed;
+    top: 20px;
+    right: -350px;
+    width: 320px;
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+    color: white;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1500;
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.achievement-notification.show {
+    right: 20px;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 20px #4CAF50;
+    }
+    to {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 30px #8BC34A;
+    }
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-right: 15px;
+    animation: bounce 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+.achievement-content {
+    flex: 1;
+}
+
+.achievement-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.achievement-description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* 成就列表样式 */
+.achievements-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.achievements-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.achievement-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.achievement-item {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-item.locked {
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+.achievement-item-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.achievement-item-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* 成就进度条样式 */
+.achievement-progress {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+}
+
+.progress-bar-container {
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    transition: width 0.5s ease;
+    border-radius: 10px;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+/* 隐藏元素 */
+.hidden {
+    display: none !important;
+}
+
+/* 设置弹窗样式 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.settings-content {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.settings-content h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+.settings-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.settings-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.settings-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.settings-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 音效包选择按钮样式 */
+.sound-pack-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.sound-pack-button {
+    padding: 12px 8px;
+    font-size: 0.9rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.sound-pack-button:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sound-pack-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* 当前音效包显示样式 */
+.current-sound-pack {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.current-sound-pack-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.current-sound-pack-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* 音效提示信息 */
+.sound-pack-info {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.settings-action-button, .settings-close-button {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.settings-action-button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.settings-action-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.settings-close-button {
+    background-color: #f1f1f1;
+    color: #333;
+    margin-top: 10px;
+}
+
+.settings-close-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* 动画效果 */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse-warning {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 209, 102, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 209, 102, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(255, 209, 102, 0.5);
+    }
+}
+
+@keyframes pulse-danger {
+    0% {
+        text-shadow: 0 0 5px rgba(239, 71, 111, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(239, 71, 111, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(239, 71, 111, 0.5);
+    }
+}
+
+@keyframes celebrate {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* 响应式设计 - 移动设备优化 */
+@media (max-width: 768px) {
+    /* 基础样式调整 */
+    body {
+        padding: 10px;
+        touch-action: manipulation; /* 防止双击缩放 */
+        -webkit-tap-highlight-color: transparent; /* 移除点击高亮 */
+    }
+    
+    /* 任务卡片优化 */
+    .task-card {
+        margin: 0.8rem;
+        padding: 1.5rem 1rem;
+        min-height: calc(100vh - 200px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    /* 字体大小优化 */
+    .task-icon {
+        font-size: 5rem;
+    }
+    
+    .task-name {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .countdown {
+        font-size: 2.5rem; /* 增大倒计时字体，更易读 */
+        margin: 2rem 0;
+    }
+    
+    /* 按钮优化 - 更适合触摸 */
+    .complete-button {
+        font-size: 1.3rem;
+        padding: 1.2rem 2rem;
+        min-width: 200px;
+        min-height: 60px;
+        border-radius: 30px;
+        box-shadow: 0 6px 15px rgba(6, 214, 160, 0.3);
+        transition: transform 0.1s ease; /* 快速反馈 */
+    }
+    
+    .complete-button:active {
+        transform: scale(0.97); /* 触摸反馈 */
+    }
+    
+    /* 状态栏优化 */
+    .status-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    /* 内容优化 */
+    .intro-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .intro-content p {
+        font-size: 1.2rem;
+    }
+    
+    .celebration-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .celebration-content p {
+        font-size: 1.3rem;
+    }
+    
+    /* 成就通知优化 */
+    .achievement-notification {
+        width: calc(100% - 40px);
+        right: calc(-100% - 20px);
+    }
+    
+    .achievement-notification.show {
+        right: 20px;
+    }
+    
+    /* 成就列表优化 */
+    .achievement-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    /* 进度条优化 */
+    .progress-bar-container {
+        height: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .task-icon {
+        font-size: 4rem;
+    }
+    
+    .task-name {
+        font-size: 1.8rem;
+    }
+    
+    .countdown {
+        font-size: 2.2rem;
+    }
+    
+    .complete-button {
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
+        min-width: 180px;
+    }
+    
+    .achievement-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievement-item {
+        padding: 10px;
+    }
+    
+    .achievement-item-icon {
+        font-size: 1.8rem;
+    }
+    
+    .intro-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .intro-content p {
+        font-size: 1.1rem;
+    }
+    
+    .celebration-content h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .task-card {
+        padding: 20px;
+    }
+}
+
+/* 防止iOS Safari的安全区域问题 */
+@supports (padding: env(safe-area-inset-bottom)) {
+    body {
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    .task-card {
+        padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    }
+    
+    .status-bar {
+        margin-top: env(safe-area-inset-top);
+    }
+    
+    .achievement-notification {
+        top: calc(20px + env(safe-area-inset-top));
+    }
+}
+
+/* 触摸设备的交互优化 */
+@media (hover: none) and (pointer: coarse) {
+    /* 针对触摸屏优化按钮 */
+    .complete-button {
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+    
+    /* 增大可点击区域 */
+    .task-card * {
+        touch-action: manipulation;
+    }
+}
+
+/* 确保在小屏幕上按钮足够大 */
+@media (max-width: 320px) {
+    .complete-button {
+        font-size: 1.3rem;
+        padding: 15px 20px;
+        min-width: 180px;
+    }
+    
+    .task-name {
+        font-size: 1.8rem;
+    }
+    
+    .countdown {
+        font-size: 3rem;
+    }
+}
