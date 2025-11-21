@@ -1,7 +1,7 @@
 // 晨光冲锋队 - 主应用逻辑
 
 // 导入配置
-import { getConfigFromUrl, gameConfig } from './config_test.js';
+import { getConfigFromUrl, gameConfig } from './config.js';
 // 导入语音服务
 import { 
     initVoiceService, 
