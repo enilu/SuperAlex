@@ -48,7 +48,7 @@ const voiceTemplates = {
 // 游戏配置
 const gameConfig = {
     // 星期几启用（0-6，0表示周日）
-    enabledDays: [1, 2, 3, 4, 5], // 默认周一至周五启用
+    enabledDays: [0,1, 2, 3, 4, 5,6], // 默认周一至周五启用
     
     // 语音设置
     voiceEnabled: true,
