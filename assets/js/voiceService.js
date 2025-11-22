@@ -6,9 +6,11 @@ const voiceConfig = {
     volume: 1,
     rate: 1,
     pitch: 1,
-    // 中文语音首选名称列表
+    // 中文普通话语音首选名称列表，增加更多可能的普通话语音名称
     preferredVoices: ['Google 普通话（中国大陆）', 'Microsoft Huihui Desktop - Chinese (Simplified)', 
-                      'Microsoft Yaoyao Desktop - Chinese (Simplified)', 'Chinese', 'zh']
+                      'Microsoft Yaoyao Desktop - Chinese (Simplified)', 'Microsoft Zira Desktop', 
+                      'Microsoft David Desktop', 'zh-CN', 'Chinese (Simplified)', 
+                      'Mandarin', 'Mandarin Chinese', 'Chinese', 'zh']
 };
 
 // 语音服务状态

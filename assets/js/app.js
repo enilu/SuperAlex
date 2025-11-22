@@ -246,39 +246,11 @@ function updateDateDisplay() {
     elements.currentDate.textContent = now.toLocaleDateString('zh-CN', options);
 }
 
-// 查找当前任务
+// 查找当前任务 - 始终从第一个任务开始
 function findCurrentTask() {
-    const now = new Date();
-    const currentTimeStr = formatTime(now);
-    
-    // 遍历任务，找到当前应该执行的任务（按顺序从第一个开始）
-    let foundTask = false;
-    for (let i = 0; i < gameState.tasks.length; i++) {
-        // 如果当前任务的开始时间已到，但下一个任务的开始时间未到，这就是当前任务
-        if (currentTimeStr >= gameState.tasks[i].startTime) {
-            // 检查是否已经过了所有任务的开始时间
-            if (i === gameState.tasks.length - 1 || currentTimeStr < gameState.tasks[i + 1].startTime) {
-                gameState.currentTaskIndex = i;
-                gameState.currentTask = gameState.tasks[i];
-                foundTask = true;
-                break;
-            }
-        } else {
-            // 如果当前任务的开始时间未到，那么前一个任务应该是当前任务（如果有）
-            if (i > 0) {
-                gameState.currentTaskIndex = i - 1;
-                gameState.currentTask = gameState.tasks[i - 1];
-                foundTask = true;
-            }
-            break;
-        }
-    }
-    
-    // 如果还没到第一个任务开始时间，或者没有找到合适的任务
-    if (!foundTask || !gameState.currentTask) {
-        gameState.currentTaskIndex = 0;
-        gameState.currentTask = gameState.tasks[0];
-    }
+    // 根据需求：即使超时，每次也都需要从第一个任务开始
+    gameState.currentTaskIndex = 0;
+    gameState.currentTask = gameState.tasks[0];
     
     // 更新任务显示
     updateTaskDisplay();
@@ -512,11 +484,12 @@ function generateVoiceFeedback(status) {
         message = generateTaskFeedback(currentTask, nextTask, status, minutesEarly);
     }
     
-    // 播放语音，使用游戏配置中的语音参数
+    // 播放语音，使用游戏配置中的语音参数，明确指定语言为普通话
     speakMessage(message, {
         volume: gameConfig.voiceVolume,
         rate: gameConfig.voiceRate,
-        pitch: gameConfig.voicePitch
+        pitch: gameConfig.voicePitch,
+        lang: gameConfig.voiceLang // 确保使用配置中的普通话语言设置
     });
 }
 
@@ -558,11 +531,12 @@ function handleAllTasksComplete() {
         
         elements.celebrationMessage.textContent = celebrationMsg;
         
-        // 播放庆祝语音
+        // 播放庆祝语音，确保使用普通话
         speakMessage(celebrationMsg, {
             volume: gameConfig.voiceVolume,
             rate: gameConfig.voiceRate,
-            pitch: gameConfig.voicePitch
+            pitch: gameConfig.voicePitch,
+            lang: gameConfig.voiceLang // 确保使用配置中的普通话语言设置
         });
         
         // 显示勋章（如果达到条件）
