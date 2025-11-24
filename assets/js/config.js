@@ -31,8 +31,8 @@ const defaultTasks = [
         name: "吃早餐",
         icon: "🍞",
         startTime: "07:05",
-        deadlineTime: "07:15",
-        nextTaskStartTime: "07:15"
+        deadlineTime: "07:20",
+        nextTaskStartTime: "07:20"
     }
 ];
 
