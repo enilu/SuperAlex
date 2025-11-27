@@ -7,32 +7,28 @@ const defaultTasks = [
         name: "起床",
         icon: "🛏️",
         startTime: "06:50",
-        deadlineTime: "06:55",
-        nextTaskStartTime: "06:55"
+        deadlineTime: "06:55"
     },
     {
         id: 2,
         name: "穿衣服",
         icon: "👔",
         startTime: "06:55",
-        deadlineTime: "07:00",
-        nextTaskStartTime: "07:00"
+        deadlineTime: "07:00"
     },
     {
         id: 3,
         name: "刷牙洗脸",
         icon: "🦷",
         startTime: "07:00",
-        deadlineTime: "07:05",
-        nextTaskStartTime: "07:05"
+        deadlineTime: "07:05"
     },
     {
         id: 4,
         name: "吃早餐",
         icon: "🍞",
         startTime: "07:05",
-        deadlineTime: "07:20",
-        nextTaskStartTime: "07:20"
+        deadlineTime: "07:20"
     }
 ];
 
@@ -84,5 +80,17 @@ function getConfigFromUrl() {
     return tasks;
 }
 
+// 确保任务数据符合规范（移除nextTaskStartTime字段）
+function normalizeTasks(tasks) {
+    return tasks.map(task => {
+        const normalizedTask = { ...task };
+        // 移除nextTaskStartTime字段
+        if (normalizedTask.hasOwnProperty('nextTaskStartTime')) {
+            delete normalizedTask.nextTaskStartTime;
+        }
+        return normalizedTask;
+    });
+}
+
 // 导出配置
-export { defaultTasks, getConfigFromUrl, voiceTemplates, gameConfig };
+export { defaultTasks, getConfigFromUrl, voiceTemplates, gameConfig, normalizeTasks };

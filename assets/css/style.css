@@ -799,6 +799,249 @@ body {
     }
 }
 
+/* 任务配置相关样式 */
+#taskConfiguration {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(78, 205, 196, 0.3);
+}
+
+#taskConfiguration h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#taskList {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: var(--border-radius);
+}
+
+.task-item {
+    background-color: white;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.task-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.task-index {
+    background-color: var(--secondary-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.task-remove-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.task-remove-button:hover {
+    background-color: rgba(239, 71, 111, 0.1);
+    color: var(--danger-color);
+}
+
+.task-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.task-field label {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.task-field input {
+    padding: 10px;
+    border: 2px solid #E0E0E0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.task-field input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+}
+
+.task-field-row {
+    display: flex;
+    gap: 10px;
+}
+
+.task-field-row .task-field {
+    flex: 1;
+}
+
+.no-tasks {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* 任务配置按钮组 */
+.task-config-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-config-buttons button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#addTaskButton {
+    background-color: var(--success-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(6, 214, 160, 0.3);
+}
+
+#addTaskButton:hover {
+    background-color: #05C192;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(6, 214, 160, 0.4);
+}
+
+#saveTasksButton {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+#saveTasksButton:hover {
+    background-color: #FF5252;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+#resetTasksButton {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    box-shadow: 0 4px 15px rgba(255, 209, 102, 0.3);
+}
+
+#resetTasksButton:hover {
+    background-color: #FFC145;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 209, 102, 0.4);
+}
+
+.task-config-buttons button:active {
+    transform: translateY(0);
+}
+
+/* 任务配置的响应式设计 */
+@media (max-width: 768px) {
+    #taskConfiguration {
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+    
+    #taskConfiguration h3 {
+        font-size: 1.3rem;
+    }
+    
+    #taskList {
+        max-height: 250px;
+    }
+    
+    .task-item {
+        padding: 12px;
+    }
+    
+    .task-field input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .task-field-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .task-config-buttons button {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #taskConfiguration h3 {
+        font-size: 1.2rem;
+    }
+    
+    #taskList {
+        max-height: 200px;
+        padding: 8px;
+    }
+    
+    .task-item {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .task-field input {
+        padding: 7px;
+        font-size: 0.85rem;
+    }
+    
+    .task-config-buttons button {
+        padding: 9px 14px;
+        font-size: 0.85rem;
+    }
+}
+
 /* 防止iOS Safari的安全区域问题 */
 @supports (padding: env(safe-area-inset-bottom)) {
     body {

@@ -93,6 +93,32 @@
                     </button>
                 </div>
             </div>
+            
+            <!-- 任务配置部分 -->
+            <div class="settings-section task-config-section">
+                <h3>📝 任务配置</h3>
+                <p class="settings-description">自定义你的晨间任务流程：</p>
+                
+                <!-- 任务列表 -->
+                <div id="taskList" class="task-list">
+                    <!-- 任务项将通过JavaScript动态生成 -->
+                </div>
+                
+                <!-- 添加任务按钮 -->
+                <button id="addTaskButton" class="settings-action-button primary">
+                    ➕ 添加任务
+                </button>
+                
+                <!-- 保存配置按钮 -->
+                <button id="saveTasksButton" class="settings-action-button primary">
+                    💾 保存配置
+                </button>
+                
+                <!-- 重置为默认配置按钮 -->
+                <button id="resetTasksButton" class="settings-action-button">
+                    🔄 恢复默认配置
+                </button>
+            </div>
             <button id="closeSettingsButton" class="settings-close-button">
                 ✕ 关闭
             </button>

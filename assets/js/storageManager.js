@@ -10,6 +10,7 @@ class StorageManager {
         this.todayKeyPrefix = 'completed_';
         this.weekDataKey = 'weekCompletionData';
         this.soundPackKey = 'preferredSoundPack';
+        this.userTasksKey = 'userTasksConfig';
     }
 
     /**
@@ -177,6 +178,47 @@ class StorageManager {
         } catch (error) {
             console.error('获取音效包偏好失败:', error);
             return null;
+        }
+    }
+    
+    /**
+     * 保存用户任务配置
+     * @param {Array} tasks 任务配置数组
+     */
+    saveUserTasksConfig(tasks) {
+        try {
+            localStorage.setItem(this.userTasksKey, JSON.stringify(tasks));
+            return true;
+        } catch (error) {
+            console.error('保存用户任务配置失败:', error);
+            return false;
+        }
+    }
+    
+    /**
+     * 获取用户任务配置
+     * @returns {Array|null} 用户任务配置数组，如果没有设置则返回null
+     */
+    getUserTasksConfig() {
+        try {
+            const tasks = localStorage.getItem(this.userTasksKey);
+            return tasks ? JSON.parse(tasks) : null;
+        } catch (error) {
+            console.error('获取用户任务配置失败:', error);
+            return null;
+        }
+    }
+    
+    /**
+     * 检查是否存在用户自定义的任务配置
+     * @returns {boolean} 是否存在用户任务配置
+     */
+    hasUserTasksConfig() {
+        try {
+            return localStorage.getItem(this.userTasksKey) !== null;
+        } catch (error) {
+            console.error('检查用户任务配置失败:', error);
+            return false;
         }
     }
 

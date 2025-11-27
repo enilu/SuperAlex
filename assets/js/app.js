@@ -1,7 +1,7 @@
 // 晨光冲锋队 - 主应用逻辑
 
 // 导入配置
-import { getConfigFromUrl, gameConfig } from './config.js';
+import { getConfigFromUrl, gameConfig, normalizeTasks, defaultTasks } from './config.js';
 // 导入语音服务
 import { 
     initVoiceService, 
@@ -129,6 +129,30 @@ function initSettingsListeners() {
             gameState.soundManager.playClickSound();
         });
     });
+    
+    // 任务配置相关事件监听
+    initTaskConfigListeners();
+}
+
+// 初始化任务配置相关的事件监听器
+function initTaskConfigListeners() {
+    // 添加任务按钮点击事件
+    document.getElementById('addTaskButton').addEventListener('click', addNewTask);
+    
+    // 保存配置按钮点击事件
+    document.getElementById('saveTasksButton').addEventListener('click', saveCurrentTaskConfig);
+    
+    // 重置为默认配置按钮点击事件
+    document.getElementById('resetTasksButton').addEventListener('click', resetToDefaultTasks);
+    
+    // 设置弹窗显示时渲染任务列表
+    elements.settingsModal.addEventListener('DOMSubtreeModified', function handleModalChange() {
+        if (!elements.settingsModal.classList.contains('hidden')) {
+            renderTaskList();
+            // 移除监听器以避免重复渲染
+            elements.settingsModal.removeEventListener('DOMSubtreeModified', handleModalChange);
+        }
+    });
 }
 
 /**
@@ -169,8 +193,8 @@ function updateCurrentSoundPackDisplay(packName) {
         }
     });
 }
-    
-    // 重置本周数据按钮点击事件
+
+// 重置本周数据按钮点击事件
     elements.resetWeekButton.addEventListener('click', resetWeekData);
     
     // 重置今天数据按钮点击事件
@@ -186,8 +210,29 @@ function updateCurrentSoundPackDisplay(packName) {
 
 // 开始游戏
 function startGame() {
-    // 加载任务
-    gameState.tasks = getConfigFromUrl();
+    // 加载任务配置 - 优先从本地存储加载用户配置
+    let tasks = [];
+    
+    // 1. 首先尝试从本地存储获取用户自定义配置
+    if (storageManager.hasUserTasksConfig()) {
+        try {
+            tasks = storageManager.getUserTasksConfig();
+            console.log('已从本地存储加载用户任务配置');
+        } catch (error) {
+            console.error('加载本地任务配置失败:', error);
+            // 如果本地配置加载失败，使用默认配置
+        }
+    }
+    
+    // 2. 如果没有本地配置，从URL参数获取
+    if (tasks.length === 0) {
+        tasks = getConfigFromUrl();
+    }
+    
+    // 3. 确保任务数据符合规范（移除不必要的字段）
+    tasks = normalizeTasks(tasks);
+    
+    gameState.tasks = tasks;
     gameState.totalTasks = gameState.tasks.length;
     gameState.completedTasks = 0;
     gameState.flashCompletions = 0;
@@ -578,6 +623,8 @@ function showSettingsModal() {
     elements.settingsModal.classList.remove('hidden');
     // 更新当前音效包显示
     updateCurrentSoundPackDisplay(gameState.soundManager.getCurrentSoundPack());
+    // 渲染任务列表
+    renderTaskList();
 }
 
 function hideSettingsModal() {
@@ -615,6 +662,169 @@ function resetTodayData() {
             alert('重置数据失败，请稍后再试。');
         }
         hideSettingsModal();
+    }
+}
+
+// 保存用户任务配置函数已在前面定义
+
+// 渲染任务列表
+function renderTaskList() {
+    const taskListElement = document.getElementById('taskList');
+    if (!taskListElement) return;
+    
+    // 清空现有任务列表
+    taskListElement.innerHTML = '';
+    
+    // 确保有任务数据
+    if (!gameState.tasks || gameState.tasks.length === 0) {
+        taskListElement.innerHTML = '<p class="no-tasks">暂无任务，请添加任务</p>';
+        return;
+    }
+    
+    // 渲染每个任务
+    gameState.tasks.forEach((task, index) => {
+        const taskItem = document.createElement('div');
+        taskItem.className = 'task-item';
+        taskItem.dataset.index = index;
+        
+        taskItem.innerHTML = `
+            <div class="task-item-header">
+                <span class="task-index">${index + 1}</span>
+                <button class="task-remove-button" data-index="${index}">🗑️</button>
+            </div>
+            <div class="task-fields">
+                <div class="task-field">
+                    <label>任务名称:</label>
+                    <input type="text" class="task-name-input" value="${task.name || ''}" placeholder="输入任务名称">
+                </div>
+                <div class="task-field">
+                    <label>任务图标:</label>
+                    <input type="text" class="task-icon-input" value="${task.icon || '📝'}" placeholder="输入表情图标">
+                </div>
+                <div class="task-field-row">
+                    <div class="task-field">
+                        <label>开始时间:</label>
+                        <input type="time" class="task-start-time" value="${task.startTime || '00:00'}">
+                    </div>
+                    <div class="task-field">
+                        <label>截止时间:</label>
+                        <input type="time" class="task-deadline-time" value="${task.deadlineTime || '00:00'}">
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        taskListElement.appendChild(taskItem);
+    });
+    
+    // 添加删除任务的事件监听
+    document.querySelectorAll('.task-remove-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            removeTask(index);
+        });
+    });
+}
+
+// 添加新任务
+function addNewTask() {
+    const newTask = {
+        id: Date.now(), // 使用时间戳作为临时ID
+        name: '新任务',
+        icon: '📝',
+        startTime: '00:00',
+        deadlineTime: '00:00'
+    };
+    
+    // 添加到游戏状态
+    gameState.tasks.push(newTask);
+    gameState.totalTasks = gameState.tasks.length;
+    
+    // 重新渲染任务列表
+    renderTaskList();
+    
+    // 播放点击音效
+    gameState.soundManager.playClickSound();
+}
+
+// 删除任务
+function removeTask(index) {
+    if (gameState.tasks.length <= 1) {
+        alert('至少保留一个任务');
+        return;
+    }
+    
+    // 从游戏状态中移除
+    gameState.tasks.splice(index, 1);
+    gameState.totalTasks = gameState.tasks.length;
+    
+    // 重新渲染任务列表
+    renderTaskList();
+    
+    // 播放点击音效
+    gameState.soundManager.playClickSound();
+}
+
+// 保存当前任务配置
+function saveCurrentTaskConfig() {
+    const taskItems = document.querySelectorAll('.task-item');
+    const updatedTasks = [];
+    
+    taskItems.forEach((item, index) => {
+        const task = {
+            id: index + 1, // 重新分配ID，从1开始连续编号
+            name: item.querySelector('.task-name-input').value.trim(),
+            icon: item.querySelector('.task-icon-input').value.trim(),
+            startTime: item.querySelector('.task-start-time').value,
+            deadlineTime: item.querySelector('.task-deadline-time').value
+        };
+        
+        // 验证任务数据
+        if (!task.name) {
+            alert('任务名称不能为空');
+            return;
+        }
+        
+        if (!task.icon) {
+            task.icon = '📝'; // 默认图标
+        }
+        
+        updatedTasks.push(task);
+    });
+    
+    // 保存到本地存储
+    if (saveUserTasksConfig(updatedTasks)) {
+        alert('任务配置已保存！');
+        // 重新开始游戏以应用新配置
+        startGame();
+        
+        // 播放成功音效
+        gameState.soundManager.playSuccessSound();
+    } else {
+        alert('保存失败，请重试');
+    }
+}
+
+// 重置为默认配置
+function resetToDefaultTasks() {
+    if (confirm('确定要恢复默认任务配置吗？当前配置将被覆盖。')) {
+        // 清除本地存储的用户配置
+        localStorage.removeItem(storageManager.userTasksKey);
+        
+        // 更新游戏状态为默认任务
+        gameState.tasks = JSON.parse(JSON.stringify(defaultTasks)); // 深拷贝
+        gameState.totalTasks = gameState.tasks.length;
+        
+        // 重新渲染任务列表
+        renderTaskList();
+        
+        // 重新开始游戏
+        startGame();
+        
+        alert('已恢复默认任务配置');
+        
+        // 播放点击音效
+        gameState.soundManager.playClickSound();
     }
 }
 
