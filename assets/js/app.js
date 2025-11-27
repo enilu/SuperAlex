@@ -793,13 +793,16 @@ function saveCurrentTaskConfig() {
     });
     
     // 保存到本地存储
-    if (saveUserTasksConfig(updatedTasks)) {
+    if (storageManager.saveUserTasksConfig(updatedTasks)) {
         alert('任务配置已保存！');
         // 重新开始游戏以应用新配置
         startGame();
         
         // 播放成功音效
         gameState.soundManager.playSuccessSound();
+        
+        // 关闭设置弹窗
+        hideSettingsModal();
     } else {
         alert('保存失败，请重试');
     }

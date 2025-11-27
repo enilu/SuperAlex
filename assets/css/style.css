@@ -469,8 +469,11 @@ body {
     padding: 30px;
     width: 90%;
     max-width: 400px;
+    max-height: 80vh;
     box-shadow: var(--shadow);
     text-align: center;
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .settings-content h2 {
