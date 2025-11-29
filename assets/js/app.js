@@ -1,15 +1,7 @@
 // 晨光冲锋队 - 主应用逻辑
 
 // 导入配置
-import { getConfigFromUrl, gameConfig, normalizeTasks, defaultTasks } from './config.js';
-// 导入语音服务
-import { 
-    initVoiceService, 
-    speakMessage, 
-    generateTaskFeedback, 
-    generateCelebrationMessage,
-    getSpeechStatus 
-} from './voiceService.js';
+import { getConfigFromUrl, gameConfig, normalizeTasks, defaultTasks, voiceTemplates } from './config.js';
 // 导入任务管理模块
 import { TaskManager } from './taskManager.js';
 // 导入存储管理模块
@@ -114,24 +106,9 @@ async function loadUserSoundPackPreference() {
  * 初始化设置相关的事件监听器
  */
 function initSettingsListeners() {
-    // 设置按钮点击事件
-    elements.settingsButton.addEventListener('click', showSettingsModal);
-    
-    // 关闭按钮点击事件
-    elements.closeSettingsButton.addEventListener('click', hideSettingsModal);
-    
-    // 音效包切换按钮事件
-    elements.soundPackButtons.forEach(button => {
-        button.addEventListener('click', async () => {
-            const packName = button.getAttribute('data-pack');
-            await switchToSoundPack(packName);
-            // 播放点击音效，确认切换
-            gameState.soundManager.playClickSound();
-        });
+    elements.settingsButton.addEventListener('click', () => {
+        window.location.href = 'settings.html';
     });
-    
-    // 任务配置相关事件监听
-    initTaskConfigListeners();
 }
 
 // 初始化任务配置相关的事件监听器
@@ -194,18 +171,7 @@ function updateCurrentSoundPackDisplay(packName) {
     });
 }
 
-// 重置本周数据按钮点击事件
-    elements.resetWeekButton.addEventListener('click', resetWeekData);
-    
-    // 重置今天数据按钮点击事件
-    elements.resetTodayButton.addEventListener('click', resetTodayData);
-    
-    // 点击弹窗外部关闭弹窗
-    elements.settingsModal.addEventListener('click', (event) => {
-        if (event.target === elements.settingsModal) {
-            hideSettingsModal();
-        }
-    });
+ 
 
 
 // 开始游戏
@@ -269,17 +235,7 @@ function startGame() {
     // 查找当前任务
     findCurrentTask();
     
-    // 初始化语音服务
-    initVoiceService();
     
-    // 延迟一点时间后检查语音状态
-    setTimeout(() => {
-        const status = getSpeechStatus();
-        console.log('语音服务状态:', status);
-        if (!status.isSupported) {
-            console.warn('当前设备不支持语音合成功能');
-        }
-    }, 1000);
     
     gameState.isInitialized = true;
 }
@@ -462,8 +418,7 @@ function handleTaskComplete() {
     // 播放完成音效
     gameState.soundManager.playSuccessSound();
     
-    // 生成并播放语音反馈
-    generateVoiceFeedback(completionInfo ? completionInfo.completionStatus : null);
+    
     
     // 显示任务完成反馈动画
     if (completionInfo) {
@@ -503,39 +458,8 @@ function handleTaskComplete() {
 // 播放完成音效
 // 音效已由soundManager统一管理
 
-// 生成语音反馈
-function generateVoiceFeedback(status) {
-    if (!gameConfig.voiceEnabled) return;
-    
-    const currentTask = gameState.currentTask;
-    const currentTaskIndex = gameState.currentTaskIndex;
-    const isLastTask = currentTaskIndex >= gameState.totalTasks - 1;
-    
-    let message = '';
-    
-    if (isLastTask) {
-        // 最后一个任务，使用庆祝模板
-        message = generateCelebrationMessage(gameState.flashCompletions, gameState.streakDays);
-    } else {
-        const nextTask = gameState.tasks[currentTaskIndex + 1];
-        const now = new Date();
-        const currentTimeMinutes = now.getHours() * 60 + now.getMinutes();
-        const deadlineMinutes = timeToMinutes(currentTask.deadlineTime);
-        
-        // 计算提前完成的分钟数
-        const minutesEarly = status === 'early' ? Math.floor(deadlineMinutes - currentTimeMinutes) : 0;
-        
-        // 使用语音服务生成反馈消息
-        message = generateTaskFeedback(currentTask, nextTask, status, minutesEarly);
-    }
-    
-    // 播放语音，使用游戏配置中的语音参数，明确指定语言为普通话
-    speakMessage(message, {
-        volume: gameConfig.voiceVolume,
-        rate: gameConfig.voiceRate,
-        pitch: gameConfig.voicePitch,
-        lang: gameConfig.voiceLang // 确保使用配置中的普通话语言设置
-    });
+function getCelebrationMessage() {
+    return voiceTemplates.celebration;
 }
 
 // 处理所有任务完成
@@ -572,17 +496,11 @@ function handleAllTasksComplete() {
         elements.celebrationScreen.classList.remove('hidden');
         
         // 生成庆祝消息
-        let celebrationMsg = generateCelebrationMessage(gameState.flashCompletions);
+        let celebrationMsg = getCelebrationMessage();
         
         elements.celebrationMessage.textContent = celebrationMsg;
         
-        // 播放庆祝语音，确保使用普通话
-        speakMessage(celebrationMsg, {
-            volume: gameConfig.voiceVolume,
-            rate: gameConfig.voiceRate,
-            pitch: gameConfig.voicePitch,
-            lang: gameConfig.voiceLang // 确保使用配置中的普通话语言设置
-        });
+        
         
         // 显示勋章（如果达到条件）
         checkAndShowMedal();

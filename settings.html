@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>设置</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="settings-page">
+    <div class="settings-header">
+        <button id="backButton" class="back-button">←</button>
+        <div class="settings-title">设置</div>
+    </div>
+
+    <div class="settings-list" id="settingsMenu">
+        <a href="settings.html?tab=sound" class="settings-item"><span class="item-icon">🔊</span><span class="item-text">音效设置</span></a>
+        <a href="settings.html?tab=tasks" class="settings-item"><span class="item-icon">📝</span><span class="item-text">任务配置</span></a>
+        <a href="settings.html?tab=today" class="settings-item"><span class="item-icon">📅</span><span class="item-text">重置今天数据</span></a>
+        <a href="settings.html?tab=week" class="settings-item"><span class="item-icon">📆</span><span class="item-text">重置本周数据</span></a>
+    </div>
+
+    <div id="soundSettings" class="settings-section">
+        <h3>音效设置</h3>
+        <div class="sound-pack-section">
+            <p>选择音效包：</p>
+            <div class="sound-pack-buttons">
+                <button class="sound-pack-button" data-pack="default">默认音效</button>
+                <button class="sound-pack-button" data-pack="video1">音效包1</button>
+                <button class="sound-pack-button" data-pack="video2">音效包2</button>
+            </div>
+            <p class="sound-pack-info">当前使用: <span id="currentSoundPack">默认音效</span></p>
+        </div>
+    </div>
+
+    <div id="taskConfig" class="settings-section task-config-section">
+        <h3>任务配置</h3>
+        <div id="taskList" class="task-list"></div>
+        <button id="addTaskButton" class="settings-action-button primary">➕ 添加任务</button>
+        <button id="saveTasksButton" class="settings-action-button primary">💾 保存配置</button>
+        <button id="resetTasksButton" class="settings-action-button">🔄 恢复默认配置</button>
+    </div>
+
+    <div id="resetToday" class="settings-section">
+        <h3>重置今天数据</h3>
+        <button id="resetTodayButton" class="settings-action-button">🔄 重置今天数据</button>
+    </div>
+
+    <div id="resetWeek" class="settings-section">
+        <h3>重置本周数据</h3>
+        <button id="resetWeekButton" class="settings-action-button">🔄 重置本周数据</button>
+    </div>
+
+    <script type="module" src="assets/js/settings.js"></script>
+</body>
+</html>

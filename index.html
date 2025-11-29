@@ -65,65 +65,7 @@
         </div>
     </div>
     
-    <!-- 设置弹窗 -->
-    <div id="settingsModal" class="modal-overlay hidden">
-        <div class="settings-content">
-            <h2>⚙️ 设置</h2>
-            <div class="settings-section">
-                <h3>🔊 音效设置</h3>
-                <div id="soundPackSection" class="sound-pack-section">
-                    <p>选择音效包：</p>
-                    <div class="sound-pack-buttons">
-                        <button class="sound-pack-button" data-pack="default">默认音效</button>
-                        <button class="sound-pack-button" data-pack="video1">音效包1</button>
-                        <button class="sound-pack-button" data-pack="video2">音效包2</button>
-                    </div>
-                    <p class="sound-pack-info">当前使用: <span id="currentSoundPack">默认音效</span></p>
-                    <small class="sound-pack-hint">提示：将自定义音效文件放入sounds/对应目录即可</small>
-                </div>
-            </div>
-            <div class="settings-section">
-                <h3>📊 数据管理</h3>
-                <div class="settings-buttons">
-                    <button id="resetTodayButton" class="settings-action-button">
-                        🔄 重置今天数据
-                    </button>
-                    <button id="resetWeekButton" class="settings-action-button">
-                        🔄 重置本周数据
-                    </button>
-                </div>
-            </div>
-            
-            <!-- 任务配置部分 -->
-            <div class="settings-section task-config-section">
-                <h3>📝 任务配置</h3>
-                <p class="settings-description">自定义你的晨间任务流程：</p>
-                
-                <!-- 任务列表 -->
-                <div id="taskList" class="task-list">
-                    <!-- 任务项将通过JavaScript动态生成 -->
-                </div>
-                
-                <!-- 添加任务按钮 -->
-                <button id="addTaskButton" class="settings-action-button primary">
-                    ➕ 添加任务
-                </button>
-                
-                <!-- 保存配置按钮 -->
-                <button id="saveTasksButton" class="settings-action-button primary">
-                    💾 保存配置
-                </button>
-                
-                <!-- 重置为默认配置按钮 -->
-                <button id="resetTasksButton" class="settings-action-button">
-                    🔄 恢复默认配置
-                </button>
-            </div>
-            <button id="closeSettingsButton" class="settings-close-button">
-                ✕ 关闭
-            </button>
-        </div>
-    </div>
+    
 
     <!-- 使用ES模块方式引入主应用，内部会自动加载其他依赖 -->
     <script type="module" src="assets/js/app.js"></script>
