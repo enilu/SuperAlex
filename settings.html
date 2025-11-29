@@ -13,10 +13,10 @@
     </div>
 
     <div class="settings-list" id="settingsMenu">
-        <a href="settings.html?tab=sound" class="settings-item"><span class="item-icon">🔊</span><span class="item-text">音效设置</span></a>
-        <a href="settings.html?tab=tasks" class="settings-item"><span class="item-icon">📝</span><span class="item-text">任务配置</span></a>
-        <a href="settings.html?tab=today" class="settings-item"><span class="item-icon">📅</span><span class="item-text">重置今天数据</span></a>
-        <a href="settings.html?tab=week" class="settings-item"><span class="item-icon">📆</span><span class="item-text">重置本周数据</span></a>
+        <a href="settings.html?tab=sound" class="settings-item"><span class="item-icon icon-slot" data-icon="sound"></span><span class="item-text">音效设置</span></a>
+        <a href="settings.html?tab=tasks" class="settings-item"><span class="item-icon icon-slot" data-icon="tasks"></span><span class="item-text">任务配置</span></a>
+        <a href="settings.html?tab=today" class="settings-item"><span class="item-icon icon-slot" data-icon="calendar-day"></span><span class="item-text">重置今天数据</span></a>
+        <a href="settings.html?tab=week" class="settings-item"><span class="item-icon icon-slot" data-icon="calendar-week"></span><span class="item-text">重置本周数据</span></a>
     </div>
 
     <div id="soundSettings" class="settings-section">
@@ -35,19 +35,32 @@
     <div id="taskConfig" class="settings-section task-config-section">
         <h3>任务配置</h3>
         <div id="taskList" class="task-list"></div>
-        <button id="addTaskButton" class="settings-action-button primary">➕ 添加任务</button>
-        <button id="saveTasksButton" class="settings-action-button primary">💾 保存配置</button>
-        <button id="resetTasksButton" class="settings-action-button">🔄 恢复默认配置</button>
+        <div class="task-config-actions">
+            <button id="addTaskButton" class="settings-action-button primary"><span class="icon-slot" data-icon="plus"></span> 添加</button>
+            <button id="saveTasksButton" class="settings-action-button primary"><span class="icon-slot" data-icon="save"></span> 保存</button>
+            <button id="resetTasksButton" class="settings-action-button"><span class="icon-slot" data-icon="refresh"></span> 默认</button>
+        </div>
     </div>
 
     <div id="resetToday" class="settings-section">
         <h3>重置今天数据</h3>
-        <button id="resetTodayButton" class="settings-action-button">🔄 重置今天数据</button>
+        <button id="resetTodayButton" class="settings-action-button"><span class="icon-slot" data-icon="refresh"></span> 重置今天数据</button>
     </div>
 
     <div id="resetWeek" class="settings-section">
         <h3>重置本周数据</h3>
-        <button id="resetWeekButton" class="settings-action-button">🔄 重置本周数据</button>
+        <button id="resetWeekButton" class="settings-action-button"><span class="icon-slot" data-icon="refresh"></span> 重置本周数据</button>
+    </div>
+
+    <div id="deleteConfirmModal" class="modal-overlay hidden">
+        <div class="settings-content">
+            <h2>确认删除</h2>
+            <p id="deletePromptText">确认要删除该任务吗？</p>
+            <div class="task-config-actions">
+                <button id="deleteCancelBtn" class="settings-action-button">取消</button>
+                <button id="deleteConfirmBtn" class="settings-action-button primary"><span class="icon-slot" data-icon="trash"></span> 确认删除</button>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="assets/js/settings.js"></script>

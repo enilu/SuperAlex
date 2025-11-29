@@ -2,6 +2,7 @@
 
 // 导入配置
 import { getConfigFromUrl, gameConfig, normalizeTasks, defaultTasks, voiceTemplates } from './config.js';
+import { injectAllIcons } from './icons.js';
 // 导入任务管理模块
 import { TaskManager } from './taskManager.js';
 // 导入存储管理模块
@@ -85,6 +86,7 @@ function initGame() {
     
     // 加载用户偏好的音效包
     loadUserSoundPackPreference();
+    injectAllIcons(document);
 }
 
 /**

@@ -1157,8 +1157,10 @@ body {
 
 .item-icon {
     width: 24px;
-    text-align: center;
-    font-size: 1.2rem;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .item-text {
@@ -1213,11 +1215,29 @@ body {
 }
 
 .task-config-section .settings-action-button {
-    padding: 12px 18px;
+    padding: 0 12px;
 }
 
 .task-config-section .settings-action-button.primary {
     font-weight: 600;
+}
+
+.task-config-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: nowrap;
+}
+
+.task-config-actions .settings-action-button {
+    width: 96px;
+    height: 34px;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* 响应式：中等及以下屏幕单列排版 */
@@ -1236,6 +1256,9 @@ body {
         grid-template-columns: 1fr;
         gap: 8px;
     }
+    .task-config-actions {
+        gap: 8px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1245,4 +1268,27 @@ body {
     .task-config-section #taskList {
         min-height: 320px;
     }
+    .task-config-actions {
+        flex-direction: column;
+    }
+    .task-config-actions .settings-action-button {
+        width: 80%;
+        min-width: 80%;
+    }
+}
+.ui-icon {
+    width: 24px;
+    height: 24px;
+    stroke: #666;
+    fill: none;
+    stroke-width: 2;
+}
+
+.settings-item:hover .ui-icon,
+.settings-action-button:hover .ui-icon {
+    stroke: var(--secondary-color);
+}
+
+.settings-action-button:disabled .ui-icon {
+    stroke: #bbb;
 }

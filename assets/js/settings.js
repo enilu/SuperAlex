@@ -1,4 +1,5 @@
 import { getConfigFromUrl, normalizeTasks, defaultTasks } from './config.js';
+import { injectAllIcons } from './icons.js';
 import { storageManager } from './storageManager.js';
 import { soundManager } from './soundEffects.js';
 
@@ -16,11 +17,17 @@ const elements = {
   sectionSound: document.getElementById('soundSettings'),
   sectionTasks: document.getElementById('taskConfig'),
   sectionToday: document.getElementById('resetToday'),
-  sectionWeek: document.getElementById('resetWeek')
+  sectionWeek: document.getElementById('resetWeek'),
+  deleteConfirmModal: document.getElementById('deleteConfirmModal'),
+  deleteCancelBtn: document.getElementById('deleteCancelBtn'),
+  deleteConfirmBtn: document.getElementById('deleteConfirmBtn'),
+  deletePromptText: document.getElementById('deletePromptText')
 };
 
 const state = {
-  tasks: []
+  tasks: [],
+  isAdmin: false,
+  pendingDeleteIndex: null
 };
 
 function updateCurrentSoundPackDisplay(packName) {
@@ -67,7 +74,7 @@ function renderTaskList() {
     item.innerHTML = `
       <div class="task-item-header">
         <span class="task-index">${index + 1}</span>
-        <button class="task-remove-button" data-index="${index}">🗑️</button>
+        ${state.isAdmin ? `<button class="task-remove-button" data-index="${index}"><span class="icon-slot" data-icon="trash"></span></button>` : ''}
       </div>
       <div class="task-fields">
         <div class="task-field">
@@ -92,12 +99,15 @@ function renderTaskList() {
     `;
     el.appendChild(item);
   });
-  document.querySelectorAll('.task-remove-button').forEach(btn => {
-    btn.addEventListener('click', function () {
-      const idx = parseInt(this.getAttribute('data-index'));
-      removeTask(idx);
+  if (state.isAdmin) {
+    document.querySelectorAll('.task-remove-button').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const idx = parseInt(this.getAttribute('data-index'));
+        openDeleteConfirm(idx);
+      });
     });
-  });
+  }
+  injectAllIcons(el);
 }
 
 function addNewTask() {
@@ -107,14 +117,47 @@ function addNewTask() {
   soundManager.playClickSound();
 }
 
-function removeTask(index) {
+async function deleteTaskOnServer(task) {
+  try {
+    const base = window.APP_API_BASE;
+    if (!base) return true;
+    const res = await fetch(`${base}/tasks/${encodeURIComponent(task.id)}`, { method: 'DELETE' });
+    return res.ok;
+  } catch (e) {
+    return false;
+  }
+}
+
+function openDeleteConfirm(index) {
+  state.pendingDeleteIndex = index;
+  elements.deleteConfirmModal.classList.remove('hidden');
+}
+
+function closeDeleteConfirm() {
+  state.pendingDeleteIndex = null;
+  elements.deleteConfirmModal.classList.add('hidden');
+}
+
+async function confirmDeleteTask() {
+  const index = state.pendingDeleteIndex;
+  if (index === null || index === undefined) return;
   if (state.tasks.length <= 1) {
     alert('至少保留一个任务');
+    closeDeleteConfirm();
     return;
   }
-  state.tasks.splice(index, 1);
-  renderTaskList();
+  const task = state.tasks[index];
+  const ok = await deleteTaskOnServer(task);
+  if (ok) {
+    state.tasks.splice(index, 1);
+    storageManager.saveUserTasksConfig(state.tasks);
+    renderTaskList();
+    alert('删除成功');
+  } else {
+    alert('删除失败，请稍后再试');
+  }
   soundManager.playClickSound();
+  closeDeleteConfirm();
 }
 
 function saveCurrentTaskConfig() {
@@ -186,6 +229,9 @@ function applyRouting() {
 
 function init() {
   const tab = applyRouting();
+  const adminParam = new URLSearchParams(window.location.search).get('admin');
+  state.isAdmin = adminParam === '1' || localStorage.getItem('isAdmin') === 'true';
+  if (adminParam === '1') localStorage.setItem('isAdmin', 'true');
   elements.soundPackButtons.forEach(btn => {
     btn.addEventListener('click', async () => {
       const pack = btn.getAttribute('data-pack');
@@ -200,11 +246,14 @@ function init() {
   elements.resetTasksButton.addEventListener('click', resetToDefaultTasks);
   elements.resetTodayButton.addEventListener('click', resetTodayData);
   elements.resetWeekButton.addEventListener('click', resetWeekData);
+  elements.deleteCancelBtn.addEventListener('click', closeDeleteConfirm);
+  elements.deleteConfirmBtn.addEventListener('click', confirmDeleteTask);
   if (!tab || tab === 'sound') loadSoundPreference();
   if (tab === 'tasks') {
     loadTasks();
     renderTaskList();
   }
+  injectAllIcons(document);
 }
 
 document.addEventListener('DOMContentLoaded', init);
