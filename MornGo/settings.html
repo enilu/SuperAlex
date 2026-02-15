@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>设置</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="settings-page">
+    <div class="settings-header">
+        <button id="backButton" class="back-button">←</button>
+        <div class="settings-title">设置</div>
+    </div>
+
+    <div class="settings-list" id="settingsMenu">
+        <a href="settings.html?tab=sound" class="settings-item"><span class="item-icon icon-slot" data-icon="sound"></span><span class="item-text">音效设置</span></a>
+        <a href="settings.html?tab=tasks" class="settings-item"><span class="item-icon icon-slot" data-icon="tasks"></span><span class="item-text">任务配置</span></a>
+        <a href="settings.html?tab=today" class="settings-item"><span class="item-icon icon-slot" data-icon="calendar-day"></span><span class="item-text">重置今天数据</span></a>
+        <a href="settings.html?tab=week" class="settings-item"><span class="item-icon icon-slot" data-icon="calendar-week"></span><span class="item-text">重置本周数据</span></a>
+    </div>
+
+    <div id="soundSettings" class="settings-section">
+        <h3>音效设置</h3>
+        <div class="sound-pack-section">
+            <p>选择音效包：</p>
+            <div class="sound-pack-buttons">
+                <button class="sound-pack-button" data-pack="default">默认音效</button>
+                <button class="sound-pack-button" data-pack="video1">音效包1</button>
+                <button class="sound-pack-button" data-pack="video2">音效包2</button>
+            </div>
+            <p class="sound-pack-info">当前使用: <span id="currentSoundPack">默认音效</span></p>
+        </div>
+    </div>
+
+    <div id="taskConfig" class="settings-section task-config-section">
+        <h3>任务配置</h3>
+        <div id="taskList" class="task-list"></div>
+        <div class="task-config-actions">
+            <button id="addTaskButton" class="settings-action-button primary"><span class="icon-slot" data-icon="plus"></span> 添加</button>
+            <button id="saveTasksButton" class="settings-action-button primary"><span class="icon-slot" data-icon="save"></span> 保存</button>
+            <button id="resetTasksButton" class="settings-action-button"><span class="icon-slot" data-icon="refresh"></span> 默认</button>
+        </div>
+    </div>
+
+    <div id="resetToday" class="settings-section">
+        <h3>重置今天数据</h3>
+        <button id="resetTodayButton" class="settings-action-button"><span class="icon-slot" data-icon="refresh"></span> 重置今天数据</button>
+    </div>
+
+    <div id="resetWeek" class="settings-section">
+        <h3>重置本周数据</h3>
+        <button id="resetWeekButton" class="settings-action-button"><span class="icon-slot" data-icon="refresh"></span> 重置本周数据</button>
+    </div>
+
+    <div id="deleteConfirmModal" class="modal-overlay hidden">
+        <div class="settings-content">
+            <h2>确认删除</h2>
+            <p id="deletePromptText">确认要删除该任务吗？</p>
+            <div class="task-config-actions">
+                <button id="deleteCancelBtn" class="settings-action-button">取消</button>
+                <button id="deleteConfirmBtn" class="settings-action-button primary"><span class="icon-slot" data-icon="trash"></span> 确认删除</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/settings.js"></script>
+</body>
+</html>
