@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20以内加减法游戏</title>
+    <link rel="stylesheet" href="style.css?t=1">
+</head>
+<body>
+    <!-- 开始界面 -->
+    <div id="startScreen" class="screen active">
+        <div class="container">
+            <h1 class="game-title">🎮 数学小游戏</h1>
+            <p class="subtitle">20以内加减法练习</p>
+            <div class="mode-selection">
+                <h2 class="selection-title">选择答题模式</h2>
+                <div class="answer-mode-buttons">
+                    <button class="answer-mode-btn" data-answer-mode="choice">
+                        <span class="mode-icon">📝</span>
+                        <span class="mode-text">选择模式</span>
+                    </button>
+                    <button class="answer-mode-btn" data-answer-mode="input">
+                        <span class="mode-icon">🔢</span>
+                        <span class="mode-text">填写模式</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 运算模式选择界面 -->
+    <div id="mathModeScreen" class="screen">
+        <div class="container">
+            <h1 class="mode-title">选择运算模式</h1>
+            <div class="mode-buttons">
+                <button class="mode-btn addition" data-mode="addition">
+                    <span class="icon">🟢</span>
+                    <span class="text">加法模式</span>
+                </button>
+                <button class="mode-btn subtraction" data-mode="subtraction">
+                    <span class="icon">🔴</span>
+                    <span class="text">减法模式</span>
+                </button>
+                <button class="mode-btn mixed" data-mode="mixed">
+                    <span class="icon">🟡</span>
+                    <span class="text">混合模式</span>
+                </button>
+            </div>
+            <button class="back-btn" id="backToStartBtn">← 返回</button>
+        </div>
+    </div>
+
+    <!-- 游戏界面 -->
+    <div id="gameScreen" class="screen">
+        <div class="game-header">
+            <div class="score-display">
+                <span class="label">🎯 分数</span>
+                <span class="value" id="score">0</span>
+            </div>
+            <div class="timer-display">
+                <span class="label">⏱️</span>
+                <span class="value" id="timer">15</span> 
+            </div>
+            <div class="total-time-display">
+                <span class="label">🕐 总耗时</span>
+                <span class="value" id="totalTime">0分0秒</span>
+            </div>
+            <div class="progress-display">
+                <span class="label">📊 进度</span>
+                <span class="value" id="progress">1/20</span>
+            </div>
+        </div>
+
+        <!-- 题目区域 -->
+        <div class="question-area" id="questionArea">
+            <div class="question-block" id="questionBlock">
+                <div class="question-text" id="questionText">
+                    <span class="num1">5</span>
+                    <span class="operator">+</span>
+                    <span class="num2">7</span>
+                    <span class="equals">=</span>
+                    <span class="question-mark">?</span>
+                </div>
+
+                <!-- 选择模式选项 -->
+                <div class="answer-options" id="answerOptions">
+                    <button class="option-btn" data-answer="10">10</button>
+                    <button class="option-btn" data-answer="12">12</button>
+                    <button class="option-btn" data-answer="14">14</button>
+                </div>
+
+                <!-- 填写模式输入区 -->
+                <div class="input-mode-area" id="inputModeArea" style="display: none;">
+                    <div class="input-display">
+                        <span class="input-value" id="inputValue"></span>
+                    </div>
+                    <div class="number-keypad" id="numberKeypad">
+                        <button class="keypad-btn" data-key="1">1</button>
+                        <button class="keypad-btn" data-key="2">2</button>
+                        <button class="keypad-btn" data-key="3">3</button>
+                        <button class="keypad-btn" data-key="4">4</button>
+                        <button class="keypad-btn" data-key="5">5</button>
+                        <button class="keypad-btn" data-key="6">6</button>
+                        <button class="keypad-btn" data-key="7">7</button>
+                        <button class="keypad-btn" data-key="8">8</button>
+                        <button class="keypad-btn" data-key="9">9</button>
+                        <button class="keypad-btn clear-btn" data-key="clear">清除</button>
+                        <button class="keypad-btn" data-key="0">0</button>
+                        <button class="keypad-btn confirm-btn" data-key="confirm">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 反馈区域 -->
+        <div class="feedback-area" id="feedbackArea">
+            <div class="feedback-content" id="feedbackContent">
+                <span class="feedback-icon"></span>
+                <span class="feedback-text"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 结算界面 -->
+    <div id="resultScreen" class="screen">
+        <div class="result-container">
+            <h1 class="result-title">游戏结束！</h1>
+            <div class="score-summary">
+                <div class="final-score" id="finalScore">85</div>
+                <div class="score-label">分</div>
+            </div>
+            <div class="result-stars" id="resultStars">
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+            </div>
+            <div class="result-rank" id="resultRank">优秀</div>
+            <div class="result-message" id="resultMessage">
+                太棒了！你真是数学小天才！继续保持！
+            </div>
+            <div class="result-stats">
+                <div class="stat">
+                    <span class="stat-label">答对</span>
+                    <span class="stat-value" id="correctCount">17</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">答错</span>
+                    <span class="stat-value" id="wrongCount">3</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">总耗时</span>
+                    <span class="stat-value" id="resultTotalTime">2分35秒</span>
+                </div>
+            </div>
+            <button class="restart-btn" id="restartBtn">
+                🔄 再玩一次
+            </button>
+        </div>
+    </div>
+
+    <script src="game.js?t=1"></script>
+</body>
+</html>
