@@ -1,0 +1,52 @@
+{
+    "id": 299,
+    "title": "感遇·江南有丹桔",
+    "author": "张九龄",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "江南有丹桔",
+            "pinyin": "jiāng nán yǒu dān jú"
+        },
+        {
+            "text": "经冬犹绿林",
+            "pinyin": "jīng dōng yóu lǜ lín"
+        },
+        {
+            "text": "岂伊地气暖",
+            "pinyin": "qǐ yī dì qì nuǎn"
+        },
+        {
+            "text": "自有岁寒心",
+            "pinyin": "zì yǒu suì hán xīn"
+        },
+        {
+            "text": "可以荐佳客",
+            "pinyin": "kě yǐ jiàn jiā kè"
+        },
+        {
+            "text": "奈何阻重深",
+            "pinyin": "nài hé zǔ zhòng shēn"
+        },
+        {
+            "text": "运命唯所遇",
+            "pinyin": "yùn mìng wéi suǒ yù"
+        },
+        {
+            "text": "循环不可寻",
+            "pinyin": "xún huán bù kě xún"
+        },
+        {
+            "text": "徒言树桃李",
+            "pinyin": "tú yán shù táo lǐ"
+        },
+        {
+            "text": "此木岂无阴",
+            "pinyin": "cǐ mù qǐ wú yīn"
+        }
+    ],
+    "annotation": "１、岂伊：岂唯。\n２、岁寒：<strong>孔子</strong>有“岁寒而后知松柏之后凋也”语。后人常作砥砺节操的比喻。\n３、荐：进献。",
+    "translation": "江南丹桔叶茂枝繁， 经冬不凋四季常青。 岂止南国地气和暖， 而是具有松柏品性。 荐之嘉宾必受称赞， 山重水阻如何进献？ 命运遭遇往往不一， 因果循环奥秘难寻。 只说桃李有果有林， 难道丹桔就不成阴？",
+    "audio": "assets/audio/recite/299.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 339,
+    "title": "清平调·名花倾国两相欢",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "名花倾国两相欢",
+            "pinyin": "míng huā qīng guó liǎng xiāng huān"
+        },
+        {
+            "text": "常得君王带笑看",
+            "pinyin": "cháng dé jūn wàng dài xiào kàn"
+        },
+        {
+            "text": "解释春风无限恨",
+            "pinyin": "jiě shì chūn fēng wú xiàn hèn"
+        },
+        {
+            "text": "沉香亭北倚栏杆",
+            "pinyin": "chén xiāng tíng běi yǐ lán gān"
+        }
+    ],
+    "annotation": "暂无注释",
+    "translation": "绝代佳人与红艳牡丹相得益彰，\n美人与名花长使君王带笑观看。\n动人姿色似春风能消无限怨恨，\n在沉香亭北君王贵妃双依栏杆。",
+    "audio": "assets/audio/recite/339.mp3"
+}

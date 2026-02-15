@@ -1,0 +1,28 @@
+{
+    "id": 109,
+    "title": "闺怨",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "闺中少妇不知愁",
+            "pinyin": "guī zhōng shǎo fù bù zhī chóu"
+        },
+        {
+            "text": "春日凝妆上翠楼",
+            "pinyin": "chūn rì níng zhuāng shàng cuì lóu"
+        },
+        {
+            "text": "忽见陌头杨柳色",
+            "pinyin": "hū jiàn mò tóu yáng liǔ sè"
+        },
+        {
+            "text": "悔教夫婿觅封侯",
+            "pinyin": "huǐ jiào fū xù mì fēng hóu"
+        }
+    ],
+    "annotation": "１、凝妆：盛妆。\n２、悔教：悔使。",
+    "translation": "闺阁中的少妇，从来不知忧愁；\n春来细心打扮，独自登上翠楼。\n忽见陌头杨柳新绿，心里难受；\n呵，悔不该叫夫君去觅取封侯。",
+    "audio": "assets/audio/recite/109.mp3"
+}

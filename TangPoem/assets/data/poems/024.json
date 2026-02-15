@@ -1,0 +1,16 @@
+{
+    "id": 24,
+    "title": "绝句漫兴九首·其五",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        { "text": "肠断春江欲尽头", "pinyin": "cháng duàn chūn jiāng yù jìn tóu" },
+        { "text": "杖藜徐步立芳洲", "pinyin": "zhàng lí xú bù lì fāng zhōu" },
+        { "text": "颠狂柳絮随风舞", "pinyin": "diān kuáng liǔ xù suí fēng wǔ" },
+        { "text": "轻薄桃花逐水流", "pinyin": "qīng bó táo huā zhú shuǐ liú" }
+    ],
+    "annotation": "漫兴：即兴而作",
+    "translation": "春江的景物使人伤感到极点，拄着藜杖慢慢走在芳香的沙洲边。柳絮像发狂一样随风飞舞，轻薄的花瓣追随着水流。",
+    "audio": "assets/audio/recite/024.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 69,
+    "title": "江南曲",
+    "author": "李益",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        {
+            "text": "嫁得瞿塘贾",
+            "pinyin": "jià dé qú táng gǔ"
+        },
+        {
+            "text": "朝朝误妾期",
+            "pinyin": "zhāo zhāo wù qiè qī"
+        },
+        {
+            "text": "早知潮有信",
+            "pinyin": "zǎo zhī cháo yǒu xìn"
+        },
+        {
+            "text": "嫁与弄潮儿",
+            "pinyin": "jià yǔ nòng cháo ér"
+        }
+    ],
+    "annotation": "１、江南曲：古代歌曲名。\n２、贾：商人。\n３、潮有信：潮水涨落有一定的时间，叫“潮信”。",
+    "translation": "我真悔恨嫁做瞿塘商人妇，\n他天天把相会的佳期耽误。\n早知潮水的涨落这么守信，\n还不如嫁一个弄潮的丈夫。",
+    "audio": "assets/audio/recite/069.mp3"
+}

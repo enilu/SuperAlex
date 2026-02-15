@@ -1,0 +1,60 @@
+{
+    "id": 354,
+    "title": "古从军行",
+    "author": "李颀",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "白日登山望烽火",
+            "pinyin": "bái rì dēng shān wàng fēng huǒ"
+        },
+        {
+            "text": "黄昏饮马傍交河",
+            "pinyin": "huáng hūn yǐn mǎ bàng jiāo hé"
+        },
+        {
+            "text": "行人刁斗风沙暗",
+            "pinyin": "xíng rén diāo dòu fēng shā àn"
+        },
+        {
+            "text": "公主琵琶幽怨多",
+            "pinyin": "gōng zhǔ pí pá yōu yuàn duō"
+        },
+        {
+            "text": "野营万里无城郭",
+            "pinyin": "yě yíng wàn lǐ wú chéng guō"
+        },
+        {
+            "text": "雨雪纷纷连大漠",
+            "pinyin": "yǔ xuě fēn fēn lián dà mò"
+        },
+        {
+            "text": "胡雁哀鸣夜夜飞",
+            "pinyin": "hú yàn āi míng yè yè fēi"
+        },
+        {
+            "text": "胡儿眼泪双双落",
+            "pinyin": "hú ér yǎn lèi shuāng shuāng luò"
+        },
+        {
+            "text": "闻道玉门犹被遮",
+            "pinyin": "wén dào yù mén yóu bèi zhē"
+        },
+        {
+            "text": "应将性命逐轻车",
+            "pinyin": "yìng jiāng xìng mìng zhú qīng chē"
+        },
+        {
+            "text": "年年战骨埋荒外",
+            "pinyin": "nián nián zhàn gǔ mái huāng wài"
+        },
+        {
+            "text": "空见葡萄入汉家",
+            "pinyin": "kòng jiàn pú táo rù hàn jiā"
+        }
+    ],
+    "annotation": "１、烽火：古代一种警报。\n２、公主琵琶：汉武帝时以江都王刘建女细君嫁乌孙国王昆莫，恐其途中烦闷，故弹\n　 　 琵琶以娱之。\n３、闻道两句：汉武帝曾命李广利攻大宛，欲至贰师城取良马，战不利，广利上书请\n　 　 罢兵回国，武帝大怒，发使遮玉门关，曰：“军有敢入，斩之！”两句意谓边战\n　 　 还在进行，只得随着将军去拼命。",
+    "translation": "白天士卒们登山观察报警的烽火；\n黄昏为了饮马他们又靠近了交河。\n行人在风沙昏暗中听到刁斗凄厉；\n或听到乌孙公主琵琶声幽怨更多。\n野营万里广漠荒凉得看不见城郭；\n大雪霏霏迷漫了辽阔无边的沙漠。\n胡地的大雁哀鸣着夜夜惊飞不停；\n胡人的士兵痛哭着个个泪流滂沱。\n听说玉门关的交通还被关闭阻断；\n大家只得豁出命追随将军去拼搏。\n年年征战不知多少尸骨埋于荒野；\n徒然见到的是西域葡萄移植汉家。",
+    "audio": "assets/audio/recite/354.mp3"
+}

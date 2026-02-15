@@ -1,0 +1,44 @@
+{
+    "id": 37,
+    "title": "蜀相",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "初中二年级",
+    "content": [
+        {
+            "text": "丞相祠堂何处寻",
+            "pinyin": "chéng xiàng cí táng hé chù xún"
+        },
+        {
+            "text": "锦官城外柏森森",
+            "pinyin": "jǐn guān chéng wài bǎi sēn sēn"
+        },
+        {
+            "text": "映阶碧草自春色",
+            "pinyin": "yìng jiē bì cǎo zì chūn sè"
+        },
+        {
+            "text": "隔叶黄鹂空好音",
+            "pinyin": "gé yè huáng lí kōng hǎo yīn"
+        },
+        {
+            "text": "三顾频烦天下计",
+            "pinyin": "sān gù pín fán tiān xià jì"
+        },
+        {
+            "text": "两朝开济老臣心",
+            "pinyin": "liǎng cháo kāi jì lǎo chén xīn"
+        },
+        {
+            "text": "出师未捷身先死",
+            "pinyin": "chū shī wèi jié shēn xiān sǐ"
+        },
+        {
+            "text": "长使英雄泪满襟",
+            "pinyin": "cháng shǐ yīng xióng lèi mǎn jīn"
+        }
+    ],
+    "annotation": "１、蜀相：三国时蜀国丞相，指<strong>诸葛亮</strong>。\n２、锦官城：现四川省城都市。\n３、自：空。\n４、三顾：指刘备三顾茅庐。\n５、两朝：刘备、刘禅父子两朝。\n６、开济：指帮助刘备开国和辅佐刘禅继位。",
+    "translation": "何处去寻找武侯诸葛亮的祠堂？\n在成都城外那柏树茂密的地方。\n碧草照映台阶呈现自然的春色，\n树上的黄鹂隔枝空对婉啭鸣唱。\n定夺天下先主曾三顾茅庐拜访，\n辅佐两朝开国与继业忠诚满腔。\n可惜出师伐魏未捷而病亡军中，\n长使历代英雄们对此涕泪满裳！",
+    "audio": "assets/audio/recite/037.mp3"
+}

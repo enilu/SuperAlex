@@ -1,0 +1,28 @@
+{
+    "id": 363,
+    "title": "长干行·家临九江水",
+    "author": "崔颢",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "家临九江水",
+            "pinyin": "jiā lín jiǔ jiāng shuǐ"
+        },
+        {
+            "text": "来去九江侧",
+            "pinyin": "lái qù jiǔ jiāng cè"
+        },
+        {
+            "text": "同是长干人",
+            "pinyin": "tóng shì cháng gān rén"
+        },
+        {
+            "text": "生小不相识",
+            "pinyin": "shēng xiǎo bù xiāng shí"
+        }
+    ],
+    "annotation": "１、九江：今江西九江市。",
+    "translation": "我的家临近九江边，\n来来往往在九江畔。\n你和我同是长干人，\n从小不相识真遗憾。",
+    "audio": "assets/audio/recite/363.mp3"
+}

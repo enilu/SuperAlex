@@ -1,0 +1,44 @@
+{
+    "id": 189,
+    "title": "岁暮归南山",
+    "author": "孟浩然",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "北阙休上书",
+            "pinyin": "běi quē xiū shàng shū"
+        },
+        {
+            "text": "南山归敝庐",
+            "pinyin": "nán shān guī bì lú"
+        },
+        {
+            "text": "不才明主弃",
+            "pinyin": "bù cái míng zhǔ qì"
+        },
+        {
+            "text": "多病故人疏",
+            "pinyin": "duō bìng gù rén shū"
+        },
+        {
+            "text": "白发催年老",
+            "pinyin": "bái fā cuī nián lǎo"
+        },
+        {
+            "text": "青阳逼岁除",
+            "pinyin": "qīng yáng bī suì chú"
+        },
+        {
+            "text": "永怀愁不寐",
+            "pinyin": "yǒng huái chóu bù mèi"
+        },
+        {
+            "text": "松月夜窗虚",
+            "pinyin": "sōng yuè yè chuāng xū"
+        }
+    ],
+    "annotation": "１、北阙：《汉书·高帝纪》注：“尚书奏事，渴见之徒，皆诣北阙。”\n２、青阳句：意谓新春将到，逼得旧年除去，青阳：指春天。\n３、虚：空寂。",
+    "translation": "我已停止在宫廷北门请求谒见，\n归隐到南山中我那破旧的草庐。\n因为我缺少才干方被明主遗弃，\n由于我穷途多病故友往来渐疏。\n时光流逝头上的白发催人衰老，\n岁月无情新春逼迫着旧岁消除。\n胸中常萦怀愁绪彻夜不能入寐，\n窗前松下一片月光增加了空虚。",
+    "audio": "assets/audio/recite/189.mp3"
+}

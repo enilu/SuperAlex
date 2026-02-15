@@ -1,0 +1,16 @@
+{
+    "id": 76,
+    "title": "采莲曲",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学四年级",
+    "content": [
+        { "text": "荷叶罗裙一色裁", "pinyin": "hé yè luó qún yī sè cái" },
+        { "text": "芙蓉向脸两边开", "pinyin": "fú róng xiàng liǎn liǎng biān kāi" },
+        { "text": "乱入池中看不见", "pinyin": "luàn rù chí zhōng kàn bú jiàn" },
+        { "text": "闻歌始觉有人来", "pinyin": "wén gē shǐ jué yǒu rén lái" }
+    ],
+    "annotation": "采莲曲：乐府题名",
+    "translation": "荷叶和采莲女穿的罗裙颜色一样，仿佛是同一种布料裁成。采莲女进入荷花池中看不见，听到歌声才知道有人来了。",
+    "audio": "assets/audio/recite/076.mp3"
+}

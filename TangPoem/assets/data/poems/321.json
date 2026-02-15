@@ -1,0 +1,44 @@
+{
+    "id": 321,
+    "title": "夜归鹿门山歌",
+    "author": "孟浩然",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "山寺钟鸣昼已昏",
+            "pinyin": "shān sì zhōng míng zhòu yǐ hūn"
+        },
+        {
+            "text": "渔梁渡头争渡喧",
+            "pinyin": "yú liáng dù tóu zhēng dù xuān"
+        },
+        {
+            "text": "人随沙路向江姑",
+            "pinyin": "rén suí shā lù xiàng jiāng gū"
+        },
+        {
+            "text": "余亦乘舟归鹿门",
+            "pinyin": "yú yì chéng zhōu guī lù mén"
+        },
+        {
+            "text": "鹿门月照开烟树",
+            "pinyin": "lù mén yuè zhào kāi yān shù"
+        },
+        {
+            "text": "忽到庞公栖隐处",
+            "pinyin": "hū dào páng gōng qī yǐn chǔ"
+        },
+        {
+            "text": "岩扉松径长寂寥",
+            "pinyin": "yán fēi sōng jìng cháng jì liáo"
+        },
+        {
+            "text": "惟有幽人自来去",
+            "pinyin": "wéi yǒu yōu rén zì lái qù"
+        }
+    ],
+    "annotation": "１、渔梁：在襄阳东、离鹿门很近。\n２、庞公：庞德公、东汉隐士。",
+    "translation": "山寺钟声鸣响，天色已近黄昏， \n渔梁渡头，一片争渡的喧哗声。 \n人们沿着沙岸，向着江村走去， \n我也乘着小船，摇橹回到鹿门。 \n鹿门月光照亮轻烟缭绕的树木， \n我忽然来到了庞公隐居的住处。 \n岩壁当门对着松林长径多寂寥， \n只有我这个幽人在此自来自去。",
+    "audio": "assets/audio/recite/321.mp3"
+}

@@ -1,0 +1,14 @@
+{
+    "id": 90,
+    "title": "轮台歌奉送封大夫出师西征",
+    "author": "岑参",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "轮台城头夜吹角", "pinyin": "lún tái chéng tóu yè chuī jiǎo" },
+        { "text": "轮台城北旄头落", "pinyin": "lún tái chéng běi máo tóu luò" }
+    ],
+    "annotation": "轮台：地名",
+    "translation": "轮台城头夜吹角，轮台城北旄头落。",
+    "audio": "assets/audio/recite/090.mp3"
+}

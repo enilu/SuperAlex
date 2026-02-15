@@ -1,0 +1,44 @@
+{
+    "id": 38,
+    "title": "客至",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "初中二年级",
+    "content": [
+        {
+            "text": "舍南舍北皆春水",
+            "pinyin": "shè nán shè běi jiē chūn shuǐ"
+        },
+        {
+            "text": "但见群鸥日日来",
+            "pinyin": "dàn jiàn qún ōu rì rì lái"
+        },
+        {
+            "text": "花径不曾缘客扫",
+            "pinyin": "huā jìng bù céng yuán kè sǎo"
+        },
+        {
+            "text": "蓬门今始为君开",
+            "pinyin": "péng mén jīn shǐ wèi jūn kāi"
+        },
+        {
+            "text": "盘飧市远无兼味",
+            "pinyin": "pán sūn shì yuǎn wú jiān wèi"
+        },
+        {
+            "text": "樽酒家贫只旧醅",
+            "pinyin": "zūn jiǔ jiā pín zhī jiù pēi"
+        },
+        {
+            "text": "肯与邻翁相对饮",
+            "pinyin": "kěn yǔ lín wēng xiāng duì yǐn"
+        },
+        {
+            "text": "隔篱呼取尽余杯",
+            "pinyin": "gé lí hū qǔ jìn yú bēi"
+        }
+    ],
+    "annotation": "１、盘飧：泛指菜肴。\n２、旧醅：隔年的陈酒。\n３、取：助词。",
+    "translation": "草堂的南北涨满了春水，\n只见鸥群日日结队飞来。\n老夫不曾为客扫过花径，\n这柴门今天才为您打开。\n离市太远盘中没好肴菜，\n家底大薄只有陈酒招待。\n若肯邀请邻翁一同对饮，\n隔着篱笆唤来喝尽余杯！",
+    "audio": "assets/audio/recite/038.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 179,
+    "title": "天末怀李白",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "凉风起天末",
+            "pinyin": "liáng fēng qǐ tiān mò"
+        },
+        {
+            "text": "君子意如何",
+            "pinyin": "jūn zǐ yì rú hé"
+        },
+        {
+            "text": "鸿雁几时到",
+            "pinyin": "hóng yàn jī shí dào"
+        },
+        {
+            "text": "江湖秋水多",
+            "pinyin": "jiāng hú qiū shuǐ duō"
+        },
+        {
+            "text": "文章憎命达",
+            "pinyin": "wén zhāng zēng mìng dá"
+        },
+        {
+            "text": "魑魅喜人过",
+            "pinyin": "chī mèi xǐ rén guò"
+        },
+        {
+            "text": "应共冤魂语",
+            "pinyin": "yìng gòng yuān hún yù"
+        },
+        {
+            "text": "投诗赠汨罗",
+            "pinyin": "tóu shī zèng mì luó"
+        }
+    ],
+    "annotation": "１、天末：犹天边；\n２、君子：指<strong>李白</strong>。\n３、文章句：意谓有文才的人总是薄命遭忌。\n４、魑魅句：意谓山精水鬼在等着你经过，以便出而吞食，犹“水深波浪阔，无使蛟龙得”。一憎一喜，遂令诗人无置身地。\n５、应共句：因<strong>屈原</strong>被谗含冤，投江而死，与李白之受枉窜身，有共通处，往夜郎又须经过汨罗，故也应有可以共语处。\n６、汨罗：汨罗江，屈原自沉处，在今湖南湘阴县。",
+    "translation": "凉风习习来自天边的夜郎，\n老朋友啊你心情可还舒畅。\n鸿雁何时能捎来你的音信？\n江湖水深总有不平的风浪！\n有文才的人往往薄命遭忌，\n鬼怪正喜人经过可作食粮。\n你与屈原有共冤共语之处，\n请别忘了投诗祭奠汨罗江！",
+    "audio": "assets/audio/recite/179.mp3"
+}

@@ -1,0 +1,52 @@
+{
+    "id": 300,
+    "title": "春泛若耶溪",
+    "author": "綦毋潜",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "幽意无断绝",
+            "pinyin": "yōu yì wú duàn jué"
+        },
+        {
+            "text": "此去随所偶",
+            "pinyin": "cǐ qù suí suǒ ǒu"
+        },
+        {
+            "text": "晚风吹行舟",
+            "pinyin": "wǎn fēng chuī xíng zhōu"
+        },
+        {
+            "text": "花路入溪口",
+            "pinyin": "huā lù rù xī kǒu"
+        },
+        {
+            "text": "际夜转西壑",
+            "pinyin": "jì yè zhuàn xī hè"
+        },
+        {
+            "text": "隔山望南斗",
+            "pinyin": "gé shān wàng nán dòu"
+        },
+        {
+            "text": "潭烟飞溶溶",
+            "pinyin": "tán yān fēi róng róng"
+        },
+        {
+            "text": "林月低向后",
+            "pinyin": "lín yuè dī xiàng hòu"
+        },
+        {
+            "text": "生事且弥漫",
+            "pinyin": "shēng shì qiě mí màn"
+        },
+        {
+            "text": "愿为持竿叟",
+            "pinyin": "yuàn wéi chí gān sǒu"
+        }
+    ],
+    "annotation": "１、际夜：至夜。\n２、潭烟：水气。\n３、弥漫：渺茫。",
+    "translation": "归隐之心长期以来不曾中断，此次泛舟随遇而安任其自然。 \n阵阵晚风吹着小舟轻轻荡漾，一路春花撒满了溪口的两岸。 \n傍晚时分船儿转出西山幽谷，隔山望见了南斗明亮的闪光。 \n水潭烟雾升腾一片白白茫茫，岸树明月往后与船行走逆向。 \n人间世事多么繁复多么茫然，愿作渔翁持竿垂钓在此溪旁！",
+    "audio": "assets/audio/recite/300.mp3"
+}

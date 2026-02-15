@@ -1,0 +1,44 @@
+{
+    "id": 236,
+    "title": "春雨",
+    "author": "李商隐",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "怅卧新春白袷衣",
+            "pinyin": "chàng wò xīn chūn bái jiá yī"
+        },
+        {
+            "text": "白门寥落意多违",
+            "pinyin": "bái mén liáo luò yì duō wéi"
+        },
+        {
+            "text": "红楼隔雨相望冷",
+            "pinyin": "hóng lóu gé yǔ xiāng wàng lěng"
+        },
+        {
+            "text": "珠箔飘灯独自归",
+            "pinyin": "zhū bó piāo dēng dú zì guī"
+        },
+        {
+            "text": "远路应悲春晚",
+            "pinyin": "yuǎn lù yìng bēi chūn  "
+        },
+        {
+            "text": "残宵犹得梦依稀",
+            "pinyin": "cán xiāo yóu dé mèng yī xī"
+        },
+        {
+            "text": "玉珰缄札何由达",
+            "pinyin": "yù dāng jiān zhá hé yóu dá"
+        },
+        {
+            "text": "万里云罗一雁飞",
+            "pinyin": "wàn lǐ yún luó yī yàn fēi"
+        }
+    ],
+    "annotation": "１、白袷衣：即白夹衣，唐人以白衫为闲居便服。\n２、白门：指今江苏南京市。\n３、云罗：云片如罗纹。",
+    "translation": "新春，我穿着白夹衣怅然地卧床；\n幽会的白门冷落了，我心中惘然。\n隔着雨丝凝视红楼，我倍觉冷寂；\n珠箔般雨滴飘打灯笼，独自归返。\n你在远路，到春晚应更悲凄伤感？\n只有残宵能梦中聚首，依稀空泛。\n耳环情书已备好，怎么才能送达；\n我寄希望于万里云中，那只孤雁。",
+    "audio": "assets/audio/recite/236.mp3"
+}

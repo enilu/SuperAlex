@@ -1,0 +1,16 @@
+{
+    "id": 77,
+    "title": "塞上曲",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "蝉鸣空桑林", "pinyin": "chán míng kōng sāng lín" },
+        { "text": "八月萧关道", "pinyin": "bā yuè xiāo guān dào" },
+        { "text": "出塞入塞寒", "pinyin": "chū sài rù sài hán" },
+        { "text": "处处黄芦草", "pinyin": "chù chù huáng lú cǎo" }
+    ],
+    "annotation": "塞上曲：乐府题名",
+    "translation": "蝉在空旷的桑林中鸣叫，八月走在萧关道上。出塞入塞都很寒冷，到处是黄色的芦苇草。",
+    "audio": "assets/audio/recite/077.mp3"
+}

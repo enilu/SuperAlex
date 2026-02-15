@@ -1,0 +1,44 @@
+{
+    "id": 168,
+    "title": "渡荆门送别",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "渡远荆门外",
+            "pinyin": "dù yuǎn jīng mén wài"
+        },
+        {
+            "text": "来从楚国游",
+            "pinyin": "lái zòng chǔ guó yóu"
+        },
+        {
+            "text": "山随平野尽",
+            "pinyin": "shān suí píng yě jǐn"
+        },
+        {
+            "text": "江入大荒流",
+            "pinyin": "jiāng rù dà huāng liú"
+        },
+        {
+            "text": "月下飞天镜",
+            "pinyin": "yuè xià fēi tiān jìng"
+        },
+        {
+            "text": "云生结海楼",
+            "pinyin": "yún shēng jiē hǎi lóu"
+        },
+        {
+            "text": "仍怜故乡水",
+            "pinyin": "réng lián gù xiāng shuǐ"
+        },
+        {
+            "text": "万里送行舟",
+            "pinyin": "wàn lǐ sòng xíng zhōu"
+        }
+    ],
+    "annotation": "１、荆门：山名，在湖北省宜都县西北。\n２。海楼：海市蜃楼。\n３、故乡水：指长江，<strong>李白</strong>早年住在四川，故有此言。",
+    "translation": "自剑门之外的西蜀沿江东下，\n来到了楚国境内作一次旅游。\n崇山随着荒野出现渐渐逝尽，\n长江进入了莽原也缓缓而流。\n月影倒映江中象是飞来天镜，\n云层缔构城郭幻出海市蜃楼。\n我依然怜爱这来自故乡之水，\n行程万里继续漂送我的行舟。",
+    "audio": "assets/audio/recite/168.mp3"
+}

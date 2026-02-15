@@ -1,0 +1,44 @@
+{
+    "id": 33,
+    "title": "题破山寺后禅院",
+    "author": "常建",
+    "dynasty": "唐",
+    "grade": "小学六年级",
+    "content": [
+        {
+            "text": "清晨入古寺",
+            "pinyin": "qīng chén rù gǔ sì"
+        },
+        {
+            "text": "初日照高林",
+            "pinyin": "chū rì zhào gāo lín"
+        },
+        {
+            "text": "曲径通幽处",
+            "pinyin": "qū jìng tōng yōu chù"
+        },
+        {
+            "text": "禅房花木深",
+            "pinyin": "chán fáng huā mù shēn"
+        },
+        {
+            "text": "山光悦鸟性",
+            "pinyin": "shān guāng yuè niǎo xìng"
+        },
+        {
+            "text": "潭影空人心",
+            "pinyin": "tán yǐng kōng rén xīn"
+        },
+        {
+            "text": "万籁此都寂",
+            "pinyin": "wàn lài cǐ dōu jì"
+        },
+        {
+            "text": "但余钟磬音",
+            "pinyin": "dàn yú zhōng qìng yīn"
+        }
+    ],
+    "annotation": "１、灭烛两句：刻划相思时心神恍惚，不觉从室内走到室外。爱月灭烛，露凉披衣，写尽无眠。",
+    "translation": "一轮皎洁的明月，从海上徐徐升起；\n和我一同仰望的，有远在天涯的伊。\n有情人天各一方，同怨长夜之难挨；\n孤身彻夜不成眠，辗转反侧起相思。\n灭烛欣赏明月呵，清光淡淡泻满地；\n起身披衣去闲散，忽觉露珠侵人肌。\n月光虽美难采撷，送它给远方亲人；\n不如还家睡觉，或可梦见相会佳期。",
+    "audio": "assets/audio/recite/033.mp3"
+}

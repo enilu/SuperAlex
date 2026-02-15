@@ -1,0 +1,36 @@
+{
+    "id": 30,
+    "title": "游子吟",
+    "author": "孟郊",
+    "dynasty": "唐",
+    "grade": "小学三年级",
+    "content": [
+        {
+            "text": "慈母手中线",
+            "pinyin": "cí mǔ shǒu zhōng xiàn"
+        },
+        {
+            "text": "游子身上衣",
+            "pinyin": "yóu zǐ shēn shàng yī"
+        },
+        {
+            "text": "临行密密缝",
+            "pinyin": "lín xíng mì mì féng"
+        },
+        {
+            "text": "意恐迟迟归",
+            "pinyin": "yì kǒng chí chí guī"
+        },
+        {
+            "text": "谁言寸草心",
+            "pinyin": "shéi yán cùn cǎo xīn"
+        },
+        {
+            "text": "报得三春晖",
+            "pinyin": "bào dé sān chūn huī"
+        }
+    ],
+    "annotation": "１、寸草：比喻非常微小。\n２、三春晖：三春，指春天的孟春、仲春、季春；晖，阳光；形容母爱如春天和煦的阳光。",
+    "translation": "慈祥的母亲手里把着针线。 为将远游的孩子赶制新衣。\n临行她忙着缝得严严实实， 是耽心孩子此去难得回归。\n谁能说象小草的那点孝心， 可报答春晖般的慈母恩惠？",
+    "audio": "assets/audio/recite/030.mp3"
+}

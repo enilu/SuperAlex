@@ -1,0 +1,44 @@
+{
+    "id": 238,
+    "title": "锦瑟",
+    "author": "李商隐",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "锦瑟无端五十弦",
+            "pinyin": "jǐn sè wú duān wǔ shí xián"
+        },
+        {
+            "text": "一弦一柱思华年",
+            "pinyin": "yī xián yī zhǔ sī huá nián"
+        },
+        {
+            "text": "庄生晓梦迷蝴蝶",
+            "pinyin": "zhuāng shēng xiǎo mèng mí hú dié"
+        },
+        {
+            "text": "望帝春心托杜鹃",
+            "pinyin": "wàng dì chūn xīn tuō dù juān"
+        },
+        {
+            "text": "沧海月明珠有泪",
+            "pinyin": "cāng hǎi yuè míng zhū yǒu lèi"
+        },
+        {
+            "text": "蓝田日暖玉生烟",
+            "pinyin": "lán tián rì nuǎn yù shēng yān"
+        },
+        {
+            "text": "此情可待成追忆",
+            "pinyin": "cǐ qíng kě dài chéng zhuī yì"
+        },
+        {
+            "text": "只是当时已惘然",
+            "pinyin": "zhī shì dàng shí yǐ wǎng rán"
+        }
+    ],
+    "annotation": "１、锦瑟：装饰华美的瑟。瑟：拨弦乐器，通常二十五弦。\n２、无端：犹何故。怨怪之词。\n３、五十弦：这里是托古之词。作者的原意，当也是说锦瑟本应是二十五弦。\n４、庄生句：意谓旷达如庄生，尚为晓梦所迷。庄生：庄周。\n５、望帝句：意谓自己的心事只能寄托在化魂的杜鹃上。望帝：相传蜀帝杜宇，号望帝，死后其魂化为子规，即杜鹃鸟。\n６、珠有泪：传说南海外有鲛人，其泪能泣珠。\n７、蓝田：山名，在今陕西，产美玉。",
+    "translation": "锦瑟呀，你为何竟然有五十条弦？\n每弦每节，都令人怀思黄金华年。\n我心象庄子，为蝴蝶晓梦而迷惘；\n又象望帝化杜鹃，寄托春心哀怨\n沧海明月高照，鲛人泣泪皆成珠\n蓝田红日和暖，可看到良玉生烟。\n悲欢离合之情，岂待今日来追忆，\n只是当年却漫不经心，早已惘然。",
+    "audio": "assets/audio/recite/238.mp3"
+}

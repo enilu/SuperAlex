@@ -1,0 +1,28 @@
+{
+    "id": 16,
+    "title": "早发白帝城",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学二年级",
+    "content": [
+        {
+            "text": "朝辞白帝彩云间",
+            "pinyin": "zhāo cí bái dì cǎi yún jiān"
+        },
+        {
+            "text": "千里江陵一日还",
+            "pinyin": "qiān lǐ jiāng líng yī rì huán"
+        },
+        {
+            "text": "两岸猿声啼不住",
+            "pinyin": "liǎng àn yuán shēng tí bú zhù"
+        },
+        {
+            "text": "轻舟已过万重山",
+            "pinyin": "qīng zhōu yǐ guò wàn chóng shān"
+        }
+    ],
+    "annotation": "１、白帝：今四川省奉节\n２、江陵：今湖北省江宁县。县。\n３、一日还：一天就可以到达。",
+    "translation": "清晨，我告别高入云霄的白帝城；\n江陵远在千里，船行只一日时间。\n两岸猿声，还在耳边不停地啼叫；\n不知不觉，轻舟已穿过万重青山。",
+    "audio": "assets/audio/recite/016.mp3"
+}

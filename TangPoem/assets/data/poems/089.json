@@ -1,0 +1,14 @@
+{
+    "id": 89,
+    "title": "题三闾寺",
+    "author": "岑参",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "寺出五门临大道", "pinyin": "sì chū wǔ mén lín dà dào" },
+        { "text": "槛垂乔木俯狂波", "pinyin": "kǎn chuí qiáo mù fǔ kuáng bō" }
+    ],
+    "annotation": "三闾寺：寺庙名",
+    "translation": "寺出五门临大道，槛垂乔木俯狂波。",
+    "audio": "assets/audio/recite/089.mp3"
+}

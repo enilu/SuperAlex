@@ -1,0 +1,60 @@
+{
+    "id": 353,
+    "title": "关山月",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "明月出天山",
+            "pinyin": "míng yuè chū tiān shān"
+        },
+        {
+            "text": "苍茫云海间",
+            "pinyin": "cāng máng yún hǎi jiàn"
+        },
+        {
+            "text": "长风几万里",
+            "pinyin": "cháng fēng jī wàn lǐ"
+        },
+        {
+            "text": "吹度玉门关",
+            "pinyin": "chuī dù yù mén guān"
+        },
+        {
+            "text": "汉下白登道",
+            "pinyin": "hàn xià bái dēng dào"
+        },
+        {
+            "text": "胡窥青海湾",
+            "pinyin": "hú kuī qīng hǎi wān"
+        },
+        {
+            "text": "由来征战地",
+            "pinyin": "yóu lái zhēng zhàn dì"
+        },
+        {
+            "text": "不见有人还",
+            "pinyin": "bù jiàn yǒu rén hái"
+        },
+        {
+            "text": "戍客望边色",
+            "pinyin": "shù kè wàng biān sè"
+        },
+        {
+            "text": "思归多苦颜",
+            "pinyin": "sī guī duō kǔ yán"
+        },
+        {
+            "text": "高楼当此夜",
+            "pinyin": "gāo lóu dàng cǐ yè"
+        },
+        {
+            "text": "叹息未应闲",
+            "pinyin": "tàn xī wèi yìng xián"
+        }
+    ],
+    "annotation": "１、关山月：<strong>乐府</strong>《横吹曲》调名。\n　　２、胡：这里指吐蕃。\n　　３、高楼：指住在高楼中的戍客之妻。",
+    "translation": "皎洁的月亮从祁连山升起，轻轻漂浮在迷茫的云海里。 \n长风掀起尘沙席卷几万里，玉门关早被风沙层层封闭。 \n白登道那里汉军旌旗林立，青海湾却是胡人窥视之地。 \n自古来这征战厮杀的场所，参战者从来不见有生还的。 \n守卫边陲的征夫面对现实，哪个不愁眉苦脸思归故里？ \n今夜高楼上思夫的妻子们，又该是当窗不眠叹息不已。",
+    "audio": "assets/audio/recite/353.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 172,
+    "title": "蝉",
+    "author": "李商隐",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "本以高难饱",
+            "pinyin": "běn yǐ gāo nán bǎo"
+        },
+        {
+            "text": "徒劳恨费声",
+            "pinyin": "tú láo hèn fèi shēng"
+        },
+        {
+            "text": "五更疏欲断",
+            "pinyin": "wǔ gēng shū yù duàn"
+        },
+        {
+            "text": "一树碧无情",
+            "pinyin": "yī shù bì wú qíng"
+        },
+        {
+            "text": "薄宦梗犹泛",
+            "pinyin": "bò huàn gěng yóu fàn"
+        },
+        {
+            "text": "故园芜已平",
+            "pinyin": "gù yuán wú yǐ píng"
+        },
+        {
+            "text": "烦君最相警",
+            "pinyin": "fán jūn zuì xiāng jǐng"
+        },
+        {
+            "text": "我亦举家清",
+            "pinyin": "wǒ yì jǔ jiā qīng"
+        }
+    ],
+    "annotation": "１、本以两句：古人误以为蝉是餐风饮露的。这里是说，既欲栖高处，自难以饱腹，虽带恨声，实也徒然。\n２、一树句：意谓蝉虽哀鸣，树却自呈苍润，像是无情相待。实是隐喻受人冷落。\n３、薄宦：官卑职微。\n４、梗犹泛：这里是自伤沦落意。\n５、芜已平：荒芜到了没胫地步。",
+    "translation": "你栖身高枝之上才难以饱腹；\n你虽含恨哀鸣徒然白费神劲。\n五更以后疏落之声几近断绝。\n大树依然苍翠却无丝毫同情，\n我官职卑下象桃梗漂流不定，\n家园早已荒芜杂草埋没脚胫。\n烦劳你的鸣叫我得借以自警，\n我也举家操守象你高洁不佞。",
+    "audio": "assets/audio/recite/172.mp3"
+}

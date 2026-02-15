@@ -1,0 +1,44 @@
+{
+    "id": 253,
+    "title": "望蓟门",
+    "author": "祖咏",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "燕台一去客心惊",
+            "pinyin": "yàn tái yī qù kè xīn jīng"
+        },
+        {
+            "text": "笳鼓喧喧汉将营",
+            "pinyin": "jiā gǔ xuān xuān hàn jiāng yíng"
+        },
+        {
+            "text": "万里寒光生积雪",
+            "pinyin": "wàn lǐ hán guāng shēng jī xuě"
+        },
+        {
+            "text": "三边曙色动危旌",
+            "pinyin": "sān biān shǔ sè dòng wēi jīng"
+        },
+        {
+            "text": "沙场烽火侵胡月",
+            "pinyin": "shā cháng fēng huǒ qīn hú yuè"
+        },
+        {
+            "text": "海畔云山拥蓟城",
+            "pinyin": "hǎi pàn yún shān yōng jì chéng"
+        },
+        {
+            "text": "少小虽非投笔吏",
+            "pinyin": "shǎo xiǎo suī fēi tóu bǐ lì"
+        },
+        {
+            "text": "论功还欲请长缨",
+            "pinyin": "lún gōng hái yù qǐng cháng yīng"
+        }
+    ],
+    "annotation": "１、一去：一作“一望”。\n２、三边：汉幽、并、凉三州，其地皆在边疆，后即泛指边地。\n３、危旌：高扬的旗帜。\n４、投笔吏：汉班超家贫，常为官府抄书以谋生，曾投笔叹曰：“大丈夫当立功异域\n　 　 以取封侯，安能久事笔砚间。”后终以功封定远侯。\n５、论功：指论功行封。\n６、请长缨：汉终军曾自向汉武帝请求，“愿受长缨，心羁南越王而致之阙下。”后\n　 　 被南越相所杀，年仅二十余。缨：绳。",
+    "translation": "一到燕台眺望，我就暗暗吃惊；\n笳鼓喧闹之地，原是汉将兵营。\n江山积雪万里，笼罩冷冽寒光；\n边塞╄光映照，飘动高高旗旌。\n战场烽火连天，遮掩边塞明月；\n南渤海北云山，拱卫着蓟门城。\n少年时虽不象班超，投笔从戎；\n论功名我想学终军，自愿请缨。",
+    "audio": "assets/audio/recite/253.mp3"
+}

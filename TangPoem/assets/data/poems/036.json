@@ -1,0 +1,20 @@
+{
+    "id": 36,
+    "title": "黄鹤楼",
+    "author": "崔颢",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "昔人已乘黄鹤去", "pinyin": "xī rén yǐ chéng huáng hè qù" },
+        { "text": "此地空余黄鹤楼", "pinyin": "cǐ dì kōng yú huáng hè lóu" },
+        { "text": "黄鹤一去不复返", "pinyin": "huáng hè yī qù bù fù fǎn" },
+        { "text": "白云千载空悠悠", "pinyin": "bái yún qiān zǎi kōng yōu yōu" },
+        { "text": "晴川历历汉阳树", "pinyin": "qíng chuān lì lì hàn yáng shù" },
+        { "text": "芳草萋萋鹦鹉洲", "pinyin": "fāng cǎo qī qī yīng wǔ zhōu" },
+        { "text": "日暮乡关何处是", "pinyin": "rì mù xiāng guān hé chù shì" },
+        { "text": "烟波江上使人愁", "pinyin": "yān bō jiāng shàng shǐ rén chóu" }
+    ],
+    "annotation": "黄鹤楼：故址在今武汉市武昌蛇山",
+    "translation": "传说中的仙人早已乘着黄鹤飞去，这里只留下一座空荡荡的黄鹤楼。黄鹤一去就再也没有回来，千百年来只看见白云悠悠飘荡。阳光下汉阳的树木清晰可见，鹦鹉洲上芳草长得正茂盛。天色已晚，眺望远方，故乡在哪儿呢？江上烟波浩渺，使人愁绪满怀。",
+    "audio": "assets/audio/recite/036.mp3"
+}

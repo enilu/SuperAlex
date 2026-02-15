@@ -1,0 +1,64 @@
+{
+    "id": 346,
+    "title": "长相思·摧心肝",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "长相思",
+            "pinyin": "cháng xiāng sī"
+        },
+        {
+            "text": "摧心肝",
+            "pinyin": "cuī xīn gān"
+        },
+        {
+            "text": "日色欲尽花含烟",
+            "pinyin": "rì sè yù jǐn huā hán yān"
+        },
+        {
+            "text": "月明欲素愁不眠",
+            "pinyin": "yuè míng yù sù chóu bù mián"
+        },
+        {
+            "text": "赵瑟初停凤凰柱",
+            "pinyin": "zhào sè chū tíng fèng huáng zhǔ"
+        },
+        {
+            "text": "蜀琴欲奏鸳鸯弦",
+            "pinyin": "shǔ qín yù zòu yuān yāng xián"
+        },
+        {
+            "text": "此曲有意无人传",
+            "pinyin": "cǐ qǔ yǒu yì wú rén chuán"
+        },
+        {
+            "text": "愿随春风寄燕然",
+            "pinyin": "yuàn suí chūn fēng jì yàn rán"
+        },
+        {
+            "text": "忆君迢迢隔青天",
+            "pinyin": "yì jūn tiáo tiáo gé qīng tiān"
+        },
+        {
+            "text": "昔日横波目",
+            "pinyin": "xī rì héng bō mù"
+        },
+        {
+            "text": "今作流泪泉",
+            "pinyin": "jīn zuò liú lèi quán"
+        },
+        {
+            "text": "不信妾断肠",
+            "pinyin": "bù xìn qiè duàn cháng"
+        },
+        {
+            "text": "归来看取明镜前",
+            "pinyin": "guī lái kàn qǔ míng jìng qián"
+        }
+    ],
+    "annotation": "１、赵瑟：相传古代赵国的人善弹瑟。瑟：弦乐器。\n２、凤凰柱：或是瑟柱上雕饰凤凰形状。\n３、蜀琴句：旧注谓蜀琴与<strong>司马相如</strong>琴挑故事有关。按：<strong>鲍照</strong>有“蜀琴抽白雪”句。<strong>白居易</strong>也有“蜀琴安膝上，《周易》在床头”句。<strong>李贺</strong>“吴丝蜀桐张高秋”，王琦注云：“蜀中桐木宜为乐器，故曰蜀桐。”蜀桐实即蜀琴。似古人诗中常以蜀琴喻佳琴，恐与司马相如、卓文君事无关。鸳鸯弦也只是为了强对凤凰柱。",
+    "translation": "夕阳西下暮色朦胧，花蕊笼罩轻烟，\n月华如练，我思念着情郎终夜不眠。\n柱上雕饰凤凰的赵瑟，我刚刚停奏，\n心想再弹奏蜀琴，又怕触动鸳鸯弦。\n这饱含情意的曲调，可惜无人传递，\n但愿它随着春风，送到遥远的燕然。\n忆情郎呵、情郎他迢迢隔在天那边，\n当年递送秋波的双眼，\n而今成了流泪的源泉。\n您若不信贱妾怀思肝肠欲断，\n请归来看看明镜前我的容颜！",
+    "audio": "assets/audio/recite/346.mp3"
+}

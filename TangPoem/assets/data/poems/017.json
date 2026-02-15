@@ -1,0 +1,16 @@
+{
+    "id": 17,
+    "title": "望庐山瀑布",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学二年级",
+    "content": [
+        { "text": "日照香炉生紫烟", "pinyin": "rì zhào xiāng lú shēng zǐ yān" },
+        { "text": "遥看瀑布挂前川", "pinyin": "yáo kàn pù bù guà qián chuān" },
+        { "text": "飞流直下三千尺", "pinyin": "fēi liú zhí xià sān qiān chǐ" },
+        { "text": "疑是银河落九天", "pinyin": "yí shì yín hé luò jiǔ tiān" }
+    ],
+    "annotation": "香炉：香炉峰",
+    "translation": "太阳照耀香炉峰生出袅袅紫烟，远远望去瀑布像长河悬挂山前。飞流直下震动了山谷，水珠飞溅，仿佛银河从九天倾泻而下。",
+    "audio": "assets/audio/recite/017.mp3"
+}

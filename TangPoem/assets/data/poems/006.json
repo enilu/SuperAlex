@@ -1,0 +1,28 @@
+{
+    "id": 6,
+    "title": "相思",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学一年级",
+    "content": [
+        {
+            "text": "红豆生南国",
+            "pinyin": "hóng dòu shēng nán guó"
+        },
+        {
+            "text": "春来发几枝",
+            "pinyin": "chūn lái fā jǐ zhī"
+        },
+        {
+            "text": "愿君多采撷",
+            "pinyin": "yuàn jūn duō cǎi xié"
+        },
+        {
+            "text": "此物最相思",
+            "pinyin": "cǐ wù zuì xiāng sī"
+        }
+    ],
+    "annotation": "１、红豆：又名相思子，一种生在岭南地区的植物，结出的籽象豌豆而稍扁，呈鲜红色。\n２、采撷：采摘。",
+    "translation": "晶莹闪亮的红豆，产于岭南；\n春天来了，该长得叶茂枝繁。\n愿你多多采摘它，嵌饰佩带；\n这玩艺儿，最能把情思包涵！",
+    "audio": "assets/audio/recite/006.mp3"
+}

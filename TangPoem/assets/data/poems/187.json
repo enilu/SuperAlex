@@ -1,0 +1,44 @@
+{
+    "id": 187,
+    "title": "留别王维",
+    "author": "孟浩然",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "寂寂竟何待",
+            "pinyin": "jì jì jìng hé dài"
+        },
+        {
+            "text": "朝朝空自归",
+            "pinyin": "cháo cháo kòng zì guī"
+        },
+        {
+            "text": "欲寻芳草去",
+            "pinyin": "yù xún fāng cǎo qù"
+        },
+        {
+            "text": "惜与故人违",
+            "pinyin": "xī yǔ gù rén wéi"
+        },
+        {
+            "text": "当路谁相假",
+            "pinyin": "dàng lù shuí xiāng jiǎ"
+        },
+        {
+            "text": "知音世所稀",
+            "pinyin": "zhī yīn shì suǒ xī"
+        },
+        {
+            "text": "只应守寂寞",
+            "pinyin": "zhī yìng shǒu jì mò"
+        },
+        {
+            "text": "还掩故园扉",
+            "pinyin": "hái yǎn gù yuán fēi"
+        }
+    ],
+    "annotation": "１、违：分离。\n２、当路：当权者；\n３、假：宽假，优容的意思。",
+    "translation": "这样寂寞无聊还有什么可待？\n天天碌碌无为独自空手而归。\n我想归隐山林去寻芳馨花卉，\n但又珍惜友情不愿分手相违。\n如今当权者们谁肯提携我辈，\n世上要寻知音实在寥寥无几。\n或许今生今世命合空守寂寞，\n还是回家关闭我的故园门扉。",
+    "audio": "assets/audio/recite/187.mp3"
+}

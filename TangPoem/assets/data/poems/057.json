@@ -1,0 +1,28 @@
+{
+    "id": 57,
+    "title": "八阵图",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        {
+            "text": "功盖三分国",
+            "pinyin": "gōng gài sān fēn guó"
+        },
+        {
+            "text": "名成八阵图",
+            "pinyin": "míng chéng bā zhèn tú"
+        },
+        {
+            "text": "江流石不转",
+            "pinyin": "jiāng liú shí bú zhuǎn"
+        },
+        {
+            "text": "遗恨失吞吴",
+            "pinyin": "yí hèn shī tūn wú"
+        }
+    ],
+    "annotation": "１、八阵图：由八种阵势组成的图形，用来操练军队或作战。\n２、三分国：指三国时魏、蜀、吴三国。\n３、石不转：指涨水时，八阵图的石块仍然不动。\n４、失吞吴：是吞吴失策的意思。",
+    "translation": "三国鼎立，孔明的功勋最为卓著，\n他创制的八卦阵，更是名扬千古。\n任凭江流冲击，石头却依然如故，\n千年遗恨，在于刘备失策想吞吴。",
+    "audio": "assets/audio/recite/057.mp3"
+}

@@ -1,0 +1,36 @@
+{
+    "id": 360,
+    "title": "烈女操",
+    "author": "孟郊",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "梧桐相待老",
+            "pinyin": "wú tóng xiāng dài lǎo"
+        },
+        {
+            "text": "鸳鸯会双死",
+            "pinyin": "yuān yāng kuài shuāng sǐ"
+        },
+        {
+            "text": "贞妇贵殉夫",
+            "pinyin": "zhēn fù guì xùn fū"
+        },
+        {
+            "text": "舍生亦如此",
+            "pinyin": "shè shēng yì rú cǐ"
+        },
+        {
+            "text": "波澜誓不起",
+            "pinyin": "bō lán shì bù qǐ"
+        },
+        {
+            "text": "妾心古井水",
+            "pinyin": "qiè xīn gǔ jǐng shuǐ"
+        }
+    ],
+    "annotation": "1、烈女操：<strong>乐府</strong>中《琴曲》歌辞。烈女：贞洁女子。操：琴曲中的一种体裁。\n　　2、梧桐：传说梧为雄树，桐为雌树，其实梧桐树是雌雄同株。相待老：指梧和桐同长同老。\n　　3、会：终当。\n　　4、殉：以死相从。\n　　5、“波澜”两句意谓我的心如同古井之水，永远不会泛起情感波澜。\n　　古：同枯。古井水：枯井水。",
+    "translation": "雄梧雌桐枝叶覆盖相守终老，\n　　鸳鸯水鸟成双成对至死相随。\n　　贞洁的妇女贵在为丈夫殉节，\n　　为此舍生才称得上至善至美。\n　　对天发誓我心永远忠贞不渝，\n　　就像清净不起波澜的古井水！",
+    "audio": "assets/audio/recite/360.mp3"
+}

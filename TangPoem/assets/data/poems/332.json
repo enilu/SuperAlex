@@ -1,0 +1,28 @@
+{
+    "id": 332,
+    "title": "渭城曲",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "渭城朝雨浥轻尘",
+            "pinyin": "wèi chéng cháo yǔ yì qīng chén"
+        },
+        {
+            "text": "客舍青青柳色新",
+            "pinyin": "kè shè qīng qīng liǔ sè xīn"
+        },
+        {
+            "text": "劝君更尽一杯酒",
+            "pinyin": "quàn jūn gèng jǐn yī bēi jiǔ"
+        },
+        {
+            "text": "西出阳关无故人",
+            "pinyin": "xī chū yáng guān wú gù rén"
+        }
+    ],
+    "annotation": "１、渭城：就是咸阳，现今陕西省西安市。\n２、浥：湿润。\n３、客舍：旅馆。\n４、柳色：柳象征离别。\n５、阳关：古关名，在甘肃省敦煌西南，由于在玉门关以南，故称阳关，是出塞必经\n　 　 之地。",
+    "translation": "渭城早晨一场春雨沾湿了轻尘，\n客舍周围青青的柳树格外清新。\n老朋友请你再干一杯饯别酒吧，\n出了阳关西路再也没有老友人。",
+    "audio": "assets/audio/recite/332.mp3"
+}

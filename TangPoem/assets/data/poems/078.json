@@ -1,0 +1,16 @@
+{
+    "id": 78,
+    "title": "别董大",
+    "author": "高适",
+    "dynasty": "唐",
+    "grade": "小学六年级",
+    "content": [
+        { "text": "千里黄云白日曜", "pinyin": "qiān lǐ huáng yún bái rì xuān" },
+        { "text": "北风吹雁雪纷纷", "pinyin": "běi fēng chuī yàn xuě fēn fēn" },
+        { "text": "莫愁前路无知己", "pinyin": "mò chóu qián lù wú zhī jǐ" },
+        { "text": "天下谁人不识君", "pinyin": "tiān xià shéi rén bù shí jūn" }
+    ],
+    "annotation": "董大：董庭兰，著名音乐家",
+    "translation": "千里黄云蔽天白日昏暗，北风吹着大雁雪花纷纷。不要发愁前面的道路上没有知己，天下有谁不认识你呢？",
+    "audio": "assets/audio/recite/078.mp3"
+}

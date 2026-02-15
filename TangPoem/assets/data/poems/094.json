@@ -1,0 +1,28 @@
+{
+    "id": 94,
+    "title": "山中送别",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "山中相送罢",
+            "pinyin": "shān zhōng xiāng sòng bà"
+        },
+        {
+            "text": "日暮掩柴扉",
+            "pinyin": "rì mù yǎn chái fēi"
+        },
+        {
+            "text": "春草明年绿",
+            "pinyin": "chūn cǎo míng nián lǜ"
+        },
+        {
+            "text": "王孙归不归",
+            "pinyin": "wàng sūn guī bù guī"
+        }
+    ],
+    "annotation": "⑴掩：关闭。 \n　　⑵柴扉：柴门。 \n　　⑶王孙：贵族的子孙，这里指送别的友人。",
+    "translation": "在山中送走了你以后， \n　　夕阳西坠我关闭柴扉。 \n　　明年春草再绿的时候， \n　　您能不能回来呢？、 \n　　思想感情：怀念友人、盼望友人快快回来的思想感情。",
+    "audio": "assets/audio/recite/094.mp3"
+}

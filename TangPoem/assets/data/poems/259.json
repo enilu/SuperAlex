@@ -1,0 +1,44 @@
+{
+    "id": 259,
+    "title": "利州南渡",
+    "author": "温庭筠",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "澹然空水对斜晖",
+            "pinyin": "dàn rán kòng shuǐ duì xié huī"
+        },
+        {
+            "text": "曲岛苍茫接翠微",
+            "pinyin": "qǔ dǎo cāng máng jiē cuì wēi"
+        },
+        {
+            "text": "波上马嘶看棹去",
+            "pinyin": "bō shàng mǎ sī kàn zhào qù"
+        },
+        {
+            "text": "柳边人歇待船归",
+            "pinyin": "liǔ biān rén xiē dài chuán guī"
+        },
+        {
+            "text": "数丛沙草群鸥散",
+            "pinyin": "shǔ cóng shā cǎo qún ōu sàn"
+        },
+        {
+            "text": "万顷江田一鹭飞",
+            "pinyin": "wàn qǐng jiāng tián yī lù fēi"
+        },
+        {
+            "text": "谁解乘舟寻范蠡",
+            "pinyin": "shuí jiě chéng zhōu xún fàn lǐ"
+        },
+        {
+            "text": "五湖烟水独忘机",
+            "pinyin": "wǔ hú yān shuǐ dú wàng jī"
+        }
+    ],
+    "annotation": "１、澹然：水波动貌。\n２、翠微：指青翠的山气。\n３、波上句：指未渡的人，眼看着马鸣舟中，随波而去。波上：一作“坡上”。棹：桨，也指船。\n４、数丛句：指船过草丛，惊散群鸥。\n５、范蠡：春秋楚人，曾助越灭吴，为上将军。后辞官乘舟而去，泛于五湖。",
+    "translation": "江水粼粼斜映着夕阳的余晖，\n弯弯岛岸苍茫接连山坡绿翠。\n眼看人马已乘摆渡扬波而去，\n渡口柳下人群等待船儿回归。\n乃声惊散沙洲草丛的鸥鸟，\n水田万顷一只白鹭掠空孤飞。\n谁理解我驾舟寻范蠡的意义，\n飘泊五湖独自忘掉世俗心机。",
+    "audio": "assets/audio/recite/259.mp3"
+}

@@ -1,0 +1,17 @@
+{
+    "id": 45,
+    "title": "忆江南",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学四年级",
+    "content": [
+        { "text": "江南好", "pinyin": "jiāng nán hǎo" },
+        { "text": "风景旧曾谙", "pinyin": "fēng jǐng jiù céng ān" },
+        { "text": "日出江花红胜火", "pinyin": "rì chū jiāng huā hóng shèng huǒ" },
+        { "text": "春来江水绿如蓝", "pinyin": "chūn lái jiāng shuǐ lǜ rú lán" },
+        { "text": "能不忆江南", "pinyin": "néng bú yì jiāng nán" }
+    ],
+    "annotation": "忆江南：词牌名",
+    "translation": "江南的风景多么美好，风景我以前就很熟悉。太阳升起，江边的花比火还红，春天来了，江水像蓝草一样绿。怎能不让人回忆江南呢？",
+    "audio": "assets/audio/recite/045.mp3"
+}

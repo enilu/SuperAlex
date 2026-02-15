@@ -1,0 +1,68 @@
+{
+    "id": 276,
+    "title": "月下独酌",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "花间一壶酒",
+            "pinyin": "huā jiàn yī hú jiǔ"
+        },
+        {
+            "text": "独酌无相亲",
+            "pinyin": "dú zhuó wú xiāng qīn"
+        },
+        {
+            "text": "举杯邀明月",
+            "pinyin": "jǔ bēi yāo míng yuè"
+        },
+        {
+            "text": "对影成三人",
+            "pinyin": "duì yǐng chéng sān rén"
+        },
+        {
+            "text": "月既不解饮",
+            "pinyin": "yuè jì bù jiě yǐn"
+        },
+        {
+            "text": "影徒随我身",
+            "pinyin": "yǐng tú suí wǒ shēn"
+        },
+        {
+            "text": "暂伴月将影",
+            "pinyin": "zàn bàn yuè jiāng yǐng"
+        },
+        {
+            "text": "行乐须及春",
+            "pinyin": "xíng lè xū jí chūn"
+        },
+        {
+            "text": "我歌月徘徊",
+            "pinyin": "wǒ gē yuè pái huái"
+        },
+        {
+            "text": "我舞影零乱",
+            "pinyin": "wǒ wǔ yǐng líng luàn"
+        },
+        {
+            "text": "醒时同交欢",
+            "pinyin": "xǐng shí tóng jiāo huān"
+        },
+        {
+            "text": "醉后各分散",
+            "pinyin": "zuì hòu gè fēn sàn"
+        },
+        {
+            "text": "永结无情游",
+            "pinyin": "yǒng jiē wú qíng yóu"
+        },
+        {
+            "text": "相期邈云汉",
+            "pinyin": "xiāng jī miǎo yún hàn"
+        }
+    ],
+    "annotation": "１、将：偕，和。\n２、相期：相约。\n３、云汉：天河。",
+    "translation": "准备一壶美酒，摆在花丛之间， 自斟自酌无亲无友，孤独一人。 我举起酒杯邀请媚人的明月， 低头窥见身影，共饮已有三人。 月儿，你那里晓得畅饮的乐趣？ 影儿，你徒然随偎我这个孤身！ 暂且伴随玉兔，这无情瘦影吧， 我应及时行乐，趁着春宵良辰。 月听我唱歌，在九天徘徊不进， 影伴我舞步，在地上蹦跳翻滚。 清醒之时，咱们尽管作乐寻欢， 醉了之后，免不了要各自离散。 月呀，愿和您永结为忘情之友， 相约在高远的银河岸边，再见！",
+    "audio": "assets/audio/recite/276.mp3"
+}

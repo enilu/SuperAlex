@@ -1,0 +1,36 @@
+{
+    "id": 322,
+    "title": "渔翁",
+    "author": "柳宗元",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "渔翁夜傍西岩宿",
+            "pinyin": "yú wēng yè bàng xī yán sù"
+        },
+        {
+            "text": "晓汲清湘燃楚竹",
+            "pinyin": "xiǎo jí qīng xiāng rán chǔ zhú"
+        },
+        {
+            "text": "烟销日出不见人",
+            "pinyin": "yān xiāo rì chū bù jiàn rén"
+        },
+        {
+            "text": "欸乃一声山水绿",
+            "pinyin": "èi nǎi yī shēng shān shuǐ lǜ"
+        },
+        {
+            "text": "回看天际下中流",
+            "pinyin": "huí kàn tiān jì xià zhōng liú"
+        },
+        {
+            "text": "岩上无心云相逐",
+            "pinyin": "yán shàng wú xīn yún xiāng zhú"
+        }
+    ],
+    "annotation": "１、西岩：湖南永州西山。\n２、乃：摇橹的声音。\n３、无心：指云自由自在飘动。",
+    "translation": "傍晚，渔翁把船停泊在西山下息宿； \n拂晓，他汲起湘江清水又燃起楚竹。 \n烟销云散旭日初升，不见他的人影； \n听得乃一声橹响，忽见山青水绿。 \n回身一看，他已驾舟行至天际中流； \n山岩顶上，只有无心白云相互追逐。",
+    "audio": "assets/audio/recite/322.mp3"
+}

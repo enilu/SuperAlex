@@ -1,0 +1,44 @@
+{
+    "id": 263,
+    "title": "自夏口至鹦鹉洲夕望岳阳寄源中丞",
+    "author": "刘长卿",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "汀洲无浪复无烟",
+            "pinyin": "tīng zhōu wú làng fù wú yān"
+        },
+        {
+            "text": "楚客相思益渺然",
+            "pinyin": "chǔ kè xiāng sī yì miǎo rán"
+        },
+        {
+            "text": "汉口夕阳斜渡鸟",
+            "pinyin": "hàn kǒu xī yáng xié dù niǎo"
+        },
+        {
+            "text": "洞庭秋水远连天",
+            "pinyin": "dòng tíng qiū shuǐ yuǎn lián tiān"
+        },
+        {
+            "text": "孤城背岭寒吹角",
+            "pinyin": "gū chéng bēi lǐng hán chuī jiǎo"
+        },
+        {
+            "text": "独树临江夜泊船",
+            "pinyin": "dú shù lín jiāng yè bó chuán"
+        },
+        {
+            "text": "贾谊上书忧汉室",
+            "pinyin": "jiǎ yì shàng shū yōu hàn shì"
+        },
+        {
+            "text": "长沙谪去古今怜",
+            "pinyin": "cháng shā zhé qù gǔ jīn lián"
+        }
+    ],
+    "annotation": "１、汀洲：水中可居之地，指鹦鹉洲。\n２、楚客：指到此的旅人。夏口古属楚国境。\n３、孤城：指汉阳城，城后有山。\n４、角：古代军队中的一种吹乐器。",
+    "translation": "鹦鹉洲在长江中浮沉，无浪也无烟；\n我这楚客思念中丞，心绪更加渺远。\n汉口斜映着夕阳，飞鸟都纷纷归巢；\n洞庭湖的秋水，烟波浩渺远接蓝天。\n汉阳城后的山岭，传来悲凉的号角；\n滨临江边的独树旁，夜里泊着孤船。\n当年贾谊上书文帝，全是忧心汉室；\n他却被贬谪居长沙，古今谁不衰怜！",
+    "audio": "assets/audio/recite/263.mp3"
+}

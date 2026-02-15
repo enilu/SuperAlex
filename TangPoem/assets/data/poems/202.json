@@ -1,0 +1,44 @@
+{
+    "id": 202,
+    "title": "孤雁",
+    "author": "崔涂",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "几行归塞尽",
+            "pinyin": "jī xíng guī sè jǐn"
+        },
+        {
+            "text": "念尔独何之",
+            "pinyin": "niàn ěr dú hé zhī"
+        },
+        {
+            "text": "暮雨相呼失",
+            "pinyin": "mù yǔ xiāng hū shī"
+        },
+        {
+            "text": "寒塘欲下迟",
+            "pinyin": "hán táng yù xià chí"
+        },
+        {
+            "text": "渚云低暗度",
+            "pinyin": "zhǔ yún dī àn dù"
+        },
+        {
+            "text": "关月冷相随",
+            "pinyin": "guān yuè lěng xiāng suí"
+        },
+        {
+            "text": "未必逢矰缴",
+            "pinyin": "wèi bì féng zēng jiǎo"
+        },
+        {
+            "text": "孤飞自可疑",
+            "pinyin": "gū fēi zì kě yí"
+        }
+    ],
+    "annotation": "１、之：往。\n２、失：失群。\n３、渚：水中的小洲。",
+    "translation": "几阵齐飞的旅伴，全部回到了塞上，\n只有你这孤雁，不知独自飞向何方。\n暮雨中，你悲凄地呼唤丢失的伙伴，\n你想栖息，却又迟疑畏惧不下寒塘。\n渚上低暗，你孤独地穿越过了云层；\n只有关山的冷月，伴随你孤苦凄凉。\n虽然你未必会遭暗算，把生命葬丧，\n只是失群孤飞，毕竟叫人疑惧恐慌。",
+    "audio": "assets/audio/recite/202.mp3"
+}

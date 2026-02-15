@@ -1,0 +1,16 @@
+{
+    "id": 15,
+    "title": "绝句二首·其二",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学二年级",
+    "content": [
+        { "text": "江碧鸟逾白", "pinyin": "jiāng bì niǎo yú bái" },
+        { "text": "山青花欲燃", "pinyin": "shān qīng huā yù rán" },
+        { "text": "今春看又过", "pinyin": "jīn chūn kàn yòu guò" },
+        { "text": "何日是归年", "pinyin": "hé rì shì guī nián" }
+    ],
+    "annotation": "逾：更加",
+    "translation": "江水碧绿，水鸟的白翎更加洁白；山峦青翠，花儿红得像要燃烧一样。今年春天眼看着又要过去了，什么时候才是我回家的日子呢？",
+    "audio": "assets/audio/recite/015.mp3"
+}

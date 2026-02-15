@@ -1,0 +1,44 @@
+{
+    "id": 152,
+    "title": "终南别业",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "中岁颇好道",
+            "pinyin": "zhōng suì pō hào dào"
+        },
+        {
+            "text": "晚家南山陲",
+            "pinyin": "wǎn jiā nán shān chuí"
+        },
+        {
+            "text": "兴来每独往",
+            "pinyin": "xìng lái měi dú wǎng"
+        },
+        {
+            "text": "胜事空自知",
+            "pinyin": "shèng shì kòng zì zhī"
+        },
+        {
+            "text": "行到水穷处",
+            "pinyin": "xíng dào shuǐ qióng chǔ"
+        },
+        {
+            "text": "坐看云起时",
+            "pinyin": "zuò kàn yún qǐ shí"
+        },
+        {
+            "text": "偶然值林叟",
+            "pinyin": "ǒu rán zhí lín sǒu"
+        },
+        {
+            "text": "谈笑无还期",
+            "pinyin": "tán xiào wú hái jī"
+        }
+    ],
+    "annotation": "１、胜事：快意的事。\n２、值：遇见；\n３、林叟：乡村的老人。\n４、无还期：无一定时间。",
+    "translation": "中年以后存有较浓的好道之心，\n直到晚年才安家于终南山边陲。\n兴趣浓时常常独来独往去游玩，\n有快乐的事自我欣赏自我陶醉。\n间或走到水的尽头去寻求源流，\n间或坐看上升的云雾千变万化。\n偶然在林间遇见个把乡村父老，\n偶与他谈笑聊天每每忘了还家。",
+    "audio": "assets/audio/recite/152.mp3"
+}

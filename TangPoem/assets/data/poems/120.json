@@ -1,0 +1,28 @@
+{
+    "id": 120,
+    "title": "寄令狐郎中",
+    "author": "李商隐",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "嵩云秦树久离居",
+            "pinyin": "sōng yún qín shù jiǔ lí jū"
+        },
+        {
+            "text": "双鲤迢迢一纸书",
+            "pinyin": "shuāng lǐ tiáo tiáo yī zhǐ shū"
+        },
+        {
+            "text": "休问梁园旧宾客",
+            "pinyin": "xiū wèn liáng yuán jiù bīn kè"
+        },
+        {
+            "text": "茂陵秋雨病相如",
+            "pinyin": "mào líng qiū yǔ bìng xiāng rú"
+        }
+    ],
+    "annotation": "１、嵩：中岳嵩山，在今河南。\n２、双鲤：指书信。\n３、茂陵：今陕西兴平县东北，以汉武帝陵墓而得名。",
+    "translation": "你是嵩山云我是秦川树，长久离居；\n千里迢迢，你寄来一封慰问的鲤书。\n请别问我这个梁园旧客生活的甘苦；\n我就象茂陵秋雨中多病的司马相如。",
+    "audio": "assets/audio/recite/120.mp3"
+}

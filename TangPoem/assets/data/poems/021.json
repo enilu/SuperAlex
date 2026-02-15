@@ -1,0 +1,16 @@
+{
+    "id": 21,
+    "title": "独坐敬亭山",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学四年级",
+    "content": [
+        { "text": "众鸟高飞尽", "pinyin": "zhòng niǎo gāo fēi jìn" },
+        { "text": "孤云独去闲", "pinyin": "gū yún dú qù xián" },
+        { "text": "相看两不厌", "pinyin": "xiāng kàn liǎng bú yàn" },
+        { "text": "只有敬亭山", "pinyin": "zhǐ yǒu jìng tíng shān" }
+    ],
+    "annotation": "敬亭山：在今安徽省宣城市",
+    "translation": "鸟儿们飞得无影无踪，白云悠闲地独自飘去。我和敬亭山互相不厌倦地看着对方，只有敬亭山能理解我此刻的心情。",
+    "audio": "assets/audio/recite/021.mp3"
+}

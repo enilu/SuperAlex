@@ -1,0 +1,16 @@
+{
+    "id": 86,
+    "title": "寄韩樽",
+    "author": "岑参",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "先生在郡不可见", "pinyin": "xiān shēng zài jùn bù kě jiàn" },
+        { "text": "朝暮何时看拜还", "pinyin": "zhāo mù hé shí kàn bài huán" },
+        { "text": "讼庭终日有争讼", "pinyin": "sòng tíng zhōng rì yǒu zhēng sòng" },
+        { "text": "聊向空庭信在山", "pinyin": "liáo xiàng kōng tíng xìn zài shān" }
+    ],
+    "annotation": "韩樽：人名",
+    "translation": "先生在郡不可见，朝暮何时看拜还。讼庭终日有争讼，聊向空庭信在山。",
+    "audio": "assets/audio/recite/086.mp3"
+}

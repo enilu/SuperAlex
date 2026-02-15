@@ -1,0 +1,44 @@
+{
+    "id": 258,
+    "title": "行经华阴",
+    "author": "崔颢",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "迢峣太华俯咸京",
+            "pinyin": "tiáo yáo tài huá fǔ xián jīng"
+        },
+        {
+            "text": "天外三峰削不成",
+            "pinyin": "tiān wài sān fēng xiāo bù chéng"
+        },
+        {
+            "text": "武帝祠前云欲散",
+            "pinyin": "wǔ dì cí qián yún yù sàn"
+        },
+        {
+            "text": "仙人掌上雨初晴",
+            "pinyin": "xiān rén zhǎng shàng yǔ chū qíng"
+        },
+        {
+            "text": "河山北枕秦关险",
+            "pinyin": "hé shān běi zhěn qín guān xiǎn"
+        },
+        {
+            "text": "驿路西连汉畤平",
+            "pinyin": "yì lù xī lián hàn zhì píng"
+        },
+        {
+            "text": "借问路旁名利客",
+            "pinyin": "jiè wèn lù páng míng lì kè"
+        },
+        {
+            "text": "何如此处学长生",
+            "pinyin": "hé rú cǐ chǔ xué cháng shēng"
+        }
+    ],
+    "annotation": "１、：高峻貌。\n２、三峰：指莲花、明星、玉女，华山最著名的三峰。\n３、武帝祠：指巨灵洞。\n４、：帝王祭天地五帝之祠。",
+    "translation": "高峻的华山俯瞰古都咸阳城，\n天外三峰不是人工所能削成。\n巨灵河神祠前云雾将要消散，\n仙人掌峰顶大雨过后天初晴。\n函谷关北枕黄河华山更险要，\n西连驿路祀神所在益加旷平。\n敢问路旁追名逐利的过客们，\n怎么比得上在此学道求长生？",
+    "audio": "assets/audio/recite/258.mp3"
+}

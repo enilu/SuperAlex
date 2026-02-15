@@ -1,0 +1,28 @@
+{
+    "id": 337,
+    "title": "清平调·云想衣裳花想容",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "云想衣裳花想容",
+            "pinyin": "yún xiǎng yī shang huā xiǎng róng"
+        },
+        {
+            "text": "春风拂槛露华浓",
+            "pinyin": "chūn fēng fú jiàn lù huá nóng"
+        },
+        {
+            "text": "若非群玉山头见",
+            "pinyin": "ruò fēi qún yù shān tóu jiàn"
+        },
+        {
+            "text": "会向瑶台月下逢",
+            "pinyin": "kuài xiàng yáo tái yuè xià féng"
+        }
+    ],
+    "annotation": "１、清平调：一种歌的曲调，“平调、清调、瑟调”皆周房中之遗声。\n２、槛：有格子的门窗。\n３、华：通花。\n４、群玉山：神话中的仙山，传说是西王母住的地方。\n５、瑶台：传说中仙子住的地方。",
+    "translation": "云霞是她的衣裳，花儿是她的颜容；\n春风吹拂栏杆，露珠润泽花色更浓。\n如此天姿国色，若不见于群玉山头，\n那一定只有在瑶台月下，才能相逢！",
+    "audio": "assets/audio/recite/337.mp3"
+}

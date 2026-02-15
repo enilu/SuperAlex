@@ -1,0 +1,44 @@
+{
+    "id": 200,
+    "title": "楚江怀古",
+    "author": "马戴",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "露气寒光集",
+            "pinyin": "lù qì hán guāng jí"
+        },
+        {
+            "text": "微阳下楚丘",
+            "pinyin": "wēi yáng xià chǔ qiū"
+        },
+        {
+            "text": "猿啼洞庭树",
+            "pinyin": "yuán tí dòng tíng shù"
+        },
+        {
+            "text": "人在木兰舟",
+            "pinyin": "rén zài mù lán zhōu"
+        },
+        {
+            "text": "广泽生明月",
+            "pinyin": "guǎng zé shēng míng yuè"
+        },
+        {
+            "text": "苍山夹乱流",
+            "pinyin": "cāng shān gā luàn liú"
+        },
+        {
+            "text": "云中君不见",
+            "pinyin": "yún zhōng jūn bù jiàn"
+        },
+        {
+            "text": "竟夕自悲秋",
+            "pinyin": "jìng xī zì bēi qiū"
+        }
+    ],
+    "annotation": "１、木兰舟：此因楚江而用《楚辞》中的木兰舟。木兰：小乔木。\n２、云中君：本《楚辞·九歌》篇名，为祭祀云神之作，此也因楚江而想到《九歌》。",
+    "translation": "雾露团团凝聚寒气侵人，\n夕阳已落下楚地的山丘。\n猿在洞庭湖畔树上啼叫，\n人乘木兰舟在湖中泛游。\n明月从广漠的湖上升起，\n两岸青山夹着滔滔乱流。\n云中仙君怎么都不见了？\n我竟通宵达旦独自悲秋。",
+    "audio": "assets/audio/recite/200.mp3"
+}

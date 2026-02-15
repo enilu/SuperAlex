@@ -1,0 +1,44 @@
+{
+    "id": 183,
+    "title": "春宫怨",
+    "author": "杜荀鹤",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "早被婵娟误",
+            "pinyin": "zǎo bèi chán juān wù"
+        },
+        {
+            "text": "欲归临镜慵",
+            "pinyin": "yù guī lín jìng yōng"
+        },
+        {
+            "text": "承恩不在貌",
+            "pinyin": "chéng ēn bù zài mào"
+        },
+        {
+            "text": "教妾若为容",
+            "pinyin": "jiào qiè ruò wéi róng"
+        },
+        {
+            "text": "风暖鸟声碎",
+            "pinyin": "fēng nuǎn niǎo shēng suì"
+        },
+        {
+            "text": "日高花影重",
+            "pinyin": "rì gāo huā yǐng zhòng"
+        },
+        {
+            "text": "年年越溪女",
+            "pinyin": "nián nián yuè xī rǔ"
+        },
+        {
+            "text": "相忆采芙蓉",
+            "pinyin": "xiāng yì cǎi fú róng"
+        }
+    ],
+    "annotation": "１、婵娟：形态美好貌。\n２、若为容：又教我怎样饰容取宠呢。\n３、越溪女：指西施浣纱时的女伴。",
+    "translation": "早年我被容貌美丽所误，落入宫中；\n我懒得对镜梳妆打扮，是没有受宠。\n蒙恩受幸，其实不在于俏丽的颜面；\n到底为取悦谁，叫我梳妆修饰仪容。\n鸟儿啼声繁碎，是为有和暖的春风；\n太阳到了正午，花影才会显得浓重。\n我真想念，年年在越溪浣纱的女伴；\n欢歌笑语，自由自在地采撷着芙蓉。",
+    "audio": "assets/audio/recite/183.mp3"
+}

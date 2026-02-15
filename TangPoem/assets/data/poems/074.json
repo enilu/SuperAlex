@@ -1,0 +1,28 @@
+{
+    "id": 74,
+    "title": "出塞",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        {
+            "text": "秦时明月汉时关",
+            "pinyin": "qín shí míng yuè hàn shí guān"
+        },
+        {
+            "text": "万里长征人未还",
+            "pinyin": "wàn lǐ cháng zhēng rén wèi huán"
+        },
+        {
+            "text": "但使龙城飞将在",
+            "pinyin": "dàn shǐ lóng chéng fēi jiàng zài"
+        },
+        {
+            "text": "不教胡马度阴山",
+            "pinyin": "bú jiào hú mǎ dù yīn shān"
+        }
+    ],
+    "annotation": "１、但使：只要。\n２、龙城：龙城是匈奴祭天集会的地方。\n３、飞将：指汉朝名将李广而言，匈奴畏惧他的神勇，特称他为“飞将军”。\n４、阴山：昆仑山的北支，起自河套西北，横贯绥远、察哈尔及热河北部，是我国北方的屏障。",
+    "translation": "依旧是秦时的明月汉时的边关，\n征战长久延续万里征夫不回还。\n倘若龙城的飞将李广而今健在，\n绝不许匈奴南下牧马度过阴山。",
+    "audio": "assets/audio/recite/074.mp3"
+}

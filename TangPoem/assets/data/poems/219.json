@@ -1,0 +1,44 @@
+{
+    "id": 219,
+    "title": "江乡故人偶集客舍",
+    "author": "戴叔伦",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "天秋月又满",
+            "pinyin": "tiān qiū yuè yòu mǎn"
+        },
+        {
+            "text": "城阙夜千重",
+            "pinyin": "chéng quē yè qiān zhòng"
+        },
+        {
+            "text": "还作江南会",
+            "pinyin": "hái zuò jiāng nán kuài"
+        },
+        {
+            "text": "翻疑梦里逢",
+            "pinyin": "fān yí mèng lǐ féng"
+        },
+        {
+            "text": "风枝惊暗鹊",
+            "pinyin": "fēng zhī jīng àn què"
+        },
+        {
+            "text": "露草覆寒虫",
+            "pinyin": "lù cǎo fù hán chóng"
+        },
+        {
+            "text": "羁旅长堪醉",
+            "pinyin": "jī lǚ cháng kān zuì"
+        },
+        {
+            "text": "相留畏晓钟",
+            "pinyin": "xiāng liú wèi xiǎo zhōng"
+        }
+    ],
+    "annotation": "１、翻：义同“反”。\n２、羁旅：犹漂泊。",
+    "translation": "秋夜里一轮满月高挂天空，\n光华洒满宫城的门户千重。\n在京城能和江南一样相聚，\n大家反而怀疑是梦里相逢。\n秋风惊动枝头栖宿的乌鹊，\n露草里唧唧地哭叫着寒虫。\n漂泊在外的游客应该长醉，\n相互挽留怕听报晓的响钟。",
+    "audio": "assets/audio/recite/219.mp3"
+}

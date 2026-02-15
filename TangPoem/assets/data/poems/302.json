@@ -1,0 +1,492 @@
+{
+    "id": 302,
+    "title": "长恨歌",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "汉皇重色思倾国",
+            "pinyin": "hàn huáng zhòng sè sī qīng guó"
+        },
+        {
+            "text": "御宇多年求不得",
+            "pinyin": "yù yǔ duō nián qiú bù dé"
+        },
+        {
+            "text": "杨家有女初长成",
+            "pinyin": "yáng jiā yǒu rǔ chū cháng chéng"
+        },
+        {
+            "text": "养在深闺人未识",
+            "pinyin": "yǎng zài shēn guī rén wèi shí"
+        },
+        {
+            "text": "天生丽质难自弃",
+            "pinyin": "tiān shēng lì zhì nán zì qì"
+        },
+        {
+            "text": "一朝选在君王侧",
+            "pinyin": "yī cháo xuǎn zài jūn wàng cè"
+        },
+        {
+            "text": "回眸一笑百媚生",
+            "pinyin": "huí móu yī xiào bǎi mèi shēng"
+        },
+        {
+            "text": "六宫粉黛无颜色",
+            "pinyin": "liù gōng fěn dài wú yán sè"
+        },
+        {
+            "text": "春寒赐浴华清池",
+            "pinyin": "chūn hán cì yù huá qīng chí"
+        },
+        {
+            "text": "温泉水滑洗凝脂",
+            "pinyin": "wēn quán shuǐ huá xǐ níng zhī"
+        },
+        {
+            "text": "侍儿扶起娇无力",
+            "pinyin": "shì ér fú qǐ jiāo wú lì"
+        },
+        {
+            "text": "始是新承恩泽时",
+            "pinyin": "shǐ shì xīn chéng ēn zé shí"
+        },
+        {
+            "text": "云鬓花颜金步摇",
+            "pinyin": "yún bìn huā yán jīn bù yáo"
+        },
+        {
+            "text": "芙蓉帐暖度春宵",
+            "pinyin": "fú róng zhàng nuǎn dù chūn xiāo"
+        },
+        {
+            "text": "春宵苦短日高起",
+            "pinyin": "chūn xiāo kǔ duǎn rì gāo qǐ"
+        },
+        {
+            "text": "从此君王不早朝",
+            "pinyin": "zòng cǐ jūn wàng bù zǎo cháo"
+        },
+        {
+            "text": "承欢侍宴无闲暇",
+            "pinyin": "chéng huān shì yàn wú xián xiá"
+        },
+        {
+            "text": "春从春游夜专夜",
+            "pinyin": "chūn zòng chūn yóu yè zhuān yè"
+        },
+        {
+            "text": "后宫佳丽三千人",
+            "pinyin": "hòu gōng jiā lì sān qiān rén"
+        },
+        {
+            "text": "三千宠爱在一身",
+            "pinyin": "sān qiān chǒng ài zài yī shēn"
+        },
+        {
+            "text": "金屋妆成娇侍夜",
+            "pinyin": "jīn wū zhuāng chéng jiāo shì yè"
+        },
+        {
+            "text": "玉楼宴罢醉和春",
+            "pinyin": "yù lóu yàn bà zuì hé chūn"
+        },
+        {
+            "text": "姊妹弟兄皆列土",
+            "pinyin": "zǐ mèi dì xiōng jiē liè tǔ"
+        },
+        {
+            "text": "可怜光彩生门户",
+            "pinyin": "kě lián guāng cǎi shēng mén hù"
+        },
+        {
+            "text": "遂令天下父母心",
+            "pinyin": "suì lìng tiān xià fù mǔ xīn"
+        },
+        {
+            "text": "不重生男重生女",
+            "pinyin": "bù zhòng shēng nán zhòng shēng rǔ"
+        },
+        {
+            "text": "骊宫高处入青云",
+            "pinyin": "lí gōng gāo chǔ rù qīng yún"
+        },
+        {
+            "text": "仙乐风飘处处闻",
+            "pinyin": "xiān lè fēng piāo chǔ chǔ wén"
+        },
+        {
+            "text": "缓歌谩舞凝丝竹",
+            "pinyin": "huǎn gē mán wǔ níng sī zhú"
+        },
+        {
+            "text": "尽日君王看不足",
+            "pinyin": "jǐn rì jūn wàng kàn bù zú"
+        },
+        {
+            "text": "渔阳鼙鼓动地来",
+            "pinyin": "yú yáng pí gǔ dòng dì lái"
+        },
+        {
+            "text": "惊破霓裳羽衣曲",
+            "pinyin": "jīng pò ní shang yǔ yī qǔ"
+        },
+        {
+            "text": "九重城阙烟尘生",
+            "pinyin": "jiǔ zhòng chéng quē yān chén shēng"
+        },
+        {
+            "text": "千乘万骑西南行",
+            "pinyin": "qiān chéng wàn qí xī nán xíng"
+        },
+        {
+            "text": "翠华摇摇行复止",
+            "pinyin": "cuì huá yáo yáo xíng fù zhǐ"
+        },
+        {
+            "text": "西出都门百余里",
+            "pinyin": "xī chū dū mén bǎi yú lǐ"
+        },
+        {
+            "text": "六军不发无奈何",
+            "pinyin": "liù jūn bù fā wú nài hé"
+        },
+        {
+            "text": "宛转蛾眉马前死",
+            "pinyin": "wǎn zhuàn é méi mǎ qián sǐ"
+        },
+        {
+            "text": "花钿委地无人收",
+            "pinyin": "huā diàn wěi dì wú rén shōu"
+        },
+        {
+            "text": "翠翘金雀玉搔头",
+            "pinyin": "cuì qiáo jīn què yù sāo tóu"
+        },
+        {
+            "text": "君王掩面救不得",
+            "pinyin": "jūn wàng yǎn miàn jiù bù dé"
+        },
+        {
+            "text": "回看血泪相和流",
+            "pinyin": "huí kàn xiě lèi xiāng hé liú"
+        },
+        {
+            "text": "黄埃散漫风萧索",
+            "pinyin": "huáng āi sǎn màn fēng xiāo suǒ"
+        },
+        {
+            "text": "云栈萦纡登剑阁",
+            "pinyin": "yún zhàn yíng yū dēng jiàn gé"
+        },
+        {
+            "text": "峨嵋山下少人行",
+            "pinyin": "é méi shān xià shǎo rén xíng"
+        },
+        {
+            "text": "旌旗无光日色薄",
+            "pinyin": "jīng qí wú guāng rì sè bò"
+        },
+        {
+            "text": "蜀江水碧蜀山青",
+            "pinyin": "shǔ jiāng shuǐ bì shǔ shān qīng"
+        },
+        {
+            "text": "圣主朝朝暮暮情",
+            "pinyin": "shèng zhǔ cháo cháo mù mù qíng"
+        },
+        {
+            "text": "行宫见月伤心色",
+            "pinyin": "xíng gōng jiàn yuè shāng xīn sè"
+        },
+        {
+            "text": "夜雨闻铃肠断声",
+            "pinyin": "yè yǔ wén líng cháng duàn shēng"
+        },
+        {
+            "text": "天旋地转回龙驭",
+            "pinyin": "tiān xuàn dì zhuàn huí lóng yù"
+        },
+        {
+            "text": "到此踌躇不能去",
+            "pinyin": "dào cǐ chóu chú bù néng qù"
+        },
+        {
+            "text": "马嵬坡下泥土中",
+            "pinyin": "mǎ wéi pō xià ní tǔ zhōng"
+        },
+        {
+            "text": "不见玉颜空死处",
+            "pinyin": "bù jiàn yù yán kòng sǐ chǔ"
+        },
+        {
+            "text": "君臣相顾尽沾衣",
+            "pinyin": "jūn chén xiāng gù jǐn zhān yī"
+        },
+        {
+            "text": "东望都门信马归",
+            "pinyin": "dōng wàng dū mén xìn mǎ guī"
+        },
+        {
+            "text": "归来池苑皆依旧",
+            "pinyin": "guī lái chí yuàn jiē yī jiù"
+        },
+        {
+            "text": "太液芙蓉未央柳",
+            "pinyin": "tài yè fú róng wèi yāng liǔ"
+        },
+        {
+            "text": "芙蓉如面柳如眉",
+            "pinyin": "fú róng rú miàn liǔ rú méi"
+        },
+        {
+            "text": "对此如何不泪垂",
+            "pinyin": "duì cǐ rú hé bù lèi chuí"
+        },
+        {
+            "text": "春风桃李花开日",
+            "pinyin": "chūn fēng táo lǐ huā kāi rì"
+        },
+        {
+            "text": "秋雨梧桐叶落时",
+            "pinyin": "qiū yǔ wú tóng yè luò shí"
+        },
+        {
+            "text": "西宫南内多秋草",
+            "pinyin": "xī gōng nán nèi duō qiū cǎo"
+        },
+        {
+            "text": "落叶满阶红不扫",
+            "pinyin": "luò yè mǎn jiē hóng bù sǎo"
+        },
+        {
+            "text": "梨园弟子白发新",
+            "pinyin": "lí yuán dì zǐ bái fā xīn"
+        },
+        {
+            "text": "椒房阿监青娥老",
+            "pinyin": "jiāo fáng ā jiān qīng é lǎo"
+        },
+        {
+            "text": "夕殿萤飞思悄然",
+            "pinyin": "xī diàn yíng fēi sī qiǎo rán"
+        },
+        {
+            "text": "孤灯挑尽未成眠",
+            "pinyin": "gū dēng tiāo jǐn wèi chéng mián"
+        },
+        {
+            "text": "迟迟钟鼓初长夜",
+            "pinyin": "chí chí zhōng gǔ chū cháng yè"
+        },
+        {
+            "text": "耿耿星河欲曙天",
+            "pinyin": "gěng gěng xīng hé yù shǔ tiān"
+        },
+        {
+            "text": "鸳鸯瓦冷霜华重",
+            "pinyin": "yuān yāng wǎ lěng shuāng huá zhòng"
+        },
+        {
+            "text": "翡翠衾寒谁与共",
+            "pinyin": "fěi cuì qīn hán shuí yǔ gòng"
+        },
+        {
+            "text": "悠悠生死别经年",
+            "pinyin": "yōu yōu shēng sǐ bié jīng nián"
+        },
+        {
+            "text": "魂魄不曾来入梦",
+            "pinyin": "hún pò bù céng lái rù mèng"
+        },
+        {
+            "text": "临邛道士鸿都客",
+            "pinyin": "lín qióng dào shì hóng dū kè"
+        },
+        {
+            "text": "能以精诚致魂魄",
+            "pinyin": "néng yǐ jīng chéng zhì hún pò"
+        },
+        {
+            "text": "为感君王辗转思",
+            "pinyin": "wéi gǎn jūn wàng zhǎn zhuàn sī"
+        },
+        {
+            "text": "遂教方士殷勤觅",
+            "pinyin": "suì jiào fāng shì yīn qín mì"
+        },
+        {
+            "text": "排空驭气奔如电",
+            "pinyin": "pái kòng yù qì bēn rú diàn"
+        },
+        {
+            "text": "升天入地求之遍",
+            "pinyin": "shēng tiān rù dì qiú zhī biàn"
+        },
+        {
+            "text": "上穷碧落下黄泉",
+            "pinyin": "shàng qióng bì luò xià huáng quán"
+        },
+        {
+            "text": "两处茫茫皆不见",
+            "pinyin": "liǎng chǔ máng máng jiē bù jiàn"
+        },
+        {
+            "text": "忽闻海上有仙山",
+            "pinyin": "hū wén hǎi shàng yǒu xiān shān"
+        },
+        {
+            "text": "山在虚无缥渺间",
+            "pinyin": "shān zài xū wú piǎo miǎo jiàn"
+        },
+        {
+            "text": "楼阁玲珑五云起",
+            "pinyin": "lóu gé líng lóng wǔ yún qǐ"
+        },
+        {
+            "text": "其中绰约多仙子",
+            "pinyin": "qí zhōng chuò yuē duō xiān zǐ"
+        },
+        {
+            "text": "中有一人字太真",
+            "pinyin": "zhōng yǒu yī rén zì tài zhēn"
+        },
+        {
+            "text": "雪肤花貌参差是",
+            "pinyin": "xuě fū huā mào cēn cī shì"
+        },
+        {
+            "text": "金阙西厢叩玉扃",
+            "pinyin": "jīn quē xī xiāng kòu yù jiōng"
+        },
+        {
+            "text": "转教小玉报双成",
+            "pinyin": "zhuàn jiào xiǎo yù bào shuāng chéng"
+        },
+        {
+            "text": "闻道汉家天子使",
+            "pinyin": "wén dào hàn jiā tiān zǐ shǐ"
+        },
+        {
+            "text": "九华帐里梦魂惊",
+            "pinyin": "jiǔ huá zhàng lǐ mèng hún jīng"
+        },
+        {
+            "text": "揽衣推枕起徘徊",
+            "pinyin": "lǎn yī tuī zhěn qǐ pái huái"
+        },
+        {
+            "text": "珠箔银屏迤逦开",
+            "pinyin": "zhū bó yín bǐng yǐ lǐ kāi"
+        },
+        {
+            "text": "云鬓半偏新睡觉",
+            "pinyin": "yún bìn bàn piān xīn shuì jiào"
+        },
+        {
+            "text": "花冠不整下堂来",
+            "pinyin": "huā guàn bù zhěng xià táng lái"
+        },
+        {
+            "text": "风吹仙袂飘飘举",
+            "pinyin": "fēng chuī xiān mèi piāo piāo jǔ"
+        },
+        {
+            "text": "犹似霓裳羽衣舞",
+            "pinyin": "yóu sì ní shang yǔ yī wǔ"
+        },
+        {
+            "text": "玉容寂寞泪阑干",
+            "pinyin": "yù róng jì mò lèi lán gān"
+        },
+        {
+            "text": "梨花一枝春带雨",
+            "pinyin": "lí huā yī zhī chūn dài yǔ"
+        },
+        {
+            "text": "含情凝睇谢君王",
+            "pinyin": "hán qíng níng dì xiè jūn wàng"
+        },
+        {
+            "text": "一别音容两渺茫",
+            "pinyin": "yī bié yīn róng liǎng miǎo máng"
+        },
+        {
+            "text": "昭阳殿里恩爱绝",
+            "pinyin": "zhāo yáng diàn lǐ ēn ài jué"
+        },
+        {
+            "text": "蓬莱宫中日月长",
+            "pinyin": "péng lái gōng zhōng rì yuè cháng"
+        },
+        {
+            "text": "回头下望人寰处",
+            "pinyin": "huí tóu xià wàng rén huán chǔ"
+        },
+        {
+            "text": "不见长安见尘雾",
+            "pinyin": "bù jiàn cháng ān jiàn chén wù"
+        },
+        {
+            "text": "惟将旧物表深情",
+            "pinyin": "wéi jiāng jiù wù biǎo shēn qíng"
+        },
+        {
+            "text": "钿合金钗寄将去",
+            "pinyin": "diàn hé jīn chāi jì jiāng qù"
+        },
+        {
+            "text": "钗留一股合一扇",
+            "pinyin": "chāi liú yī gǔ hé yī shàn"
+        },
+        {
+            "text": "钗擘黄金合分钿",
+            "pinyin": "chāi bò huáng jīn hé fēn diàn"
+        },
+        {
+            "text": "但教心似金钿坚",
+            "pinyin": "dàn jiào xīn sì jīn diàn jiān"
+        },
+        {
+            "text": "天上人间会相见",
+            "pinyin": "tiān shàng rén jiàn kuài xiāng xiàn"
+        },
+        {
+            "text": "临别殷勤重寄词",
+            "pinyin": "lín bié yīn qín zhòng jì cí"
+        },
+        {
+            "text": "词中有誓两心知",
+            "pinyin": "cí zhōng yǒu shì liǎng xīn zhī"
+        },
+        {
+            "text": "七月七日长生殿",
+            "pinyin": "qī yuè qī rì cháng shēng diàn"
+        },
+        {
+            "text": "夜半无人私语时",
+            "pinyin": "yè bàn wú rén sī yù shí"
+        },
+        {
+            "text": "在天愿作比翼鸟",
+            "pinyin": "zài tiān yuàn zuò bǐ yì niǎo"
+        },
+        {
+            "text": "在地愿为连理枝",
+            "pinyin": "zài dì yuàn wéi lián lǐ zhī"
+        },
+        {
+            "text": "天长地久有时尽",
+            "pinyin": "tiān cháng dì jiǔ yǒu shí jǐn"
+        },
+        {
+            "text": "此恨绵绵无绝期",
+            "pinyin": "cǐ hèn mián mián wú jué jī"
+        }
+    ],
+    "annotation": "１、汉皇：指唐明皇。\n２、御宇：治理天下。\n３、姊妹句：杨贵妃受宠后，其姊妹三人皆封夫人。\n４、渔阳鼙鼓：指安禄山在渔阳起兵叛乱。\n５、薄：临近、靠近。\n６、信：任凭。\n７、碧落：道家称天空为碧落。\n８、玉扃：门闩。\n９、迤逦开：一路敞开。\n１０、阑干：纵横。",
+    "translation": "唐明皇好色，日夜想找个绝代佳人；统治全国多年，竟找不到一个称心。 \n杨玄瑛有个女儿才长成，十分娇艳；养在深闺中，外人不知她美丽绝伦。 \n天生就的一身丽质，很难长久弃置；有朝一日，被选在皇帝身边做妃嫔。 \n她回眸一笑时，千姿百态娇媚横生；六宫妃嫔，一个个都黯然失色万分。 \n春寒料峭，皇上赐她到华清池沐浴；温泉水润，洗涤着凝脂一般的肌身。 \n侍女搀扶她，如出水芙蓉软弱娉婷；初蒙皇恩润泽时，就这般娇娆涔涔。 \n鬓发如云颜脸似花，头戴着金步摇；芙蓉帐里，与皇上度着温暖的春宵。 \n情深春宵恨太短，一觉睡到日高起；君王深恋儿女情，从此再也不早朝。 \n承受君欢侍君饮，终日陪伴无闲时；春从春游夜专守，双双形影不分离。 \n后宫妃嫔有三千，个个姿色象女神；三千美色不动心，皇上只宠她一人。 \n金屋中阿娇妆成，夜夜娇侍不离分；玉楼上酒酣宴罢，醉意伴随着春心。 \n姊妹封夫人兄弟封公卿，封地受奖；杨家门户生光彩，令人羡慕又向往。 \n使得天下的父母，个个改变了心愿；谁都看轻生男孩，只图生个小千金。 \n骊山北麓华清宫，玉宇琼楼耸入云；清风过处飘仙乐，四面八方都可闻。 \n轻歌慢舞多合拍，管弦旋律尽传神；君王终日都观看，欲心难足无止境。 \n忽然渔阳战鼓响，惊天动地震宫阙；惊坏跳舞的歌伎，停奏霓裳羽衣曲。 \n九重城楼与宫阙，烽火连天杂烟尘；千军万马护君王，直向西南急逃奔。 \n翠华龙旗一路摇，队伍走走又停停；西出都城百来里，来到驿站马嵬亭。 \n龙武军和羽林军，六军不走无奈何；缠绵委屈的美人，最终马前丧了生。 \n贵妃头上装饰品，抛撒满地无人问；翠翘金雀玉搔头，珍贵头饰一根根。 \n君王宠爱救不了，掩面哭成个泪人；回头再看此惨状，血泪交和涕淋淋。 \n秋风萧索扫落叶，黄土尘埃已消遁；回环曲折穿栈道，队伍登上了剑门。 \n峨嵋山下路险隘，蜀道艰难少人行；旌旗黯黯无光彩，日色淡淡近黄昏。 \n泱泱蜀江水碧绿，巍巍蜀山郁青青；圣主伤心思贵妃，朝朝暮暮恋旧情。 \n行宫之内见月色，总是伤心怀悲恨；夜雨当中闻铃声，谱下悲曲雨霖铃。 \n天旋地转战乱平，君王起驾回京城；到了马嵬车踌躇，不忍离去断肠人。 \n萋萋马嵬山坡下，荒凉黄土坟冢中，美人颜容再不见，地上只有她的坟。 \n君看臣来臣望君，相看个个泪沾衣；东望京都心伤悲，任凭马儿去驰归。 \n回到长安进宫看，荷池花苑都依旧；太液池上芙蓉花，未央宫中垂杨柳。 \n芙蓉恰似她的面，柳叶好比她的眉；睹物怎能不思人，触景不免双目垂。 \n春风吹开桃李花，物是人非不胜悲；秋雨滴落梧桐叶，场面寂寞更惨凄。 \n兴庆宫和甘露殿，处处萧条长秋草；宫内落叶满台阶，长久不见有人扫。 \n当年梨园的弟子，个个新添了白发；后妃宫中的女官，红颜退尽人衰老。 \n夜间殿堂流萤飞，思想消沉心茫然；终夜思念睡不着，挑尽了孤灯心草。 \n细数迟迟钟鼓声，愈数愈觉夜漫长；遥望耿耿星河天，直到东方吐曙光。 \n冷冰冰的鸳鸯瓦，霜花覆盖了几重；寒刺刺的翡翠被，谁与皇上来共用？ \n生离死别远悠悠，至今已经过一年；美人魂魄在何方，为啥不曾来入梦？ \n四川有个名道士，正到长安来做客；能用虔诚的道术，招引贵妃的魂魄。 \n辗转相思好伤神，叫人对王表同情；就叫方士去努力，专意殷勤去找寻。 \n驾驭云气入空中，横来直去如闪电；升天入地去寻求，天堂地府找个遍。 \n找遍了整个碧空，找遍了整个黄泉；天茫茫来地苍苍，找遍天地没看见。 \n忽然听说东海上，有座仙山蓬莱山；仙山耸立在云端，云来雾去缥渺间。 \n玲珑剔透楼台阁，五彩祥云承托起；天仙神女多无数，个个绰约又多姿。 \n万千娇美仙女中，有个芳名叫太真；肌肤如雪貌似花，仿佛是要找的人。 \n方士在金阙西厢，叩开白玉的大门；他托咐侍女小玉，叫双成通报一声。 \n猛然听到通报说：唐朝天子来使者；九华帐里太真仙，酣梦之中受震惊。 \n推开睡枕揽外衣，匆忙起床乱徘徊；珍珠廉子金银屏，一路层层都敞开。 \n乌去发髯半偏着，看来刚刚才睡醒；花冠不整都不顾，匆匆跑到堂下来。 \n轻风吹拂扬衣袖，步履轻轻飘飘举；好象当年在宫中，跳起霓裳羽衣舞。 \n寂寞忧愁颜面上，泪水纵横四处洒；活象春天新雨后，一枝带雨的梨花。 \n含情凝视天子使，托他深深谢君王：马嵬坡上长别后，音讯颜容两渺茫。 \n昭阳殿里恩爱情，年深月久已断绝；蓬莱宫中度时日，仙境幽幽万古长。 \n回头俯身向下看，滚滚黄尘罩人间；只见尘雾一层层，京都长安看不见。 \n只有寄去定情物，表表我深情一往；钿盒金钗寄你去，或许能慰藉君王； \n金钗儿我留一半，钿合儿我留一扇；擘金钗来分钿盒，一人一半各收藏。 \n但愿我们两颗心，有如钗钿一样坚；不管天上或人间，终有一日会相见； \n临别殷勤托方士，寄语君王表情思。寄语之中有誓词，唯有他俩心里知。 \n当年七月七日夜，我俩相会长生殿；夜半无人两私语，双双对天立誓言： \n在天上，我们愿作比翼齐飞鹣鹣鸟；在地上，我们甘为永不分离连理枝。 \n即使是天长地久，总会有终了之时；唯有这生死遗恨，却永远没有尽期。",
+    "audio": "assets/audio/recite/302.mp3"
+}

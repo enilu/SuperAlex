@@ -1,0 +1,44 @@
+{
+    "id": 229,
+    "title": "奉和中书舍人贾至早朝大明宫",
+    "author": "岑参",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "鸡鸣紫陌曙光寒",
+            "pinyin": "jī míng zǐ mò shǔ guāng hán"
+        },
+        {
+            "text": "莺啭皇州春色阑",
+            "pinyin": "yīng zhuàn huáng zhōu chūn sè lán"
+        },
+        {
+            "text": "金阙晓钟开万户",
+            "pinyin": "jīn quē xiǎo zhōng kāi wàn hù"
+        },
+        {
+            "text": "玉阶仙仗拥千官",
+            "pinyin": "yù jiē xiān zhàng yōng qiān guān"
+        },
+        {
+            "text": "花迎剑佩星初落",
+            "pinyin": "huā yíng jiàn pèi xīng chū luò"
+        },
+        {
+            "text": "柳拂旌旗露未干",
+            "pinyin": "liǔ fú jīng qí lù wèi gān"
+        },
+        {
+            "text": "独有凤凰池上客",
+            "pinyin": "dú yǒu fèng huáng chí shàng kè"
+        },
+        {
+            "text": "阳春一曲和皆难",
+            "pinyin": "yáng chūn yī qǔ hé jiē nán"
+        }
+    ],
+    "annotation": "１、紫陌：京都的道路。\n２、皇州：帝都，指长安。\n３、仙仗：指皇帝的仪仗。\n４、凤凰池：也称凤池，指中书省。",
+    "translation": "五更鸡鸣，京都路上曙光略带微寒；\n黄莺鸣啭，长安城里已是春意阑珊。\n望楼晓钟响过，宫殿千门都已打开；\n玉阶前仪仗林立，簇拥上朝的官员。\n启明星初落，花径迎来佩剑的侍卫；\n柳条轻拂着旌旗，一滴滴露珠未干。\n唯有凤池中书舍人贾至，写诗称赞；\n他的诗是曲阳春白雪，要和唱太难。",
+    "audio": "assets/audio/recite/229.mp3"
+}

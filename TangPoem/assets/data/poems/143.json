@@ -1,0 +1,28 @@
+{
+    "id": 143,
+    "title": "瑶瑟怨",
+    "author": "温庭筠",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "冰簟银床梦不成",
+            "pinyin": "bīng diàn yín chuáng mèng bù chéng"
+        },
+        {
+            "text": "碧天如水夜云轻",
+            "pinyin": "bì tiān rú shuǐ yè yún qīng"
+        },
+        {
+            "text": "雁声远过潇湘去",
+            "pinyin": "yàn shēng yuǎn guò xiāo xiāng qù"
+        },
+        {
+            "text": "十二楼中月自明",
+            "pinyin": "shí èr lóu zhōng yuè zì míng"
+        }
+    ],
+    "annotation": "１、冰簟：喻竹席之凉。\n２、潇湘：水名，在今湖南省内。",
+    "translation": "银床竹席多凉爽，我却偏偏不能入梦；\n长空澄碧如水，夜里云絮轻轻地飘荡。\n远处传来几声雁叫，雁群飞过潇湘去；\n十二楼中夜已深，唯有明月洒着寒光。",
+    "audio": "assets/audio/recite/143.mp3"
+}

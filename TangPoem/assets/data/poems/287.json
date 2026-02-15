@@ -1,0 +1,44 @@
+{
+    "id": 287,
+    "title": "溪居",
+    "author": "柳宗元",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "久为簪组累",
+            "pinyin": "jiǔ wéi zān zǔ léi"
+        },
+        {
+            "text": "幸此南夷谪",
+            "pinyin": "xìng cǐ nán yí zhé"
+        },
+        {
+            "text": "闲依农圃邻",
+            "pinyin": "xián yī nóng pǔ lín"
+        },
+        {
+            "text": "偶似山林客",
+            "pinyin": "ǒu sì shān lín kè"
+        },
+        {
+            "text": "晓耕翻露草",
+            "pinyin": "xiǎo gēng fān lù cǎo"
+        },
+        {
+            "text": "夜榜响溪石",
+            "pinyin": "yè bǎng xiǎng xī shí"
+        },
+        {
+            "text": "来往不逢人",
+            "pinyin": "lái wǎng bù féng rén"
+        },
+        {
+            "text": "长歌楚天碧",
+            "pinyin": "cháng gē chǔ tiān bì"
+        }
+    ],
+    "annotation": "１、簪组：这里是做官的意思。\n２、南夷：这里指当时南方的少数民族地区。\n３、滴：流放。\n４、夜榜：夜航。\n５、楚天：永州古属楚地。",
+    "translation": "长久被官职所缚不得自由，有幸这次被贬谪来到南夷。 \n闲时常常与农田菜圃为邻，偶然间象个隐居山中的人。 \n清晨我去耕作翻除带露杂草，傍晚乘船沿着溪石哗哗前进。 \n独往独来碰不到那庸俗之辈，仰望楚天的碧空而高歌自娱。",
+    "audio": "assets/audio/recite/287.mp3"
+}

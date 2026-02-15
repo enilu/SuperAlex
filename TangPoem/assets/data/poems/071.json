@@ -1,0 +1,28 @@
+{
+    "id": 71,
+    "title": "凉州词",
+    "author": "王翰",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        {
+            "text": "葡萄美酒夜光杯",
+            "pinyin": "pú táo měi jiǔ yè guāng bēi"
+        },
+        {
+            "text": "欲饮琵琶马上催",
+            "pinyin": "yù yǐn pí pí mǎ shàng cuī"
+        },
+        {
+            "text": "醉卧沙场君莫笑",
+            "pinyin": "zuì wò shā chǎng jūn mò xiào"
+        },
+        {
+            "text": "古来征战几人回",
+            "pinyin": "gǔ lái zhēng zhàn jǐ rén huí"
+        }
+    ],
+    "annotation": "１、夜光杯：一种白玉制成的杯子。",
+    "translation": "新酿成的葡萄美酒，盛满夜光杯；\n正想开怀畅饮，马上琵琶声频催。\n即使醉倒沙场，请诸君不要见笑；\n自古男儿出征，有几人活着归回？",
+    "audio": "assets/audio/recite/071.mp3"
+}

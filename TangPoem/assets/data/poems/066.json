@@ -1,0 +1,44 @@
+{
+    "id": 66,
+    "title": "送李端",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        {
+            "text": "故关衰草遍",
+            "pinyin": "gù guān shuāi cǎo biàn"
+        },
+        {
+            "text": "离别正堪悲",
+            "pinyin": "lí bié zhèng kān bēi"
+        },
+        {
+            "text": "路出寒云外",
+            "pinyin": "lù chū hán yún wài"
+        },
+        {
+            "text": "人归暮雪时",
+            "pinyin": "rén guī mù xuě shí"
+        },
+        {
+            "text": "少孤为客早",
+            "pinyin": "shào gū wéi kè zǎo"
+        },
+        {
+            "text": "多难识君迟",
+            "pinyin": "duō nàn shí jūn chí"
+        },
+        {
+            "text": "掩泣空相向",
+            "pinyin": "yǎn qì kōng xiāng xiàng"
+        },
+        {
+            "text": "风尘何所期",
+            "pinyin": "fēng chén hé suǒ qī"
+        }
+    ],
+    "annotation": "１、少孤：指自己早年丧父。",
+    "translation": "故乡遍地都是衰败的枯草，\n咱们分别了多么叫人伤悲！\n你踏上去路远在寒云之外，\n送你归来正遇上暮雪纷飞。\n少年丧亲过早地漂泊异土，\n多难时相交怅恨识君太迟。\n空朝你去的方向掩面而泣，\n世事纷繁再相见不知何时。",
+    "audio": "assets/audio/recite/066.mp3"
+}

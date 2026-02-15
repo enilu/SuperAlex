@@ -1,0 +1,60 @@
+{
+    "id": 273,
+    "title": "青溪",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "言入黄花川",
+            "pinyin": "yán rù huáng huā chuān"
+        },
+        {
+            "text": "每逐青溪水",
+            "pinyin": "měi zhú qīng xī shuǐ"
+        },
+        {
+            "text": "随山将万转",
+            "pinyin": "suí shān jiāng wàn zhuàn"
+        },
+        {
+            "text": "趣途无百里",
+            "pinyin": "qù tú wú bǎi lǐ"
+        },
+        {
+            "text": "声喧乱石中",
+            "pinyin": "shēng xuān luàn shí zhōng"
+        },
+        {
+            "text": "色静深松里",
+            "pinyin": "sè jìng shēn sōng lǐ"
+        },
+        {
+            "text": "漾漾泛菱荇",
+            "pinyin": "yàng yàng fàn líng xìng"
+        },
+        {
+            "text": "澄澄映葭苇",
+            "pinyin": "chéng chéng yìng jiā wěi"
+        },
+        {
+            "text": "我心素已闲",
+            "pinyin": "wǒ xīn sù yǐ xián"
+        },
+        {
+            "text": "清川澹如此",
+            "pinyin": "qīng chuān dàn rú cǐ"
+        },
+        {
+            "text": "请留盘石上",
+            "pinyin": "qǐng liú pán shí shàng"
+        },
+        {
+            "text": "垂钓将已矣",
+            "pinyin": "chuí diào jiāng yǐ yǐ"
+        }
+    ],
+    "annotation": "１、逐：循、沿。\n２、趣：同“趋”。\n３、澹：安静。",
+    "translation": "每次我进入黄花川漫游，常常沿着青溪辗转飘流。 \n流水依随山势千回万转，路途无百里却曲曲幽幽。 \n乱石丛中水声喧哗不断，松林深处山色静谧清秀。 \n溪中菱藕荇菜随波荡漾，澄澄碧水倒映芦苇蒲莠。 \n我的心平素已习惯闲静。淡泊的青溪更使我忘忧。 \n让我留在这盘石上好了，终日垂钓一直终老到头！",
+    "audio": "assets/audio/recite/273.mp3"
+}

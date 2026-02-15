@@ -1,0 +1,28 @@
+{
+    "id": 91,
+    "title": "行宫",
+    "author": "元稹",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "寥落古行宫",
+            "pinyin": "liáo luò gǔ xíng gōng"
+        },
+        {
+            "text": "宫花寂寞红",
+            "pinyin": "gōng huā jì mò hóng"
+        },
+        {
+            "text": "白头宫女在",
+            "pinyin": "bái tóu gōng rǔ zài"
+        },
+        {
+            "text": "闲坐说玄宗",
+            "pinyin": "xián zuò yuè xuán zōng"
+        }
+    ],
+    "annotation": "⑴寥落：寂寞冷落。 \n　　⑵行宫：皇帝在京城之外的宫殿。",
+    "translation": "早已空虚冷寞的古行宫， \n　　零落宫花依然开行艳红。 \n　　有几个满头白发的宫女， \n　　闲坐谈论当年的唐玄宗。",
+    "audio": "assets/audio/recite/091.mp3"
+}

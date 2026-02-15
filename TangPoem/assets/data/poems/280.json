@@ -1,0 +1,44 @@
+{
+    "id": 280,
+    "title": "望岳",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "岱宗夫如何",
+            "pinyin": "dài zōng fū rú hé"
+        },
+        {
+            "text": "齐鲁青未了",
+            "pinyin": "qí lǔ qīng wèi le"
+        },
+        {
+            "text": "造化钟神秀",
+            "pinyin": "zào huà zhōng shén xiù"
+        },
+        {
+            "text": "阴阳割昏晓",
+            "pinyin": "yīn yáng gē hūn xiǎo"
+        },
+        {
+            "text": "荡胸生层云",
+            "pinyin": "dàng xiōng shēng céng yún"
+        },
+        {
+            "text": "决眦入归鸟",
+            "pinyin": "jué zì rù guī niǎo"
+        },
+        {
+            "text": "会当凌绝顶",
+            "pinyin": "kuài dàng líng jué dǐng"
+        },
+        {
+            "text": "一览众山小",
+            "pinyin": "yī lǎn zhòng shān xiǎo"
+        }
+    ],
+    "annotation": "１、岱宗：泰山别名岱，居五岳之首，故又名岱宗。\n　　２、钟：赋予、集中。\n　　３、决：裂开。\n　　４、凌：跃上。",
+    "translation": "泰山呵，你究竟有多么宏伟壮丽？ 你既挺拔苍翠，又横跨齐鲁两地。 造物者给你，集中了瑰丽和神奇， 你高峻的山峰，把南北分成晨夕。 望层层云气升腾，令人胸怀荡涤， 看归鸟回旋入山，使人眼眶欲碎。 有朝一日，我总要登上你的绝顶， 把周围矮小的群山们，一览无遗！",
+    "audio": "assets/audio/recite/280.mp3"
+}

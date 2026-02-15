@@ -1,0 +1,44 @@
+{
+    "id": 55,
+    "title": "旅夜书怀",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "初中二年级",
+    "content": [
+        {
+            "text": "细草微风岸",
+            "pinyin": "xì cǎo wēi fēng àn"
+        },
+        {
+            "text": "危樯独夜舟",
+            "pinyin": "wēi qiáng dú yè zhōu"
+        },
+        {
+            "text": "星垂平野阔",
+            "pinyin": "xīng chuí píng yě kuò"
+        },
+        {
+            "text": "月涌大江流",
+            "pinyin": "yuè yǒng dà jiāng liú"
+        },
+        {
+            "text": "名岂文章著",
+            "pinyin": "míng qǐ wén zhāng zhù"
+        },
+        {
+            "text": "官应老病休",
+            "pinyin": "guān yīng lǎo bìng xiū"
+        },
+        {
+            "text": "飘飘何所似",
+            "pinyin": "piāo piāo hé suǒ sì"
+        },
+        {
+            "text": "天地一沙鸥",
+            "pinyin": "tiān dì yī shā ōu"
+        }
+    ],
+    "annotation": "１、危樯：高耸的桅杆。\n２、星垂句：远处的星星宛如低垂至地面，使原野更为辽阔。\n３、月涌句：银色的月光映着奔流汹涌的长江。\n４、沙鸥：水鸟名。",
+    "translation": "微风轻轻地吹拂着江岸畔的细草，\n深夜江边，泊着桅杆高耸的孤舟。\n原野辽阔，天边的星星如垂地面，\n明月在水中滚涌，才见大江奔流。\n我的名气，难道是因为文章著称？\n年老体弱，想必我为官也该罢休。\n唉，我这飘泊江湖之人何以相比？\n活象是漂零天地间一只孤苦沙鸥。",
+    "audio": "assets/audio/recite/055.mp3"
+}

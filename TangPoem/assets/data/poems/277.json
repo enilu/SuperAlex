@@ -1,0 +1,36 @@
+{
+    "id": 277,
+    "title": "春思",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "燕草如碧丝",
+            "pinyin": "yàn cǎo rú bì sī"
+        },
+        {
+            "text": "秦桑低绿枝",
+            "pinyin": "qín sāng dī lǜ zhī"
+        },
+        {
+            "text": "当君怀归日",
+            "pinyin": "dàng jūn huái guī rì"
+        },
+        {
+            "text": "是妾断肠时",
+            "pinyin": "shì qiè duàn cháng shí"
+        },
+        {
+            "text": "春风不相识",
+            "pinyin": "chūn fēng bù xiāng shí"
+        },
+        {
+            "text": "何事入罗帏",
+            "pinyin": "hé shì rù luó wéi"
+        }
+    ],
+    "annotation": "１、燕：今河北北部，辽宁西部。\n　　２、秦：今陕西，燕地寒冷，草木迟生于较暖的秦地。\n　　３、罗帏：丝织的帘帐。",
+    "translation": "燕塞春草，才嫩得象碧绿的小丝， 秦地桑叶，早已茂密得压弯树枝。 郎君啊，当你在边境想家的时候， 正是我在家想你，肝肠断裂日子。 多情的春风呵，我与你素不相识， 你为何闯入罗帏，搅乱我的情思？",
+    "audio": "assets/audio/recite/277.mp3"
+}

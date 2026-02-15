@@ -1,0 +1,16 @@
+{
+    "id": 85,
+    "title": "碛中作",
+    "author": "岑参",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "走马西来欲到天", "pinyin": "zǒu mǎ xī lái yù dào tiān" },
+        { "text": "辞家见月两三圆", "pinyin": "cí jiā jiàn yuè liǎng sān yuán" },
+        { "text": "今夜不知何处宿", "pinyin": "jīn yè bù zhī hé chù sù" },
+        { "text": "平沙万里绝人烟", "pinyin": "píng shā wàn lǐ jué rén yān" }
+    ],
+    "annotation": "碛：浅水中的沙石",
+    "translation": "走马西来欲到天，辞家见月两三圆。今夜不知何处住宿，平沙万里绝人烟。",
+    "audio": "assets/audio/recite/085.mp3"
+}

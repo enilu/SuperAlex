@@ -1,0 +1,28 @@
+{
+    "id": 97,
+    "title": "怨情",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "美人卷珠帘",
+            "pinyin": "měi rén juàn zhū lián"
+        },
+        {
+            "text": "深坐蹙蛾眉",
+            "pinyin": "shēn zuò cù é méi"
+        },
+        {
+            "text": "但见泪痕湿",
+            "pinyin": "dàn jiàn lèi hén shī"
+        },
+        {
+            "text": "不知心恨谁",
+            "pinyin": "bù zhī xīn hèn shuí"
+        }
+    ],
+    "annotation": "１、深坐句：写失望时的表情。\n 颦蛾眉：皱眉。",
+    "translation": "美人儿卷起珠帘等待等待，\n一直坐着把双眉紧紧锁闭。\n只看见她泪痕湿满了两腮，\n不知道她是恨人还是恨己。",
+    "audio": "assets/audio/recite/097.mp3"
+}

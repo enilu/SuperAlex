@@ -1,0 +1,28 @@
+{
+    "id": 142,
+    "title": "回乡偶书",
+    "author": "贺知章",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "少小离家老大回",
+            "pinyin": "shǎo xiǎo lí jiā lǎo dà huí"
+        },
+        {
+            "text": "乡音无改鬓毛催",
+            "pinyin": "xiāng yīn wú gǎi bìn máo cuī"
+        },
+        {
+            "text": "儿童相见不相识",
+            "pinyin": "ér tóng xiāng xiàn bù xiāng shí"
+        },
+        {
+            "text": "笑问客从何处来",
+            "pinyin": "xiào wèn kè zòng hé chǔ lái"
+        }
+    ],
+    "annotation": "１、鬓毛摧：两鬓的头发已经斑白。",
+    "translation": "少年时离乡，到老了才回家来；\n口音没改变，双鬓却已经斑白。\n儿童们看见了，没有认识我的；\n他们笑问：这客人是从哪里来？",
+    "audio": "assets/audio/recite/142.mp3"
+}

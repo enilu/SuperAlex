@@ -1,0 +1,20 @@
+{
+    "id": 58,
+    "title": "咏怀古迹五首·其三",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "初中二年级",
+    "content": [
+        { "text": "群山万壑赴荆门", "pinyin": "qún shān wàn hè fù jīng mén" },
+        { "text": "生长明妃尚有村", "pinyin": "shēng zhǎng míng fēi shàng yǒu cūn" },
+        { "text": "一去紫台连朔漠", "pinyin": "yī qù zǐ tái lián shuò mò" },
+        { "text": "独留青冢向黄昏", "pinyin": "dú liú qīng zhǒng xiàng huáng hūn" },
+        { "text": "画图省识春风面", "pinyin": "huà tú shěng shí chūn fēng miàn" },
+        { "text": "环佩空归夜月魂", "pinyin": "huán pèi kōng guī yè yuè hún" },
+        { "text": "千载琵琶作胡语", "pinyin": "qiān zǎi pí pā zuò hú yǔ" },
+        { "text": "分明怨恨曲中论", "pinyin": "fēn míng yuàn hèn qū zhōng lùn" }
+    ],
+    "annotation": "明妃：王昭君",
+    "translation": "千山万壑奔赴荆门，那里还有生长明妃的村庄。一去紫台连着北方沙漠，独留青冢面对黄昏。画图中哪里能识春风面，环佩空归月夜魂。千载琵琶作胡语，分明怨恨曲中论。",
+    "audio": "assets/audio/recite/058.mp3"
+}

@@ -1,0 +1,16 @@
+{
+    "id": 20,
+    "title": "望天门山",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学三年级",
+    "content": [
+        { "text": "天门中断楚江开", "pinyin": "tiān mén zhōng duàn chǔ jiāng kāi" },
+        { "text": "碧水东流至此回", "pinyin": "bì shuǐ dōng liú zhì cǐ huí" },
+        { "text": "两岸青山相对出", "pinyin": "liǎng àn qīng shān xiāng duì chū" },
+        { "text": "孤帆一片日边来", "pinyin": "gū fān yī piàn rì biān lái" }
+    ],
+    "annotation": "天门山：在今安徽省和县与当涂县西南的长江两岸",
+    "translation": "天门山从中间断开，长江畅通无阻向东流去。碧绿的江水向东流，到这里回旋澎湃。两岸青山对峙，出没眼前，一只小船从太阳升起的地方悠悠驶来。",
+    "audio": "assets/audio/recite/020.mp3"
+}

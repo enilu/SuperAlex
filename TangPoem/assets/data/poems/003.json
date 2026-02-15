@@ -1,0 +1,16 @@
+{
+    "id": 3,
+    "title": "咏鹅",
+    "author": "骆宾王",
+    "dynasty": "唐",
+    "grade": "小学一年级",
+    "content": [
+        { "text": "鹅鹅鹅", "pinyin": "é é é" },
+        { "text": "曲项向天歌", "pinyin": "qū xiàng xiàng tiān gē" },
+        { "text": "白毛浮绿水", "pinyin": "bái máo fú lǜ shuǐ" },
+        { "text": "红掌拨清波", "pinyin": "hóng zhǎng bō qīng bō" }
+    ],
+    "annotation": "曲项：弯着脖子",
+    "translation": "鹅鹅鹅，弯着脖子向天歌唱。雪白的羽毛浮在碧绿的水面上，红色的鹅掌拨动着清澈的水波。",
+    "audio": "assets/audio/recite/003.mp3"
+}

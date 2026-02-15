@@ -1,0 +1,36 @@
+{
+    "id": 309,
+    "title": "金陵酒肆留别",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "风吹柳花满店香",
+            "pinyin": "fēng chuī liǔ huā mǎn diàn xiāng"
+        },
+        {
+            "text": "吴姬压酒唤客尝",
+            "pinyin": "wú jī yā jiǔ huàn kè cháng"
+        },
+        {
+            "text": "金陵子弟来相送",
+            "pinyin": "jīn líng zǐ dì lái xiāng sòng"
+        },
+        {
+            "text": "欲行不行各尽觞",
+            "pinyin": "yù xíng bù xíng gè jǐn shāng"
+        },
+        {
+            "text": "请君试问东流水",
+            "pinyin": "qǐng jūn shì wèn dōng liú shuǐ"
+        },
+        {
+            "text": "别意与之谁短长",
+            "pinyin": "bié yì yǔ zhī shuí duǎn cháng"
+        }
+    ],
+    "annotation": "１、金陵：南京。\n２、酒肆：酒店。\n３、吴姬：吴地的青年女子，这里指卖酒女。\n４、压酒：酒酿成时，压酒糟取酒。\n５、尽觞：干杯。",
+    "translation": "春风吹柳花扬，酒店美酒飘香， \n吴国美女酒，殷勤劝客品尝。 \n金陵年青朋友，都来为我送行， \n要走的要留的，各人把酒喝干。 \n敬请诸位朋友，问问东去流水， \n它比离情别绪，到底谁短谁长？",
+    "audio": "assets/audio/recite/309.mp3"
+}

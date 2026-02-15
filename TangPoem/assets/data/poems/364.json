@@ -1,0 +1,28 @@
+{
+    "id": 364,
+    "title": "塞下曲·鹫翎金仆姑",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "鹫翎金仆姑",
+            "pinyin": "jiù líng jīn pú gū"
+        },
+        {
+            "text": "燕尾绣蝥弧",
+            "pinyin": "yàn wěi xiù máo hú"
+        },
+        {
+            "text": "独立扬新令",
+            "pinyin": "dú lì yáng xīn lìng"
+        },
+        {
+            "text": "千营共一呼",
+            "pinyin": "qiān yíng gòng yī hū"
+        }
+    ],
+    "annotation": "①鹫：大鹰；\n　　②翎：羽毛；\n　　③金仆姑：箭名。\n　　④燕尾：旗上的飘带；\n　　⑤蝥弧：旗名。",
+    "translation": "身佩雕羽制成的金仆姑好箭，\n　　旌旗上扎成燕尾蝥弧多鲜艳。\n　　大将军威严地屹立发号施令，\n　　千军万马一呼百应动地惊天。",
+    "audio": "assets/audio/recite/364.mp3"
+}

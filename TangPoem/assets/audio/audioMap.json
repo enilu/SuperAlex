@@ -1,0 +1,637 @@
+{
+  "version": "1.0.0",
+  "lastUpdate": "2026-02-15T08:28:39.191Z",
+  "totalPoems": 90,
+  "audioFiles": [
+    {
+      "id": 1,
+      "title": "静夜思",
+      "author": "李白",
+      "expectedFile": "001.mp3",
+      "searchKeywords": "静夜思 李白 朗诵"
+    },
+    {
+      "id": 2,
+      "title": "春晓",
+      "author": "孟浩然",
+      "expectedFile": "002.mp3",
+      "searchKeywords": "春晓 孟浩然 朗诵"
+    },
+    {
+      "id": 3,
+      "title": "咏鹅",
+      "author": "骆宾王",
+      "expectedFile": "003.mp3",
+      "searchKeywords": "咏鹅 骆宾王 朗诵"
+    },
+    {
+      "id": 4,
+      "title": "登鹳雀楼",
+      "author": "王之涣",
+      "expectedFile": "004.mp3",
+      "searchKeywords": "登鹳雀楼 王之涣 朗诵"
+    },
+    {
+      "id": 5,
+      "title": "悯农",
+      "author": "李绅",
+      "expectedFile": "005.mp3",
+      "searchKeywords": "悯农 李绅 朗诵"
+    },
+    {
+      "id": 6,
+      "title": "相思",
+      "author": "王维",
+      "expectedFile": "006.mp3",
+      "searchKeywords": "相思 王维 朗诵"
+    },
+    {
+      "id": 7,
+      "title": "江雪",
+      "author": "柳宗元",
+      "expectedFile": "007.mp3",
+      "searchKeywords": "江雪 柳宗元 朗诵"
+    },
+    {
+      "id": 8,
+      "title": "寻隐者不遇",
+      "author": "贾岛",
+      "expectedFile": "008.mp3",
+      "searchKeywords": "寻隐者不遇 贾岛 朗诵"
+    },
+    {
+      "id": 9,
+      "title": "鹿柴",
+      "author": "王维",
+      "expectedFile": "009.mp3",
+      "searchKeywords": "鹿柴 王维 朗诵"
+    },
+    {
+      "id": 10,
+      "title": "竹里馆",
+      "author": "王维",
+      "expectedFile": "010.mp3",
+      "searchKeywords": "竹里馆 王维 朗诵"
+    },
+    {
+      "id": 11,
+      "title": "送别",
+      "author": "王维",
+      "expectedFile": "011.mp3",
+      "searchKeywords": "送别 王维 朗诵"
+    },
+    {
+      "id": 12,
+      "title": "宿建德江",
+      "author": "孟浩然",
+      "expectedFile": "012.mp3",
+      "searchKeywords": "宿建德江 孟浩然 朗诵"
+    },
+    {
+      "id": 13,
+      "title": "渡汉江",
+      "author": "李频",
+      "expectedFile": "013.mp3",
+      "searchKeywords": "渡汉江 李频 朗诵"
+    },
+    {
+      "id": 14,
+      "title": "问刘十九",
+      "author": "白居易",
+      "expectedFile": "014.mp3",
+      "searchKeywords": "问刘十九 白居易 朗诵"
+    },
+    {
+      "id": 15,
+      "title": "绝句二首·其二",
+      "author": "杜甫",
+      "expectedFile": "015.mp3",
+      "searchKeywords": "绝句二首·其二 杜甫 朗诵"
+    },
+    {
+      "id": 16,
+      "title": "早发白帝城",
+      "author": "李白",
+      "expectedFile": "016.mp3",
+      "searchKeywords": "早发白帝城 李白 朗诵"
+    },
+    {
+      "id": 17,
+      "title": "望庐山瀑布",
+      "author": "李白",
+      "expectedFile": "017.mp3",
+      "searchKeywords": "望庐山瀑布 李白 朗诵"
+    },
+    {
+      "id": 18,
+      "title": "赠汪伦",
+      "author": "李白",
+      "expectedFile": "018.mp3",
+      "searchKeywords": "赠汪伦 李白 朗诵"
+    },
+    {
+      "id": 19,
+      "title": "黄鹤楼送孟浩然之广陵",
+      "author": "李白",
+      "expectedFile": "019.mp3",
+      "searchKeywords": "黄鹤楼送孟浩然之广陵 李白 朗诵"
+    },
+    {
+      "id": 20,
+      "title": "望天门山",
+      "author": "李白",
+      "expectedFile": "020.mp3",
+      "searchKeywords": "望天门山 李白 朗诵"
+    },
+    {
+      "id": 21,
+      "title": "独坐敬亭山",
+      "author": "李白",
+      "expectedFile": "021.mp3",
+      "searchKeywords": "独坐敬亭山 李白 朗诵"
+    },
+    {
+      "id": 22,
+      "title": "绝句四首·其三",
+      "author": "杜甫",
+      "expectedFile": "022.mp3",
+      "searchKeywords": "绝句四首·其三 杜甫 朗诵"
+    },
+    {
+      "id": 23,
+      "title": "春夜喜雨",
+      "author": "杜甫",
+      "expectedFile": "023.mp3",
+      "searchKeywords": "春夜喜雨 杜甫 朗诵"
+    },
+    {
+      "id": 24,
+      "title": "绝句漫兴九首·其五",
+      "author": "杜甫",
+      "expectedFile": "024.mp3",
+      "searchKeywords": "绝句漫兴九首·其五 杜甫 朗诵"
+    },
+    {
+      "id": 25,
+      "title": "江畔独步寻花七绝句·其五",
+      "author": "杜甫",
+      "expectedFile": "025.mp3",
+      "searchKeywords": "江畔独步寻花七绝句·其五 杜甫 朗诵"
+    },
+    {
+      "id": 26,
+      "title": "逢雪宿芙蓉山主人",
+      "author": "刘长卿",
+      "expectedFile": "026.mp3",
+      "searchKeywords": "逢雪宿芙蓉山主人 刘长卿 朗诵"
+    },
+    {
+      "id": 27,
+      "title": "枫桥夜泊",
+      "author": "张继",
+      "expectedFile": "027.mp3",
+      "searchKeywords": "枫桥夜泊 张继 朗诵"
+    },
+    {
+      "id": 28,
+      "title": "寒食",
+      "author": "韩翃",
+      "expectedFile": "028.mp3",
+      "searchKeywords": "寒食 韩翃 朗诵"
+    },
+    {
+      "id": 29,
+      "title": "滁州西涧",
+      "author": "韦应物",
+      "expectedFile": "029.mp3",
+      "searchKeywords": "滁州西涧 韦应物 朗诵"
+    },
+    {
+      "id": 30,
+      "title": "游子吟",
+      "author": "孟郊",
+      "expectedFile": "030.mp3",
+      "searchKeywords": "游子吟 孟郊 朗诵"
+    },
+    {
+      "id": 31,
+      "title": "望月怀远",
+      "author": "张九龄",
+      "expectedFile": "031.mp3",
+      "searchKeywords": "望月怀远 张九龄 朗诵"
+    },
+    {
+      "id": 32,
+      "title": "送杜少府之任蜀州",
+      "author": "王勃",
+      "expectedFile": "032.mp3",
+      "searchKeywords": "送杜少府之任蜀州 王勃 朗诵"
+    },
+    {
+      "id": 33,
+      "title": "题破山寺后禅院",
+      "author": "常建",
+      "expectedFile": "033.mp3",
+      "searchKeywords": "题破山寺后禅院 常建 朗诵"
+    },
+    {
+      "id": 34,
+      "title": "蝉",
+      "author": "虞世南",
+      "expectedFile": "034.mp3",
+      "searchKeywords": "蝉 虞世南 朗诵"
+    },
+    {
+      "id": 35,
+      "title": "野望",
+      "author": "王绩",
+      "expectedFile": "035.mp3",
+      "searchKeywords": "野望 王绩 朗诵"
+    },
+    {
+      "id": 36,
+      "title": "黄鹤楼",
+      "author": "崔颢",
+      "expectedFile": "036.mp3",
+      "searchKeywords": "黄鹤楼 崔颢 朗诵"
+    },
+    {
+      "id": 37,
+      "title": "蜀相",
+      "author": "杜甫",
+      "expectedFile": "037.mp3",
+      "searchKeywords": "蜀相 杜甫 朗诵"
+    },
+    {
+      "id": 38,
+      "title": "客至",
+      "author": "杜甫",
+      "expectedFile": "038.mp3",
+      "searchKeywords": "客至 杜甫 朗诵"
+    },
+    {
+      "id": 39,
+      "title": "登高",
+      "author": "杜甫",
+      "expectedFile": "039.mp3",
+      "searchKeywords": "登高 杜甫 朗诵"
+    },
+    {
+      "id": 40,
+      "title": "登楼",
+      "author": "杜甫",
+      "expectedFile": "040.mp3",
+      "searchKeywords": "登楼 杜甫 朗诵"
+    },
+    {
+      "id": 41,
+      "title": "乌衣巷",
+      "author": "刘禹锡",
+      "expectedFile": "041.mp3",
+      "searchKeywords": "乌衣巷 刘禹锡 朗诵"
+    },
+    {
+      "id": 42,
+      "title": "浪淘沙",
+      "author": "刘禹锡",
+      "expectedFile": "042.mp3",
+      "searchKeywords": "浪淘沙 刘禹锡 朗诵"
+    },
+    {
+      "id": 43,
+      "title": "竹枝词",
+      "author": "刘禹锡",
+      "expectedFile": "043.mp3",
+      "searchKeywords": "竹枝词 刘禹锡 朗诵"
+    },
+    {
+      "id": 44,
+      "title": "赋得古原草送别",
+      "author": "白居易",
+      "expectedFile": "044.mp3",
+      "searchKeywords": "赋得古原草送别 白居易 朗诵"
+    },
+    {
+      "id": 45,
+      "title": "忆江南",
+      "author": "白居易",
+      "expectedFile": "045.mp3",
+      "searchKeywords": "忆江南 白居易 朗诵"
+    },
+    {
+      "id": 46,
+      "title": "暮江吟",
+      "author": "白居易",
+      "expectedFile": "046.mp3",
+      "searchKeywords": "暮江吟 白居易 朗诵"
+    },
+    {
+      "id": 47,
+      "title": "池上",
+      "author": "白居易",
+      "expectedFile": "047.mp3",
+      "searchKeywords": "池上 白居易 朗诵"
+    },
+    {
+      "id": 48,
+      "title": "大林寺桃花",
+      "author": "白居易",
+      "expectedFile": "048.mp3",
+      "searchKeywords": "大林寺桃花 白居易 朗诵"
+    },
+    {
+      "id": 49,
+      "title": "南园十三首·其五",
+      "author": "李贺",
+      "expectedFile": "049.mp3",
+      "searchKeywords": "南园十三首·其五 李贺 朗诵"
+    },
+    {
+      "id": 50,
+      "title": "马诗二十三首·其五",
+      "author": "李贺",
+      "expectedFile": "050.mp3",
+      "searchKeywords": "马诗二十三首·其五 李贺 朗诵"
+    },
+    {
+      "id": 51,
+      "title": "春望",
+      "author": "杜甫",
+      "expectedFile": "051.mp3",
+      "searchKeywords": "春望 杜甫 朗诵"
+    },
+    {
+      "id": 52,
+      "title": "茅屋为秋风所破歌",
+      "author": "杜甫",
+      "expectedFile": "052.mp3",
+      "searchKeywords": "茅屋为秋风所破歌 杜甫 朗诵"
+    },
+    {
+      "id": 53,
+      "title": "兵车行",
+      "author": "杜甫",
+      "expectedFile": "053.mp3",
+      "searchKeywords": "兵车行 杜甫 朗诵"
+    },
+    {
+      "id": 54,
+      "title": "赠卫八处士",
+      "author": "杜甫",
+      "expectedFile": "054.mp3",
+      "searchKeywords": "赠卫八处士 杜甫 朗诵"
+    },
+    {
+      "id": 55,
+      "title": "旅夜书怀",
+      "author": "杜甫",
+      "expectedFile": "055.mp3",
+      "searchKeywords": "旅夜书怀 杜甫 朗诵"
+    },
+    {
+      "id": 56,
+      "title": "蜀先主庙",
+      "author": "杜甫",
+      "expectedFile": "056.mp3",
+      "searchKeywords": "蜀先主庙 杜甫 朗诵"
+    },
+    {
+      "id": 57,
+      "title": "八阵图",
+      "author": "杜甫",
+      "expectedFile": "057.mp3",
+      "searchKeywords": "八阵图 杜甫 朗诵"
+    },
+    {
+      "id": 58,
+      "title": "咏怀古迹五首·其三",
+      "author": "杜甫",
+      "expectedFile": "058.mp3",
+      "searchKeywords": "咏怀古迹五首·其三 杜甫 朗诵"
+    },
+    {
+      "id": 59,
+      "title": "阁夜",
+      "author": "杜甫",
+      "expectedFile": "059.mp3",
+      "searchKeywords": "阁夜 杜甫 朗诵"
+    },
+    {
+      "id": 60,
+      "title": "登岳阳楼",
+      "author": "杜甫",
+      "expectedFile": "060.mp3",
+      "searchKeywords": "登岳阳楼 杜甫 朗诵"
+    },
+    {
+      "id": 61,
+      "title": "江雪",
+      "author": "柳宗元",
+      "expectedFile": "061.mp3",
+      "searchKeywords": "江雪 柳宗元 朗诵"
+    },
+    {
+      "id": 62,
+      "title": "与浩初上人同看山寄京华亲故",
+      "author": "柳宗元",
+      "expectedFile": "062.mp3",
+      "searchKeywords": "与浩初上人同看山寄京华亲故 柳宗元 朗诵"
+    },
+    {
+      "id": 63,
+      "title": "塞下曲六首·其二",
+      "author": "卢纶",
+      "expectedFile": "063.mp3",
+      "searchKeywords": "塞下曲六首·其二 卢纶 朗诵"
+    },
+    {
+      "id": 64,
+      "title": "塞下曲六首·其三",
+      "author": "卢纶",
+      "expectedFile": "064.mp3",
+      "searchKeywords": "塞下曲六首·其三 卢纶 朗诵"
+    },
+    {
+      "id": 65,
+      "title": "题诗后",
+      "author": "卢纶",
+      "expectedFile": "065.mp3",
+      "searchKeywords": "题诗后 卢纶 朗诵"
+    },
+    {
+      "id": 66,
+      "title": "送李端",
+      "author": "卢纶",
+      "expectedFile": "066.mp3",
+      "searchKeywords": "送李端 卢纶 朗诵"
+    },
+    {
+      "id": 67,
+      "title": "晚次鄂州",
+      "author": "卢纶",
+      "expectedFile": "067.mp3",
+      "searchKeywords": "晚次鄂州 卢纶 朗诵"
+    },
+    {
+      "id": 68,
+      "title": "夜上受降城闻笛",
+      "author": "李益",
+      "expectedFile": "068.mp3",
+      "searchKeywords": "夜上受降城闻笛 李益 朗诵"
+    },
+    {
+      "id": 69,
+      "title": "江南曲",
+      "author": "李益",
+      "expectedFile": "069.mp3",
+      "searchKeywords": "江南曲 李益 朗诵"
+    },
+    {
+      "id": 70,
+      "title": "喜见外弟又言别",
+      "author": "李益",
+      "expectedFile": "070.mp3",
+      "searchKeywords": "喜见外弟又言别 李益 朗诵"
+    },
+    {
+      "id": 71,
+      "title": "凉州词",
+      "author": "王翰",
+      "expectedFile": "071.mp3",
+      "searchKeywords": "凉州词 王翰 朗诵"
+    },
+    {
+      "id": 72,
+      "title": "凉州词",
+      "author": "王之涣",
+      "expectedFile": "072.mp3",
+      "searchKeywords": "凉州词 王之涣 朗诵"
+    },
+    {
+      "id": 73,
+      "title": "从军行",
+      "author": "王昌龄",
+      "expectedFile": "073.mp3",
+      "searchKeywords": "从军行 王昌龄 朗诵"
+    },
+    {
+      "id": 74,
+      "title": "出塞",
+      "author": "王昌龄",
+      "expectedFile": "074.mp3",
+      "searchKeywords": "出塞 王昌龄 朗诵"
+    },
+    {
+      "id": 75,
+      "title": "芙蓉楼送辛渐",
+      "author": "王昌龄",
+      "expectedFile": "075.mp3",
+      "searchKeywords": "芙蓉楼送辛渐 王昌龄 朗诵"
+    },
+    {
+      "id": 76,
+      "title": "采莲曲",
+      "author": "王昌龄",
+      "expectedFile": "076.mp3",
+      "searchKeywords": "采莲曲 王昌龄 朗诵"
+    },
+    {
+      "id": 77,
+      "title": "塞上曲",
+      "author": "王昌龄",
+      "expectedFile": "077.mp3",
+      "searchKeywords": "塞上曲 王昌龄 朗诵"
+    },
+    {
+      "id": 78,
+      "title": "别董大",
+      "author": "高适",
+      "expectedFile": "078.mp3",
+      "searchKeywords": "别董大 高适 朗诵"
+    },
+    {
+      "id": 79,
+      "title": "营州歌",
+      "author": "高适",
+      "expectedFile": "079.mp3",
+      "searchKeywords": "营州歌 高适 朗诵"
+    },
+    {
+      "id": 80,
+      "title": "除夜作",
+      "author": "高适",
+      "expectedFile": "080.mp3",
+      "searchKeywords": "除夜作 高适 朗诵"
+    },
+    {
+      "id": 81,
+      "title": "白雪歌送武判官归京",
+      "author": "岑参",
+      "expectedFile": "081.mp3",
+      "searchKeywords": "白雪歌送武判官归京 岑参 朗诵"
+    },
+    {
+      "id": 82,
+      "title": "逢入京使",
+      "author": "岑参",
+      "expectedFile": "082.mp3",
+      "searchKeywords": "逢入京使 岑参 朗诵"
+    },
+    {
+      "id": 83,
+      "title": "走马川行奉送出师西征",
+      "author": "岑参",
+      "expectedFile": "083.mp3",
+      "searchKeywords": "走马川行奉送出师西征 岑参 朗诵"
+    },
+    {
+      "id": 84,
+      "title": "山房春事",
+      "author": "岑参",
+      "expectedFile": "084.mp3",
+      "searchKeywords": "山房春事 岑参 朗诵"
+    },
+    {
+      "id": 85,
+      "title": "碛中作",
+      "author": "岑参",
+      "expectedFile": "085.mp3",
+      "searchKeywords": "碛中作 岑参 朗诵"
+    },
+    {
+      "id": 86,
+      "title": "寄韩惺",
+      "author": "岑参",
+      "expectedFile": "086.mp3",
+      "searchKeywords": "寄韩惺 岑参 朗诵"
+    },
+    {
+      "id": 87,
+      "title": "春梦",
+      "author": "岑参",
+      "expectedFile": "087.mp3",
+      "searchKeywords": "春梦 岑参 朗诵"
+    },
+    {
+      "id": 88,
+      "title": "李白墓",
+      "author": "岑参",
+      "expectedFile": "088.mp3",
+      "searchKeywords": "李白墓 岑参 朗诵"
+    },
+    {
+      "id": 89,
+      "title": "题三闾寺",
+      "author": "岑参",
+      "expectedFile": "089.mp3",
+      "searchKeywords": "题三闾寺 岑参 朗诵"
+    },
+    {
+      "id": 90,
+      "title": "轮台歌奉送封大夫出师西征",
+      "author": "岑参",
+      "expectedFile": "090.mp3",
+      "searchKeywords": "轮台歌奉送封大夫出师西征 岑参 朗诵"
+    }
+  ]
+}

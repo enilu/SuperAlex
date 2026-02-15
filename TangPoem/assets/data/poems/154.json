@@ -1,0 +1,44 @@
+{
+    "id": 154,
+    "title": "酬张少府",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "晚年惟好静",
+            "pinyin": "wǎn nián wéi hào jìng"
+        },
+        {
+            "text": "万事不关心",
+            "pinyin": "wàn shì bù guān xīn"
+        },
+        {
+            "text": "自顾无长策",
+            "pinyin": "zì gù wú cháng cè"
+        },
+        {
+            "text": "空知返旧林",
+            "pinyin": "kòng zhī fǎn jiù lín"
+        },
+        {
+            "text": "松风吹解带",
+            "pinyin": "sōng fēng chuī jiě dài"
+        },
+        {
+            "text": "山月照弹琴",
+            "pinyin": "shān yuè zhào tán qín"
+        },
+        {
+            "text": "君问穷通理",
+            "pinyin": "jūn wèn qióng tōng lǐ"
+        },
+        {
+            "text": "渔歌入浦深",
+            "pinyin": "yú gē rù pǔ shēn"
+        }
+    ],
+    "annotation": "１、吹解带：吹着诗人宽衣解带时的闲散心情。\n２、君问两句：这是劝张少府达观，也即要他象渔樵那样，不因穷通而有得失之患。",
+    "translation": "晚年只图个安静的环境，\n对世事件件都不太关心。\n自认没有高策可以报国，\n只好归隐到这幽静山林。\n松风吹拂我且宽衣解带，\n山月高照正好弄弦弹琴。\n君若问穷困通达的道理，\n请听水边深处渔歌声音！",
+    "audio": "assets/audio/recite/154.mp3"
+}

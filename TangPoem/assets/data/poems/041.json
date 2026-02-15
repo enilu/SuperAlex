@@ -1,0 +1,28 @@
+{
+    "id": 41,
+    "title": "乌衣巷",
+    "author": "刘禹锡",
+    "dynasty": "唐",
+    "grade": "小学六年级",
+    "content": [
+        {
+            "text": "朱雀桥边野草花",
+            "pinyin": "zhū què qiáo biān yě cǎo huā"
+        },
+        {
+            "text": "乌衣巷口夕阳斜",
+            "pinyin": "wū yī xiàng kǒu xī yáng xié"
+        },
+        {
+            "text": "旧时王谢堂前燕",
+            "pinyin": "jiù shí wáng xiè táng qián yàn"
+        },
+        {
+            "text": "飞入寻常百姓家",
+            "pinyin": "fēi rù xún cháng bǎi xìng jiā"
+        }
+    ],
+    "annotation": "１、乌衣巷：南京，晋朝王导、谢安两大家族居住此地，其弟子都穿乌衣，因此得名。\n２、朱雀桥：今江苏省江宁县，横跨淮河。",
+    "translation": "朱雀桥边冷落荒凉长满野草野花，\n乌衣巷口断壁残垣正是夕阳西斜。\n晋代时王导谢安两家的堂前紫燕，\n而今筑巢却飞入寻常老百姓之家。",
+    "audio": "assets/audio/recite/041.mp3"
+}

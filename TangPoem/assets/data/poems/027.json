@@ -1,0 +1,28 @@
+{
+    "id": 27,
+    "title": "枫桥夜泊",
+    "author": "张继",
+    "dynasty": "唐",
+    "grade": "小学四年级",
+    "content": [
+        {
+            "text": "月落乌啼霜满天",
+            "pinyin": "yuè luò wū tí shuāng mǎn tiān"
+        },
+        {
+            "text": "江枫渔火对愁眠",
+            "pinyin": "jiāng fēng yú huǒ duì chóu mián"
+        },
+        {
+            "text": "姑苏城外寒山寺",
+            "pinyin": "gū sū chéng wài hán shān sì"
+        },
+        {
+            "text": "夜半钟声到客船",
+            "pinyin": "yè bàn zhōng shēng dào kè chuán"
+        }
+    ],
+    "annotation": "１、渔火：渔船上的灯火。\n２、姑苏：今江苏省苏州市。\n３、寒山寺：苏州枫桥附近的寺院。",
+    "translation": "明月西落秋霜满天，几声乌啼山前；\n江上渔火映红枫树，愁绪搅我难眠。\n呵，苏州城外那闻名海内的寒山寺；\n夜半钟声，漫悠悠地飘到我的船边。",
+    "audio": "assets/audio/recite/027.mp3"
+}

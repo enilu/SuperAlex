@@ -1,0 +1,28 @@
+{
+    "id": 110,
+    "title": "春宫曲",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "昨夜风开露井桃",
+            "pinyin": "zuó yè fēng kāi lù jǐng táo"
+        },
+        {
+            "text": "未央前殿月轮高",
+            "pinyin": "wèi yāng qián diàn yuè lún gāo"
+        },
+        {
+            "text": "平阳歌舞新承宠",
+            "pinyin": "píng yáng gē wǔ xīn chéng chǒng"
+        },
+        {
+            "text": "帘外春寒赐锦袍",
+            "pinyin": "lián wài chūn hán cì jǐn páo"
+        }
+    ],
+    "annotation": "１、未央：汉宫殿名，也指唐宫。\n２、平阳歌舞：平阳公主家中的歌女。",
+    "translation": "昨夜春风吹开了露井边的桃花，\n未央宫前殿明月高照一片光华。\n平阳公主的歌女新受武帝宠幸，\n帘外春正寒皇上特把锦袍赐她。",
+    "audio": "assets/audio/recite/110.mp3"
+}

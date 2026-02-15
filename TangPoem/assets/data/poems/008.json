@@ -1,0 +1,28 @@
+{
+    "id": 8,
+    "title": "寻隐者不遇",
+    "author": "贾岛",
+    "dynasty": "唐",
+    "grade": "小学二年级",
+    "content": [
+        {
+            "text": "松下问童子",
+            "pinyin": "sōng xià wèn tóng zǐ"
+        },
+        {
+            "text": "言师采药去",
+            "pinyin": "yán shī cǎi yào qù"
+        },
+        {
+            "text": "只在此山中",
+            "pinyin": "zhǐ zài cǐ shān zhōng"
+        },
+        {
+            "text": "云深不知处",
+            "pinyin": "yún shēn bù zhī chù"
+        }
+    ],
+    "annotation": "１、云深：指山深云雾浓。",
+    "translation": "苍松下，我询问了年少的学童；\n他说，师傅已经采药去了山中。\n他还对我说：就在这座大山里，\n可是林深云密，不知他的行踪。",
+    "audio": "assets/audio/recite/008.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 68,
+    "title": "夜上受降城闻笛",
+    "author": "李益",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        {
+            "text": "回乐峰前沙似雪",
+            "pinyin": "huí lè fēng qián shā sì xuě"
+        },
+        {
+            "text": "受降城外月如霜",
+            "pinyin": "shòu xiáng chéng wài yuè rú shuāng"
+        },
+        {
+            "text": "不知何处吹芦管",
+            "pinyin": "bù zhī hé chù chuī lú guǎn"
+        },
+        {
+            "text": "一夜征人尽望乡",
+            "pinyin": "yī yè zhēng rén jìn wàng xiāng"
+        }
+    ],
+    "annotation": "１、回乐峰：唐代有回乐县，在宁夏回族自治区灵武县西南。回乐峰即当地的山峰。\n２、受降城：唐代有东、中、西三座受降城，都在内蒙古自治区境内。\n３、芦管：笛子。",
+    "translation": "回乐峰前的沙地白得象雪，\n受降城外的月色有如秋霜。\n不知何处吹起凄凉的芦管，\n一夜间征人个个眺望故乡。",
+    "audio": "assets/audio/recite/068.mp3"
+}

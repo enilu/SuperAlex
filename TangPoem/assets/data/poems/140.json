@@ -1,0 +1,28 @@
+{
+    "id": 140,
+    "title": "陇西行",
+    "author": "陈陶",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "誓扫匈奴不顾身",
+            "pinyin": "shì sǎo xiōng nú bù gù shēn"
+        },
+        {
+            "text": "五千貂锦丧胡尘",
+            "pinyin": "wǔ qiān diāo jǐn sāng hú chén"
+        },
+        {
+            "text": "可怜无定河边骨",
+            "pinyin": "kě lián wú dìng hé biān gǔ"
+        },
+        {
+            "text": "犹是深闺梦里人",
+            "pinyin": "yóu shì shēn guī mèng lǐ rén"
+        }
+    ],
+    "annotation": "１、陇西行：古代歌曲名。\n２、貂锦：这里指战士。\n３、无定河：在陕西北部。\n４、深闺：这里指战死者的妻子。",
+    "translation": "唐军将士誓死横扫匈奴奋不顾身；\n五千身穿锦袍的精兵战死在胡尘。\n真可怜呵那无定河边成堆的白骨，\n还是少妇们梦中相依相伴的恋人。",
+    "audio": "assets/audio/recite/140.mp3"
+}

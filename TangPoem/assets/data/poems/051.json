@@ -1,0 +1,44 @@
+{
+    "id": 51,
+    "title": "春望",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        {
+            "text": "国破山河在",
+            "pinyin": "guó pò shān hé zài"
+        },
+        {
+            "text": "城春草木深",
+            "pinyin": "chéng chūn cǎo mù shēn"
+        },
+        {
+            "text": "感时花溅泪",
+            "pinyin": "gǎn shí huā jiàn lèi"
+        },
+        {
+            "text": "恨别鸟惊心",
+            "pinyin": "hèn bié niǎo jīng xīn"
+        },
+        {
+            "text": "烽火连三月",
+            "pinyin": "fēng huǒ lián sān yuè"
+        },
+        {
+            "text": "家书抵万金",
+            "pinyin": "jiā shū dǐ wàn jīn"
+        },
+        {
+            "text": "白头搔更短",
+            "pinyin": "bái tóu sāo gèng duǎn"
+        },
+        {
+            "text": "浑欲不胜簪",
+            "pinyin": "hún yù bù shèng zān"
+        }
+    ],
+    "annotation": "１、国破：指国都长安被叛军占领。\n２、感时句：因感叹时事，见到花也会流泪。\n３、浑：简直。\n４、不胜簪：因头发短少，连簪子也插不上。",
+    "translation": "长安沦陷国家破碎，只有山河依旧，\n春天来了城空人稀，草木茂密深沉。\n感伤国事面对繁花，难禁涕泪四溅，\n亲人离散鸟鸣惊心，反觉增加离恨。\n立春以来战火频连，已经蔓延三月，\n家在州音讯难得，一信抵值万金。\n愁绪缠绕搔头思考，白发越搔越短，\n头发脱落既短又少，简直不能插簪。",
+    "audio": "assets/audio/recite/051.mp3"
+}

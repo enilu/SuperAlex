@@ -1,0 +1,28 @@
+{
+    "id": 115,
+    "title": "贾生",
+    "author": "李商隐",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "宣室求贤访逐臣",
+            "pinyin": "xuān shì qiú xián fǎng zhú chén"
+        },
+        {
+            "text": "贾生才调更无伦",
+            "pinyin": "jiǎ shēng cái tiáo gèng wú lún"
+        },
+        {
+            "text": "可怜夜半虚前席",
+            "pinyin": "kě lián yè bàn xū qián xí"
+        },
+        {
+            "text": "不问苍生问鬼神",
+            "pinyin": "bù wèn cāng shēng wèn guǐ shén"
+        }
+    ],
+    "annotation": "１、宣室：汉未央宫前正室；\n２、逐臣：指<strong>贾谊</strong>曾被贬谪。\n３、才调：才气。",
+    "translation": "汉文帝在宣室求问被贬谪的贤臣，\n贾谊的才华和格调更是无可比伦。\n谈至深夜汉文帝挪动双膝靠近他，\n可惜他不垂询民生却是穷究鬼神。",
+    "audio": "assets/audio/recite/115.mp3"
+}

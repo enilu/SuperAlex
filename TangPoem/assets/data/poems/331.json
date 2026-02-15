@@ -1,0 +1,28 @@
+{
+    "id": 331,
+    "title": "长信怨",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "奉帚平明金殿开",
+            "pinyin": "fèng zhǒu píng míng jīn diàn kāi"
+        },
+        {
+            "text": "暂将团扇共徘徊",
+            "pinyin": "zàn jiāng tuán shàn gòng pái huái"
+        },
+        {
+            "text": "玉颜不及寒鸦色",
+            "pinyin": "yù yán bù jí hán yā sè"
+        },
+        {
+            "text": "犹带昭阳日影来",
+            "pinyin": "yóu dài zhāo yáng rì yǐng lái"
+        }
+    ],
+    "annotation": "１、奉帚句：意为清早殿门一开，就捧着扫帚在打扫。\n２、团扇：相传班婕妤曾作《团扇苻》。\n３、日影：这里也指皇帝的恩意。",
+    "translation": "清晨金殿初开，就拿着扫帚扫殿堂；\n姑且手执团扇徘徊度日，消磨时光。\n即使颜白如玉，还不如丑陋的寒鸦；\n它飞还昭阳殿，还带君王的日影来。",
+    "audio": "assets/audio/recite/331.mp3"
+}

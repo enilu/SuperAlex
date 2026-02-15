@@ -1,0 +1,28 @@
+{
+    "id": 136,
+    "title": "题金陵渡",
+    "author": "张祜",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "金陵津渡小山楼",
+            "pinyin": "jīn líng jīn dù xiǎo shān lóu"
+        },
+        {
+            "text": "一宿行人自可愁",
+            "pinyin": "yī sù xíng rén zì kě chóu"
+        },
+        {
+            "text": "潮落夜江斜月里",
+            "pinyin": "cháo luò yè jiāng xié yuè lǐ"
+        },
+        {
+            "text": "两三星火是瓜州",
+            "pinyin": "liǎng sān xīng huǒ shì guā zhōu"
+        }
+    ],
+    "annotation": "１、金陵：南京。\n２、津渡：渡口。\n３、瓜州：今江苏邗江县南边。",
+    "translation": "在镇江附近金陵渡口的小山楼，\n我一夜不能入眠心中自有忧愁。\n月光西斜的时候江潮刚刚退落，\n隔岸几点星火闪烁可能是瓜州？",
+    "audio": "assets/audio/recite/136.mp3"
+}

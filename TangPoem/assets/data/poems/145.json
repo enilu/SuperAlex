@@ -1,0 +1,28 @@
+{
+    "id": 145,
+    "title": "春怨·纱窗日落渐黄昏",
+    "author": "刘方平",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "纱窗日落渐黄昏",
+            "pinyin": "shā chuāng rì luò jiàn huáng hūn"
+        },
+        {
+            "text": "金屋无人见泪痕",
+            "pinyin": "jīn wū wú rén jiàn lèi hén"
+        },
+        {
+            "text": "寂寞空庭春欲晚",
+            "pinyin": "jì mò kòng tíng chūn yù wǎn"
+        },
+        {
+            "text": "梨花满地不开门",
+            "pinyin": "lí huā mǎn dì bù kāi mén"
+        }
+    ],
+    "annotation": "金屋：原指汉武帝少时欲金屋藏阿娇事。这里指妃嫔所住的华丽宫室。",
+    "translation": "纱窗外的阳光淡去，黄昏渐渐降临； \n　　锁闭华屋，无人看见我悲哀的泪痕。 \n　　庭院空旷寂寞，春天景色行将逝尽； \n　　梨花飘落满地，无情无绪把门关紧。",
+    "audio": "assets/audio/recite/145.mp3"
+}

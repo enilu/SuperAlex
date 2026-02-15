@@ -1,0 +1,16 @@
+{
+    "id": 80,
+    "title": "除夜作",
+    "author": "高适",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "旅馆寒灯独不眠", "pinyin": "lǚ guǎn hán dēng dú bù mián" },
+        { "text": "客心何事转凄然", "pinyin": "kè xīn hé shì zhuǎn qī rán" },
+        { "text": "故乡今夜思千里", "pinyin": "gù xiāng jīn yè sī qiān lǐ" },
+        { "text": "霜鬓明朝又一年", "pinyin": "shuāng bìn míng zhāo yòu yī nián" }
+    ],
+    "annotation": "除夜：除夕夜",
+    "translation": "旅馆里寒灯独自难眠，客居的心为何变得凄凉。故乡今夜正思念千里之外的游子，明朝我又将增加一岁。",
+    "audio": "assets/audio/recite/080.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 366,
+    "title": "塞下曲·月黑雁飞高",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "月黑雁飞高",
+            "pinyin": "yuè hēi yàn fēi gāo"
+        },
+        {
+            "text": "单于夜遁逃",
+            "pinyin": "chán yú yè dùn táo"
+        },
+        {
+            "text": "欲将轻骑逐",
+            "pinyin": "yù jiāng qīng qí zhú"
+        },
+        {
+            "text": "大雪满弓刀",
+            "pinyin": "dà xuě mǎn gōng dāo"
+        }
+    ],
+    "annotation": "１、单于：敌人的首领。",
+    "translation": "夜静月黑雁群飞得很高，\n单于趁黑夜悄悄地窜逃。\n正要带领轻骑兵去追赶，\n大雪纷飞落满身上弓刀。",
+    "audio": "assets/audio/recite/366.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 44,
+    "title": "赋得古原草送别",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学三年级",
+    "content": [
+        {
+            "text": "离离原上草",
+            "pinyin": "lí lí yuán shàng cǎo"
+        },
+        {
+            "text": "一岁一枯荣",
+            "pinyin": "yī suì yī kū róng"
+        },
+        {
+            "text": "野火烧不尽",
+            "pinyin": "yě huǒ shāo bú jìn"
+        },
+        {
+            "text": "春风吹又生",
+            "pinyin": "chūn fēng chuī yòu shēng"
+        },
+        {
+            "text": "远芳侵古道",
+            "pinyin": "yuǎn fāng qīn gǔ dào"
+        },
+        {
+            "text": "晴翠接荒城",
+            "pinyin": "qíng cuì jiē huāng chéng"
+        },
+        {
+            "text": "又送王孙去",
+            "pinyin": "yòu sòng wáng sūn qù"
+        },
+        {
+            "text": "萋萋满别情",
+            "pinyin": "qī qī mǎn bié qíng"
+        }
+    ],
+    "annotation": "1. 离离：繁盛的样子。 \n　　2. 原：原野。 \n　　3. 荣：繁盛。 \n　　4. 远芳侵古道：伸向远方的一片野草，侵占了古老的道路。远芳：牵连一片的草。 \n　　5. 晴翠接荒城：在晴天，一片绿色连接着荒城。 \n　　6. 又送王孙去，萋萋满别情：这两句借用《楚辞》“王孙游兮不归，春草生兮萋萋”的典故。王孙：贵族。这里指的是自己的朋友。萋萋：草盛的样子。",
+    "translation": "原野上长满茂盛的野草，每年一度枯萎一度繁荣。野火无法烧尽，春风吹又复生。远处野草的芳香侵染古道，阳光下的翠绿连接荒城。又送朋友远去，茂密的野草充满离别之情。",
+    "audio": "assets/audio/recite/044.mp3"
+}

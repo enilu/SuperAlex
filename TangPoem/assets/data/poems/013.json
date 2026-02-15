@@ -1,0 +1,28 @@
+{
+    "id": 13,
+    "title": "渡汉江",
+    "author": "李频",
+    "dynasty": "唐",
+    "grade": "小学四年级",
+    "content": [
+        {
+            "text": "岭外音书断",
+            "pinyin": "lǐng wài yīn shū duàn"
+        },
+        {
+            "text": "经冬复历春",
+            "pinyin": "jīng dōng fù lì chūn"
+        },
+        {
+            "text": "近乡情更怯",
+            "pinyin": "jìn xiāng qíng gèng qiè"
+        },
+        {
+            "text": "不敢问来人",
+            "pinyin": "bù gǎn wèn lái rén"
+        }
+    ],
+    "annotation": "１、岭外：大庾岭之外，就是广东。",
+    "translation": "久在岭南居住，家乡音讯全无；\n经历一个寒冬，又到立春时候。\n距离家乡越近，心中越发不安；\n遇人不敢相问，唯恐消息不祥。",
+    "audio": "assets/audio/recite/013.mp3"
+}

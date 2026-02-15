@@ -1,0 +1,20 @@
+{
+    "id": 56,
+    "title": "蜀先主庙",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "初中二年级",
+    "content": [
+        { "text": "蜀主窥吴幸三峡", "pinyin": "shǔ zhǔ kuī wú xìng sān xiá" },
+        { "text": "崩年亦在永安宫", "pinyin": "bēng nián yì zài yǒng ān gōng" },
+        { "text": "翠华想像空山里", "pinyin": "cuì huá xiǎng xiǎng kōng shān lǐ" },
+        { "text": "玉殿虚无野寺中", "pinyin": "yù diàn wú xū yě sì zhōng" },
+        { "text": "古庙杉松巢水鹤", "pinyin": "gǔ miào shān sōng cháo shuǐ hè" },
+        { "text": "岁时伏腊走村翁", "pinyin": "suì shí fú là zǒu cūn wēng" },
+        { "text": "武侯祠屋常邻近", "pinyin": "wǔ hòu cí wū cháng lín jìn" },
+        { "text": "一体君臣祭祀同", "pinyin": "yī tǐ jūn chén jì sì tóng" }
+    ],
+    "annotation": "蜀先主：刘备",
+    "translation": "蜀主刘备窥视东吴曾到过三峡，他驾崩那年也在永安宫。想象中的仪仗在空山里，玉殿虚无缥缈在野寺中。古庙杉松树上水鹤筑巢，每逢伏腊节日村翁祭祀。武侯祠堂常在先主庙邻近，君臣一体祭祀相同。",
+    "audio": "assets/audio/recite/056.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 266,
+    "title": "宫词",
+    "author": "薛逢",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "十二楼中尽晓妆",
+            "pinyin": "shí èr lóu zhōng jǐn xiǎo zhuāng"
+        },
+        {
+            "text": "望仙楼上望君王",
+            "pinyin": "wàng xiān lóu shàng wàng jūn wàng"
+        },
+        {
+            "text": "锁衔金兽连环冷",
+            "pinyin": "suǒ xián jīn shòu lián huán lěng"
+        },
+        {
+            "text": "水滴铜龙昼漏长",
+            "pinyin": "shuǐ dī tóng lóng zhòu lòu cháng"
+        },
+        {
+            "text": "云髻罢梳还对镜",
+            "pinyin": "yún jì bà shū hái duì jìng"
+        },
+        {
+            "text": "罗衣欲换更添香",
+            "pinyin": "luó yī yù huàn gèng tiān xiāng"
+        },
+        {
+            "text": "遥窥正殿帘开处",
+            "pinyin": "yáo kuī zhèng diàn lián kāi chǔ"
+        },
+        {
+            "text": "袍袴宫人扫御床",
+            "pinyin": "páo kù gōng rén sǎo yù chuáng"
+        }
+    ],
+    "annotation": "１、十二楼：指一清早宫人就在梳妆以待幸。\n２、望仙楼：意谓望君如望仙。\n３、水滴句：指铜壶滴漏，古时计时仪器。\n４、袍袴宫人：指穿着衣袴的宫女。",
+    "translation": "大清早，宫妃们在十二楼打扮梳妆；\n登上望仙楼台，盼望着临幸的君王。\n兽形门环紧锁宫门，内心十分凄怆；\n铜龙漏斗越滴越慢，坐待更觉日长。\n发髻梳理完毕，还要对镜反复端详，\n重换一件罗衣，注意加熏一些麝香。\n远远看见，正殿闪动人影启开珠帘；\n看见短袍绣裤宫女，正在打扫御床。",
+    "audio": "assets/audio/recite/266.mp3"
+}

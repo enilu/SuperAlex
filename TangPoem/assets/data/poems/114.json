@@ -1,0 +1,28 @@
+{
+    "id": 114,
+    "title": "近试上张水部",
+    "author": "朱庆馀",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "洞房昨夜停红烛",
+            "pinyin": "dòng fáng zuó yè tíng hóng zhú"
+        },
+        {
+            "text": "待晓堂前拜舅姑",
+            "pinyin": "dài xiǎo táng qián bài jiù gū"
+        },
+        {
+            "text": "妆罢低声问夫婿",
+            "pinyin": "zhuāng bà dī shēng wèn fū xù"
+        },
+        {
+            "text": "画眉深浅入时无",
+            "pinyin": "huà méi shēn qiǎn rù shí wú"
+        }
+    ],
+    "annotation": "１、舅姑：公婆。",
+    "translation": "洞房里昨夜花烛彻夜通明，\n等待拂晓拜公婆讨个好评。\n打扮好了轻轻问郎君一声：\n我的眉画得浓淡可合时兴？",
+    "audio": "assets/audio/recite/114.mp3"
+}

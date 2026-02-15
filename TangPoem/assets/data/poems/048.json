@@ -1,0 +1,16 @@
+{
+    "id": 48,
+    "title": "大林寺桃花",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学四年级",
+    "content": [
+        { "text": "人间四月芳菲尽", "pinyin": "rén jiān sì yuè fāng fēi jìn" },
+        { "text": "山寺桃花始盛开", "pinyin": "shān sì táo huā shǐ shèng kāi" },
+        { "text": "长恨春归无觅处", "pinyin": "cháng hèn chūn guī wú mì chù" },
+        { "text": "不知转入此中来", "pinyin": "bù zhī zhuǎn rù cǐ zhōng lái" }
+    ],
+    "annotation": "大林寺：庐山上的一座寺庙",
+    "translation": "人间四月百花已经凋谢，山寺中的桃花才刚刚盛开。常常遗憾春天回去后无处寻找，不知道春天已经转入到这大山中来。",
+    "audio": "assets/audio/recite/048.mp3"
+}

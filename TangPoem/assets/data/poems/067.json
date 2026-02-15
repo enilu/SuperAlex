@@ -1,0 +1,44 @@
+{
+    "id": 67,
+    "title": "晚次鄂州",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        {
+            "text": "云开远见汉阳城",
+            "pinyin": "yún kāi yuǎn jiàn hàn yáng chéng"
+        },
+        {
+            "text": "犹是孤帆一日程",
+            "pinyin": "yóu shì gū fān yī rì chéng"
+        },
+        {
+            "text": "估客昼眠知浪静",
+            "pinyin": "gū kè zhòu mián zhī làng jìng"
+        },
+        {
+            "text": "舟人夜语觉潮生",
+            "pinyin": "zhōu rén yè yǔ jué cháo shēng"
+        },
+        {
+            "text": "三湘愁鬓逢秋色",
+            "pinyin": "sān xiāng chóu bìn féng qiū sè"
+        },
+        {
+            "text": "万里归心对月明",
+            "pinyin": "wàn lǐ guī xīn duì yuè míng"
+        },
+        {
+            "text": "旧业已随征战尽",
+            "pinyin": "jiù yè yǐ suí zhēng zhàn jìn"
+        },
+        {
+            "text": "更堪江上鼓鼙声",
+            "pinyin": "gèng kān jiāng shàng gǔ pí shēng"
+        }
+    ],
+    "annotation": "１、估客：商人。\n２、舟人句：因为潮生，故而船家相呼，众声杂作。\n３、三湘：漓湘、潇湘、蒸湘的总称。在今湖南境内。由鄂州上去即三湘地。愁鬓逢秋色，是说愁鬓承受着秋色。这里的鬓发实已衰白，故也与秋意相应。\n４、更堪：更难堪，犹岂能再听。\n５、鼓鼙：本指军中所用大鼓与小鼓，后也指战事。",
+    "translation": "云开雾散，可以望见远远的汉阳城；\n估计起来，这孤舟还须一日的路程。\n商贾们白日睡觉，是知道风平浪静；\n船夫们夜里呼喊，才发觉水涨潮生。\n鬓发衰白，与三湘的秋色交相辉映；\n离家万里，一片归心伴着明月前行。\n我想起家业，早已随战争荡然无存；\n那堪再在江上，听到频繁的军鼓声？",
+    "audio": "assets/audio/recite/067.mp3"
+}

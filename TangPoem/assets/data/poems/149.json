@@ -1,0 +1,28 @@
+{
+    "id": 149,
+    "title": "宫词·玉楼天半起笙歌",
+    "author": "顾况",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "玉楼天半起笙歌",
+            "pinyin": "yù lóu tiān bàn qǐ shēng gē"
+        },
+        {
+            "text": "风送宫嫔笑语和",
+            "pinyin": "fēng sòng gōng pín xiào yù hé"
+        },
+        {
+            "text": "月殿影开闻夜漏",
+            "pinyin": "yuè diàn yǐng kāi wén yè lòu"
+        },
+        {
+            "text": "水晶帘卷近秋河",
+            "pinyin": "shuǐ jīng lián juàn jìn qiū hé"
+        }
+    ],
+    "annotation": "⑴闻夜漏：这里指夜深。\n　　⑵秋河：指银河。",
+    "translation": "高入云天的玉楼，奏起阵阵笙歌；\n　　随风飘来宫嫔的笑语，与它伴和。\n　　月宫影移，只听得夜漏单调嘀嗒；\n　　卷起水晶帘来，我似乎靠近银河。",
+    "audio": "assets/audio/recite/149.mp3"
+}

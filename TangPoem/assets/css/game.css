@@ -1,0 +1,1111 @@
+/* ==================== 全局样式 ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: #333;
+}
+
+/* ==================== 屏幕容器 ==================== */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* ==================== 通用组件 ==================== */
+.container {
+    text-align: center;
+    animation: fadeInUp 0.8s ease;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+/* ==================== 开始界面 ==================== */
+#startScreen {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.game-title {
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #ffe0f0;
+    margin-bottom: 2rem;
+}
+
+/* 模式选择容器 */
+.mode-selection {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.selection-title {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mode-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.mode-btn {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    color: #4a5568;
+    text-align: left;
+    width: 100%;
+    max-width: 350px;
+}
+
+.mode-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    background: #fff;
+}
+
+.mode-btn:active {
+    transform: translateY(-2px);
+}
+
+.mode-btn .icon {
+    font-size: 2.5rem;
+}
+
+.mode-btn .text {
+    font-size: 1.4rem;
+    color: #f5576c;
+    flex: 1;
+}
+
+/* ==================== 通用头部样式 ==================== */
+.screen-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.back-btn,
+.settings-btn,
+.catalog-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 15px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    color: #fff;
+}
+
+.back-btn:hover,
+.settings-btn:hover,
+.catalog-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.catalog-btn {
+    font-size: 1rem;
+}
+
+/* ==================== 诵读模式界面 ==================== */
+#reciteScreen {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    flex-direction: column;
+}
+
+.recite-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 5rem 1.5rem 2rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.poem-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+.poem-title {
+    font-size: 2rem;
+    color: #f5576c;
+    margin-bottom: 0.5rem;
+}
+
+.poem-author {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 1.5rem;
+}
+
+.poem-content {
+    margin-bottom: 1.5rem;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* 自定义滚动条样式 */
+.poem-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.poem-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.poem-content::-webkit-scrollbar-thumb {
+    background: rgba(245, 87, 108, 0.3);
+    border-radius: 4px;
+}
+
+.poem-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 87, 108, 0.5);
+}
+
+.poem-line {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.poem-line:last-child {
+    border-bottom: none;
+}
+
+.poem-line:hover {
+    background: #f9f9f9;
+}
+
+.poem-text {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.3rem;
+}
+
+.poem-pinyin {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.poem-translation {
+    padding-top: 1rem;
+    border-top: 2px dashed #f0f0f0;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 诵读控制按钮 */
+.recite-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.control-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 按钮背景渐变效果 */
+.control-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* 上一首按钮 - 温暖的橙粉色 */
+.prev-btn {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    box-shadow: 0 4px 15px rgba(252, 182, 159, 0.4);
+}
+
+.prev-btn::before {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    opacity: 0;
+}
+
+.prev-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(252, 182, 159, 0.5);
+}
+
+.prev-btn:hover::before {
+    opacity: 1;
+}
+
+/* 播放按钮 - 主色调，更大更突出 */
+.play-btn {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 6px 25px rgba(118, 75, 162, 0.4);
+}
+
+.play-btn::before {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    opacity: 0;
+}
+
+.play-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 30px rgba(118, 75, 162, 0.5);
+}
+
+.play-btn:hover::before {
+    opacity: 1;
+}
+
+/* 下一首按钮 - 温暖的橙粉色 */
+.next-btn {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    box-shadow: 0 4px 15px rgba(252, 182, 159, 0.4);
+}
+
+.next-btn::before {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    opacity: 0;
+}
+
+.next-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(252, 182, 159, 0.5);
+}
+
+.next-btn:hover::before {
+    opacity: 1;
+}
+
+/* 图标样式 - 使用相对定位确保在渐变背景之上 */
+.control-btn .icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 1;
+    color: #5d4e37;
+}
+
+.play-btn .icon {
+    width: 28px;
+    height: 28px;
+    color: #fff;
+}
+
+/* 暂停图标默认隐藏 */
+.play-btn .icon-pause {
+    display: none;
+}
+
+/* 播放状态切换 */
+.play-btn.playing .icon-play {
+    display: none;
+}
+
+.play-btn.playing .icon-pause {
+    display: block;
+}
+
+/* 点击效果 */
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+/* ==================== 闯关模式界面 ==================== */
+#gameScreen {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    flex-direction: column;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 5rem 1.5rem 1rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.score-display {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.score-display .label {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.score-display .value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* 题目卡片 */
+.question-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.progress-display {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed #f0f0f0;
+}
+
+.progress-display .label {
+    font-size: 0.9rem;
+    color: #888;
+    margin-right: 0.5rem;
+}
+
+.progress-display .value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #f5576c;
+}
+
+.poem-hint {
+    font-size: 1.1rem;
+    color: #888;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.question-text {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.answer-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.option-btn {
+    padding: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.3);
+}
+
+.option-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+}
+
+.option-btn:active {
+    transform: translateY(-1px);
+}
+
+.option-btn.correct {
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+    animation: pulse 0.5s ease;
+}
+
+.option-btn.wrong {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    animation: shake 0.5s ease;
+}
+
+/* 反馈区域 */
+.feedback-area {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.feedback-content {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    animation: fadeInUp 0.3s ease;
+}
+
+.feedback-icon {
+    font-size: 1.5rem;
+}
+
+.feedback-text {
+    font-size: 1.1rem;
+}
+
+/* ==================== 复习模式界面 ==================== */
+#reviewScreen {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    flex-direction: column;
+}
+
+.review-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 5rem 1.5rem 2rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.review-stats {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.review-stats .label {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.review-stats .value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.5rem;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-state {
+    text-align: center;
+    color: #888;
+}
+
+.empty-state .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+}
+
+.start-review-btn {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #f5576c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.start-review-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.start-review-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==================== 结果界面 ==================== */
+#resultScreen {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.result-container {
+    text-align: center;
+    animation: fadeInUp 0.8s ease;
+    max-width: 500px;
+    padding: 2rem;
+}
+
+.result-title {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+
+.score-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.final-score {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.score-label {
+    font-size: 1.5rem;
+    color: #ffe0f0;
+}
+
+.result-stars {
+    margin-bottom: 1.5rem;
+}
+
+.result-stars .star {
+    font-size: 2.5rem;
+    margin: 0 0.3rem;
+}
+
+.result-rank {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.result-message {
+    font-size: 1.2rem;
+    color: #ffe0f0;
+    margin-bottom: 2rem;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.result-stats .stat {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #ffe0f0;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.restart-btn {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #f5576c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.restart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ==================== 成就弹窗 ==================== */
+.achievement-toast {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    animation: slideDown 0.5s ease;
+}
+
+.toast-content {
+    background: rgba(255, 215, 0, 0.95);
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.toast-icon {
+    font-size: 2rem;
+}
+
+.toast-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==================== 动画效果 ==================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        }
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50px);
+        }
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .mode-btn {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .mode-btn .icon {
+        font-size: 2rem;
+    }
+
+    .mode-btn .text {
+        font-size: 1.2rem;
+    }
+
+    .poem-title {
+        font-size: 1.5rem;
+    }
+
+    .poem-text {
+        font-size: 1.3rem;
+    }
+
+    .question-text {
+        font-size: 1.5rem;
+    }
+
+    .answer-options {
+        grid-template-columns: 1fr;
+    }
+
+    .final-score {
+        font-size: 3rem;
+    }
+
+    .catalog-btn {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .control-btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    .play-btn {
+        width: 64px;
+        height: 64px;
+    }
+
+    .control-btn .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .play-btn .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .recite-controls {
+        gap: 1rem;
+    }
+}
+
+/* ==================== 唐诗目录弹窗 ==================== */
+.catalog-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catalog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.catalog-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.catalog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.catalog-title {
+    font-size: 1.5rem;
+    color: #f5576c;
+    margin: 0;
+}
+
+.catalog-close {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catalog-close:hover {
+    background: #e0e0e0;
+    color: #333;
+    transform: rotate(90deg);
+}
+
+.catalog-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    background: #fff;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: #f5576c;
+    color: #f5576c;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-color: transparent;
+    color: #fff;
+}
+
+.catalog-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.catalog-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.catalog-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.catalog-list::-webkit-scrollbar-thumb {
+    background: rgba(245, 87, 108, 0.3);
+    border-radius: 4px;
+}
+
+.catalog-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 87, 108, 0.5);
+}
+
+.catalog-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.catalog-item:hover {
+    background: #f9f9f9;
+    transform: translateX(5px);
+}
+
+.catalog-item:last-child {
+    border-bottom: none;
+}
+
+.catalog-item.current {
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+    border-left: 4px solid #f5576c;
+}
+
+.catalog-item-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
+.catalog-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.catalog-item-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.catalog-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.catalog-item-author {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.catalog-item-author::before {
+    content: '✍️';
+    font-size: 0.8rem;
+}
+
+.catalog-item-grade {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.catalog-item-grade::before {
+    content: '📚';
+    font-size: 0.8rem;
+}
+
+.catalog-empty {
+    text-align: center;
+    padding: 3rem;
+    color: #888;
+}
+
+.catalog-empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}

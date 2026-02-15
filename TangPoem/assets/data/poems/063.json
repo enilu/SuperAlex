@@ -1,0 +1,16 @@
+{
+    "id": 63,
+    "title": "塞下曲六首·其二",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        { "text": "林暗草惊风", "pinyin": "lín àn cǎo jīng fēng" },
+        { "text": "将军夜引弓", "pinyin": "jiāng jūn yè yǐn gōng" },
+        { "text": "平明寻白羽", "pinyin": "píng míng xún bái yǔ" },
+        { "text": "没在石棱中", "pinyin": "mò zài shí léng zhōng" }
+    ],
+    "annotation": "塞下曲：乐府题名",
+    "translation": "树林昏暗草被风吹动，将军夜中拉开强弓。天明寻找白羽箭，箭已射入石棱之中。",
+    "audio": "assets/audio/recite/063.mp3"
+}

@@ -1,0 +1,52 @@
+{
+    "id": 315,
+    "title": "琴歌",
+    "author": "李颀",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "主人有酒欢今夕",
+            "pinyin": "zhǔ rén yǒu jiǔ huān jīn xī"
+        },
+        {
+            "text": "请奏鸣琴广陵客",
+            "pinyin": "qǐng zòu míng qín guǎng líng kè"
+        },
+        {
+            "text": "月照城头乌半飞",
+            "pinyin": "yuè zhào chéng tóu wū bàn fēi"
+        },
+        {
+            "text": "霜凄万树风入衣",
+            "pinyin": "shuāng qī wàn shù fēng rù yī"
+        },
+        {
+            "text": "铜炉华烛烛增辉",
+            "pinyin": "tóng lú huá zhú zhú zēng huī"
+        },
+        {
+            "text": "初弹渌水后楚妃",
+            "pinyin": "chū tán lù shuǐ hòu chǔ fēi"
+        },
+        {
+            "text": "一声已动物皆静",
+            "pinyin": "yī shēng yǐ dòng wù jiē jìng"
+        },
+        {
+            "text": "四座无言星欲稀",
+            "pinyin": "sì zuò wú yán xīng yù xī"
+        },
+        {
+            "text": "清淮奉使千余里",
+            "pinyin": "qīng huái fèng shǐ qiān yú lǐ"
+        },
+        {
+            "text": "敢告云山从此始",
+            "pinyin": "gǎn gào yún shān zòng cǐ shǐ"
+        }
+    ],
+    "annotation": "１、广陵客：这里指善弹琴的人。\n２、《渌水》：琴曲名。\n３、清淮：地近淮水。",
+    "translation": "今夜主人有酒，我们暂且欢乐； \n敬请弹琴高手，把广陵曲轻弹。 \n城头月明星稀，乌鹊纷纷飞散； \n严霜寒侵树木，冷风吹透外装。 \n铜炉薰燃檀香，华烛闪烁光辉； \n先弹一曲渌水，然后再奏楚妃。 \n一声琴弦拨出，顿时万籁俱寂。 \n星星为之隐去，四座沉默陶醉。 \n奉命出使清淮，离家千里万里； \n告归四川云山，是夜萌生此意。",
+    "audio": "assets/audio/recite/315.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 75,
+    "title": "芙蓉楼送辛渐",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学六年级",
+    "content": [
+        {
+            "text": "寒雨连江夜入吴",
+            "pinyin": "hán yǔ lián jiāng yè rù wú"
+        },
+        {
+            "text": "平明送客楚山孤",
+            "pinyin": "píng míng sòng kè chǔ shān gū"
+        },
+        {
+            "text": "洛阳亲友如相问",
+            "pinyin": "luò yáng qīn yǒu rú xiāng wèn"
+        },
+        {
+            "text": "一片冰心在玉壶",
+            "pinyin": "yī piàn bīng xīn zài yù hú"
+        }
+    ],
+    "annotation": "１、芙蓉楼：原址在今江苏省镇江市西北。\n２、楚山：古时吴、楚两地相接，镇江一带也称楚地，故其附近的山也可叫楚山。",
+    "translation": "迷蒙的烟雨，连夜洒遍吴地江天；\n清晨送走你，孤对楚山离愁无限！\n朋友呵，洛阳亲友若是问起我来；\n就说我依然冰心玉壶，坚守信念！",
+    "audio": "assets/audio/recite/075.mp3"
+}

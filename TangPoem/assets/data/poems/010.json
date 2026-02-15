@@ -1,0 +1,28 @@
+{
+    "id": 10,
+    "title": "竹里馆",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学三年级",
+    "content": [
+        {
+            "text": "独坐幽篁里",
+            "pinyin": "dú zuò yōu huáng lǐ"
+        },
+        {
+            "text": "弹琴复长啸",
+            "pinyin": "tán qín fù cháng xiào"
+        },
+        {
+            "text": "深林人不知",
+            "pinyin": "shēn lín rén bù zhī"
+        },
+        {
+            "text": "明月来相照",
+            "pinyin": "míng yuè lái xiāng zhào"
+        }
+    ],
+    "annotation": "①选自《王右丞集笺注》（中华书局1985年版）卷十三。这是《辋川集》20首中的第17首。竹里馆，辋川别墅的胜景之一，房屋周围有竹林，故名。 \n　　⑴幽篁（hu&aacute;ng）：幽是深的意思，篁是竹林。 幽深的竹林。 \n　　⑵啸（xiào）：长声呼啸。魏晋名士称吹口哨为啸。 \n　　⑶深林：指“幽篁”。 \n　　⑷相照：与“独坐”对应。",
+    "translation": "月夜，独坐在幽深的竹林里；时而弹弹琴，时而吹吹口哨。 \n　　竹林里僻静幽深，无人知晓，独坐幽篁，无人陪伴；唯有明月似解人意，偏来相照。",
+    "audio": "assets/audio/recite/010.mp3"
+}

@@ -1,0 +1,16 @@
+{
+    "id": 73,
+    "title": "从军行",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        { "text": "青海长云暗雪山", "pinyin": "qīng hǎi cháng yún àn xuě shān" },
+        { "text": "孤城遥望玉门关", "pinyin": "gū chéng yáo wàng yù mén guān" },
+        { "text": "黄沙百战穿金甲", "pinyin": "huáng shā bǎi zhàn chuān jīn jiǎ" },
+        { "text": "不破楼兰终不还", "pinyin": "bú pò lóu lán zhōng bù huán" }
+    ],
+    "annotation": "从军行：乐府题名",
+    "translation": "青海湖上的乌云遮暗了雪山，站在孤城遥望着远方的玉门关。塞外的黄沙历经百战磨穿了金甲，不攻破楼兰城终不回家。",
+    "audio": "assets/audio/recite/073.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 284,
+    "title": "宿业师山房待丁大不至",
+    "author": "孟浩然",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "夕阳度西岭",
+            "pinyin": "xī yáng dù xī lǐng"
+        },
+        {
+            "text": "群壑倏已暝",
+            "pinyin": "qún hè shū yǐ míng"
+        },
+        {
+            "text": "松月生夜凉",
+            "pinyin": "sōng yuè shēng yè liáng"
+        },
+        {
+            "text": "风泉满清听",
+            "pinyin": "fēng quán mǎn qīng tīng"
+        },
+        {
+            "text": "樵人归尽欲",
+            "pinyin": "qiáo rén guī jǐn yù"
+        },
+        {
+            "text": "烟鸟栖初定",
+            "pinyin": "yān niǎo qī chū dìng"
+        },
+        {
+            "text": "之子期宿来",
+            "pinyin": "zhī zǐ jī sù lái"
+        },
+        {
+            "text": "孤琴候萝径",
+            "pinyin": "gū qín hòu luó jìng"
+        }
+    ],
+    "annotation": "１、烟鸟：暮烟中的归鸟。\n２、之子：这个人。\n３、宿：隔夜。",
+    "translation": "夕阳徐徐落入西边山岭，千山万壑忽然昏昏暝暝。 \n松间明月增添夜的凉意，风中泉声听来别有情味。 \n打柴的樵夫们将要归尽，暮烟中的鸟儿刚刚栖定。 \n期望你能如约来此住宿，我独抱琴等在萝蔓路径。",
+    "audio": "assets/audio/recite/284.mp3"
+}

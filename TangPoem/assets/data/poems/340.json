@@ -1,0 +1,68 @@
+{
+    "id": 340,
+    "title": "行路难",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "金樽清酒斗十千",
+            "pinyin": "jīn zūn qīng jiǔ dòu shí qiān"
+        },
+        {
+            "text": "玉盘珍馐直万钱",
+            "pinyin": "yù pán zhēn xiū zhí wàn qián"
+        },
+        {
+            "text": "停杯投箸不能食",
+            "pinyin": "tíng bēi tóu zhù bù néng sì"
+        },
+        {
+            "text": "拔剑四顾心茫然",
+            "pinyin": "bá jiàn sì gù xīn máng rán"
+        },
+        {
+            "text": "欲渡黄河冰塞川",
+            "pinyin": "yù dù huáng hé bīng sè chuān"
+        },
+        {
+            "text": "将登太行雪暗天",
+            "pinyin": "jiāng dēng tài xíng xuě àn tiān"
+        },
+        {
+            "text": "闲来垂钓坐溪上",
+            "pinyin": "xián lái chuí diào zuò xī shàng"
+        },
+        {
+            "text": "忽复乘舟梦日边",
+            "pinyin": "hū fù chéng zhōu mèng rì biān"
+        },
+        {
+            "text": "行路难",
+            "pinyin": "xíng lù nán"
+        },
+        {
+            "text": "行路难",
+            "pinyin": "xíng lù nán"
+        },
+        {
+            "text": "多歧路",
+            "pinyin": "duō qí lù"
+        },
+        {
+            "text": "今安在",
+            "pinyin": "jīn ān zài"
+        },
+        {
+            "text": "长风破浪会有时",
+            "pinyin": "cháng fēng pò làng kuài yǒu shí"
+        },
+        {
+            "text": "直挂云帆济沧海",
+            "pinyin": "zhí guà yún fān jì cāng hǎi"
+        }
+    ],
+    "annotation": "１、珍馐：名贵的菜肴。\n２、垂钓坐溪上：传说吕尚未遇周文王时，曾在溪（今陕西宝鸡市东南）垂钓。\n３、乘舟梦日边：传说伊尹见汤以前，梦乘舟过日月之边。合用这两句典故，是比喻人生遇合无常，多出于偶然。",
+    "translation": "金杯里装的名酒，每斗要价十千；\n玉盘中盛的精美肴菜，收费万钱。\n胸中郁闷呵，我停杯投箸吃不下；\n拔剑环顾四周，我心里委实茫然。\n想渡黄河，冰雪堵塞了这条大川；\n要登太行，莽莽的风雪早已封山。\n象吕尚垂钓溪，闲待东山再起；\n又象伊尹做梦，他乘船经过日边。\n世上行路呵多么艰难，多么艰难；\n眼前歧路这么多，我该向北向南？\n相信总有一天，能乘长风破万里浪；\n高高挂起云帆，在沧海中勇往直前！",
+    "audio": "assets/audio/recite/340.mp3"
+}

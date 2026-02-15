@@ -1,0 +1,28 @@
+{
+    "id": 93,
+    "title": "杂诗·君自故乡来",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "君自故乡来",
+            "pinyin": "jūn zì gù xiāng lái"
+        },
+        {
+            "text": "应知故乡事",
+            "pinyin": "yìng zhī gù xiāng shì"
+        },
+        {
+            "text": "来日绮窗前",
+            "pinyin": "lái rì qǐ chuāng qián"
+        },
+        {
+            "text": "寒梅著花未",
+            "pinyin": "hán méi zhāo huā wèi"
+        }
+    ],
+    "annotation": "①来日：来的时候。 \n　　②绮窗：雕画花纹的窗户。 \n　　③着花未：开花没有?着（zhu&oacute;）花，开花。未，用于句末，相当于“否”，表疑问。 \n　　④选自《<strong>王维</strong>集校注》",
+    "translation": "您是刚从我们家乡来的，一定了解家乡的人情世态。请问您来的时候我家雕画花纹的窗户前，那一株腊梅花开了没有？",
+    "audio": "assets/audio/recite/093.mp3"
+}

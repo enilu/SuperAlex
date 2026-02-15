@@ -1,0 +1,28 @@
+{
+    "id": 98,
+    "title": "登乐游原",
+    "author": "李商隐",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "向晚意不适",
+            "pinyin": "xiàng wǎn yì bù shì"
+        },
+        {
+            "text": "驱车登古原",
+            "pinyin": "qū chē dēng gǔ yuán"
+        },
+        {
+            "text": "夕阳无限好",
+            "pinyin": "xī yáng wú xiàn hào"
+        },
+        {
+            "text": "只是近黄昏",
+            "pinyin": "zhī shì jìn huáng hūn"
+        }
+    ],
+    "annotation": "１、意不适：心情不舒畅。\n２、古原：即乐游原，是长安附近的名胜，在今陕西省长安以南八百里的地方。",
+    "translation": "临近傍晚时分，觉得心情不太舒畅；\n驾车登上乐游原，心想把烦恼遣散。\n看见夕阳无限美好，一片金光灿烂；\n只是将近黄昏，美好时光终究短暂。",
+    "audio": "assets/audio/recite/098.mp3"
+}

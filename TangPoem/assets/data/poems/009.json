@@ -1,0 +1,28 @@
+{
+    "id": 9,
+    "title": "鹿柴",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学一年级",
+    "content": [
+        {
+            "text": "空山不见人",
+            "pinyin": "kōng shān bú jiàn rén"
+        },
+        {
+            "text": "但闻人语响",
+            "pinyin": "dàn wén rén yǔ xiǎng"
+        },
+        {
+            "text": "返景入深林",
+            "pinyin": "fǎn yǐng rù shēn lín"
+        },
+        {
+            "text": "复照青苔上",
+            "pinyin": "fù zhào qīng tái shàng"
+        }
+    ],
+    "annotation": "１、鹿柴：以木栅为栏，谓之柴，鹿柴乃鹿居住的地方。\n２、返影：指日落时分，阳光返射到东方的景象。",
+    "translation": "山中空空荡荡不见人影，\n只听得喧哗的人语声响。\n夕阳的金光射入深林中，\n青苔上映着昏黄的微光。",
+    "audio": "assets/audio/recite/009.mp3"
+}

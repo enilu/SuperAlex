@@ -1,0 +1,16 @@
+{
+    "id": 79,
+    "title": "营州歌",
+    "author": "高适",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        { "text": "营州少年厌原野", "pinyin": "yíng zhōu shào nián yàn yuán yě" },
+        { "text": "狐裘蒙茸猎城下", "pinyin": "hú qiú méng róng liè chéng xià" },
+        { "text": "虏酒千钟不醉人", "pinyin": "lǔ jiǔ qiān zhōng bú zuì rén" },
+        { "text": "胡儿十岁能骑马", "pinyin": "hú ér shí suì néng qí mǎ" }
+    ],
+    "annotation": "营州：地名，在今辽宁省",
+    "translation": "营州少年喜欢原野风光，穿着狐皮裘在城下打猎。喝了千杯酒也不醉，胡人的孩子十岁就能骑马。",
+    "audio": "assets/audio/recite/079.mp3"
+}

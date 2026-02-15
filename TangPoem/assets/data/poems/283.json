@@ -1,0 +1,52 @@
+{
+    "id": 283,
+    "title": "夏日南亭怀辛大",
+    "author": "孟浩然",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "山光忽西落",
+            "pinyin": "shān guāng hū xī luò"
+        },
+        {
+            "text": "池月渐东上",
+            "pinyin": "chí yuè jiàn dōng shàng"
+        },
+        {
+            "text": "散发乘夕凉",
+            "pinyin": "sàn fā chéng xī liáng"
+        },
+        {
+            "text": "开轩卧闲敞",
+            "pinyin": "kāi xuān wò xián chǎng"
+        },
+        {
+            "text": "荷风送香气",
+            "pinyin": "hé fēng sòng xiāng qì"
+        },
+        {
+            "text": "竹露滴清响",
+            "pinyin": "zhú lù dī qīng xiǎng"
+        },
+        {
+            "text": "欲取鸣琴弹",
+            "pinyin": "yù qǔ míng qín tán"
+        },
+        {
+            "text": "恨无知音赏",
+            "pinyin": "hèn wú zhī yīn shǎng"
+        },
+        {
+            "text": "感此怀故人",
+            "pinyin": "gǎn cǐ huái gù rén"
+        },
+        {
+            "text": "中宵劳梦想",
+            "pinyin": "zhōng xiāo láo mèng xiǎng"
+        }
+    ],
+    "annotation": "１、山光：山上的日光。 \n２、池月：即池边月色。 \n３、轩：窗。",
+    "translation": "夕阳忽然间落下了西山， 东边池角明月渐渐东上。 \n披散头发今夕恰好乘凉， 开窗闲卧多么清静舒畅。 \n清风徐徐送来荷花幽香， 竹叶轻轻滴下露珠清响。 \n心想取来鸣琴轻弹一曲， 只恨眼前没有知音欣赏。 \n感此良宵不免怀念故友， 只能在夜半里梦想一场。",
+    "audio": "assets/audio/recite/283.mp3"
+}

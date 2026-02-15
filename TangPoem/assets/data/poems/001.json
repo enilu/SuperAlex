@@ -1,0 +1,16 @@
+{
+    "id": 1,
+    "title": "静夜思",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学一年级",
+    "content": [
+        { "text": "床前明月光", "pinyin": "chuáng qián míng yuè guāng" },
+        { "text": "疑是地上霜", "pinyin": "yí shì dì shàng shuāng" },
+        { "text": "举头望明月", "pinyin": "jǔ tóu wàng míng yuè" },
+        { "text": "低头思故乡", "pinyin": "dī tóu sī gù xiāng" }
+    ],
+    "annotation": "霜：指地上像霜一样的月光",
+    "translation": "明亮的月光洒在井栏上，好像地上结了一层霜。抬起头看天上的明月，低下头思念自己的故乡。",
+    "audio": "assets/audio/recite/001.mp3"
+}

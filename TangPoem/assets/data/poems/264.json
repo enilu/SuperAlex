@@ -1,0 +1,44 @@
+{
+    "id": 264,
+    "title": "西塞山怀古",
+    "author": "刘长卿",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "王浚楼船下益州",
+            "pinyin": "wàng jùn lóu chuán xià yì zhōu"
+        },
+        {
+            "text": "金陵王气黯然收",
+            "pinyin": "jīn líng wàng qì àn rán shōu"
+        },
+        {
+            "text": "千寻铁锁沉江底",
+            "pinyin": "qiān xún tiě suǒ chén jiāng dǐ"
+        },
+        {
+            "text": "一片降幡出石头",
+            "pinyin": "yī piàn jiàng fān chū shí tóu"
+        },
+        {
+            "text": "人世几回伤往事",
+            "pinyin": "rén shì jī huí shāng wǎng shì"
+        },
+        {
+            "text": "山形依旧枕寒流",
+            "pinyin": "shān xíng yī jiù zhěn hán liú"
+        },
+        {
+            "text": "从今四海为家日",
+            "pinyin": "zòng jīn sì hǎi wéi jiā rì"
+        },
+        {
+            "text": "故垒萧萧芦荻秋",
+            "pinyin": "gù lěi xiāo xiāo lú dí qiū"
+        }
+    ],
+    "annotation": "１、王浚句：王浚，字士治，弘农湖县（今河南灵宝西南）人，官益州刺史。\n２、千寻句：当时吴国曾于江中锁以铁链，王浚用大火炬将它烧断。千寻：古时八尺曰寻，这里只是形容其长。\n３、降幡：降旗。\n４、石头：石头城，故址在今南京清凉山，吴孙权时所筑，唐武德时废。\n５、四海为家：意即天下统一。\n６、故垒：指西塞出，也包括六朝以来的战争遗迹。",
+    "translation": "晋代王浚乘楼船自成都东下，\n金陵帝王瑞气全都黯然收煞。\n吴国千寻铁链也被烧沉江底，\n一片投降白旗金陵城头悬挂。\n人间有几回兴亡的伤心往事，\n高山依旧枕着寒流没有变化。\n从此四海一家过着太平日子，\n故垒萧条长满芦荻秋风飒飒。",
+    "audio": "assets/audio/recite/264.mp3"
+}

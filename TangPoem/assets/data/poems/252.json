@@ -1,0 +1,44 @@
+{
+    "id": 252,
+    "title": "寄李儋元锡",
+    "author": "韦应物",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "去年花里逢君别",
+            "pinyin": "qù nián huā lǐ féng jūn bié"
+        },
+        {
+            "text": "今日花开又一年",
+            "pinyin": "jīn rì huā kāi yòu yī nián"
+        },
+        {
+            "text": "世事茫茫难自料",
+            "pinyin": "shì shì máng máng nán zì liào"
+        },
+        {
+            "text": "春愁黯黯独成眠",
+            "pinyin": "chūn chóu àn àn dú chéng mián"
+        },
+        {
+            "text": "身多疾病思田里",
+            "pinyin": "shēn duō jí bìng sī tián lǐ"
+        },
+        {
+            "text": "邑有流亡愧俸钱",
+            "pinyin": "yì yǒu liú wáng kuì fèng qián"
+        },
+        {
+            "text": "闻道欲来相问讯",
+            "pinyin": "wén dào yù lái xiāng wèn xùn"
+        },
+        {
+            "text": "西楼望月几回圆",
+            "pinyin": "xī lóu wàng yuè jī huí yuán"
+        }
+    ],
+    "annotation": "１、邑：指属境；\n２、流亡：指灾民。",
+    "translation": "去年花开时节，适逢与君分别；\n今日春花又开，不觉已经一年。\n人间世事茫茫，件件难以预料；\n春愁昏昏黯黯，夜里独自成眠。\n身体多病，越发思念乡田故里；\n治邑还有灾民，我真愧领俸钱。\n听说你想来此，探访我这孤老；\n西楼望月圆了又圆，却还不见。",
+    "audio": "assets/audio/recite/252.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 135,
+    "title": "寄人",
+    "author": "张泌",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "别梦依依到谢家",
+            "pinyin": "bié mèng yī yī dào xiè jiā"
+        },
+        {
+            "text": "小廊回合曲阑斜",
+            "pinyin": "xiǎo láng huí hé qǔ lán xié"
+        },
+        {
+            "text": "多情只有春庭月",
+            "pinyin": "duō qíng zhī yǒu chūn tíng yuè"
+        },
+        {
+            "text": "犹为离人照落花",
+            "pinyin": "yóu wéi lí rén zhào luò huā"
+        }
+    ],
+    "annotation": "１、小廊句：指梦中所见景物。\n２、多情两句：指梦后所见。",
+    "translation": "离别后梦里依稀来到谢家，\n徘徊在小回廊阑干畔底下。\n醒来只见庭前多情的明月，\n它还在临照离人临照落花。",
+    "audio": "assets/audio/recite/135.mp3"
+}

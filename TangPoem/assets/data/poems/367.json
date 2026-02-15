@@ -1,0 +1,28 @@
+{
+    "id": 367,
+    "title": "塞下曲·野幕蔽琼筵",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "野幕蔽琼筵",
+            "pinyin": "yě mù bì qióng yán"
+        },
+        {
+            "text": "羌戎贺劳旋",
+            "pinyin": "qiāng róng hè láo xuàn"
+        },
+        {
+            "text": "醉和金甲舞",
+            "pinyin": "zuì hé jīn jiǎ wǔ"
+        },
+        {
+            "text": "雷鼓动山川",
+            "pinyin": "léi gǔ dòng shān chuān"
+        }
+    ],
+    "annotation": "１、雷鼓：旧时也以祀天神之八面鼓解。实即擂鼓。",
+    "translation": "在野外的营帐里摆开了宴筵，\n为庆祝征羌戎的战士们凯旋。\n酒酣欢畅个个穿着铁甲起舞，\n欢声雷动鼓乐喧天震荡山川。",
+    "audio": "assets/audio/recite/367.mp3"
+}

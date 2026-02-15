@@ -1,0 +1,28 @@
+{
+    "id": 111,
+    "title": "九月九日忆山东兄弟",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "独在异乡为异客",
+            "pinyin": "dú zài yì xiāng wéi yì kè"
+        },
+        {
+            "text": "每逢佳节倍思亲",
+            "pinyin": "měi féng jiā jié bèi sī qīn"
+        },
+        {
+            "text": "遥知兄弟登高处",
+            "pinyin": "yáo zhī xiōng dì dēng gāo chǔ"
+        },
+        {
+            "text": "遍插茱萸少一人",
+            "pinyin": "biàn chā zhū yú shǎo yī rén"
+        }
+    ],
+    "annotation": "１、登高：阴历九月九日重阳节，民间有登高避邪的习俗。\n２、茱萸：一种植物，传说重阳节扎茱萸袋，登高饮菊花酒，可避灾。",
+    "translation": "独自流落他乡，长做异地之客，\n每逢佳节良辰，越发思念眷亲。\n遥想今日重阳，兄弟又在登高，\n他们佩带茱萸，发觉少我一人。",
+    "audio": "assets/audio/recite/111.mp3"
+}

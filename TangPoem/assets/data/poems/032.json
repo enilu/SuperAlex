@@ -1,0 +1,44 @@
+{
+    "id": 32,
+    "title": "送杜少府之任蜀州",
+    "author": "王勃",
+    "dynasty": "唐",
+    "grade": "小学六年级",
+    "content": [
+        {
+            "text": "城阙辅三秦",
+            "pinyin": "chéng què fǔ sān qín"
+        },
+        {
+            "text": "风烟望五津",
+            "pinyin": "fēng yān wàng wǔ jīn"
+        },
+        {
+            "text": "与君离别意",
+            "pinyin": "yǔ jūn lí bié yì"
+        },
+        {
+            "text": "同是宦游人",
+            "pinyin": "tóng shì huàn yóu rén"
+        },
+        {
+            "text": "海内存知己",
+            "pinyin": "hǎi nèi cún zhī jǐ"
+        },
+        {
+            "text": "天涯若比邻",
+            "pinyin": "tiān yá ruò bǐ lín"
+        },
+        {
+            "text": "无为在歧路",
+            "pinyin": "wú wéi zài qí lù"
+        },
+        {
+            "text": "儿女共沾巾",
+            "pinyin": "ér nǚ gòng zhān jīn"
+        }
+    ],
+    "annotation": "１、城阙：指唐代都城长安。\n２、辅：护卫。\n３、三秦：现在陕西省一带；辅三秦即以三秦为辅。\n４、五津：四川境内长江的五个渡口。",
+    "translation": "古代三秦之地，拱护长安城垣宫阙。\n风烟滚滚，望不到蜀州岷江的五津。\n与你握手作别时，彼此间心心相印；\n你我都是远离故乡，出外做官之人。\n四海之内只要有了你，知己啊知己，\n不管远隔在天涯海角，都象在一起。\n请别在分手的岐路上，伤心地痛哭；\n象多情的少年男女，彼此泪落沾衣。",
+    "audio": "assets/audio/recite/032.mp3"
+}

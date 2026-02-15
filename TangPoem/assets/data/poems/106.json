@@ -1,0 +1,28 @@
+{
+    "id": 106,
+    "title": "听弹琴",
+    "author": "刘长卿",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "泠泠七弦上",
+            "pinyin": "líng líng qī xián shàng"
+        },
+        {
+            "text": "静听松风寒",
+            "pinyin": "jìng tīng sōng fēng hán"
+        },
+        {
+            "text": "古调虽自爱",
+            "pinyin": "gǔ tiáo suī zì ài"
+        },
+        {
+            "text": "今人多不弹",
+            "pinyin": "jīn rén duō bù tán"
+        }
+    ],
+    "annotation": "⑴泠（líng）泠：清凉、凄清的样子。此处指清越的琴声。 \n　　⑵松风：以风入松林暗示琴声凄凉。琴曲中《风入松》的调名。",
+    "translation": "七弦琴上发出清脆悦耳的声响，静静地听着风吹入松林的凄清的声音。 \n　　即使我是那么喜爱这古老的曲调，但现在的人们大多已经不再弹唱了。",
+    "audio": "assets/audio/recite/106.mp3"
+}

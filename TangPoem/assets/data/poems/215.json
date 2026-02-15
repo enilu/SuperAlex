@@ -1,0 +1,44 @@
+{
+    "id": 215,
+    "title": "阙题",
+    "author": "刘昚虚",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "道由白云尽",
+            "pinyin": "dào yóu bái yún jǐn"
+        },
+        {
+            "text": "春与清溪长",
+            "pinyin": "chūn yǔ qīng xī cháng"
+        },
+        {
+            "text": "时有落花至",
+            "pinyin": "shí yǒu luò huā zhì"
+        },
+        {
+            "text": "远随流水香",
+            "pinyin": "yuǎn suí liú shuǐ xiāng"
+        },
+        {
+            "text": "闲门向山路",
+            "pinyin": "xián mén xiàng shān lù"
+        },
+        {
+            "text": "深柳读书堂",
+            "pinyin": "shēn liǔ dú shū táng"
+        },
+        {
+            "text": "幽映每白日",
+            "pinyin": "yōu yìng měi bái rì"
+        },
+        {
+            "text": "清辉照衣裳",
+            "pinyin": "qīng huī zhào yī shang"
+        }
+    ],
+    "annotation": "１、道由句：指山路在白云尽处，也即在尘境之外。\n２、闲门句：门一开，便可见上山之路。",
+    "translation": "山路被白云隔断在尘境之外，\n春光宛若清清溪流源远流长。\n不时有落花随溪水飘流而至，\n远远地就可闻到水中的芳香。\n闲静的荆门面对蜿蜒的山路，\n柳荫深处蕴藏着读书的斋堂。\n每当太阳光穿过柳荫的幽境，\n清幽的光辉便洒满我的衣裳。",
+    "audio": "assets/audio/recite/215.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 257,
+    "title": "登黄鹤楼",
+    "author": "崔颢",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "昔人已乘黄鹤去",
+            "pinyin": "xī rén yǐ chéng huáng hè qù"
+        },
+        {
+            "text": "此地空余黄鹤楼",
+            "pinyin": "cǐ dì kòng yú huáng hè lóu"
+        },
+        {
+            "text": "黄鹤一去不复返",
+            "pinyin": "huáng hè yī qù bù fù fǎn"
+        },
+        {
+            "text": "白云千载空悠悠",
+            "pinyin": "bái yún qiān zǎi kòng yōu yōu"
+        },
+        {
+            "text": "晴川历历汉阳树",
+            "pinyin": "qíng chuān lì lì hàn yáng shù"
+        },
+        {
+            "text": "芳草萋萋鹦鹉洲",
+            "pinyin": "fāng cǎo qī qī yīng wǔ zhōu"
+        },
+        {
+            "text": "日暮乡关何处是",
+            "pinyin": "rì mù xiāng guān hé chǔ shì"
+        },
+        {
+            "text": "烟波江上使人愁",
+            "pinyin": "yān bō jiāng shàng shǐ rén chóu"
+        }
+    ],
+    "annotation": "１、黄鹤楼：故址在湖北武昌县，民国初年被火焚毁，传说古代有一位名叫费文的仙人，在此乘鹤登仙。也有人作昔人已乘白云去。\n２、悠悠：久远的意思。\n３、历历：清晰、分明的样子。\n４、鹦鹉洲：在湖北省武昌县西南，根据后汉书记载，汉黄祖担任江夏太守时，在此大宴宾客，有人献上鹦鹉，故称鹦鹉洲。",
+    "translation": "传说中的仙人早乘黄鹤飞去，\n这地方只留下空荡的黄鹤楼。\n飞去的黄鹤再也不能复返了，\n唯有悠悠白云徒然千载依旧。\n汉阳晴川阁的碧树历历在目，\n鹦鹉洲的芳草长得密密稠稠，\n时至黄昏不知何处是我家乡？\n面对烟波渺渺大江令人发愁！",
+    "audio": "assets/audio/recite/257.mp3"
+}

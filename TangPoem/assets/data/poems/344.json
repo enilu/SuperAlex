@@ -1,0 +1,28 @@
+{
+    "id": 344,
+    "title": "玉阶怨",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "玉阶生白露",
+            "pinyin": "yù jiē shēng bái lù"
+        },
+        {
+            "text": "夜久侵罗袜",
+            "pinyin": "yè jiǔ qīn luó wà"
+        },
+        {
+            "text": "却下水晶帘",
+            "pinyin": "què xià shuǐ jīng lián"
+        },
+        {
+            "text": "玲珑望秋月",
+            "pinyin": "líng lóng wàng qiū yuè"
+        }
+    ],
+    "annotation": "１、罗袜：丝织品做的袜子。\n２、却下：还下。\n３、玲珑句：虽下帘仍望月而待，以至不能成眠。",
+    "translation": "玉砌的台阶已滋生了白露，\n夜深伫立露水侵湿了罗袜。\n我只好入室垂下水晶帘子，\n独自隔帘仰望玲珑的秋月。",
+    "audio": "assets/audio/recite/344.mp3"
+}

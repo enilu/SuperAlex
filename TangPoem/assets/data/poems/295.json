@@ -1,0 +1,44 @@
+{
+    "id": 295,
+    "title": "宿王昌龄隐居",
+    "author": "常建",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "清溪深不测",
+            "pinyin": "qīng xī shēn bù cè"
+        },
+        {
+            "text": "隐处惟孤云",
+            "pinyin": "yǐn chǔ wéi gū yún"
+        },
+        {
+            "text": "松际露微月",
+            "pinyin": "sōng jì lù wēi yuè"
+        },
+        {
+            "text": "清光犹为君",
+            "pinyin": "qīng guāng yóu wéi jūn"
+        },
+        {
+            "text": "茅亭宿花影",
+            "pinyin": "máo tíng sù huā yǐng"
+        },
+        {
+            "text": "药院滋苔纹",
+            "pinyin": "yào yuàn zī tái wén"
+        },
+        {
+            "text": "余亦谢时去",
+            "pinyin": "yú yì xiè shí qù"
+        },
+        {
+            "text": "西山鸾鹤群",
+            "pinyin": "xī shān luán hè qún"
+        }
+    ],
+    "annotation": "１、宿：比喻夜静花影如眠。\n２、谢时：辞去世俗之累。\n３、鸾鹤：古常指仙人的禽鸟。\n４、群：与……为伍。",
+    "translation": "清溪之水深不可测，隐居之处只有孤云。 \n松林中间明月微露，洒下清辉似为郎君。 \n茅亭花影睡意正浓，芍药园圃滋生苔纹。 \n我也想要谢绝世俗，来与西山鸾鹤合群。",
+    "audio": "assets/audio/recite/295.mp3"
+}

@@ -1,0 +1,60 @@
+{
+    "id": 313,
+    "title": "古意",
+    "author": "李颀",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "男儿事长征",
+            "pinyin": "nán ér shì cháng zhēng"
+        },
+        {
+            "text": "少小幽燕客",
+            "pinyin": "shǎo xiǎo yōu yàn kè"
+        },
+        {
+            "text": "赌胜马蹄下",
+            "pinyin": "dǔ shèng mǎ tí xià"
+        },
+        {
+            "text": "由来轻七尺",
+            "pinyin": "yóu lái qīng qī chǐ"
+        },
+        {
+            "text": "杀人莫敢前",
+            "pinyin": "shā rén mò gǎn qián"
+        },
+        {
+            "text": "须如猬毛磔",
+            "pinyin": "xū rú wèi máo zhé"
+        },
+        {
+            "text": "黄云陇底白云飞",
+            "pinyin": "huáng yún lǒng dǐ bái yún fēi"
+        },
+        {
+            "text": "未得报恩不能归",
+            "pinyin": "wèi dé bào ēn bù néng guī"
+        },
+        {
+            "text": "辽东小妇年十五",
+            "pinyin": "liáo dōng xiǎo fù nián shí wǔ"
+        },
+        {
+            "text": "惯弹琵琶解歌舞",
+            "pinyin": "guàn tán pí pá jiě gē wǔ"
+        },
+        {
+            "text": "今为羌笛出塞声",
+            "pinyin": "jīn wéi qiāng dí chū sài shēng"
+        },
+        {
+            "text": "使我三军泪如雨",
+            "pinyin": "shǐ wǒ sān jūn lèi rú yǔ"
+        }
+    ],
+    "annotation": "１、古意：犹“拟古”。\n２、轻七尺：犹轻生甘死。\n３、解：擅长。",
+    "translation": "好男儿远去从军戍边，他们从小就游历幽燕。 \n个个爱在疆场上逞能，为取胜不把生命依恋。 \n厮杀时顽敌不敢上前，胡须象猬毛直竖满面。 \n陇山黄云笼罩白云纷飞，不曾立过战功怎想回归？ \n有个辽东少妇妙龄十五，一向善弹琵琶又善歌舞。 \n她用羌笛吹奏出塞歌曲，吹得三军将士泪挥如雨。",
+    "audio": "assets/audio/recite/313.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 254,
+    "title": "贫女",
+    "author": "秦韬玉",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "蓬门未识绮罗香",
+            "pinyin": "péng mén wèi shí qǐ luó xiāng"
+        },
+        {
+            "text": "拟托良媒益自伤",
+            "pinyin": "nǐ tuō liáng méi yì zì shāng"
+        },
+        {
+            "text": "谁爱风流高格调",
+            "pinyin": "shuí ài fēng liú gāo gé tiáo"
+        },
+        {
+            "text": "共怜时世俭梳妆",
+            "pinyin": "gòng lián shí shì jiǎn shū zhuāng"
+        },
+        {
+            "text": "敢将十指夸针巧",
+            "pinyin": "gǎn jiāng shí zhǐ kuā zhēn qiǎo"
+        },
+        {
+            "text": "不把双眉斗画长",
+            "pinyin": "bù bǎ shuāng méi dòu huà cháng"
+        },
+        {
+            "text": "苦恨年年压金线",
+            "pinyin": "kǔ hèn nián nián yā jīn xiàn"
+        },
+        {
+            "text": "为他人作嫁衣裳",
+            "pinyin": "wéi tā rén zuò jià yī shang"
+        }
+    ],
+    "annotation": "１、蓬门：茅屋的门，指贫女之家。\n２、绮罗香：指富贵人家妇女的服饰。\n３、共怜句：意谓共惜时世艰难而妆饰从俭。作者的时代也已至晚唐。按：<strong>白居易</strong>《新<strong>乐府</strong>》有《时世妆》，诗中所描写的实非俭妆，恰恰是另一种形式的“浓妆”，所谓“时世妆”，即最时髦的打扮之意。故未取。\n４、苦恨：甚恨。\n５、压金线：按捺针线，指刺绣。",
+    "translation": "贫苦家庭出身，从未见识绫罗软香；\n也想托媒说亲，就为贫穷暗自悲伤。\n谁能欣赏风流高雅，格调不同凡响；\n世人都爱追求时髦，盛行异服奇装。\n敢在人前夸口，我有善绣巧手一双；\n却不涂脂画眉，与人争艳取胜斗强。\n最恨年复一年，拈针引线辛勤刺绣，\n专门为了他人，时时赶制陪嫁衣裳。",
+    "audio": "assets/audio/recite/254.mp3"
+}

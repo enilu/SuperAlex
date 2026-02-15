@@ -1,0 +1,16 @@
+{
+    "id": 42,
+    "title": "浪淘沙",
+    "author": "刘禹锡",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        { "text": "九曲黄河万里沙", "pinyin": "jiǔ qū huáng hé wàn lǐ shā" },
+        { "text": "浪淘风簸自天涯", "pinyin": "làng táo fēng bǒ zì tiān yá" },
+        { "text": "如今直上银河去", "pinyin": "rú jīn zhí shàng yín hé qù" },
+        { "text": "同到牵牛织女家", "pinyin": "tóng dào qiān niú zhī nǚ jiā" }
+    ],
+    "annotation": "浪淘沙：词牌名",
+    "translation": "九曲黄河挟带着万里泥沙，浪涛汹涌如风吹颠簸来自天涯。现在我要直上银河去，和牵牛织女两家做邻居。",
+    "audio": "assets/audio/recite/042.mp3"
+}

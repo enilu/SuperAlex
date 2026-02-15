@@ -1,0 +1,20 @@
+{
+    "id": 52,
+    "title": "茅屋为秋风所破歌",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "初中二年级",
+    "content": [
+        { "text": "八月秋高风怒号", "pinyin": "bā yuè qiū gāo fēng nù háo" },
+        { "text": "卷我屋上三重茅", "pinyin": "juǎn wǒ wū shàng sān chóng máo" },
+        { "text": "茅飞渡江洒江郊", "pinyin": "máo fēi dù jiāng sǎ jiāng jiāo" },
+        { "text": "高者挂罥长林梢", "pinyin": "gāo zhě guà juàn cháng lín shāo" },
+        { "text": "下者飘转沉塘坳", "pinyin": "xià zhě piāo zhuǎn chén táng ào" },
+        { "text": "南村群童欺我老无力", "pinyin": "nán cūn qún tóng qī wǒ lǎo wú lì" },
+        { "text": "忍能对面为盗贼", "pinyin": "rěn néng duì miàn wéi dào zéi" },
+        { "text": "公然抱茅入竹去", "pinyin": "gōng rán bào máo rù zhú qù" }
+    ],
+    "annotation": "茅屋：草房",
+    "translation": "八月深秋狂风怒号，卷走我屋顶上好几层茅草。茅草飞过江去散落在对岸，飞得高的挂在高高的树梢，飞得低的飘飘荡荡沉到池塘低洼处。南村的一群顽童欺负我年老无力，竟忍心当面做盗贼，公然抱着茅草跑进竹林。",
+    "audio": "assets/audio/recite/052.mp3"
+}

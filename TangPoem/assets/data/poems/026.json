@@ -1,0 +1,16 @@
+{
+    "id": 26,
+    "title": "逢雪宿芙蓉山主人",
+    "author": "刘长卿",
+    "dynasty": "唐",
+    "grade": "小学三年级",
+    "content": [
+        { "text": "日暮苍山远", "pinyin": "rì mù cāng shān yuǎn" },
+        { "text": "天寒白屋贫", "pinyin": "tiān hán bái wū pín" },
+        { "text": "柴门闻犬吠", "pinyin": "chái mén wén quǎn fèi" },
+        { "text": "风雪夜归人", "pinyin": "fēng xuě yè guī rén" }
+    ],
+    "annotation": "芙蓉山：各地多有芙蓉山，不详何指",
+    "translation": "夕阳西下，苍山在暮色中显得更加遥远。天气寒冷，白茅屋显得更加清贫。柴门外传来几声犬吠，原来是有人顶着风雪深夜归来。",
+    "audio": "assets/audio/recite/026.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 137,
+    "title": "赠内人",
+    "author": "张祜",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "禁门宫树月痕过",
+            "pinyin": "jīn mén gōng shù yuè hén guò"
+        },
+        {
+            "text": "媚眼惟看宿鹭巢",
+            "pinyin": "mèi yǎn wéi kàn sù lù cháo"
+        },
+        {
+            "text": "斜拔玉钗灯影畔",
+            "pinyin": "xié bá yù chāi dēng yǐng pàn"
+        },
+        {
+            "text": "剔开红焰救飞蛾",
+            "pinyin": "tī kāi hóng yàn jiù fēi é"
+        }
+    ],
+    "annotation": "１、禁门：宫门。\n２、红焰：指灯芯。",
+    "translation": "暗淡的月光移过宫门和树木，\n明眸媚眼只看那宿鹭的巢窠。\n孤灯斜影看她偏头拔下玉钗，\n挑开烛芯的红焰救出了飞蛾。",
+    "audio": "assets/audio/recite/137.mp3"
+}

@@ -1,0 +1,364 @@
+{
+    "id": 303,
+    "title": "琵琶行·并序",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "浔阳江头夜送客",
+            "pinyin": "xún yáng jiāng tóu yè sòng kè"
+        },
+        {
+            "text": "枫叶荻花秋瑟瑟",
+            "pinyin": "fēng yè dí huā qiū sè sè"
+        },
+        {
+            "text": "主人下马客在船",
+            "pinyin": "zhǔ rén xià mǎ kè zài chuán"
+        },
+        {
+            "text": "举酒欲饮无管弦",
+            "pinyin": "jǔ jiǔ yù yǐn wú guǎn xián"
+        },
+        {
+            "text": "醉不成欢惨将别",
+            "pinyin": "zuì bù chéng huān cǎn jiāng bié"
+        },
+        {
+            "text": "别时茫茫江浸月",
+            "pinyin": "bié shí máng máng jiāng jìn yuè"
+        },
+        {
+            "text": "忽闻水上琵琶声",
+            "pinyin": "hū wén shuǐ shàng pí pá shēng"
+        },
+        {
+            "text": "主人忘归客不发",
+            "pinyin": "zhǔ rén wàng guī kè bù fā"
+        },
+        {
+            "text": "寻声暗问弹者谁",
+            "pinyin": "xún shēng àn wèn tán zhě shuí"
+        },
+        {
+            "text": "琵琶声停欲语迟",
+            "pinyin": "pí pá shēng tíng yù yù chí"
+        },
+        {
+            "text": "移船相近邀相见",
+            "pinyin": "yí chuán xiāng jìn yāo xiāng xiàn"
+        },
+        {
+            "text": "添酒回灯重开宴",
+            "pinyin": "tiān jiǔ huí dēng zhòng kāi yàn"
+        },
+        {
+            "text": "千呼万唤始出来",
+            "pinyin": "qiān hū wàn huàn shǐ chū lái"
+        },
+        {
+            "text": "犹抱琵琶半遮面",
+            "pinyin": "yóu bào pí pá bàn zhē miàn"
+        },
+        {
+            "text": "转轴拨弦三两声",
+            "pinyin": "zhuàn zhòu bō xián sān liǎng shēng"
+        },
+        {
+            "text": "未成曲调先有情",
+            "pinyin": "wèi chéng qǔ tiáo xiān yǒu qíng"
+        },
+        {
+            "text": "弦弦掩抑声声思",
+            "pinyin": "xián xián yǎn yì shēng shēng sī"
+        },
+        {
+            "text": "似诉平生不得志",
+            "pinyin": "sì sù píng shēng bù dé zhì"
+        },
+        {
+            "text": "低眉信手续续弹",
+            "pinyin": "dī méi xìn shǒu xù xù tán"
+        },
+        {
+            "text": "说尽心中无限事",
+            "pinyin": "yuè jǐn xīn zhōng wú xiàn shì"
+        },
+        {
+            "text": "轻拢慢捻抹复挑",
+            "pinyin": "qīng lǒng màn niǎn mò fù tiāo"
+        },
+        {
+            "text": "初为霓裳后六幺",
+            "pinyin": "chū wéi ní shang hòu liù yāo"
+        },
+        {
+            "text": "大弦嘈嘈如急雨",
+            "pinyin": "dà xián cáo cáo rú jí yǔ"
+        },
+        {
+            "text": "小弦切切如私语",
+            "pinyin": "xiǎo xián qiē qiē rú sī yù"
+        },
+        {
+            "text": "嘈嘈切切错杂弹",
+            "pinyin": "cáo cáo qiē qiē cuò zá tán"
+        },
+        {
+            "text": "大珠小珠落玉盘",
+            "pinyin": "dà zhū xiǎo zhū luò yù pán"
+        },
+        {
+            "text": "间关莺语花底滑",
+            "pinyin": "jiàn guān yīng yù huā dǐ huá"
+        },
+        {
+            "text": "幽咽泉流水下滩",
+            "pinyin": "yōu yān quán liú shuǐ xià tān"
+        },
+        {
+            "text": "水泉冷涩弦凝绝",
+            "pinyin": "shuǐ quán lěng sè xián níng jué"
+        },
+        {
+            "text": "凝绝不通声渐歇",
+            "pinyin": "níng jué bù tōng shēng jiàn xiē"
+        },
+        {
+            "text": "别有幽愁暗恨生",
+            "pinyin": "bié yǒu yōu chóu àn hèn shēng"
+        },
+        {
+            "text": "此时无声胜有声",
+            "pinyin": "cǐ shí wú shēng shèng yǒu shēng"
+        },
+        {
+            "text": "银瓶乍破水浆迸",
+            "pinyin": "yín píng zhà pò shuǐ jiāng bèng"
+        },
+        {
+            "text": "铁骑突出刀枪鸣",
+            "pinyin": "tiě jì tū chū dāo qiāng míng"
+        },
+        {
+            "text": "曲终收拨当心画",
+            "pinyin": "qǔ zhōng shōu bō dàng xīn huà"
+        },
+        {
+            "text": "四弦一声如裂帛",
+            "pinyin": "sì xián yī shēng rú liè bó"
+        },
+        {
+            "text": "东船西舫悄无言",
+            "pinyin": "dōng chuán xī fǎng qiǎo wú yán"
+        },
+        {
+            "text": "唯见江心秋月白",
+            "pinyin": "wéi jiàn jiāng xīn qiū yuè bái"
+        },
+        {
+            "text": "沉吟放拨插弦中",
+            "pinyin": "chén yín fàng bō chā xián zhōng"
+        },
+        {
+            "text": "整顿衣裳起敛容",
+            "pinyin": "zhěng dùn yī shang qǐ liǎn róng"
+        },
+        {
+            "text": "自言本是京城女",
+            "pinyin": "zì yán běn shì jīng chéng rǔ"
+        },
+        {
+            "text": "家在虾蟆陵下住",
+            "pinyin": "jiā zài xiā má líng xià zhù"
+        },
+        {
+            "text": "十三学得琵琶成",
+            "pinyin": "shí sān xué dé pí pá chéng"
+        },
+        {
+            "text": "名属教坊第一部",
+            "pinyin": "míng zhǔ jiào fāng dì yī bù"
+        },
+        {
+            "text": "曲罢常教善才服",
+            "pinyin": "qǔ bà cháng jiào shàn cái fú"
+        },
+        {
+            "text": "妆成每被秋娘妒",
+            "pinyin": "zhuāng chéng měi bèi qiū niáng dù"
+        },
+        {
+            "text": "五陵年少争缠头",
+            "pinyin": "wǔ líng nián shǎo zhēng chán tóu"
+        },
+        {
+            "text": "一曲红消不知数",
+            "pinyin": "yī qǔ hóng xiāo bù zhī shǔ"
+        },
+        {
+            "text": "钿头银篦击节碎",
+            "pinyin": "diàn tóu yín bì jī jié suì"
+        },
+        {
+            "text": "血色罗裙翻酒污",
+            "pinyin": "xiě sè luó qún fān jiǔ wū"
+        },
+        {
+            "text": "今年欢笑复明年",
+            "pinyin": "jīn nián huān xiào fù míng nián"
+        },
+        {
+            "text": "秋月春风等闲度",
+            "pinyin": "qiū yuè chūn fēng děng xián dù"
+        },
+        {
+            "text": "弟走从军阿姨死",
+            "pinyin": "dì zǒu zòng jūn ā yí sǐ"
+        },
+        {
+            "text": "暮去朝来颜色故",
+            "pinyin": "mù qù cháo lái yán sè gù"
+        },
+        {
+            "text": "门前冷落车马稀",
+            "pinyin": "mén qián lěng luò chē mǎ xī"
+        },
+        {
+            "text": "老大嫁作商人妇",
+            "pinyin": "lǎo dà jià zuò shāng rén fù"
+        },
+        {
+            "text": "商人重利轻别离",
+            "pinyin": "shāng rén zhòng lì qīng bié lí"
+        },
+        {
+            "text": "前月浮梁买茶去",
+            "pinyin": "qián yuè fú liáng mǎi chá qù"
+        },
+        {
+            "text": "去来江口守空船",
+            "pinyin": "qù lái jiāng kǒu shǒu kòng chuán"
+        },
+        {
+            "text": "绕舱明月江水寒",
+            "pinyin": "rào cāng míng yuè jiāng shuǐ hán"
+        },
+        {
+            "text": "夜深忽梦少年事",
+            "pinyin": "yè shēn hū mèng shào nián shì"
+        },
+        {
+            "text": "梦啼妆泪红阑干",
+            "pinyin": "mèng tí zhuāng lèi hóng lán gān"
+        },
+        {
+            "text": "我闻琵琶已叹息",
+            "pinyin": "wǒ wén pí pá yǐ tàn xī"
+        },
+        {
+            "text": "又闻此语重唧唧",
+            "pinyin": "yòu wén cǐ yù zhòng jī jī"
+        },
+        {
+            "text": "同是天涯沦落人",
+            "pinyin": "tóng shì tiān yá lún luò rén"
+        },
+        {
+            "text": "相逢何必曾相识",
+            "pinyin": "xiāng féng hé bì céng xiāng shí"
+        },
+        {
+            "text": "我从去年辞帝京",
+            "pinyin": "wǒ zòng qù nián cí dì jīng"
+        },
+        {
+            "text": "谪居卧病浔阳城",
+            "pinyin": "zhé jū wò bìng xún yáng chéng"
+        },
+        {
+            "text": "浔阳地僻无音乐",
+            "pinyin": "xún yáng dì pì wú yīn yuè"
+        },
+        {
+            "text": "终岁不闻丝竹声",
+            "pinyin": "zhōng suì bù wén sī zhú shēng"
+        },
+        {
+            "text": "住近湓江地低湿",
+            "pinyin": "zhù jìn pén jiāng dì dī shī"
+        },
+        {
+            "text": "黄芦苦竹绕宅生",
+            "pinyin": "huáng lú kǔ zhú rào zhái shēng"
+        },
+        {
+            "text": "其间旦暮闻何物",
+            "pinyin": "qí jiàn dàn mù wén hé wù"
+        },
+        {
+            "text": "杜鹃啼血猿哀鸣",
+            "pinyin": "dù juān tí xiě yuán āi míng"
+        },
+        {
+            "text": "春江花朝秋月夜",
+            "pinyin": "chūn jiāng huā cháo qiū yuè yè"
+        },
+        {
+            "text": "往往取酒还独倾",
+            "pinyin": "wǎng wǎng qǔ jiǔ hái dú qīng"
+        },
+        {
+            "text": "岂无山歌与姑笛",
+            "pinyin": "qǐ wú shān gē yǔ gū dí"
+        },
+        {
+            "text": "呕哑嘲哳难为听",
+            "pinyin": "ǒu yǎ cháo zhā nán wéi tīng"
+        },
+        {
+            "text": "今夜闻君琵琶语",
+            "pinyin": "jīn yè wén jūn pí pá yù"
+        },
+        {
+            "text": "如听仙乐耳暂明",
+            "pinyin": "rú tīng xiān lè ěr zàn míng"
+        },
+        {
+            "text": "莫辞更坐弹一曲",
+            "pinyin": "mò cí gèng zuò tán yī qǔ"
+        },
+        {
+            "text": "为君翻作琵琶行",
+            "pinyin": "wéi jūn fān zuò pí pá xíng"
+        },
+        {
+            "text": "感我此言良久立",
+            "pinyin": "gǎn wǒ cǐ yán liáng jiǔ lì"
+        },
+        {
+            "text": "却坐促弦弦转急",
+            "pinyin": "què zuò cù xián xián zhuàn jí"
+        },
+        {
+            "text": "凄凄不似向前声",
+            "pinyin": "qī qī bù sì xiàng qián shēng"
+        },
+        {
+            "text": "满座重闻皆掩泣",
+            "pinyin": "mǎn zuò zhòng wén jiē yǎn qì"
+        },
+        {
+            "text": "座中泣下谁最多",
+            "pinyin": "zuò zhōng qì xià shuí zuì duō"
+        },
+        {
+            "text": "江州司马清衫湿",
+            "pinyin": "jiāng zhōu sī mǎ qīng shān shī"
+        }
+    ],
+    "annotation": "１、左迁：贬官。\n２、凡：共。\n３、间关：鸟鸣声。\n４、虾蟆陵：下马陵，其附近乃歌女聚居地。\n５、秋娘：歌妓们的通称。\n６、争缠头：竞相赠送财物。\n７、钿头银篦：妇女头上饰物。\n８、浮梁：江西景德镇。\n９、呕哑嘲哳：形容声音嘶哑杂乱刺耳。\n１０、向前：刚才。\n１１、青衫：唐官员以等级穿着不同颜色衣裳。青衫是最低一级的服色。",
+    "translation": "唐宪宗元和十年，我被贬为九江郡司马。第二年秋季的一天，送客到湓浦口，夜里听到船上有人弹琵琶。听那声音，铮铮铿铿有京都流行的声韵。探问这个人，原来是长安的歌女，曾经向穆、曹两位琵琶大师学艺。后来年纪大了，红颜退尽，嫁给商人为妻。于是命人摆酒叫她畅快地弹几曲。她弹完后，有些闷闷不乐的样子，自己说起了少年时欢乐之事，而今漂泊沉沦，形容憔悴，在江湖之间辗转流浪。我离京调外任职两年来，随遇而安，自得其乐，而今被这个人的话所感触，这天夜里才有被降职的感觉。于是撰写一首长诗赠送给她，共六百一十六字，题为《琵琶行》。　 　 \n秋夜我到浔阳江头送一位归客，冷风吹着枫叶和芦花秋声瑟瑟。 \n我下马和客人在船上饯别设宴，举起酒杯要饮却无助兴的管弦。 \n酒喝得不痛快更伤心将要分别，临别时夜茫茫江水倒映着明月。 \n忽听得江面上传来琵琶清脆声；我忘却了回归客人也不想动身。 \n循身轻轻探问弹琵琶的是何人？琵琶停了许久却迟迟没有动静。 \n我们移船靠近邀请她出来相见；叫下人添酒回灯重新摆起酒宴。 \n千呼万唤她才羞答答地走出来，还怀抱琵琶半遮着羞涩的脸面。 \n转紧琴轴拨动琴弦试弹了几声；尚示成曲调那形态就非常有情。 \n弦弦凄楚悲切声音隐含着沉思；似乎在诉说着她平生的不得志； \n她低着头随手连续地弹个不停；用琴声把心中无限的往事说尽。 \n轻轻抚拢慢慢捻滑抹了又加挑；初弹霓裳羽衣曲接着再弹六幺。 \n大弦浑宏悠长嘈嘈如暴风骤雨；小弦和缓幽细切切如有人私语。 \n嘈嘈声切切声互为交错地弹奏；就象大珠小珠一串串掉落玉盘。 \n清脆如黄莺在花丛下婉转鸣唱；幽咽就象清泉在沙滩底下流淌。 \n好象水泉冷涩琵琶声开始凝结，凝结而不通畅声音渐渐地中断。 \n象另有一种愁思幽恨暗暗滋生；此时闷闷无声却比有声更动人。 \n突然间好象银瓶撞破水浆四溅；又好象铁甲骑兵撕杀刀枪齐鸣。 \n一曲终了她对准琴弦中心划拨；四弦一声轰鸣好象撕裂了布帛。 \n东船西舫人们都静悄悄地聆听；只见江心之中映着白白秋月影。 \n她沉吟着收起拨片插在琴弦中；整顿衣裳依然显出庄重的颜容。 \n她说我原是京城歌女负有盛名；老家住在长安城东南的虾蟆陵。 \n弹奏琵琶技艺十三岁就已学成；教坊乐团第一队中列有我姓名。 \n每曲弹罢都令艺术大师们叹服；每次妆成都被同行歌妓们嫉妒。 \n京都豪富子弟争先恐后来献彩；弹完一曲收来的红绡不知其数。 \n钿头银篦打节拍常常断裂粉碎；红色罗裙被酒渍染污也不后悔。 \n年复一年都在欢笑打闹中渡过；秋去春来美好的时光白白消磨。 \n兄弟从军姊妹死家道已经破败；暮去朝来我也渐渐地年老色衰。 \n门前车马减少光顾者落落稀稀；青春已逝我只得嫁给商人为妻。 \n商人重利不重情常常轻易别离；上个月他去浮梁做茶叶的生意。 \n他去了留下我在江口孤守空船；秋月与我作伴绕舱的秋水凄寒。 \n更深夜阑常梦少年时作乐狂欢；梦中哭醒啼泪纵横污损了粉颜。 \n我听琵琶的悲泣早已摇头叹息；又听到她这番诉说更叫我悲凄。 \n我们俩同是天涯沦落的可悲人；今日相逢何必问是否曾经相识。 \n自从去年我离开繁华长安京城；被贬居住在浔阳江畔常常卧病。 \n浔阳这地方荒凉偏僻没有音乐；一年到头听不到管弦的乐器声。 \n住在湓江这个低洼潮湿的地方；第宅周围黄芦和苦竹缭绕丛生。 \n在这里早晚能听到的是什么呢？尽是杜鹃猿猴那些悲凄的哀鸣。 \n春江花朝秋江月夜那样好光景；也无可奈何常常取酒独酌独饮。 \n难道这里就没有山歌和村笛吗？只是那音调嘶哑粗涩实在难听。 \n今晚我听你弹奏琵琶诉说衷情，就象听到仙乐眼也亮来耳也明。 \n请你不要推辞坐下来再弹一曲；我要为你创作一首新诗琵琶行。 \n被我的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。 \n凄凄切切不再象刚才那种声音；在座的人重听都掩面哭泣不停。 \n要问在座之中谁流的眼泪最多？我江州司马泪水湿透青衫衣襟！",
+    "audio": "assets/audio/recite/303.mp3"
+}

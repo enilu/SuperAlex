@@ -1,0 +1,16 @@
+{
+    "id": 5,
+    "title": "悯农",
+    "author": "李绅",
+    "dynasty": "唐",
+    "grade": "小学一年级",
+    "content": [
+        { "text": "锄禾日当午", "pinyin": "chú hé rì dāng wǔ" },
+        { "text": "汗滴禾下土", "pinyin": "hàn dī hé xià tǔ" },
+        { "text": "谁知盘中餐", "pinyin": "shéi zhī pán zhōng cān" },
+        { "text": "粒粒皆辛苦", "pinyin": "lì lì jiē xīn kǔ" }
+    ],
+    "annotation": "禾：谷子；餐：饭食",
+    "translation": "农民在中午的时候在田地里除草，汗水滴到禾苗下的泥土中。谁知道我们碗里的米饭，每一粒都是农民用辛勤的劳动换来的呢。",
+    "audio": "assets/audio/recite/005.mp3"
+}

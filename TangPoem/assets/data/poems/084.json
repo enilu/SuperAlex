@@ -1,0 +1,16 @@
+{
+    "id": 84,
+    "title": "山房春事",
+    "author": "岑参",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "梁园日暮乱飞鸦", "pinyin": "liáng yuán rì mù luàn fēi yā" },
+        { "text": "极目萧条三两家", "pinyin": "jí mù xiāo tiáo sān liǎng jiā" },
+        { "text": "庭树不知人去", "pinyin": "tíng shù bù zhī rén qù" },
+        { "text": "春来还发旧时花", "pinyin": "chūn lái huán fā jiù shí huā" }
+    ],
+    "annotation": "山房：山中的房屋",
+    "translation": "梁园日暮乱飞鸦，极目萧条三两家。庭树不知人离去，春来还发旧时花。",
+    "audio": "assets/audio/recite/084.mp3"
+}

@@ -1,0 +1,20 @@
+{
+    "id": 31,
+    "title": "望月怀远",
+    "author": "张九龄",
+    "dynasty": "唐",
+    "grade": "小学六年级",
+    "content": [
+        { "text": "海上生明月", "pinyin": "hǎi shàng shēng míng yuè" },
+        { "text": "天涯共此时", "pinyin": "tiān yá gòng cǐ shí" },
+        { "text": "情人怨遥夜", "pinyin": "qíng rén yuàn yáo yè" },
+        { "text": "竟夕起相思", "pinyin": "jìng xī qǐ xiāng sī" },
+        { "text": "灭烛怜光满", "pinyin": "miè zhú lián guāng mǎn" },
+        { "text": "披衣觉露滋", "pinyin": "pī yī jué lù zī" },
+        { "text": "不堪盈手赠", "pinyin": "bù kān yíng shǒu zèng" },
+        { "text": "还寝梦佳期", "pinyin": "huán qǐn mèng jiā qī" }
+    ],
+    "annotation": "怀远：怀念远方的亲人",
+    "translation": "海上升起一轮明月，远在天涯的亲人此时与我同望。有情之人怨恨这漫漫长夜，整夜不眠地思念对方。吹灭蜡烛，爱怜月光满室，披衣出门，不觉露水已深。月光虽美，不能抓一把赠送给你，不如回屋睡觉，或许能在梦中相会。",
+    "audio": "assets/audio/recite/031.mp3"
+}

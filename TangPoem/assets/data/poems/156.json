@@ -1,0 +1,44 @@
+{
+    "id": 156,
+    "title": "辋川闲居赠裴秀才迪",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "<strong>寒山</strong>转苍翠",
+            "pinyin": "< s t r o n g > <strong> hán < / s t r o n g > zhuàn </strong> zhuǎn"
+        },
+        {
+            "text": "秋水日潺湲",
+            "pinyin": "qiū shuǐ rì chán yuán"
+        },
+        {
+            "text": "倚杖柴门外",
+            "pinyin": "yǐ zhàng chái mén wài"
+        },
+        {
+            "text": "临风听暮蝉",
+            "pinyin": "lín fēng tīng mù chán"
+        },
+        {
+            "text": "渡头余落日",
+            "pinyin": "dù tóu yú luò rì"
+        },
+        {
+            "text": "墟里上孤烟",
+            "pinyin": "xū lǐ shàng gū yān"
+        },
+        {
+            "text": "复值接舆醉",
+            "pinyin": "fù zhí jiē yú zuì"
+        },
+        {
+            "text": "狂歌五柳前",
+            "pinyin": "kuáng gē wǔ liǔ qián"
+        }
+    ],
+    "annotation": "１、墟里：村落；\n２、孤烟：炊烟。\n２、接舆：这里北<strong>裴迪</strong>。",
+    "translation": "寒山转变得格外郁郁苍苍，\n秋水日日舒缓地流向远方。\n我柱杖伫立在茅舍的门外，\n迎风细听着那暮蝉的吟唱。\n渡头那边太阳快要落山了，\n村子里的炊烟一缕缕飘。\n又碰到裴迪这个接舆酒醉，\n在恰如陶潜的我面前讴狂。",
+    "audio": "assets/audio/recite/156.mp3"
+}

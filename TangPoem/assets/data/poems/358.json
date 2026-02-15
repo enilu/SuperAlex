@@ -1,0 +1,28 @@
+{
+    "id": 358,
+    "title": "金缕衣",
+    "author": "佚名",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "劝君莫惜金缕衣",
+            "pinyin": "quàn jūn mò xī jīn lǚ yī"
+        },
+        {
+            "text": "劝君惜取少年时",
+            "pinyin": "quàn jūn xī qǔ shào nián shí"
+        },
+        {
+            "text": "花开堪折直须折",
+            "pinyin": "huā kāi kān zhē zhí xū zhē"
+        },
+        {
+            "text": "莫待无花空折枝",
+            "pinyin": "mò dài wú huā kòng zhē zhī"
+        }
+    ],
+    "annotation": "１、金缕衣：以金线制成的华丽衣裳。\n２、堪：可。\n３、直须：不必犹豫。",
+    "translation": "我劝你不要顾惜华贵的金缕衣， 我劝你一定要珍惜青春少年时。\n花开宜折的时候就要抓紧去折， 不要等到花谢时只折了个空枝。",
+    "audio": "assets/audio/recite/358.mp3"
+}

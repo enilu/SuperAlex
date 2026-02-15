@@ -1,0 +1,44 @@
+{
+    "id": 173,
+    "title": "风雨",
+    "author": "李商隐",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "凄凉宝剑篇",
+            "pinyin": "qī liáng bǎo jiàn piān"
+        },
+        {
+            "text": "羁泊欲穷年",
+            "pinyin": "jī bó yù qióng nián"
+        },
+        {
+            "text": "黄叶仍风雨",
+            "pinyin": "huáng yè réng fēng yǔ"
+        },
+        {
+            "text": "青楼自管弦",
+            "pinyin": "qīng lóu zì guǎn xián"
+        },
+        {
+            "text": "新知遭薄俗",
+            "pinyin": "xīn zhī zāo bò sú"
+        },
+        {
+            "text": "旧好隔良缘",
+            "pinyin": "jiù hào gé liáng yuán"
+        },
+        {
+            "text": "心断新丰酒",
+            "pinyin": "xīn duàn xīn fēng jiǔ"
+        },
+        {
+            "text": "销愁又几千",
+            "pinyin": "xiāo chóu yòu jī qiān"
+        }
+    ],
+    "annotation": "１、宝剑篇：唐将<strong>郭震</strong>（元振），少有大志。<strong>武则天</strong>曾召见，索其文章，震乃上《宝剑篇》。\n２、羁泊句：意谓终年漂泊。\n３、心断句：<strong>马周</strong>西游长安时，宿新丰旅店，店主人很冷淡，马周便要酒一斗八升，悠然独酌。后来唐太宗召与语，授监察御史。这里意思是说，不可能会象马周那样得到知遇了。心断：犹绝望。新丰：故址在今陕西临潼县东。",
+    "translation": "我读了宝剑篇后心里凄楚悲凉；\n羁旅中不得志想必漂泊到终年。\n我象风雨中的黄叶依然在飘落；\n别人成日在青楼作乐歌舞管弦。\n纵有新交遇到薄俗也难得持久；\n旧交老友因为久疏而断了良缘。\n我不企望喝新丰酒能有新际遇；\n为消愁姑且沽饮不惜耗费几千。",
+    "audio": "assets/audio/recite/173.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 330,
+    "title": "塞下曲·饮马渡秋水",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "饮马渡秋水",
+            "pinyin": "yǐn mǎ dù qiū shuǐ"
+        },
+        {
+            "text": "水寒风似刀",
+            "pinyin": "shuǐ hán fēng sì dāo"
+        },
+        {
+            "text": "平沙日未没",
+            "pinyin": "píng shā rì wèi méi"
+        },
+        {
+            "text": "黯黯见临洮",
+            "pinyin": "àn àn jiàn lín táo"
+        },
+        {
+            "text": "昔日长城战",
+            "pinyin": "xī rì cháng chéng zhàn"
+        },
+        {
+            "text": "咸言意气高",
+            "pinyin": "xián yán yì qì gāo"
+        },
+        {
+            "text": "黄尘足今古",
+            "pinyin": "huáng chén zú jīn gǔ"
+        },
+        {
+            "text": "白骨乱蓬蒿",
+            "pinyin": "bái gǔ luàn péng hāo"
+        }
+    ],
+    "annotation": "１、黯黯：同“暗暗”；\n２、临洮：今甘肃岷县一带，是长城起点。\n３、咸：都。",
+    "translation": "牵马饮水渡过了那大河，水寒刺骨秋风如剑如刀。 \n沙场广袤夕阳尚未下落，昏暗中看见遥远的临洮。 \n当年长城曾经一次鏖战，都说戍边战士的意气高。 \n自古以来这里黄尘迷漫，遍地白骨零乱夹着野草。",
+    "audio": "assets/audio/recite/330.mp3"
+}

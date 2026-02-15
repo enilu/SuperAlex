@@ -1,0 +1,44 @@
+{
+    "id": 216,
+    "title": "送僧归日本",
+    "author": "钱起",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "上国随缘住",
+            "pinyin": "shàng guó suí yuán zhù"
+        },
+        {
+            "text": "来途若梦行",
+            "pinyin": "lái tú ruò mèng xíng"
+        },
+        {
+            "text": "浮天沧海远",
+            "pinyin": "fú tiān cāng hǎi yuǎn"
+        },
+        {
+            "text": "去世法舟轻",
+            "pinyin": "qù shì fǎ zhōu qīng"
+        },
+        {
+            "text": "水月通禅寂",
+            "pinyin": "shuǐ yuè tōng chán jì"
+        },
+        {
+            "text": "鱼龙听梵声",
+            "pinyin": "yú lóng tīng fàn shēng"
+        },
+        {
+            "text": "惟怜一灯影",
+            "pinyin": "wéi lián yī dēng yǐng"
+        },
+        {
+            "text": "万里眼中明",
+            "pinyin": "wàn lǐ yǎn zhōng míng"
+        }
+    ],
+    "annotation": "１、上国：这里指中国。\n２、水月：佛教用语，比喻一切象水中月那样虚幻。\n３、惟怜：最爱；\n４、灯：双关，以舟灯喻禅灯。",
+    "translation": "只要有机缘，随时都可以到中国来；\n一路雾霭茫茫，船只象在梦中航行。\n天海浮沉，小船驶去那遥远的边际；\n超脱世俗，自然会感受到法舟轻盈。\n心境凝定清寂，一切都如水月虚幻；\n海内鱼龙，也会出来听你诵经之声。\n最可爱的是，有盏照亮心田的佛灯；\n航行万里，眼中永远都是灿烂光明。",
+    "audio": "assets/audio/recite/216.mp3"
+}

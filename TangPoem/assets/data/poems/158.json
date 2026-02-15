@@ -1,0 +1,44 @@
+{
+    "id": 158,
+    "title": "归嵩山作",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "清川带长薄",
+            "pinyin": "qīng chuān dài cháng bò"
+        },
+        {
+            "text": "车马去闲闲",
+            "pinyin": "chē mǎ qù xián xián"
+        },
+        {
+            "text": "流水如有意",
+            "pinyin": "liú shuǐ rú yǒu yì"
+        },
+        {
+            "text": "暮禽相与还",
+            "pinyin": "mù qín xiāng yǔ hái"
+        },
+        {
+            "text": "荒城临古渡",
+            "pinyin": "huāng chéng lín gǔ dù"
+        },
+        {
+            "text": "落日满秋山",
+            "pinyin": "luò rì mǎn qiū shān"
+        },
+        {
+            "text": "迢递嵩高下",
+            "pinyin": "tiáo dì sōng gāo xià"
+        },
+        {
+            "text": "归来且闭关",
+            "pinyin": "guī lái qiě bì guān"
+        }
+    ],
+    "annotation": "１、闲闲：从容貌。\n２、迢递：远貌。\n３、且闭关：有闭门谢客意。",
+    "translation": "清沏溪流两岸林木枝茂叶繁，\n我乘着车马安闲地归隐嵩山。\n流水有意与我同去永不回返，\n暮鸟有心跟我一起倦飞知还。\n荒凉的城郭紧挨着古老渡口，\n夕阳的余辉映着经秋的重山。\n远远地来到嵩山下安家落户，\n决心归隐谢绝来客把门闭关。",
+    "audio": "assets/audio/recite/158.mp3"
+}

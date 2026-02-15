@@ -1,0 +1,16 @@
+{
+    "id": 65,
+    "title": "题诗后",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "化共洛阳人", "pinyin": "yǒu gòng luò yáng rén" },
+        { "text": "吟诗桥头边", "pinyin": "yín shī qiáo tóu biān" },
+        { "text": "多少长安客", "pinyin": "duō shǎo cháng ān kè" },
+        { "text": "红尘马蹄前", "pinyin": "hóng chén mǎ tí qián" }
+    ],
+    "annotation": "题诗后：题写在诗作后面",
+    "translation": "与洛阳人在一起，在桥头边吟诗。多少长安客，都在红尘马蹄前。",
+    "audio": "assets/audio/recite/065.mp3"
+}

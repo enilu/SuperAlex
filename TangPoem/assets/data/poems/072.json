@@ -1,0 +1,16 @@
+{
+    "id": 72,
+    "title": "凉州词",
+    "author": "王之涣",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        { "text": "黄河远上白云间", "pinyin": "huáng hé yuǎn shàng bái yún jiān" },
+        { "text": "一片孤城万仞山", "pinyin": "yī piàn gū chéng wàn rèn shān" },
+        { "text": "羌笛何须怨杨柳", "pinyin": "qiāng dí hé xū yuàn yáng liǔ" },
+        { "text": "春风不度玉门关", "pinyin": "chūn fēng bú dù yù mén guān" }
+    ],
+    "annotation": "凉州词：乐府曲名",
+    "translation": "黄河远远流向白云之间，在万仞高山中的一座孤城。羌笛何必抱怨杨柳不青，春风从来吹不到玉门关外。",
+    "audio": "assets/audio/recite/072.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 14,
+    "title": "问刘十九",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        {
+            "text": "绿蚁新醅酒",
+            "pinyin": "lǜ yǐ xīn pēi jiǔ"
+        },
+        {
+            "text": "红泥小火炉",
+            "pinyin": "hóng ní xiǎo huǒ lú"
+        },
+        {
+            "text": "晚来天欲雪",
+            "pinyin": "wǎn lái tiān yù xuě"
+        },
+        {
+            "text": "能饮一杯无",
+            "pinyin": "néng yǐn yī bēi wú"
+        }
+    ],
+    "annotation": "１、绿蚁：指浮在新酿的没有过滤的米酒上的绿色泡沫。\n２、醅：没有过滤的酒。",
+    "translation": "新酿的米酒，色绿香浓；\n小小红泥炉，烧得殷红。\n天快黑了，大雪要来啦……\n能否共饮一杯否？老兄！",
+    "audio": "assets/audio/recite/014.mp3"
+}

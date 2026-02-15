@@ -1,0 +1,44 @@
+{
+    "id": 250,
+    "title": "登柳州城楼寄漳汀封连四州刺史",
+    "author": "柳宗元",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "城上高楼接大荒",
+            "pinyin": "chéng shàng gāo lóu jiē dà huāng"
+        },
+        {
+            "text": "海天愁思正茫茫",
+            "pinyin": "hǎi tiān chóu sī zhèng máng máng"
+        },
+        {
+            "text": "惊风乱芙蓉水",
+            "pinyin": "jīng fēng luàn   fú róng"
+        },
+        {
+            "text": "密雨斜侵薜荔墙",
+            "pinyin": "mì yǔ xié qīn bì lì qiáng"
+        },
+        {
+            "text": "岭树重遮千里目",
+            "pinyin": "lǐng shù zhòng zhē qiān lǐ mù"
+        },
+        {
+            "text": "江流曲似九回肠",
+            "pinyin": "jiāng liú qǔ sì jiǔ huí cháng"
+        },
+        {
+            "text": "共来百越纹身地",
+            "pinyin": "gòng lái bǎi yuè wén shēn dì"
+        },
+        {
+            "text": "犹是音书滞一乡",
+            "pinyin": "yóu shì yīn shū zhì yī xiāng"
+        }
+    ],
+    "annotation": "１、大荒：旷远的广野。\n２、惊风：狂风。\n３、：吹动。\n４、芙蓉：指荷花。\n５、薜荔：一种蔓生植物，也称木莲。\n６、百越：即百粤，指当时五岭以南各少数民族地区。\n７、纹身：古代南方少数民族有在身上刺花纹的风俗。",
+    "translation": "柳州城上的高楼，接连着旷野荒原；\n我们愁绪象茫茫的海天，无限宽广。\n狂风阵阵，猛烈吹乱了水上的芙蓉；\n暴雨倾盆，斜打着爬满薜荔的土墙。\n岭上树木重重，遮住了远望的视线；\n柳江弯弯曲曲，象百结九转的愁肠。\n咱五人同时遭贬，到百越纹身之地；\n而今依然音书不通，各自滞留一方。",
+    "audio": "assets/audio/recite/250.mp3"
+}

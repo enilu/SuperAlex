@@ -1,0 +1,44 @@
+{
+    "id": 178,
+    "title": "月夜忆舍弟",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "戌鼓断人行",
+            "pinyin": "xū gǔ duàn rén xíng"
+        },
+        {
+            "text": "秋边一雁声",
+            "pinyin": "qiū biān yī yàn shēng"
+        },
+        {
+            "text": "露从今夜白",
+            "pinyin": "lù zòng jīn yè bái"
+        },
+        {
+            "text": "月是故乡明",
+            "pinyin": "yuè shì gù xiāng míng"
+        },
+        {
+            "text": "有弟皆分散",
+            "pinyin": "yǒu dì jiē fēn sàn"
+        },
+        {
+            "text": "无家问死生",
+            "pinyin": "wú jiā wèn sǐ shēng"
+        },
+        {
+            "text": "寄书长不达",
+            "pinyin": "jì shū cháng bù dá"
+        },
+        {
+            "text": "况乃未休兵",
+            "pinyin": "kuàng nǎi wèi xiū bīng"
+        }
+    ],
+    "annotation": "１、戌鼓：戌楼上的更鼓。\n２、边秋：一作“秋边”，秋天的边境。\n３、长：一直，老是。",
+    "translation": "戌楼响过更鼓，路上断了行人形影，\n秋天的边境，传来孤雁悲切的鸣声。\n今日正是白露，忽然想起远方兄弟，\n望月怀思，觉得故乡月儿更圆更明。\n可怜有兄弟，却各自东西海角天涯，\n有家若无，是死是生我何处去打听？\n平时寄去书信，常常总是无法到达，\n更何况烽火连天，叛乱还没有治平。",
+    "audio": "assets/audio/recite/178.mp3"
+}

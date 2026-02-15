@@ -1,0 +1,28 @@
+{
+    "id": 119,
+    "title": "夜雨寄北",
+    "author": "李商隐",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "君问归期未有期",
+            "pinyin": "jūn wèn guī jī wèi yǒu jī"
+        },
+        {
+            "text": "巴山夜雨涨秋池",
+            "pinyin": "bā shān yè yǔ zhǎng qiū chí"
+        },
+        {
+            "text": "何当共剪西窗烛",
+            "pinyin": "hé dàng gòng jiǎn xī chuāng zhú"
+        },
+        {
+            "text": "却话巴山夜雨时",
+            "pinyin": "què huà bā shān yè yǔ shí"
+        }
+    ],
+    "annotation": "１、巴山：在今四川省南江县以北。\n２、共翦西窗烛：翦同剪；在西窗下共剪烛蕊。\n３、却话：重头谈起。",
+    "translation": "你问我回家的日子，我尚未定归期；\n今晚巴山下着大雨，雨水涨满秋池。\n何时你我重新聚首，共剪西窗烛花；\n再告诉你今夜秋雨，我痛苦的情思。",
+    "audio": "assets/audio/recite/119.mp3"
+}

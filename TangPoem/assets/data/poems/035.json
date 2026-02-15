@@ -1,0 +1,20 @@
+{
+    "id": 35,
+    "title": "野望",
+    "author": "王绩",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "东皋薄暮望", "pinyin": "dōng gāo bó mù wàng" },
+        { "text": "徙倚欲何依", "pinyin": "xǐ yǐ yù hé yī" },
+        { "text": "树树皆秋色", "pinyin": "shù shù jiē qiū sè" },
+        { "text": "山山唯落晖", "pinyin": "shān shān wéi luò huī" },
+        { "text": "牧人驱犊返", "pinyin": "mù rén qū dú fǎn" },
+        { "text": "猎马带禽归", "pinyin": "liè mǎ dài qín guī" },
+        { "text": "相顾无相识", "pinyin": "xiāng gù wú xiāng shí" },
+        { "text": "长歌怀采薇", "pinyin": "cháng gē huái cǎi wēi" }
+    ],
+    "annotation": "东皋：地名，诗人隐居之地",
+    "translation": "黄昏时分伫立在东皋怅望，徘徊不定不知该归依何方。层层树林都染上秋色，重重山岭披上落日余晖。牧人赶着牛犊返回家园，猎人带着猎物骑马而回。大家相对无言彼此不相识，我长啸高歌真想隐居在山野。",
+    "audio": "assets/audio/recite/035.mp3"
+}

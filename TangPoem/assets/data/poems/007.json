@@ -1,0 +1,16 @@
+{
+    "id": 7,
+    "title": "江雪",
+    "author": "柳宗元",
+    "dynasty": "唐",
+    "grade": "小学二年级",
+    "content": [
+        { "text": "千山鸟飞绝", "pinyin": "qiān shān niǎo fēi jué" },
+        { "text": "万径人踪灭", "pinyin": "wàn jìng rén zōng miè" },
+        { "text": "孤舟蓑笠翁", "pinyin": "gū zhōu suō lì wēng" },
+        { "text": "独钓寒江雪", "pinyin": "dú diào hán jiāng xuě" }
+    ],
+    "annotation": "蓑笠翁：披蓑衣、戴斗笠的渔翁",
+    "translation": "所有的山上，都看不到飞鸟的影子，所有的小路，都没有人的行踪。只有一条小船，乘着风，披着蓑衣，戴着斗笠的老翁，独自在漫天风雪中垂钓。",
+    "audio": "assets/audio/recite/007.mp3"
+}

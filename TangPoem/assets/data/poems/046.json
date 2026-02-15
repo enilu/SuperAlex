@@ -1,0 +1,16 @@
+{
+    "id": 46,
+    "title": "暮江吟",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        { "text": "一道残阳铺水中", "pinyin": "yī dào cán yáng pū shuǐ zhōng" },
+        { "text": "半江瑟瑟半江红", "pinyin": "bàn jiāng sè sè bàn jiāng hóng" },
+        { "text": "可怜九月初三夜", "pinyin": "kě lián jiǔ yuè chū sān yè" },
+        { "text": "露似真珠月似弓", "pinyin": "lù sì zhēn zhū yuè sì gōng" }
+    ],
+    "annotation": "瑟瑟：碧绿色",
+    "translation": "一道残阳铺在江水中，半江碧绿半江火红。最可爱的是九月初三的夜晚，露珠像珍珠月亮像弯弓。",
+    "audio": "assets/audio/recite/046.mp3"
+}

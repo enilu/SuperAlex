@@ -1,0 +1,28 @@
+{
+    "id": 82,
+    "title": "逢入京使",
+    "author": "岑参",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        {
+            "text": "故园东望路漫漫",
+            "pinyin": "gù yuán dōng wàng lù màn màn"
+        },
+        {
+            "text": "双袖龙钟泪不干",
+            "pinyin": "shuāng xiù lóng zhōng lèi bù gān"
+        },
+        {
+            "text": "马上相逢无纸笔",
+            "pinyin": "mǎ shàng xiāng féng wú zhǐ bǐ"
+        },
+        {
+            "text": "凭君传语报平安",
+            "pinyin": "píng jūn chuán yǔ bào píng ān"
+        }
+    ],
+    "annotation": "１、故园：指长安，作者在长安有别墅。\n２、龙钟：这里是沾湿的意思。\n３、凭：托。",
+    "translation": "回头东望故园千里，路途遥远迷漫；\n满面龙钟两袖淋漓，涕泪依然不干。\n途中与君马上邂逅，修书却无纸笔；\n唯有托你捎个口信，回家报个平安。",
+    "audio": "assets/audio/recite/082.mp3"
+}

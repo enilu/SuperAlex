@@ -1,0 +1,16 @@
+{
+    "id": 49,
+    "title": "南园十三首·其五",
+    "author": "李贺",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "男儿何不带吴钩", "pinyin": "nán ér hé bú dài wú gōu" },
+        { "text": "收取关山五十州", "pinyin": "shōu qù guān shān wǔ shí zhōu" },
+        { "text": "请君暂上凌烟阁", "pinyin": "qǐng jūn zàn shàng líng yān gé" },
+        { "text": "若个书生万户侯", "pinyin": "ruò gè shū shēng wàn hù hóu" }
+    ],
+    "annotation": "吴钩：古代吴地出产的弯形宝刀",
+    "translation": "男子汉为什么不带上吴钩，去收复关山五十州呢？请你暂时登上凌烟阁看看，哪一个书生能封万户侯呢？",
+    "audio": "assets/audio/recite/049.mp3"
+}

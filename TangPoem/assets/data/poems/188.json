@@ -1,0 +1,44 @@
+{
+    "id": 188,
+    "title": "早寒有怀",
+    "author": "孟浩然",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "木落雁南度",
+            "pinyin": "mù luò yàn nán dù"
+        },
+        {
+            "text": "北风江上寒",
+            "pinyin": "běi fēng jiāng shàng hán"
+        },
+        {
+            "text": "我家襄水曲",
+            "pinyin": "wǒ jiā xiāng shuǐ qǔ"
+        },
+        {
+            "text": "遥隔楚云端",
+            "pinyin": "yáo gé chǔ yún duān"
+        },
+        {
+            "text": "乡泪客中尽",
+            "pinyin": "xiāng lèi kè zhōng jǐn"
+        },
+        {
+            "text": "孤帆天际看",
+            "pinyin": "gū fān tiān jì kàn"
+        },
+        {
+            "text": "迷津欲有问",
+            "pinyin": "mí jīn yù yǒu wèn"
+        },
+        {
+            "text": "平海夕漫漫",
+            "pinyin": "píng hǎi xī màn màn"
+        }
+    ],
+    "annotation": "①“我家”句：<strong>孟浩然</strong>家在襄阳，襄阳在襄水之曲，所以这样说。襄水：也叫襄河，汉水在襄樊市以下一段，水流曲折，所以说“襄水曲”。\n　　②“遥隔”句：指思乡之情遥隔云端。楚：襄阳古属楚国。\n　　③“迷津”句：《论语·微子》有<strong>孔子</strong>命子路向长沮、桀溺问津，却为两人讥讽的故事。这里是慨叹诗人自己彷徨失意，如同迷津的意思。津：渡口。\n　　④平海：指水面平阔。古时也称<strong>江为</strong>海。",
+    "translation": "草木枯黄凋零了，阵阵鸿雁飞向南，\n　　北风呼啸刮不停，一江秋水一江寒。\n　　家乡是那鹿行山，茅庐就在襄水湾，\n　　遥望远方的楚地，楚地茫茫在云端。\n　　思乡眼泪已流尽，客旅生活多辛酸，\n　　孤帆远方在天际，此情此景不堪看。\n　　我想找人问一问，迷路渡口在哪边？\n　　暮色苍茫无所见，只见江海水漫漫。",
+    "audio": "assets/audio/recite/188.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 217,
+    "title": "谷口书斋寄杨补阙",
+    "author": "钱起",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "泉壑带茅茨",
+            "pinyin": "quán hè dài máo cí"
+        },
+        {
+            "text": "云霞生薜帷",
+            "pinyin": "yún xiá shēng bì wéi"
+        },
+        {
+            "text": "竹怜新雨后",
+            "pinyin": "zhú lián xīn yǔ hòu"
+        },
+        {
+            "text": "山爱夕阳时",
+            "pinyin": "shān ài xī yáng shí"
+        },
+        {
+            "text": "闲鹭栖常早",
+            "pinyin": "xián lù qī cháng zǎo"
+        },
+        {
+            "text": "秋花落更迟",
+            "pinyin": "qiū huā luò gèng chí"
+        },
+        {
+            "text": "家僮扫罗径",
+            "pinyin": "jiā tóng sǎo luó jìng"
+        },
+        {
+            "text": "昨与故人期",
+            "pinyin": "zuó yǔ gù rén jī"
+        }
+    ],
+    "annotation": "１、泉壑：犹山水。",
+    "translation": "山泉沟壑萦绕着这座茅屋书斋，\n云霞映衬墙头薜荔象五彩幔帷。\n雨后新竹的姿彩多么叫人喜爱，\n更可爱晚山映照着夕阳的余辉。\n悠闲的白鹭常常早早回巢栖宿，\n秋花饱含生机比别处落得更迟。\n家仆正辛勤地把萝径打扫干净，\n我昨天与老朋友预约会面日期。",
+    "audio": "assets/audio/recite/217.mp3"
+}

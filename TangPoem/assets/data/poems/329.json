@@ -1,0 +1,44 @@
+{
+    "id": 329,
+    "title": "塞上曲·蝉鸣空桑林",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "蝉鸣空桑林",
+            "pinyin": "chán míng kòng sāng lín"
+        },
+        {
+            "text": "八月萧关道",
+            "pinyin": "bā yuè xiāo guān dào"
+        },
+        {
+            "text": "出塞入塞寒",
+            "pinyin": "chū sài rù sài hán"
+        },
+        {
+            "text": "处处黄芦草",
+            "pinyin": "chǔ chǔ huáng lú cǎo"
+        },
+        {
+            "text": "从来幽并客",
+            "pinyin": "zòng lái yōu bìng kè"
+        },
+        {
+            "text": "皆共尘沙老",
+            "pinyin": "jiē gòng chén shā lǎo"
+        },
+        {
+            "text": "莫学游侠儿",
+            "pinyin": "mò xué yóu xiá ér"
+        },
+        {
+            "text": "矜夸紫骝好",
+            "pinyin": "jīn kuā zǐ liú hào"
+        }
+    ],
+    "annotation": "(1)空桑林：桑林因秋来落叶而变得空旷、稀疏。\n　　(2)萧关：宁夏古关塞名。\n　　(3)入塞寒：一作“复入寒”\n　　(4)幽并：幽州和并州，今河北、山西和陕西一部分。\n　　(5)共：作“向”。\n　　(6)游侠儿：指恃勇气、逞意气而轻视生命的人。\n　　(7)矜：自鸣不凡。紫骝：紫红色的骏马。",
+    "translation": "知了在枯秃的桑林鸣叫，\n　　八月的萧关道气爽秋高。\n　　出塞后再入塞气候变冷，\n　　关内关外尽是黄黄芦草。\n　　自古来河北山西的豪杰，\n　　都与尘土黄沙伴随到老。\n　　莫学那自恃勇武游侠儿，\n　　自鸣不凡地把骏马夸耀。",
+    "audio": "assets/audio/recite/329.mp3"
+}

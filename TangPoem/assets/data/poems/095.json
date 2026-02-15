@@ -1,0 +1,28 @@
+{
+    "id": 95,
+    "title": "哥舒歌",
+    "author": "西鄙人",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "北斗七星高",
+            "pinyin": "běi dǒu qī xīng gāo"
+        },
+        {
+            "text": "哥舒夜带刀",
+            "pinyin": "gē shū yè dài dāo"
+        },
+        {
+            "text": "至今窥牧马",
+            "pinyin": "zhì jīn kuī mù mǎ"
+        },
+        {
+            "text": "不敢过临洮",
+            "pinyin": "bù gǎn guò lín táo"
+        }
+    ],
+    "annotation": "１、窥：窃伺。\n２、临洮：今甘肃泯县，秦筑长城西起于此。",
+    "translation": "黑夜里北斗七星挂得高高；\n哥舒翰勇猛守边夜带宝刀。\n吐蕃族至今牧马只能远望；\n他们再不敢南来越过临洮。",
+    "audio": "assets/audio/recite/095.mp3"
+}

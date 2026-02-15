@@ -1,0 +1,44 @@
+{
+    "id": 60,
+    "title": "登岳阳楼",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "初中二年级",
+    "content": [
+        {
+            "text": "昔闻洞庭水",
+            "pinyin": "xī wén dòng tíng shuǐ"
+        },
+        {
+            "text": "今上岳阳楼",
+            "pinyin": "jīn shàng yuè yáng lóu"
+        },
+        {
+            "text": "吴楚东南坼",
+            "pinyin": "wú chǔ dōng nán chè"
+        },
+        {
+            "text": "乾坤日夜浮",
+            "pinyin": "qián kūn rì yè fú"
+        },
+        {
+            "text": "亲朋无一字",
+            "pinyin": "qīn péng wú yī zì"
+        },
+        {
+            "text": "老病有孤舟",
+            "pinyin": "lǎo bìng yǒu gū zhōu"
+        },
+        {
+            "text": "戎马关山北",
+            "pinyin": "róng mǎ guān shān běi"
+        },
+        {
+            "text": "凭轩涕泗流",
+            "pinyin": "píng xuān tì sì liú"
+        }
+    ],
+    "annotation": "１、吴楚句：吴楚两地在我国东南；坼：分裂。\n２、乾坤：指日、月。\n３、戎马：指战争。\n４、关山北：北方边境。\n５、凭轩：靠着窗户。",
+    "translation": "很早听过名扬海内的洞庭湖，\n今日有幸登上湖边的岳阳楼。\n大湖浩瀚象把吴楚东南隔开，\n天地象在湖面日夜荡漾漂浮。\n漂泊江湖亲朋故旧不寄一字，\n年老体弱生活在这一叶孤舟。\n关山以北战争烽火仍未止息，\n凭窗遥望胸怀家国涕泪交流。",
+    "audio": "assets/audio/recite/060.mp3"
+}

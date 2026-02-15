@@ -1,0 +1,44 @@
+{
+    "id": 160,
+    "title": "云阳馆与韩绅宿别",
+    "author": "司空曙",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "故人江海别",
+            "pinyin": "gù rén jiāng hǎi bié"
+        },
+        {
+            "text": "几度隔山川",
+            "pinyin": "jī dù gé shān chuān"
+        },
+        {
+            "text": "乍见翻疑梦",
+            "pinyin": "zhà jiàn fān yí mèng"
+        },
+        {
+            "text": "相悲各问年",
+            "pinyin": "xiāng bēi gè wèn nián"
+        },
+        {
+            "text": "孤灯寒照雨",
+            "pinyin": "gū dēng hán zhào yǔ"
+        },
+        {
+            "text": "深竹暗浮烟",
+            "pinyin": "shēn zhú àn fú yān"
+        },
+        {
+            "text": "更有明朝恨",
+            "pinyin": "gèng yǒu míng cháo hèn"
+        },
+        {
+            "text": "离杯惜共传",
+            "pinyin": "lí bēi xī gòng chuán"
+        }
+    ],
+    "annotation": "１、几度：多少道。\n２、乍：骤，突然。\n３、共传：互相举杯。",
+    "translation": "老朋友自从江海阔别之后，\n几道道隔山隔水难得见面。\n忽然相逢却疑心是在梦中，\n相怜别后生活互问了庚年。\n孤灯冷冷地在雨夜中闪烁，\n窗外湿竹笼罩昏暗的轻烟。\n最可恨的是明朝又将分别，\n这惜别怀盏怎不相对频传？",
+    "audio": "assets/audio/recite/160.mp3"
+}

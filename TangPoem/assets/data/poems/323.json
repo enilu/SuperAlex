@@ -1,0 +1,28 @@
+{
+    "id": 323,
+    "title": "登幽州台歌",
+    "author": "陈子昂",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "前不见古人",
+            "pinyin": "qián bù jiàn gǔ rén"
+        },
+        {
+            "text": "后不见来者",
+            "pinyin": "hòu bù jiàn lái zhě"
+        },
+        {
+            "text": "念天地之悠悠",
+            "pinyin": "niàn tiān dì zhī yōu yōu"
+        },
+        {
+            "text": "独怆然而泪下",
+            "pinyin": "dú chuàng rán ér lèi xià"
+        }
+    ],
+    "annotation": "１、幽州：古十二州之一，现今北京市。\n　　２、悠悠：渺远的样子。\n　　３、怆然：悲伤凄凉。\n　　４、泪：眼泪。",
+    "translation": "先代的圣君，我见也没见到， 后代的明主，要等到什么时候？\n　　想到宇宙无限渺远，我深感人生短暂， 独自凭吊，我涕泪纵横凄恻悲愁！",
+    "audio": "assets/audio/recite/323.mp3"
+}

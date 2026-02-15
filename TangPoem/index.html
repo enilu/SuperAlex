@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#f093fb">
+    <meta name="description" content="唐诗小当家 - 让孩子爱上唐诗，快乐背诵经典">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="唐诗小当家">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+    <title>唐诗小当家 - 儿童唐诗学习游戏</title>
+    <link rel="stylesheet" href="assets/css/game.css">
+</head>
+<body>
+    <!-- 开始界面 -->
+    <div id="startScreen" class="screen active">
+        <div class="container">
+            <h1 class="game-title">📜 唐诗小当家</h1>
+            <p class="subtitle">快乐背诵经典唐诗</p>
+            <div class="mode-selection">
+                <h2 class="selection-title">选择学习模式</h2>
+                <div class="mode-buttons">
+                    <button class="mode-btn recite-mode" data-mode="recite">
+                        <span class="icon">📖</span>
+                        <span class="text">诵读模式</span>
+                    </button>
+                    <button class="mode-btn game-mode" data-mode="game">
+                        <span class="icon">🎯</span>
+                        <span class="text">闯关模式</span>
+                    </button>
+                    <button class="mode-btn review-mode" data-mode="review">
+                        <span class="icon">📚</span>
+                        <span class="text">复习模式</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 诵读模式界面 -->
+    <div id="reciteScreen" class="screen">
+        <div class="screen-header">
+            <button class="back-btn" id="backToStart">← 返回</button>
+            <button class="catalog-btn" id="catalogBtn">📋 目录</button>
+            <button class="settings-btn" id="settingsBtn">⚙️</button>
+        </div>
+        <div class="recite-container">
+            <div class="poem-card">
+                <h2 class="poem-title" id="poemTitle">静夜思</h2>
+                <p class="poem-author" id="poemAuthor">唐 · 李白</p>
+                <div class="poem-content" id="poemContent">
+                    <!-- 诗词内容会动态插入 -->
+                </div>
+                <div class="poem-translation" id="poemTranslation">
+                    <!-- 译文会动态插入 -->
+                </div>
+            </div>
+            <div class="recite-controls">
+                <button class="control-btn prev-btn" id="prevPoem">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="control-btn play-btn" id="playAudio">
+                    <svg class="icon icon-play" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5V19L19 12L8 5Z"/>
+                    </svg>
+                    <svg class="icon icon-pause" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 4H10V20H6V4ZM14 4H18V20H14V4Z"/>
+                    </svg>
+                </button>
+                <button class="control-btn next-btn" id="nextPoem">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 闯关模式界面 -->
+    <div id="gameScreen" class="screen">
+        <div class="screen-header">
+            <button class="back-btn" id="backToStart2">← 返回</button>
+            <div class="score-display">
+                <span class="label">🎯 分数</span>
+                <span class="value" id="score">0</span>
+            </div>
+        </div>
+        <div class="game-container">
+            <div class="question-card">
+                <div class="progress-display">
+                    <span class="label">📊 进度</span>
+                    <span class="value" id="progress">1/10</span>
+                </div>
+                <h3 class="poem-hint" id="poemHint">《静夜思》</h3>
+                <div class="question-text" id="questionText">
+                    床前明___光
+                </div>
+                <div class="answer-options" id="answerOptions">
+                    <!-- 选项会动态插入 -->
+                </div>
+            </div>
+        </div>
+        <div class="feedback-area" id="feedbackArea">
+            <div class="feedback-content" id="feedbackContent">
+                <span class="feedback-icon"></span>
+                <span class="feedback-text"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 复习模式界面 -->
+    <div id="reviewScreen" class="screen">
+        <div class="screen-header">
+            <button class="back-btn" id="backToStart3">← 返回</button>
+            <div class="review-stats">
+                <span class="label">📖 待复习</span>
+                <span class="value" id="reviewCount">0</span>
+            </div>
+        </div>
+        <div class="review-container">
+            <div class="review-card" id="reviewCard">
+                <div class="empty-state">
+                    <span class="icon">🎉</span>
+                    <p>太棒了！暂时没有需要复习的唐诗</p>
+                </div>
+            </div>
+            <button class="start-review-btn" id="startReview">开始复习</button>
+        </div>
+    </div>
+
+    <!-- 结果界面 -->
+    <div id="resultScreen" class="screen">
+        <div class="result-container">
+            <h1 class="result-title" id="resultTitle">🎉 太棒了！</h1>
+            <div class="score-summary">
+                <div class="final-score" id="finalScore">100</div>
+                <div class="score-label">分</div>
+            </div>
+            <div class="result-stars" id="resultStars">
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+            </div>
+            <div class="result-rank" id="resultRank">诗仙</div>
+            <div class="result-message" id="resultMessage">
+                你真是唐诗小天才！继续保持！
+            </div>
+            <div class="result-stats">
+                <div class="stat">
+                    <span class="stat-label">答对</span>
+                    <span class="stat-value" id="correctCount">10</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">答错</span>
+                    <span class="stat-value" id="wrongCount">0</span>
+                </div>
+            </div>
+            <button class="restart-btn" id="restartBtn">
+                🔄 再玩一次
+            </button>
+        </div>
+    </div>
+
+    <!-- 成就弹窗 -->
+    <div id="achievementToast" class="achievement-toast hidden">
+        <div class="toast-content">
+            <span class="toast-icon">🏆</span>
+            <span class="toast-text" id="toastText">解锁成就：小诗仙！</span>
+        </div>
+    </div>
+
+    <!-- 唐诗目录弹窗 -->
+    <div id="catalogModal" class="catalog-modal hidden">
+        <div class="catalog-overlay" id="catalogOverlay"></div>
+        <div class="catalog-content">
+            <div class="catalog-header">
+                <h2 class="catalog-title">📜 唐诗目录</h2>
+                <button class="catalog-close" id="catalogClose">✕</button>
+            </div>
+            <div class="catalog-filter">
+                <button class="filter-btn active" data-grade="all">全部</button>
+                <button class="filter-btn" data-grade="小学一年级">一年级</button>
+                <button class="filter-btn" data-grade="小学二年级">二年级</button>
+                <button class="filter-btn" data-grade="小学三年级">三年级</button>
+                <button class="filter-btn" data-grade="小学四年级">四年级</button>
+                <button class="filter-btn" data-grade="小学五年级">五年级</button>
+                <button class="filter-btn" data-grade="小学六年级">六年级</button>
+                <button class="filter-btn" data-grade="小学课外">课外</button>
+                <button class="filter-btn" data-grade="初中">初中</button>
+                <button class="filter-btn" data-grade="高中">高中</button>
+            </div>
+            <div class="catalog-list" id="catalogList">
+                <!-- 目录列表会动态插入 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入脚本 -->
+    <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

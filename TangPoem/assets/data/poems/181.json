@@ -1,0 +1,44 @@
+{
+    "id": 181,
+    "title": "春宿左省",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "花隐掖垣暮",
+            "pinyin": "huā yǐn yè yuán mù"
+        },
+        {
+            "text": "啾啾栖鸟过",
+            "pinyin": "jiū jiū qī niǎo guò"
+        },
+        {
+            "text": "星临万户动",
+            "pinyin": "xīng lín wàn hù dòng"
+        },
+        {
+            "text": "月傍九霄多",
+            "pinyin": "yuè bàng jiǔ xiāo duō"
+        },
+        {
+            "text": "不寝听金钥",
+            "pinyin": "bù qǐn tīng jīn yuè"
+        },
+        {
+            "text": "因风想玉珂",
+            "pinyin": "yīn fēng xiǎng yù kē"
+        },
+        {
+            "text": "明朝有封事",
+            "pinyin": "míng cháo yǒu fēng shì"
+        },
+        {
+            "text": "数问夜如何",
+            "pinyin": "shǔ wèn yè rú hé"
+        }
+    ],
+    "annotation": "１、掖垣：因门下省、中书省地处左右两边，像人的两掖，门下省为左掖。\n２、金钥；指开宫门的锁钥声。\n３、珂：马铃。\n４、封事：臣下上书奏事，防有泄漏，用黑色袋子密封，故称。",
+    "translation": "左偏殿矮墙遮隐花丛，日已将暮，\n投宿的鸟儿，一群群鸣叫着飞过。\n星临宫中，千门万户似乎在闪烁，\n靠近天廷，所得的月光应该更多。\n夜不敢寝，听到宫门开启的钥锁，\n晚风飒飒，想起上朝马铃的音波。\n明晨上朝，还有重要的大事要做，\n心里不安，多次地探问夜漏几何？",
+    "audio": "assets/audio/recite/181.mp3"
+}

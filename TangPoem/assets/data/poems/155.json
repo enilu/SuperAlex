@@ -1,0 +1,44 @@
+{
+    "id": 155,
+    "title": "过香积寺",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "不知香积寺",
+            "pinyin": "bù zhī xiāng jī sì"
+        },
+        {
+            "text": "数里入云峰",
+            "pinyin": "shǔ lǐ rù yún fēng"
+        },
+        {
+            "text": "古木无人径",
+            "pinyin": "gǔ mù wú rén jìng"
+        },
+        {
+            "text": "深山何处钟",
+            "pinyin": "shēn shān hé chǔ zhōng"
+        },
+        {
+            "text": "泉声咽危石",
+            "pinyin": "quán shēng yān wēi shí"
+        },
+        {
+            "text": "日色冷青松",
+            "pinyin": "rì sè lěng qīng sōng"
+        },
+        {
+            "text": "薄暮空潭曲",
+            "pinyin": "bò mù kòng tán qǔ"
+        },
+        {
+            "text": "安禅制毒龙",
+            "pinyin": "ān chán zhì dú lóng"
+        }
+    ],
+    "annotation": "１、薄暮两句：因寺旁空潭而想到毒龙的故事；安禅：指心安然入于清寂宁静之境；毒龙：这里是机心妄想的意思。",
+    "translation": "早闻香积寺盛名，却不知在此山中；\n入山数里，登上了高入云天的山峰。\n这儿古木参天，根本没有行人路径；\n深山中，何处传来隐隐约约的寺钟。\n俯听危石的流泉，轻轻地抽泣哽咽；\n山高林密不透日影，松荫寒气犹浓。\n日已将暮，我伫立在空寂的清潭边，\n有如禅定身心安然，一切邪念皆空。",
+    "audio": "assets/audio/recite/155.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 333,
+    "title": "秋夜曲",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "桂魄初生秋露微",
+            "pinyin": "guì pò chū shēng qiū lù wēi"
+        },
+        {
+            "text": "轻罗已薄未更衣",
+            "pinyin": "qīng luó yǐ bò wèi gèng yī"
+        },
+        {
+            "text": "银筝夜久殷勤弄",
+            "pinyin": "yín zhēng yè jiǔ yīn qín nòng"
+        },
+        {
+            "text": "心怯空房不忍归",
+            "pinyin": "xīn qiè kòng fáng bù rěn guī"
+        }
+    ],
+    "annotation": "１、桂魄：月的别称。",
+    "translation": "一轮秋月刚刚升起秋露初生，\n丝绸已嫌太薄了却懒得更衣。\n更深夜阑还在殷勤拨弄银筝，\n原来是怕空房寂寞不忍回归。",
+    "audio": "assets/audio/recite/333.mp3"
+}

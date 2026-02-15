@@ -1,0 +1,28 @@
+{
+    "id": 129,
+    "title": "将赴吴兴登乐游原一绝",
+    "author": "杜牧",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "清时有味是无能",
+            "pinyin": "qīng shí yǒu wèi shì wú néng"
+        },
+        {
+            "text": "闲爱孤云静爱僧",
+            "pinyin": "xián ài gū yún jìng ài sēng"
+        },
+        {
+            "text": "欲把一麾江海去",
+            "pinyin": "yù bǎ yī huī jiāng hǎi qù"
+        },
+        {
+            "text": "乐游原上望昭陵",
+            "pinyin": "lè yóu yuán shàng wàng zhāo líng"
+        }
+    ],
+    "annotation": "暂无注释",
+    "translation": "太平时有闲情逸兴，是无能之人；喜欢孤云悠闲，也喜欢和尚清静。我想手擎旌麾，远去江海的吴兴；再登上乐游原，遥望太宗的昭陵。",
+    "audio": "assets/audio/recite/129.mp3"
+}

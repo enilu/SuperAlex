@@ -1,0 +1,16 @@
+{
+    "id": 22,
+    "title": "绝句四首·其三",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学一年级",
+    "content": [
+        { "text": "两个黄鹂鸣翠柳", "pinyin": "liǎng gè huáng lí míng cuì liǔ" },
+        { "text": "一行白鹭上青天", "pinyin": "yī háng bái lù shàng qīng tiān" },
+        { "text": "窗含西岭千秋雪", "pinyin": "chuāng hán xī lǐng qiān qiū xuě" },
+        { "text": "门泊东吴万里船", "pinyin": "mén bó dōng wú wàn lǐ chuán" }
+    ],
+    "annotation": "西岭：成都西面的岷山",
+    "translation": "两只黄鹂在翠绿的柳枝间鸣唱，一行白鹭飞上了蔚蓝的天空。从窗口望去，西岭上千年的积雪好像嵌在窗框里，门外停泊着来自东吴的万里航船。",
+    "audio": "assets/audio/recite/022.mp3"
+}

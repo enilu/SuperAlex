@@ -1,0 +1,16 @@
+{
+    "id": 87,
+    "title": "春梦",
+    "author": "岑参",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "洞房昨夜春风起", "pinyin": "dòng fáng zuó yè chūn fēng qǐ" },
+        { "text": "遥忆美人湘江水", "pinyin": "yáo yì měi rén xiāng jiāng shuǐ" },
+        { "text": "枕上片时春梦中", "pinyin": "zhěn shàng piàn shí chūn mèng zhōng" },
+        { "text": "行尽江南数千里", "pinyin": "xíng jìn jiāng nán shù qiān lǐ" }
+    ],
+    "annotation": "洞房：深邃的房间",
+    "translation": "洞房昨夜春风起，遥忆美人湘江水。枕上片时春梦中，行尽江南数千里。",
+    "audio": "assets/audio/recite/087.mp3"
+}

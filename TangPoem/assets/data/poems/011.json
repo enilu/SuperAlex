@@ -1,0 +1,28 @@
+{
+    "id": 11,
+    "title": "送别",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学三年级",
+    "content": [
+        {
+            "text": "山中相送罢",
+            "pinyin": "shān zhōng xiāng sòng bà"
+        },
+        {
+            "text": "日暮掩柴扉",
+            "pinyin": "rì mù yǎn chái fēi"
+        },
+        {
+            "text": "春草明年绿",
+            "pinyin": "chūn cǎo míng nián lǜ"
+        },
+        {
+            "text": "王孙归不归",
+            "pinyin": "wáng sūn guī bù guī"
+        }
+    ],
+    "annotation": "１、饮君酒：劝君喝酒。\n２、何所之：去哪里。\n３、归卧：隐居。\n４、南山陲：终南山边。",
+    "translation": "请你下马喝一杯美酒，我想问问你要去哪里？ \n你说官场生活不得志，想要归隐南山的边陲。 \n你只管去吧我不再问，白云无穷尽足以自娱。",
+    "audio": "assets/audio/recite/011.mp3"
+}

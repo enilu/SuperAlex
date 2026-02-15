@@ -1,0 +1,16 @@
+{
+    "id": 25,
+    "title": "江畔独步寻花七绝句·其五",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学三年级",
+    "content": [
+        { "text": "黄师塔前江水东", "pinyin": "huáng shī tǎ qián jiāng shuǐ dōng" },
+        { "text": "春光懒困倚微风", "pinyin": "chūn guāng lǎn kùn yǐ wēi fēng" },
+        { "text": "桃花一簇开无主", "pinyin": "táo huā yī cù kāi wú zhǔ" },
+        { "text": "可爱深红爱浅红", "pinyin": "kě ài shēn hóng ài qiǎn hóng" }
+    ],
+    "annotation": "江畔：江边",
+    "translation": "黄师塔前的江水向东流去，温暖的春光让人困倦，只想倚着春风小憩。一簇桃花开得正艳，却没有主人欣赏，究竟是爱深红还是爱浅红呢？",
+    "audio": "assets/audio/recite/025.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 265,
+    "title": "赠阙下裴舍人",
+    "author": "钱起",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "二月黄鹂飞上林",
+            "pinyin": "èr yuè huáng lí fēi shàng lín"
+        },
+        {
+            "text": "春城紫禁晓阴阴",
+            "pinyin": "chūn chéng zǐ jīn xiǎo yīn yīn"
+        },
+        {
+            "text": "长乐钟声花外尽",
+            "pinyin": "cháng lè zhōng shēng huā wài jǐn"
+        },
+        {
+            "text": "龙池柳色雨中深",
+            "pinyin": "lóng chí liǔ sè yǔ zhōng shēn"
+        },
+        {
+            "text": "阳和不散穷途恨",
+            "pinyin": "yáng hé bù sàn qióng tú hèn"
+        },
+        {
+            "text": "霄汉常悬捧日心",
+            "pinyin": "xiāo hàn cháng xuán pěng rì xīn"
+        },
+        {
+            "text": "献赋十年犹未遇",
+            "pinyin": "xiàn fù shí nián yóu wèi yù"
+        },
+        {
+            "text": "羞将白发对华簪",
+            "pinyin": "xiū jiāng bái fā duì huá zān"
+        }
+    ],
+    "annotation": "１、上林：上林苑。\n２、紫禁：皇宫。\n３、长乐：唐宫。\n４、霄汉：指高空。",
+    "translation": "二月时节，上林苑的黄鹂活泼飞鸣；\n初晓的紫禁城，洒下一片浓浓春阴。\n长乐宫的钟声，消失散落花树丛外；\n春雨中龙池旁的柳色，也更浓更深。\n春季阳光和暖，驱散不了穷途之恨；\n仰望霄汉，常怀程昱梦中捧日之心。\n十多年来，我献赋皇上却未得赏识；\n而今白发苍苍，愧对你华簪裴舍人。",
+    "audio": "assets/audio/recite/265.mp3"
+}

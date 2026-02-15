@@ -1,0 +1,16 @@
+{
+    "id": 50,
+    "title": "马诗二十三首·其五",
+    "author": "李贺",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "大漠沙如雪", "pinyin": "dà mò shā rú xuě" },
+        { "text": "燕山月似钩", "pinyin": "yān shān yuè sì gōu" },
+        { "text": "何当金络脑", "pinyin": "hé dāng jīn luò nǎo" },
+        { "text": "快走踏清秋", "pinyin": "kuài zǒu tà qīng qiū" }
+    ],
+    "annotation": "金络脑：饰金的马笼头",
+    "translation": "广阔的沙漠沙如白雪，燕山的月亮像弯钩。什么时候能够戴上金饰的络头，在清爽的秋天奔驰。",
+    "audio": "assets/audio/recite/050.mp3"
+}

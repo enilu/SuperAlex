@@ -1,0 +1,28 @@
+{
+    "id": 127,
+    "title": "遣怀",
+    "author": "杜牧",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "落魄江湖载酒行",
+            "pinyin": "luò pò jiāng hú zǎi jiǔ xíng"
+        },
+        {
+            "text": "楚腰纤细掌中轻",
+            "pinyin": "chǔ yāo xiān xì zhǎng zhōng qīng"
+        },
+        {
+            "text": "十年一觉扬州梦",
+            "pinyin": "shí nián yī jué yáng zhōu mèng"
+        },
+        {
+            "text": "赢得青楼薄幸名",
+            "pinyin": "yíng dé qīng lóu bò xìng míng"
+        }
+    ],
+    "annotation": "１、落魄：漂泊。\n２、楚腰：楚灵王好细腰的典故。这里均指扬州妓女。\n３、青楼：指妓女居处。",
+    "translation": "飘泊江湖生活潦倒，常常载酒而行。\n放浪形骸沉溺美色，欣赏细腰轻盈。\n十年扬州不堪回首，竟是一场春梦；\n留连青楼，只落得个薄情郎的声名。",
+    "audio": "assets/audio/recite/127.mp3"
+}

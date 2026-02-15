@@ -1,0 +1,16 @@
+{
+    "id": 62,
+    "title": "与浩初上人同看山寄京华亲故",
+    "author": "柳宗元",
+    "dynasty": "唐",
+    "grade": "初中二年级",
+    "content": [
+        { "text": "海畔尖山似剑铓", "pinyin": "hǎi pàn jiān shān sì jiàn máng" },
+        { "text": "秋来处处割愁肠", "pinyin": "qiū lái chù chù gē chóu cháng" },
+        { "text": "若为化得身千亿", "pinyin": "ruò wéi huà dé shēn qiān yì" },
+        { "text": "散上峰头望故乡", "pinyin": "sàn shàng fēng tóu wàng gù xiāng" }
+    ],
+    "annotation": "上人：对僧人的尊称",
+    "translation": "海边尖山像剑锋，秋天处处割断愁肠。如果能化成千亿个身体，散落在每个山峰上眺望故乡。",
+    "audio": "assets/audio/recite/062.mp3"
+}

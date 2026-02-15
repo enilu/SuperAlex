@@ -1,0 +1,44 @@
+{
+    "id": 255,
+    "title": "送李少府贬峡中王少府贬长沙",
+    "author": "高适",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "嗟君此别意如何",
+            "pinyin": "jiē jūn cǐ bié yì rú hé"
+        },
+        {
+            "text": "驻马衔杯问谪居",
+            "pinyin": "zhù mǎ xián bēi wèn zhé jū"
+        },
+        {
+            "text": "巫峡啼猿数行泪",
+            "pinyin": "wū xiá tí yuán shǔ xíng lèi"
+        },
+        {
+            "text": "衡阳归雁几封书",
+            "pinyin": "héng yáng guī yàn jī fēng shū"
+        },
+        {
+            "text": "青枫江上秋帆远",
+            "pinyin": "qīng fēng jiāng shàng qiū fān yuǎn"
+        },
+        {
+            "text": "白帝城边古木疏",
+            "pinyin": "bái dì chéng biān gǔ mù shū"
+        },
+        {
+            "text": "圣代即今多雨露",
+            "pinyin": "shèng dài jí jīn duō yǔ lù"
+        },
+        {
+            "text": "暂时分手莫踌躇",
+            "pinyin": "zàn shí fēn shǒu mò chóu chú"
+        }
+    ],
+    "annotation": "１、谪居：贬官的地方，冒下四句。\n２、巫峡：在今四川巫山县东。古民歌：“巴东三峡巫峡长，猿鸣三声泪沾裳。\n３、衡阳：今属湖南。相传每年秋天，北方的南飞之雁，至衡阳的回雁峰，便折回北方。这是由长沙想到衡阳，意思要王少府至长沙后多写信来。\n４、青枫江：在长沙。",
+    "translation": "我叹息与二位作别，不知有何意想？\n请下马，我们把盏谈谈贬谪的地方。\n李少府去巫峡，听到猿啼落泪数行，\n王少府到衡阳，多寄雁书是我所望。\n去长沙的可见到青枫江上远航秋帆；\n往巴东的可想象白帝城边古木疏黄。\n如今盛世，朝迁恩泽有如雨露普降；\n别离总是暂时的，请别再犹豫彷徨！",
+    "audio": "assets/audio/recite/255.mp3"
+}

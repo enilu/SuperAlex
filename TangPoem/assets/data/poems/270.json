@@ -1,0 +1,52 @@
+{
+    "id": 270,
+    "title": "渭川田家",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "斜光照墟落",
+            "pinyin": "xié guāng zhào xū luò"
+        },
+        {
+            "text": "穷巷牛羊归",
+            "pinyin": "qióng xiàng niú yáng guī"
+        },
+        {
+            "text": "野老念牧童",
+            "pinyin": "yě lǎo niàn mù tóng"
+        },
+        {
+            "text": "倚杖候荆扉",
+            "pinyin": "yǐ zhàng hòu jīng fēi"
+        },
+        {
+            "text": "雉雊麦苗秀",
+            "pinyin": "zhì gòu mài miáo xiù"
+        },
+        {
+            "text": "蚕眠桑叶稀",
+            "pinyin": "cán mián sāng yè xī"
+        },
+        {
+            "text": "田夫荷锄至",
+            "pinyin": "tián fū hé chú zhì"
+        },
+        {
+            "text": "相见语依依",
+            "pinyin": "xiāng xiàn yù yī yī"
+        },
+        {
+            "text": "即此羡闲逸",
+            "pinyin": "jí cǐ xiàn xián yì"
+        },
+        {
+            "text": "怅然吟式微",
+            "pinyin": "chàng rán yín shì wēi"
+        }
+    ],
+    "annotation": "１、雉：野鸡。 \n２、式微：《诗经·邶风·式微》中有“式微式微，胡不归”。这里表明自己有归隐 之意。",
+    "translation": "村庄处处披满夕阳余辉， 牛羊沿着深巷纷纷回归。 \n老叟惦念着放牧的孙儿， 柱杖等候在自家的柴扉。 \n雉鸡鸣叫麦儿即将抽穗， 蚕儿成眠桑叶已经薄稀。 \n农夫们荷锄回到了村里， 相见欢声笑语恋恋依依。 \n如此安逸怎不叫我羡慕？ 我不禁怅然地吟起《式微》。",
+    "audio": "assets/audio/recite/270.mp3"
+}

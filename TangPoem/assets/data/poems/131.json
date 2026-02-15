@@ -1,0 +1,28 @@
+{
+    "id": 131,
+    "title": "泊秦淮",
+    "author": "杜牧",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "烟笼寒水月笼沙",
+            "pinyin": "yān lǒng hán shuǐ yuè lǒng shā"
+        },
+        {
+            "text": "夜泊秦淮近酒家",
+            "pinyin": "yè bó qín huái jìn jiǔ jiā"
+        },
+        {
+            "text": "商女不知亡国恨",
+            "pinyin": "shāng rǔ bù zhī wáng guó hèn"
+        },
+        {
+            "text": "隔江犹唱后庭花",
+            "pinyin": "gé jiāng yóu chàng hòu tíng huā"
+        }
+    ],
+    "annotation": "１、秦淮：河名，源出江苏省溧水县，贯穿南京市。\n２、商女：卖唱的歌女。\n３、后庭花：歌曲名，南朝后主所作《玉树后庭花》，后人亡国之音。",
+    "translation": "烟雾弥漫秋水，月光笼罩白沙；\n小船夜泊秦淮，靠近岸边酒家。\n歌女为人作乐，那知亡国之恨？\n她们在岸那边，还唱着后庭花。",
+    "audio": "assets/audio/recite/131.mp3"
+}

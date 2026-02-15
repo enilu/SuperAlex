@@ -1,0 +1,16 @@
+{
+    "id": 34,
+    "title": "蝉",
+    "author": "虞世南",
+    "dynasty": "唐",
+    "grade": "小学六年级",
+    "content": [
+        { "text": "垂緌饮清露", "pinyin": "chuí ruí yǐn qīng lù" },
+        { "text": "流响出疏桐", "pinyin": "liú xiǎng chū shū tóng" },
+        { "text": "居高声自远", "pinyin": "jū gāo shēng zì yuǎn" },
+        { "text": "非是藉秋风", "pinyin": "fēi shì jiè qiū fēng" }
+    ],
+    "annotation": "緌：蝉颔下的长帽，好似帽带",
+    "translation": "蝉垂下像帽带一样的触角吸吮清澈的露水，声音从稀疏的梧桐树枝间传出。正是因为身处高处，声音才能传得远，并不是凭借秋风的力量。",
+    "audio": "assets/audio/recite/034.mp3"
+}

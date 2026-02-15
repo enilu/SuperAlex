@@ -1,0 +1,28 @@
+{
+    "id": 99,
+    "title": "听筝",
+    "author": "李端",
+    "dynasty": "唐",
+    "grade": "小学课外",
+    "content": [
+        {
+            "text": "鸣筝金粟柱",
+            "pinyin": "míng zhēng jīn sù zhǔ"
+        },
+        {
+            "text": "素手玉房前",
+            "pinyin": "sù shǒu yù fáng qián"
+        },
+        {
+            "text": "欲得周郎顾",
+            "pinyin": "yù dé zhōu láng gù"
+        },
+        {
+            "text": "时时误拂弦",
+            "pinyin": "shí shí wù fú xián"
+        }
+    ],
+    "annotation": "１、金粟柱：古也称桂为金粟，这里当是指弦轴之细而精美。",
+    "translation": "金粟轴的古筝发出优美的声音，\n那素手拨筝的美人坐在玉房前。\n想尽了办法为博取周郎的青睐，\n你看她故意地时时拨错了琴弦。",
+    "audio": "assets/audio/recite/099.mp3"
+}

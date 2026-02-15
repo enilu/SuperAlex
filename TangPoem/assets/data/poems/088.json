@@ -1,0 +1,14 @@
+{
+    "id": 88,
+    "title": "李白墓",
+    "author": "岑参",
+    "dynasty": "唐",
+    "grade": "初中一年级",
+    "content": [
+        { "text": "李白墓在采石江", "pinyin": "lǐ bái mù zài cǎi shí jiāng" },
+        { "text": "往来惟见野花庞", "pinyin": "lái wǎng wéi jiàn yě huā páng" }
+    ],
+    "annotation": "采石江：地名",
+    "translation": "李白墓在采石江，往来惟见野花庞。",
+    "audio": "assets/audio/recite/088.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 39,
+    "title": "登高",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "初中二年级",
+    "content": [
+        {
+            "text": "风急天高猿啸哀",
+            "pinyin": "fēng jí tiān gāo yuán xiào āi"
+        },
+        {
+            "text": "渚清沙白鸟飞回",
+            "pinyin": "zhǔ qīng shā bái niǎo fēi huí"
+        },
+        {
+            "text": "无边落木萧萧下",
+            "pinyin": "wú biān luò mù xiāo xiāo xià"
+        },
+        {
+            "text": "不尽长江滚滚来",
+            "pinyin": "bù jìn cháng jiāng gǔn gǔn lái"
+        },
+        {
+            "text": "万里悲秋常作客",
+            "pinyin": "wàn lǐ bēi qiū cháng zuò kè"
+        },
+        {
+            "text": "百年多病独登台",
+            "pinyin": "bǎi nián duō bìng dú dēng tái"
+        },
+        {
+            "text": "艰难苦恨繁霜鬓",
+            "pinyin": "jiān nán kǔ hèn fán shuāng bìn"
+        },
+        {
+            "text": "潦倒新停浊酒杯",
+            "pinyin": "liáo dǎo xīn tíng zhuó jiǔ bēi"
+        }
+    ],
+    "annotation": "１、渚：水中的小洲。\n２、回：回旋。\n３、百年：犹言一生。\n４、潦倒：犹言困顿，衰颓。\n５、新停：这时<strong>杜甫</strong>正因病戒酒。",
+    "translation": "天高风急秋气肃煞，猿啼十分悲凉；\n清清河洲白白沙岸，鸥鹭低空飞回。\n落叶飘然无边无际，层层纷纷撒下；\n无尽长江汹涌澎湃，滚滚奔腾而来。\n身在万里作客悲秋，我常到处漂泊；\n有生以来疾病缠身，今日独登高台。\n时世艰难生活困苦，常恨鬓如霜白；\n困顿潦倒精神衰颓，我且戒酒停杯。",
+    "audio": "assets/audio/recite/039.mp3"
+}

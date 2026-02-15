@@ -1,0 +1,16 @@
+{
+    "id": 47,
+    "title": "池上",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学二年级",
+    "content": [
+        { "text": "小娃撑小艇", "pinyin": "xiǎo wá chēng xiǎo tǐng" },
+        { "text": "偷采白莲回", "pinyin": "tōu cǎi bái lián huí" },
+        { "text": "不解藏踪迹", "pinyin": "bù jiě cáng zōng jì" },
+        { "text": "浮萍一道开", "pinyin": "fú píng yī dào kāi" }
+    ],
+    "annotation": "池上：池塘边",
+    "translation": "小娃撑着小船，偷偷去采白莲回来。不懂得怎样隐藏踪迹，浮萍被船分开了一道。",
+    "audio": "assets/audio/recite/047.mp3"
+}

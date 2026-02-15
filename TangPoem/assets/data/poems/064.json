@@ -1,0 +1,16 @@
+{
+    "id": 64,
+    "title": "塞下曲六首·其三",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "小学五年级",
+    "content": [
+        { "text": "月黑雁飞高", "pinyin": "yuè hēi yàn fēi gāo" },
+        { "text": "单于夜遁逃", "pinyin": "chán yú yè dùn táo" },
+        { "text": "欲将轻骑逐", "pinyin": "yù jiāng qīng jì zhú" },
+        { "text": "大雪满弓刀", "pinyin": "dà xuě mǎn gōng dāo" }
+    ],
+    "annotation": "单于：匈奴首领的称呼",
+    "translation": "月色漆黑大雁高飞，单于在夜里遁逃。正要率领轻骑兵去追击，大雪落满了弓刀。",
+    "audio": "assets/audio/recite/064.mp3"
+}
