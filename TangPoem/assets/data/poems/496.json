@@ -1,0 +1,28 @@
+{
+    "id": 496,
+    "title": "梅花",
+    "author": "王安石",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "墙角数枝梅，",
+            "pinyin": "qiáng jiǎo shù zhī méi ，"
+        },
+        {
+            "text": "凌寒独自开。",
+            "pinyin": "líng hán dú zì kāi 。"
+        },
+        {
+            "text": "遥知不是雪，",
+            "pinyin": "yáo zhī bù shì xuě ，"
+        },
+        {
+            "text": "为有暗香来。",
+            "pinyin": "wéi yǒu àn xiāng lái 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/496.mp3"
+}

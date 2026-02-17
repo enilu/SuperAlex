@@ -1,0 +1,28 @@
+{
+    "id": 449,
+    "title": "秋浦歌",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "炉火照天地，",
+            "pinyin": "lú huǒ zhào tiān dì ，"
+        },
+        {
+            "text": "红星乱紫烟。",
+            "pinyin": "hóng xīng luàn zǐ yān 。"
+        },
+        {
+            "text": "赧郎明月夜，",
+            "pinyin": "nǎn láng míng yuè yè ，"
+        },
+        {
+            "text": "歌曲动寒川。",
+            "pinyin": "gē qū dòng hán chuān 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/449.mp3"
+}

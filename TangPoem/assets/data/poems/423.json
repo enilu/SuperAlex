@@ -1,0 +1,28 @@
+{
+    "id": 423,
+    "title": "夏日绝句",
+    "author": "李清照",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "生当作人杰，",
+            "pinyin": "shēng dāng zuò rén jié ，"
+        },
+        {
+            "text": "死亦为鬼雄。",
+            "pinyin": "sǐ yì wéi guǐ xióng 。"
+        },
+        {
+            "text": "至今思项羽，",
+            "pinyin": "zhì jīn sī xiàng yǔ ，"
+        },
+        {
+            "text": "不肯过江东。",
+            "pinyin": "bù kěn guò jiāng dōng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/423.mp3"
+}

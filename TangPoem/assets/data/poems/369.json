@@ -1,0 +1,40 @@
+{
+    "id": 369,
+    "title": "江南",
+    "author": "汉乐府",
+    "dynasty": "汉",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "江南可采莲，",
+            "pinyin": "jiāng nán kě cǎi lián ，"
+        },
+        {
+            "text": "莲叶何田田。",
+            "pinyin": "lián yè hé tián tián 。"
+        },
+        {
+            "text": "鱼戏莲叶间，",
+            "pinyin": "yú xì lián yè jiān ，"
+        },
+        {
+            "text": "鱼戏莲叶东。",
+            "pinyin": "yú xì lián yè dōng 。"
+        },
+        {
+            "text": "鱼戏莲叶西，",
+            "pinyin": "yú xì lián yè xī ，"
+        },
+        {
+            "text": "鱼戏莲叶南。",
+            "pinyin": "yú xì lián yè nán 。"
+        },
+        {
+            "text": "鱼戏莲叶北。",
+            "pinyin": "yú xì lián yè běi 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/369.mp3"
+}

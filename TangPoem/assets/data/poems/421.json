@@ -1,0 +1,28 @@
+{
+    "id": 421,
+    "title": "惠崇春江晚景",
+    "author": "苏轼",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "竹外桃花三两枝，",
+            "pinyin": "zhú wài táo huā sān liǎng zhī ，"
+        },
+        {
+            "text": "春江水暖鸭先知。",
+            "pinyin": "chūn jiāng shuǐ nuǎn yā xiān zhī 。"
+        },
+        {
+            "text": "蒌蒿满地芦芽短，",
+            "pinyin": "lóu hāo mǎn dì lú yá duǎn ，"
+        },
+        {
+            "text": "正是河豚欲上时。",
+            "pinyin": "zhèng shì hé tún yù shàng shí 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/421.mp3"
+}

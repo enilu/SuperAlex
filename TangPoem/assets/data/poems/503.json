@@ -1,0 +1,28 @@
+{
+    "id": 503,
+    "title": "冬夜读书示子聿",
+    "author": "陆游",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "古人学问无遗力，",
+            "pinyin": "gǔ rén xué wèn wú yí lì ，"
+        },
+        {
+            "text": "少壮工夫老始成。",
+            "pinyin": "shǎo zhuàng gōng fū lǎo shǐ chéng 。"
+        },
+        {
+            "text": "纸上得来终觉浅，",
+            "pinyin": "zhǐ shàng dé lái zhōng jué qiǎn ，"
+        },
+        {
+            "text": "绝知此事要躬行。",
+            "pinyin": "jué zhī cǐ shì yào gōng háng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/503.mp3"
+}

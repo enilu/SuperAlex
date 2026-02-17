@@ -1,0 +1,28 @@
+{
+    "id": 401,
+    "title": "塞下曲",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "月黑雁飞高，",
+            "pinyin": "yuè hēi yàn fēi gāo ，"
+        },
+        {
+            "text": "单于夜遁逃。",
+            "pinyin": "dān yú yè dùn táo 。"
+        },
+        {
+            "text": "欲将轻骑逐，",
+            "pinyin": "yù jiāng qīng qí zhú ，"
+        },
+        {
+            "text": "大雪满弓刀。",
+            "pinyin": "dà xuě mǎn gōng dāo 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/401.mp3"
+}

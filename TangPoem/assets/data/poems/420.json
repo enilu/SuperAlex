@@ -1,0 +1,28 @@
+{
+    "id": 420,
+    "title": "饮湖上初晴后雨",
+    "author": "苏轼",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "水光潋艳晴方好，",
+            "pinyin": "shuǐ guāng liàn yàn qíng fāng hǎo ，"
+        },
+        {
+            "text": "山色空朦雨欲奇。",
+            "pinyin": "shān sè kōng méng yǔ yù qí 。"
+        },
+        {
+            "text": "欲把西湖比西子，",
+            "pinyin": "yù bǎ xī hú bǐ xī zǐ ，"
+        },
+        {
+            "text": "淡妆浓抹总相宜。",
+            "pinyin": "dàn zhuāng nóng mǒ zǒng xiāng yí 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/420.mp3"
+}

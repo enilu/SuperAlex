@@ -1,0 +1,28 @@
+{
+    "id": 460,
+    "title": "暮江吟",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "一道残阳铺水中，",
+            "pinyin": "yī dào cán yáng pū shuǐ zhōng ，"
+        },
+        {
+            "text": "半江瑟瑟半江红。",
+            "pinyin": "bàn jiāng sè sè bàn jiāng hóng 。"
+        },
+        {
+            "text": "可怜九月初三夜，",
+            "pinyin": "kě lián jiǔ yuè chū sān yè ，"
+        },
+        {
+            "text": "露似真珠月似弓。",
+            "pinyin": "lòu sì zhēn zhū yuè sì gōng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/460.mp3"
+}

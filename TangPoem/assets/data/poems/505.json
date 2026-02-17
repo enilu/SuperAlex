@@ -1,0 +1,28 @@
+{
+    "id": 505,
+    "title": "夜书所见",
+    "author": "叶绍翁",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "萧萧梧叶送寒声，",
+            "pinyin": "xiāo xiāo wú yè sòng hán shēng ，"
+        },
+        {
+            "text": "江上秋风动客情。",
+            "pinyin": "jiāng shàng qiū fēng dòng kè qíng 。"
+        },
+        {
+            "text": "知有儿童挑促织，",
+            "pinyin": "zhī yǒu ér tóng tiāo cù zhī ，"
+        },
+        {
+            "text": "夜深篱落一灯明。",
+            "pinyin": "yè shēn lí luò yī dēng míng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/505.mp3"
+}

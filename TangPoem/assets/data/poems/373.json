@@ -1,0 +1,28 @@
+{
+    "id": 373,
+    "title": "风",
+    "author": "李峤",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "解落三秋叶，",
+            "pinyin": "jiě luò sān qiū yè ，"
+        },
+        {
+            "text": "能开二月花。",
+            "pinyin": "néng kāi èr yuè huā 。"
+        },
+        {
+            "text": "过江千尺浪，",
+            "pinyin": "guò jiāng qiān chǐ làng ，"
+        },
+        {
+            "text": "入竹万竿斜。",
+            "pinyin": "rù zhú wàn gān xié 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/373.mp3"
+}

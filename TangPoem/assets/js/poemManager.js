@@ -6,7 +6,7 @@ const PoemManager = {
     currentIndex: 0,
     currentFilter: 'all',
 
-    async init() {
+    async init(onProgress) {
         try {
             const indexResponse = await fetch(CONFIG.POEMS_INDEX_PATH);
             const indexData = await indexResponse.json();
@@ -14,8 +14,10 @@ const PoemManager = {
             const cachedPoems = localStorage.getItem('tangpoem_poems_data');
             if (cachedPoems) {
                 this.poems = JSON.parse(cachedPoems);
+                // 即使使用缓存，也要通知加载完成
+                if (onProgress) onProgress(this.poems.length, this.poems.length, true);
             } else {
-                await this.loadAllPoems(indexData.poems);
+                await this.loadAllPoems(indexData.poems, onProgress);
             }
             this.initCatalog();
         } catch (error) {
@@ -24,19 +26,22 @@ const PoemManager = {
         }
     },
 
-    async loadAllPoems(poemsList) {
+    async loadAllPoems(poemsList, onProgress) {
         const loadedPoems = [];
         for (const poemInfo of poemsList) {
             try {
                 const response = await fetch(CONFIG.POEMS_DATA_PATH + poemInfo.file);
                 const poemData = await response.json();
                 loadedPoems.push(poemData);
+                if (onProgress) onProgress(loadedPoems.length, poemsList.length, false);
             } catch (error) {
                 console.error('Load poem failed:', error);
             }
         }
         this.poems = loadedPoems;
         localStorage.setItem('tangpoem_poems_data', JSON.stringify(this.poems));
+        // 加载完成，通知回调
+        if (onProgress) onProgress(loadedPoems.length, poemsList.length, true);
     },
 
     getAllPoems() {

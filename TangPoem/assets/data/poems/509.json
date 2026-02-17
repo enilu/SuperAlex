@@ -1,0 +1,28 @@
+{
+    "id": 509,
+    "title": "观书有感",
+    "author": "朱熹",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "半亩方塘一鉴开，",
+            "pinyin": "bàn mǔ fāng táng yī jiàn kāi ，"
+        },
+        {
+            "text": "天光云影共徘徊。",
+            "pinyin": "tiān guāng yún yǐng gòng pái huái 。"
+        },
+        {
+            "text": "问渠哪得清如许，",
+            "pinyin": "wèn qú nǎ dé qīng rú xǔ ，"
+        },
+        {
+            "text": "为有源头活水来。",
+            "pinyin": "wéi yǒu yuán tóu huó shuǐ lái 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/509.mp3"
+}

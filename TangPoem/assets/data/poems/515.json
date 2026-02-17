@@ -1,0 +1,48 @@
+{
+    "id": 515,
+    "title": "明日歌",
+    "author": "文嘉",
+    "dynasty": "明",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "明日复明日，",
+            "pinyin": "míng rì fù míng rì ，"
+        },
+        {
+            "text": "明日何其多。",
+            "pinyin": "míng rì hé qí duō 。"
+        },
+        {
+            "text": "我生待明日，",
+            "pinyin": "wǒ shēng dài míng rì ，"
+        },
+        {
+            "text": "万事成蹉跎。",
+            "pinyin": "wàn shì chéng cuō tuó 。"
+        },
+        {
+            "text": "世人若被明日累，",
+            "pinyin": "shì rén ruò bèi míng rì léi ，"
+        },
+        {
+            "text": "春去秋来老将至。",
+            "pinyin": "chūn qù qiū lái lǎo jiāng zhì 。"
+        },
+        {
+            "text": "朝看水东流，",
+            "pinyin": "zhāo kàn shuǐ dōng liú ，"
+        },
+        {
+            "text": "暮看日西坠。",
+            "pinyin": "mù kàn rì xī zhuì 。"
+        },
+        {
+            "text": "百年明日能几何？请君听我明日歌！",
+            "pinyin": "bǎi nián míng rì néng jī hé ？ qǐng jūn tīng wǒ míng rì gē ！"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/515.mp3"
+}

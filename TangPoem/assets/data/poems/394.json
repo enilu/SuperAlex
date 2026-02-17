@@ -1,0 +1,28 @@
+{
+    "id": 394,
+    "title": "绝句",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "迟日江山丽，",
+            "pinyin": "chí rì jiāng shān lì ，"
+        },
+        {
+            "text": "春风花草香。",
+            "pinyin": "chūn fēng huā cǎo xiāng 。"
+        },
+        {
+            "text": "泥融飞燕子，",
+            "pinyin": "ní róng fēi yàn zǐ ，"
+        },
+        {
+            "text": "沙暖睡鸳鸯。",
+            "pinyin": "shā nuǎn shuì yuān yāng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/394.mp3"
+}

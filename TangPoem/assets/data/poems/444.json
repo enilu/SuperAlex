@@ -1,0 +1,28 @@
+{
+    "id": 444,
+    "title": "宿建德江",
+    "author": "孟浩然",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "移舟泊烟渚，",
+            "pinyin": "yí zhōu bó yān zhǔ ，"
+        },
+        {
+            "text": "日暮客愁新。",
+            "pinyin": "rì mù kè chóu xīn 。"
+        },
+        {
+            "text": "野旷天低树，",
+            "pinyin": "yě kuàng tiān dī shù ，"
+        },
+        {
+            "text": "江清月近人。",
+            "pinyin": "jiāng qīng yuè jìn rén 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/444.mp3"
+}

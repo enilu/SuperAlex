@@ -1,0 +1,28 @@
+{
+    "id": 391,
+    "title": "别董大",
+    "author": "高适",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "千里黄云白日曛，",
+            "pinyin": "qiān lǐ huáng yún bái rì xūn ，"
+        },
+        {
+            "text": "北风吹雁雪纷纷。",
+            "pinyin": "běi fēng chuī yàn xuě fēn fēn 。"
+        },
+        {
+            "text": "莫愁前路无知己，",
+            "pinyin": "mò chóu qián lù wú zhī jǐ ，"
+        },
+        {
+            "text": "天下谁人不识君？",
+            "pinyin": "tiān xià shuí rén bù shí jūn ？"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/391.mp3"
+}

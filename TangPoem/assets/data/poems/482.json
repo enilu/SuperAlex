@@ -1,0 +1,28 @@
+{
+    "id": 482,
+    "title": "秋思",
+    "author": "张籍",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "洛阳城里见秋风，",
+            "pinyin": "luò yáng chéng lǐ jiàn qiū fēng ，"
+        },
+        {
+            "text": "欲作家书意万重。",
+            "pinyin": "yù zuò jiā shū yì wàn zhòng 。"
+        },
+        {
+            "text": "复恐匆匆说不尽，",
+            "pinyin": "fù kǒng cōng cōng shuō bù jìn ，"
+        },
+        {
+            "text": "行人临发又开封。",
+            "pinyin": "háng rén lín fā yòu kāi fēng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/482.mp3"
+}

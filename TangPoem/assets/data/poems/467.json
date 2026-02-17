@@ -1,0 +1,28 @@
+{
+    "id": 467,
+    "title": "乌衣巷",
+    "author": "刘禹锡",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "朱雀桥边野草花，",
+            "pinyin": "zhū què qiáo biān yě cǎo huā ，"
+        },
+        {
+            "text": "乌衣巷口夕阳斜。",
+            "pinyin": "wū yī xiàng kǒu xī yáng xié 。"
+        },
+        {
+            "text": "旧时王谢堂前燕，",
+            "pinyin": "jiù shí wáng xiè táng qián yàn ，"
+        },
+        {
+            "text": "飞入寻常百姓家。",
+            "pinyin": "fēi rù xún cháng bǎi xìng jiā 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/467.mp3"
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 背景圆形 -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B"/>
+      <stop offset="100%" style="stop-color:#FF8E53"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#bg)"/>
+  <!-- 太阳光芒 -->
+  <g fill="#ffd700" opacity="0.9">
+    <path d="M32 6 L34 10 L32 9 L30 10 Z"/>
+    <path d="M32 54 L34 58 L32 57 L30 58 Z"/>
+    <path d="M6 32 L10 34 L9 32 L10 30 Z"/>
+    <path d="M54 32 L58 34 L57 32 L58 30 Z"/>
+    <path d="M14 14 L17 17 L15 16 L16 15 Z"/>
+    <path d="M47 47 L50 50 L48 49 L49 48 Z"/>
+    <path d="M14 50 L17 47 L16 48 L15 49 Z"/>
+    <path d="M47 17 L50 14 L49 15 L48 16 Z"/>
+  </g>
+  <!-- 跑步的人形 -->
+  <g fill="#fff" opacity="0.95">
+    <!-- 头 -->
+    <circle cx="32" cy="22" r="5"/>
+    <!-- 身体 -->
+    <rect x="29" y="27" width="6" height="14" rx="2"/>
+    <!-- 手臂 -->
+    <rect x="22" y="28" width="8" height="3" rx="1.5" transform="rotate(-30 26 29.5)"/>
+    <rect x="34" y="28" width="8" height="3" rx="1.5" transform="rotate(30 38 29.5)"/>
+    <!-- 腿 -->
+    <rect x="26" y="39" width="4" height="10" rx="1.5" transform="rotate(-20 28 44)"/>
+    <rect x="34" y="39" width="4" height="10" rx="1.5" transform="rotate(20 36 44)"/>
+  </g>
+  <!-- 队徽 -->
+  <circle cx="48" cy="48" r="8" fill="#FF6B6B" opacity="0.3"/>
+  <text x="48" y="52" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">GO</text>
+</svg>

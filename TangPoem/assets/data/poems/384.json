@@ -1,0 +1,28 @@
+{
+    "id": 384,
+    "title": "静夜思",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "床前明月光，",
+            "pinyin": "chuáng qián míng yuè guāng ，"
+        },
+        {
+            "text": "疑是地上霜。",
+            "pinyin": "yí shì dì shàng shuāng 。"
+        },
+        {
+            "text": "举头望明月，",
+            "pinyin": "jǔ tóu wàng míng yuè ，"
+        },
+        {
+            "text": "低头思故乡。",
+            "pinyin": "dī tóu sī gù xiāng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/384.mp3"
+}

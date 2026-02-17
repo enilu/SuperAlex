@@ -1,0 +1,28 @@
+{
+    "id": 483,
+    "title": "江南曲",
+    "author": "储光羲",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "日暮长江里，",
+            "pinyin": "rì mù cháng jiāng lǐ ，"
+        },
+        {
+            "text": "相邀归渡头。",
+            "pinyin": "xiāng yāo guī dù tóu 。"
+        },
+        {
+            "text": "落花如有意，",
+            "pinyin": "luò huā rú yǒu yì ，"
+        },
+        {
+            "text": "来去逐船流。",
+            "pinyin": "lái qù zhú chuán liú 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/483.mp3"
+}

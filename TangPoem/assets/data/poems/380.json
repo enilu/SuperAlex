@@ -1,0 +1,28 @@
+{
+    "id": 380,
+    "title": "芙蓉楼送辛渐",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "寒雨连江夜入吴，",
+            "pinyin": "hán yǔ lián jiāng yè rù wú ，"
+        },
+        {
+            "text": "平明送客楚山孤。",
+            "pinyin": "píng míng sòng kè chǔ shān gū 。"
+        },
+        {
+            "text": "洛阳亲友如相问，",
+            "pinyin": "luò yáng qīn yǒu rú xiāng wèn ，"
+        },
+        {
+            "text": "一片冰心在玉壶。",
+            "pinyin": "yī piàn bīng xīn zài yù hú 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/380.mp3"
+}

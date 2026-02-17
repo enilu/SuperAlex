@@ -1,0 +1,28 @@
+{
+    "id": 440,
+    "title": "村居",
+    "author": "高鼎",
+    "dynasty": "清",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "草长莺飞二月天，",
+            "pinyin": "cǎo cháng yīng fēi èr yuè tiān ，"
+        },
+        {
+            "text": "拂堤杨柳醉春烟。",
+            "pinyin": "fú dī yáng liǔ zuì chūn yān 。"
+        },
+        {
+            "text": "儿童散学归来早，",
+            "pinyin": "ér tóng sàn xué guī lái zǎo ，"
+        },
+        {
+            "text": "忙趁东风放纸鸢。",
+            "pinyin": "máng chèn dōng fēng fàng zhǐ yuān 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/440.mp3"
+}

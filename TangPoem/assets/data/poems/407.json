@@ -1,0 +1,28 @@
+{
+    "id": 407,
+    "title": "悯农",
+    "author": "李绅",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "锄禾日当午，",
+            "pinyin": "chú hé rì dāng wǔ ，"
+        },
+        {
+            "text": "汗滴禾下土。",
+            "pinyin": "hàn dī hé xià tǔ 。"
+        },
+        {
+            "text": "谁知盘中餐，",
+            "pinyin": "shuí zhī pán zhōng cān ，"
+        },
+        {
+            "text": "粒粒皆辛苦。",
+            "pinyin": "lì lì jiē xīn kǔ 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/407.mp3"
+}

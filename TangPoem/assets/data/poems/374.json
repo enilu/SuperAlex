@@ -1,0 +1,28 @@
+{
+    "id": 374,
+    "title": "咏柳",
+    "author": "贺知章",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "碧玉妆成一树高，",
+            "pinyin": "bì yù zhuāng chéng yī shù gāo ，"
+        },
+        {
+            "text": "万条垂下绿丝绦。",
+            "pinyin": "wàn tiáo chuí xià lǜ sī tāo 。"
+        },
+        {
+            "text": "不知细叶谁裁出，",
+            "pinyin": "bù zhī xì yè shuí cái chū ，"
+        },
+        {
+            "text": "二月春风似剪刀。",
+            "pinyin": "èr yuè chūn fēng sì jiǎn dāo 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/374.mp3"
+}

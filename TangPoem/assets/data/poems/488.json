@@ -1,0 +1,28 @@
+{
+    "id": 488,
+    "title": "马诗",
+    "author": "李贺",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "大漠沙如雪，",
+            "pinyin": "dà mò shā rú xuě ，"
+        },
+        {
+            "text": "燕山月似钩。",
+            "pinyin": "yàn shān yuè sì gōu 。"
+        },
+        {
+            "text": "何当金络脑，",
+            "pinyin": "hé dāng jīn luò nǎo ，"
+        },
+        {
+            "text": "快走踏清秋。",
+            "pinyin": "kuài zǒu tà qīng qiū 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/488.mp3"
+}

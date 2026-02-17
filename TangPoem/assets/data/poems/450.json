@@ -1,0 +1,28 @@
+{
+    "id": 450,
+    "title": "峨眉山月歌",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "峨眉山月半轮秋，",
+            "pinyin": "é méi shān yuè bàn lún qiū ，"
+        },
+        {
+            "text": "影入平羌江水流。",
+            "pinyin": "yǐng rù píng qiāng jiāng shuǐ liú 。"
+        },
+        {
+            "text": "夜发清溪向三峡，",
+            "pinyin": "yè fā qīng xī xiàng sān xiá ，"
+        },
+        {
+            "text": "思君不见下渝州。",
+            "pinyin": "sī jūn bù jiàn xià yú zhōu 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/450.mp3"
+}

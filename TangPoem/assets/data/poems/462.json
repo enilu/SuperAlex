@@ -1,0 +1,28 @@
+{
+    "id": 462,
+    "title": "浪淘沙",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "白浪茫茫与海连，",
+            "pinyin": "bái làng máng máng yǔ hǎi lián ，"
+        },
+        {
+            "text": "平沙浩浩四无边。",
+            "pinyin": "píng shā hào hào sì wú biān 。"
+        },
+        {
+            "text": "暮去朝来淘不住，",
+            "pinyin": "mù qù zhāo lái táo bù zhù ，"
+        },
+        {
+            "text": "遂令东海变桑田。",
+            "pinyin": "suì líng dōng hǎi biàn sāng tián 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/462.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 476,
+    "title": "鸟鸣涧",
+    "author": "王维",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "人闲桂花落，",
+            "pinyin": "rén xián guì huā luò ，"
+        },
+        {
+            "text": "夜静春山空。",
+            "pinyin": "yè jìng chūn shān kōng 。"
+        },
+        {
+            "text": "月出惊山鸟，",
+            "pinyin": "yuè chū jīng shān niǎo ，"
+        },
+        {
+            "text": "时鸣春涧中。",
+            "pinyin": "shí míng chūn jiàn zhōng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/476.mp3"
+}

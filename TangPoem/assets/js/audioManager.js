@@ -53,12 +53,18 @@ const AudioManager = {
 
     // 播放答对音效
     playCorrect() {
-        console.log('播放答对音效');
+        const audio = new Audio('assets/audio/good.mp3');
+        audio.play().catch(err => {
+            console.log('答对音效播放失败:', err);
+        });
     },
 
     // 播放答错音效
     playWrong() {
-        console.log('播放答错音效');
+        const audio = new Audio('assets/audio/comeon.mp3');
+        audio.play().catch(err => {
+            console.log('答错音效播放失败:', err);
+        });
     },
 
     // 播放成就音效

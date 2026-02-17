@@ -1,0 +1,28 @@
+{
+    "id": 377,
+    "title": "登鹳雀楼",
+    "author": "王之涣",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "白日依山尽，",
+            "pinyin": "bái rì yī shān jìn ，"
+        },
+        {
+            "text": "黄河入海流。",
+            "pinyin": "huáng hé rù hǎi liú 。"
+        },
+        {
+            "text": "欲穷千里目，",
+            "pinyin": "yù qióng qiān lǐ mù ，"
+        },
+        {
+            "text": "更上一层楼。",
+            "pinyin": "gēng shàng yī céng lóu 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/377.mp3"
+}

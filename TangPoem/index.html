@@ -8,13 +8,31 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="唐诗小当家">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>唐诗小当家 - 儿童唐诗学习游戏</title>
     <link rel="stylesheet" href="assets/css/game.css">
 </head>
 <body>
+    <!-- 加载界面 -->
+    <div id="loadingScreen" class="screen active">
+        <div class="loading-container">
+            <div class="loading-icon">📜</div>
+            <h1 class="loading-title">唐诗小当家</h1>
+            <p class="loading-subtitle">正在加载诗词...</p>
+            <div class="loading-progress">
+                <div class="loading-bar">
+                    <div class="loading-fill" id="loadingFill"></div>
+                </div>
+                <div class="loading-text">
+                    <span id="loadingPercent">0</span>%
+                </div>
+            </div>
+            <div class="loading-tip" id="loadingTip">准备好开始唐诗之旅了吗？</div>
+        </div>
+    </div>
+
     <!-- 开始界面 -->
-    <div id="startScreen" class="screen active">
+    <div id="startScreen" class="screen">
         <div class="container">
             <h1 class="game-title">📜 唐诗小当家</h1>
             <p class="subtitle">快乐背诵经典唐诗</p>
@@ -82,10 +100,15 @@
     <!-- 闯关模式界面 -->
     <div id="gameScreen" class="screen">
         <div class="screen-header">
-            <button class="back-btn" id="backToStart2">← 返回</button>
-            <div class="score-display">
-                <span class="label">🎯 分数</span>
-                <span class="value" id="score">0</span>
+            <div class="screen-header-left">
+                <button class="back-btn" id="backToStart2">← 返回</button>
+                <button class="catalog-btn" id="gameCatalogBtn">📋 选择诗词</button>
+            </div>
+            <div class="screen-header-right">
+                <div class="score-display">
+                    <span class="label">🎯 分数</span>
+                    <span class="value" id="score">0</span>
+                </div>
             </div>
         </div>
         <div class="game-container">
@@ -95,6 +118,7 @@
                     <span class="value" id="progress">1/10</span>
                 </div>
                 <h3 class="poem-hint" id="poemHint">《静夜思》</h3>
+                <div class="question-pinyin" id="questionPinyin"></div>
                 <div class="question-text" id="questionText">
                     床前明___光
                 </div>
@@ -182,6 +206,7 @@
             </div>
             <div class="catalog-filter">
                 <button class="filter-btn active" data-grade="all">全部</button>
+                <button class="filter-btn" data-grade="小学生必背">必背</button>
                 <button class="filter-btn" data-grade="小学一年级">一年级</button>
                 <button class="filter-btn" data-grade="小学二年级">二年级</button>
                 <button class="filter-btn" data-grade="小学三年级">三年级</button>
@@ -194,6 +219,41 @@
             </div>
             <div class="catalog-list" id="catalogList">
                 <!-- 目录列表会动态插入 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 闯关诗词选择弹窗 -->
+    <div id="gameCatalogModal" class="catalog-modal hidden">
+        <div class="catalog-overlay" id="gameCatalogOverlay"></div>
+        <div class="catalog-content">
+            <div class="catalog-header">
+                <h2 class="catalog-title">📜 选择闯关诗词</h2>
+                <button class="catalog-close" id="gameCatalogClose">✕</button>
+            </div>
+            <div class="catalog-filter">
+                <button class="filter-btn active" data-grade="all">全部</button>
+                <button class="filter-btn" data-grade="小学生必背">必背</button>
+                <button class="filter-btn" data-grade="小学一年级">一年级</button>
+                <button class="filter-btn" data-grade="小学二年级">二年级</button>
+                <button class="filter-btn" data-grade="小学三年级">三年级</button>
+                <button class="filter-btn" data-grade="小学四年级">四年级</button>
+                <button class="filter-btn" data-grade="小学五年级">五年级</button>
+                <button class="filter-btn" data-grade="小学六年级">六年级</button>
+                <button class="filter-btn" data-grade="小学课外">课外</button>
+                <button class="filter-btn" data-grade="初中">初中</button>
+                <button class="filter-btn" data-grade="高中">高中</button>
+            </div>
+            <div class="game-catalog-actions">
+                <button class="action-btn" id="selectAllBtn">全选</button>
+                <button class="action-btn" id="deselectAllBtn">取消全选</button>
+                <span class="selected-count">已选: <span id="selectedCount">0</span> 首</span>
+            </div>
+            <div class="catalog-list" id="gameCatalogList">
+                <!-- 目录列表会动态插入 -->
+            </div>
+            <div class="game-catalog-footer">
+                <button class="start-game-btn" id="startSelectedGame">开始闯关</button>
             </div>
         </div>
     </div>

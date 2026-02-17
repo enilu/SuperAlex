@@ -1,0 +1,28 @@
+{
+    "id": 485,
+    "title": "少年行",
+    "author": "令狐楚",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "弓背霞明剑照霜，",
+            "pinyin": "gōng bèi xiá míng jiàn zhào shuāng ，"
+        },
+        {
+            "text": "秋风走马出咸阳。",
+            "pinyin": "qiū fēng zǒu mǎ chū xián yáng 。"
+        },
+        {
+            "text": "未收天子河湟地，",
+            "pinyin": "wèi shōu tiān zǐ hé huáng dì ，"
+        },
+        {
+            "text": "不拟回头望故乡。",
+            "pinyin": "bù nǐ huí tóu wàng gù xiāng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/485.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 422,
+    "title": "题西林壁",
+    "author": "苏轼",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "横看成岭侧成峰，",
+            "pinyin": "héng kàn chéng lǐng cè chéng fēng ，"
+        },
+        {
+            "text": "远近高低各不同。",
+            "pinyin": "yuǎn jìn gāo dī gè bù tóng 。"
+        },
+        {
+            "text": "不识庐山真面目，",
+            "pinyin": "bù shí lú shān zhēn miàn mù ，"
+        },
+        {
+            "text": "只缘身在此山中。",
+            "pinyin": "zhī yuán shēn zài cǐ shān zhōng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/422.mp3"
+}

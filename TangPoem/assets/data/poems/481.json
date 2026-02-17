@@ -1,0 +1,28 @@
+{
+    "id": 481,
+    "title": "牧童",
+    "author": "吕岩",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "铺横野六七里，",
+            "pinyin": "pū héng yě liù qī lǐ ，"
+        },
+        {
+            "text": "笛弄晚风三四声。",
+            "pinyin": "dí nòng wǎn fēng sān sì shēng 。"
+        },
+        {
+            "text": "归来饱饭黄昏后，",
+            "pinyin": "guī lái bǎo fàn huáng hūn hòu ，"
+        },
+        {
+            "text": "不脱蓑衣卧月明。",
+            "pinyin": "bù tuō suō yī wò yuè míng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/481.mp3"
+}

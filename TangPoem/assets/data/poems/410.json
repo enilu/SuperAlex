@@ -1,0 +1,28 @@
+{
+    "id": 410,
+    "title": "寻隐者不遇",
+    "author": "贾岛",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "松下问童子，",
+            "pinyin": "sōng xià wèn tóng zǐ ，"
+        },
+        {
+            "text": "言师采药去。",
+            "pinyin": "yán shī cǎi yào qù 。"
+        },
+        {
+            "text": "只在此山中，",
+            "pinyin": "zhī zài cǐ shān zhōng ，"
+        },
+        {
+            "text": "云深不知处。",
+            "pinyin": "yún shēn bù zhī chǔ 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/410.mp3"
+}

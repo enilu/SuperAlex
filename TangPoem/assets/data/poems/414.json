@@ -1,0 +1,28 @@
+{
+    "id": 414,
+    "title": "蜂",
+    "author": "罗隐",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "不论平地与山尖，",
+            "pinyin": "bù lùn píng dì yǔ shān jiān ，"
+        },
+        {
+            "text": "无限风光尽被占。",
+            "pinyin": "wú xiàn fēng guāng jìn bèi zhān 。"
+        },
+        {
+            "text": "采得百花成蜜后，",
+            "pinyin": "cǎi dé bǎi huā chéng mì hòu ，"
+        },
+        {
+            "text": "为谁辛苦为谁甜？",
+            "pinyin": "wéi shuí xīn kǔ wéi shuí tián ？"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/414.mp3"
+}

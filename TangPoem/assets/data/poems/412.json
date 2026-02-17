@@ -1,0 +1,24 @@
+{
+    "id": 412,
+    "title": "清明",
+    "author": "杜牧",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "清明时节雨纷纷，",
+            "pinyin": "qīng míng shí jié yǔ fēn fēn ，"
+        },
+        {
+            "text": "路上行人欲断魂。",
+            "pinyin": "lù shàng háng rén yù duàn hún 。"
+        },
+        {
+            "text": "借问酒家何处有？牧童遥指杏花村。",
+            "pinyin": "jiè wèn jiǔ jiā hé chǔ yǒu ？ mù tóng yáo zhǐ xìng huā cūn 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/412.mp3"
+}

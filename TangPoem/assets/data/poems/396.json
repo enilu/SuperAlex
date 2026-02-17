@@ -1,0 +1,28 @@
+{
+    "id": 396,
+    "title": "枫桥夜泊",
+    "author": "张继",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "月落乌啼霜满天，",
+            "pinyin": "yuè luò wū tí shuāng mǎn tiān ，"
+        },
+        {
+            "text": "江枫渔火对愁眠。",
+            "pinyin": "jiāng fēng yú huǒ duì chóu mián 。"
+        },
+        {
+            "text": "姑苏城外寒山寺，",
+            "pinyin": "gū sū chéng wài hán shān sì ，"
+        },
+        {
+            "text": "夜半钟声到客船。",
+            "pinyin": "yè bàn zhōng shēng dào kè chuán 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/396.mp3"
+}

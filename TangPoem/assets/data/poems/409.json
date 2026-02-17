@@ -1,0 +1,28 @@
+{
+    "id": 409,
+    "title": "江雪",
+    "author": "柳宗元",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "千山鸟飞绝，",
+            "pinyin": "qiān shān niǎo fēi jué ，"
+        },
+        {
+            "text": "万径人踪灭。",
+            "pinyin": "wàn jìng rén zōng miè 。"
+        },
+        {
+            "text": "孤舟蓑笠翁，",
+            "pinyin": "gū zhōu suō lì wēng ，"
+        },
+        {
+            "text": "独钓寒江雪。",
+            "pinyin": "dú diào hán jiāng xuě 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/409.mp3"
+}

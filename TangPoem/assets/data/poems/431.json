@@ -1,0 +1,28 @@
+{
+    "id": 431,
+    "title": "春日",
+    "author": "朱熹",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "胜日寻芳泗水滨，",
+            "pinyin": "shèng rì xún fāng sì shuǐ bīn ，"
+        },
+        {
+            "text": "无边光景一时新。",
+            "pinyin": "wú biān guāng jǐng yī shí xīn 。"
+        },
+        {
+            "text": "等闲识得东风面，",
+            "pinyin": "děng xián shí dé dōng fēng miàn ，"
+        },
+        {
+            "text": "万紫千红总是春。",
+            "pinyin": "wàn zǐ qiān hóng zǒng shì chūn 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/431.mp3"
+}

@@ -120,14 +120,13 @@ function handleModeSelect(mode) {
 }
 
 // ==================== 初始化 ====================
-function init() {
+async function init() {
     console.log(`${CONFIG.GAME_NAME} ${CONFIG.GAME_VERSION} 启动中...`);
 
-    PoemManager.init();
-    ProgressManager.init();
-    AudioManager.init();
+    // 绑定事件监听器
     bindEvents();
-    ProgressManager.updateReviewCount();
+
+    await loadWithProgress(); // 加载诗词并显示进度
 
     console.log('游戏初始化完成！');
 }
@@ -140,4 +139,76 @@ if (document.readyState === 'loading') {
 }
 
 // ==================== 导出全局状态和元素 ====================
+// ==================== 加载进度处理 ====================
+async function loadWithProgress() {
+    const loadingPercent = document.getElementById('loadingPercent');
+    const loadingFill = document.getElementById('loadingFill');
+    const loadingTip = document.getElementById('loadingTip');
+    const loadingSubtitle = document.querySelector('.loading-subtitle');
+    const loadingScreen = document.getElementById('loadingScreen');
+
+    // 加载中的提示语
+    const loadingTips = [
+        '准备好开始唐诗之旅了吗？',
+        '唐诗是中华文化的瑰宝...',
+        '每一首诗都有一个故事...',
+        '让诗词伴你快乐成长！',
+        '正在为你准备精美的诗词...'
+    ];
+
+    let tipIndex = 0;
+    let tipInterval = null;
+
+    const updateTip = () => {
+        if (loadingTip) {
+            loadingTip.textContent = loadingTips[tipIndex];
+            tipIndex = (tipIndex + 1) % loadingTips.length;
+        }
+    };
+
+    updateTip();
+    tipInterval = setInterval(updateTip, 3000);
+
+    await PoemManager.init((current, total, isComplete) => {
+        const percent = Math.round((current / total) * 100);
+
+        // 更新进度百分比
+        if (loadingPercent) loadingPercent.textContent = percent;
+        if (loadingFill) loadingFill.style.width = percent + '%';
+
+        // 更新加载状态提示
+        if (loadingSubtitle) {
+            loadingSubtitle.textContent = `正在加载诗词... (${current}/${total})`;
+        }
+
+        if (isComplete) {
+            // 清除定时器
+            if (tipInterval) {
+                clearInterval(tipInterval);
+            }
+
+            // 显示加载完成提示
+            if (loadingTip) {
+                loadingTip.textContent = '🎉 加载完毕，可以开始啦！';
+            }
+            if (loadingSubtitle) {
+                loadingSubtitle.textContent = `成功加载 ${total} 首诗词`;
+            }
+
+            // 更新复习数量
+            ProgressManager.updateReviewCount();
+
+            // 初始化闯关模式目录功能
+            GameManager.initGameCatalog();
+
+            // 延迟后切换到开始界面
+            setTimeout(() => {
+                switchScreen('start');
+                console.log('游戏初始化完成！');
+            }, 1500);
+        }
+    });
+}
+
+
 export { AppState, elements, switchScreen };

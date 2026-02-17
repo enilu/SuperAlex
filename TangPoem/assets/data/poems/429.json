@@ -1,0 +1,28 @@
+{
+    "id": 429,
+    "title": "小池",
+    "author": "杨万里",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "泉眼无声惜细流，",
+            "pinyin": "quán yǎn wú shēng xī xì liú ，"
+        },
+        {
+            "text": "树阴照水爱晴柔。",
+            "pinyin": "shù yīn zhào shuǐ ài qíng róu 。"
+        },
+        {
+            "text": "小荷才露尖尖角，",
+            "pinyin": "xiǎo hé cái lòu jiān jiān jiǎo ，"
+        },
+        {
+            "text": "早有蜻蜓立上头。",
+            "pinyin": "zǎo yǒu qīng tíng lì shàng tóu 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/429.mp3"
+}

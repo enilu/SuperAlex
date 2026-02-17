@@ -1,0 +1,28 @@
+{
+    "id": 392,
+    "title": "绝句",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "两个黄鹂鸣翠柳，",
+            "pinyin": "liǎng gè huáng lí míng cuì liǔ ，"
+        },
+        {
+            "text": "一行白鹭上青天。",
+            "pinyin": "yī háng bái lù shàng qīng tiān 。"
+        },
+        {
+            "text": "窗含西岭千秋雪，",
+            "pinyin": "chuāng hán xī lǐng qiān qiū xuě ，"
+        },
+        {
+            "text": "门泊东吴万里船。",
+            "pinyin": "mén bó dōng wú wàn lǐ chuán 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/392.mp3"
+}

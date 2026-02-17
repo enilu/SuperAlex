@@ -1,0 +1,28 @@
+{
+    "id": 448,
+    "title": "夜宿山寺",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "危楼高百尺，",
+            "pinyin": "wēi lóu gāo bǎi chǐ ，"
+        },
+        {
+            "text": "手可摘星辰。",
+            "pinyin": "shǒu kě zhāi xīng chén 。"
+        },
+        {
+            "text": "不敢高声语，",
+            "pinyin": "bù gǎn gāo shēng yǔ ，"
+        },
+        {
+            "text": "恐惊天上人。",
+            "pinyin": "kǒng jīng tiān shàng rén 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/448.mp3"
+}

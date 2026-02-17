@@ -6,8 +6,12 @@
     "grade": "高中一年级",
     "content": [
         {
-            "text": "车辚辚，马萧萧",
+            "text": "车辚辚，",
             "pinyin": "chē lín lín, mǎ xiāo xiāo"
+        },
+        {
+            "text": "马萧萧",
+            "pinyin": ""
         },
         {
             "text": "行人弓箭各在腰",

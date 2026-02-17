@@ -1,0 +1,28 @@
+{
+    "id": 441,
+    "title": "己亥杂诗",
+    "author": "龚自珍",
+    "dynasty": "清",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "九州生气恃风雷，",
+            "pinyin": "jiǔ zhōu shēng qì shì fēng léi ，"
+        },
+        {
+            "text": "万马齐喑究可哀。",
+            "pinyin": "wàn mǎ qí yīn jiū kě āi 。"
+        },
+        {
+            "text": "我劝天公重抖擞，",
+            "pinyin": "wǒ quàn tiān gōng zhòng dǒu sòu ，"
+        },
+        {
+            "text": "不拘一格降人才。",
+            "pinyin": "bù jū yī gé jiàng rén cái 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/441.mp3"
+}

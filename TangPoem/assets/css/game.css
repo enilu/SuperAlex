@@ -129,6 +129,15 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 10;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.screen-header-left,
+.screen-header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .back-btn,
@@ -191,7 +200,7 @@ body {
 
 .poem-content {
     margin-bottom: 1.5rem;
-    max-height: 50vh;
+    max-height: 40vh;
     overflow-y: auto;
     padding-right: 0.5rem;
 }
@@ -218,7 +227,7 @@ body {
 .poem-line {
     display: flex;
     flex-direction: column;
-    padding: 0.8rem 0;
+    padding: 0.2rem 0;
     border-bottom: 1px solid #f0f0f0;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -249,6 +258,8 @@ body {
     font-size: 0.95rem;
     color: #666;
     line-height: 1.6;
+    overflow-y: auto;
+    max-height: 15vh;
 }
 
 /* 诵读控制按钮 */
@@ -447,6 +458,15 @@ body {
     color: #888;
     text-align: center;
     margin-bottom: 1.5rem;
+}
+
+.question-pinyin {
+    font-size: 1rem;
+    color: #999;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    font-style: italic;
+    letter-spacing: 0.1em;
 }
 
 .question-text {
@@ -1109,3 +1129,205 @@ body {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
+
+/* ==================== 闯关诗词选择弹窗 ==================== */
+.game-catalog-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid #f0f0f0;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    background: #fff;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    border-color: #f5576c;
+    color: #f5576c;
+    background: #fff5f7;
+}
+
+.selected-count {
+    font-size: 0.85rem;
+    color: #888;
+    margin-left: auto;
+}
+
+.selected-count span {
+    color: #f5576c;
+    font-weight: bold;
+}
+
+.game-catalog-footer {
+    padding: 1rem 2rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.start-game-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
+}
+
+.start-game-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+}
+
+.start-game-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 闯关模式的目录项样式 - 支持多选 */
+#gameCatalogList .catalog-item {
+    cursor: pointer;
+    position: relative;
+    padding-right: 3rem;
+}
+
+#gameCatalogList .catalog-item::before {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50%;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+#gameCatalogList .catalog-item.selected::before {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-color: #f5576c;
+    content: '✓';
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#gameCatalogList .catalog-item:hover {
+    background: #f9f9f9;
+}
+
+#gameCatalogList .catalog-item.selected:hover {
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+}
+
+/* ==================== 加载界面 ==================== */
+#loadingScreen {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.loading-container {
+    text-align: center;
+    animation: fadeInUp 0.8s ease;
+    max-width: 500px;
+    padding: 2rem;
+}
+
+.loading-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.loading-title {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.8rem;
+}
+
+.loading-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+.loading-progress {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.loading-bar {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+}
+
+.loading-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.loading-text {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.loading-percent {
+    font-size: 1.5rem;
+}
+
+.loading-tip {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

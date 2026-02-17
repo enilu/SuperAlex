@@ -1,0 +1,28 @@
+{
+    "id": 389,
+    "title": "早发白帝城",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "朝辞白帝彩云间，",
+            "pinyin": "zhāo cí bái dì cǎi yún jiān ，"
+        },
+        {
+            "text": "千里江陵一日还。",
+            "pinyin": "qiān lǐ jiāng líng yī rì huán 。"
+        },
+        {
+            "text": "两岸猿声啼不住，",
+            "pinyin": "liǎng àn yuán shēng tí bù zhù ，"
+        },
+        {
+            "text": "轻舟已过万重山。",
+            "pinyin": "qīng zhōu yǐ guò wàn zhòng shān 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/389.mp3"
+}

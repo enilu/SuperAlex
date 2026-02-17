@@ -1,0 +1,32 @@
+{
+    "id": 512,
+    "title": "天净沙·秋思",
+    "author": "马致远",
+    "dynasty": "元",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "枯藤老树昏鸦，",
+            "pinyin": "kū téng lǎo shù hūn yā ，"
+        },
+        {
+            "text": "小桥流水人家。",
+            "pinyin": "xiǎo qiáo liú shuǐ rén jiā 。"
+        },
+        {
+            "text": "古道西风瘦马。",
+            "pinyin": "gǔ dào xī fēng shòu mǎ 。"
+        },
+        {
+            "text": "夕阳西下，",
+            "pinyin": "xī yáng xī xià ，"
+        },
+        {
+            "text": "断肠人在天涯。",
+            "pinyin": "duàn cháng rén zài tiān yá 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/512.mp3"
+}

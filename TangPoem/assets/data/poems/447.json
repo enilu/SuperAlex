@@ -1,0 +1,28 @@
+{
+    "id": 447,
+    "title": "秋浦歌",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "白发三千丈，",
+            "pinyin": "bái fā sān qiān zhàng ，"
+        },
+        {
+            "text": "缘愁似个长。",
+            "pinyin": "yuán chóu sì gè cháng 。"
+        },
+        {
+            "text": "不知明镜里，",
+            "pinyin": "bù zhī míng jìng lǐ ，"
+        },
+        {
+            "text": "何处得秋霜。",
+            "pinyin": "hé chǔ dé qiū shuāng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/447.mp3"
+}

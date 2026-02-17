@@ -1,0 +1,28 @@
+{
+    "id": 433,
+    "title": "题临安邸",
+    "author": "林升",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "山外青山楼外楼，",
+            "pinyin": "shān wài qīng shān lóu wài lóu ，"
+        },
+        {
+            "text": "西湖歌舞几时休？",
+            "pinyin": "xī hú gē wǔ jī shí xiū ？"
+        },
+        {
+            "text": "暖风熏得游人醉，",
+            "pinyin": "nuǎn fēng xūn dé yóu rén zuì ，"
+        },
+        {
+            "text": "直把杭州做汴州。",
+            "pinyin": "zhí bǎ háng zhōu zuò biàn zhōu 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/433.mp3"
+}

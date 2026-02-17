@@ -1,0 +1,28 @@
+{
+    "id": 411,
+    "title": "山行",
+    "author": "杜牧",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "远上寒山石径斜，",
+            "pinyin": "yuǎn shàng hán shān shí jìng xié ，"
+        },
+        {
+            "text": "白云深处有人家。",
+            "pinyin": "bái yún shēn chǔ yǒu rén jiā 。"
+        },
+        {
+            "text": "停车坐爱枫林晚，",
+            "pinyin": "tíng chē zuò ài fēng lín wǎn ，"
+        },
+        {
+            "text": "霜叶红于二月花。",
+            "pinyin": "shuāng yè hóng yú èr yuè huā 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/411.mp3"
+}

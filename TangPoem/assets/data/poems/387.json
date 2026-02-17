@@ -1,0 +1,28 @@
+{
+    "id": 387,
+    "title": "赠汪伦",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "李白乘舟将欲行，",
+            "pinyin": "lǐ bái chéng zhōu jiāng yù háng ，"
+        },
+        {
+            "text": "忽闻岸上踏歌声。",
+            "pinyin": "hū wén àn shàng tà gē shēng 。"
+        },
+        {
+            "text": "桃花潭水深千尺，",
+            "pinyin": "táo huā tán shuǐ shēn qiān chǐ ，"
+        },
+        {
+            "text": "不及汪伦送我情。",
+            "pinyin": "bù jí wāng lún sòng wǒ qíng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/387.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 445,
+    "title": "从军行",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "青海长云暗雪山，",
+            "pinyin": "qīng hǎi cháng yún àn xuě shān ，"
+        },
+        {
+            "text": "孤城遥望玉门关。",
+            "pinyin": "gū chéng yáo wàng yù mén guān 。"
+        },
+        {
+            "text": "黄沙百战穿金甲，",
+            "pinyin": "huáng shā bǎi zhàn chuān jīn jiǎ ，"
+        },
+        {
+            "text": "不破楼兰终不还。",
+            "pinyin": "bù pò lóu lán zhōng bù huán 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/445.mp3"
+}

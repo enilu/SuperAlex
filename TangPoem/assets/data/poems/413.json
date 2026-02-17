@@ -1,0 +1,28 @@
+{
+    "id": 413,
+    "title": "江南春",
+    "author": "杜牧",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "千里莺啼绿映红，",
+            "pinyin": "qiān lǐ yīng tí lǜ yìng hóng ，"
+        },
+        {
+            "text": "水村山郭酒旗风。",
+            "pinyin": "shuǐ cūn shān guō jiǔ qí fēng 。"
+        },
+        {
+            "text": "南朝四百八十寺，",
+            "pinyin": "nán zhāo sì bǎi bā shí sì ，"
+        },
+        {
+            "text": "多少楼台烟雨中。",
+            "pinyin": "duō shǎo lóu tái yān yǔ zhōng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/413.mp3"
+}

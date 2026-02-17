@@ -1,0 +1,44 @@
+{
+    "id": 454,
+    "title": "春望",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "国破山河在，",
+            "pinyin": "guó pò shān hé zài ，"
+        },
+        {
+            "text": "城春草木深。",
+            "pinyin": "chéng chūn cǎo mù shēn 。"
+        },
+        {
+            "text": "感时花溅泪，",
+            "pinyin": "gǎn shí huā jiàn lèi ，"
+        },
+        {
+            "text": "恨别鸟惊心。",
+            "pinyin": "hèn bié niǎo jīng xīn 。"
+        },
+        {
+            "text": "烽火连三月，",
+            "pinyin": "fēng huǒ lián sān yuè ，"
+        },
+        {
+            "text": "家书抵万金。",
+            "pinyin": "jiā shū dǐ wàn jīn 。"
+        },
+        {
+            "text": "白头搔更短，",
+            "pinyin": "bái tóu sāo gēng duǎn ，"
+        },
+        {
+            "text": "浑欲不胜簪。",
+            "pinyin": "hún yù bù shèng zān 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/454.mp3"
+}

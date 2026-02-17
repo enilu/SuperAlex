@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SuperAlex - 儿童教育游戏合集">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>SuperAlex - 游戏目录</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+        }
+
+        .game-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .play-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 3rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .game-card {
+                padding: 1.5rem;
+            }
+
+            .game-icon {
+                font-size: 4rem;
+            }
+
+            .game-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🎮</div>
+            <h1>SuperAlex</h1>
+            <p class="subtitle">儿童教育游戏合集 - 寓教于乐，快乐学习</p>
+        </div>
+
+        <div class="games-grid">
+            <!-- 唐诗小当家 -->
+            <div class="game-card" onclick="location.href='TangPoem/index.html'">
+                <div class="game-icon">📜</div>
+                <h2 class="game-title">唐诗小当家</h2>
+                <p class="game-description">
+                    让孩子爱上唐诗，快乐背诵经典。支持诵读、闯关、复习三种模式，让学习变得有趣！
+                </p>
+                <div class="game-tags">
+                    <span class="tag">唐诗学习</span>
+                    <span class="tag">背诵</span>
+                    <span class="tag">拼音</span>
+                    <span class="tag">闯关</span>
+                </div>
+                <button class="play-button">开始学习</button>
+            </div>
+
+            <!-- 20以内加减法 -->
+            <div class="game-card" onclick="location.href='math20/index.html'">
+                <div class="game-icon">🔢</div>
+                <h2 class="game-title">20以内加减法</h2>
+                <p class="game-description">
+                    专为儿童设计的数学练习游戏，帮助孩子掌握20以内的加减法运算。
+                </p>
+                <div class="game-tags">
+                    <span class="tag">数学</span>
+                    <span class="tag">加减法</span>
+                    <span class="tag">计算</span>
+                    <span class="tag">练习</span>
+                </div>
+                <button class="play-button">开始练习</button>
+            </div>
+
+            <!-- 晨光冲锋队 -->
+            <div class="game-card" onclick="location.href='MornGo/index.html'">
+                <div class="game-icon">⚔️</div>
+                <h2 class="game-title">晨光冲锋队</h2>
+                <p class="game-description">
+                    勇敢的冲锋队冒险游戏，培养孩子的勇气和智慧，在冒险中快乐成长。
+                </p>
+                <div class="game-tags">
+                    <span class="tag">冒险</span>
+                    <span class="tag">闯关</span>
+                    <span class="tag">益智</span>
+                    <span class="tag">成长</span>
+                </div>
+                <button class="play-button">开始冒险</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 SuperAlex - 让每个孩子都能快乐学习！</p>
+        </div>
+    </div>
+</body>
+</html>

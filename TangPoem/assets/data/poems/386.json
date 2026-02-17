@@ -1,0 +1,28 @@
+{
+    "id": 386,
+    "title": "望庐山瀑布",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "日照香炉生紫烟，",
+            "pinyin": "rì zhào xiāng lú shēng zǐ yān ，"
+        },
+        {
+            "text": "遥看瀑布挂前川，",
+            "pinyin": "yáo kàn pù bù guà qián chuān ，"
+        },
+        {
+            "text": "飞流直下三千尺，",
+            "pinyin": "fēi liú zhí xià sān qiān chǐ ，"
+        },
+        {
+            "text": "疑是银河落九天。",
+            "pinyin": "yí shì yín hé luò jiǔ tiān 。 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/386.mp3"
+}

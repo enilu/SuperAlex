@@ -1,0 +1,28 @@
+{
+    "id": 446,
+    "title": "独坐敬亭山",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "众鸟高飞尽，",
+            "pinyin": "zhòng niǎo gāo fēi jìn ，"
+        },
+        {
+            "text": "孤云独去闲。",
+            "pinyin": "gū yún dú qù xián 。"
+        },
+        {
+            "text": "相看两不厌，",
+            "pinyin": "xiāng kàn liǎng bù yàn ，"
+        },
+        {
+            "text": "只有敬亭山。",
+            "pinyin": "zhī yǒu jìng tíng shān 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/446.mp3"
+}

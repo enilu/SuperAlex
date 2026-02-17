@@ -1,0 +1,36 @@
+{
+    "id": 372,
+    "title": "咏鹅",
+    "author": "骆宾王",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "鹅，",
+            "pinyin": "é ，"
+        },
+        {
+            "text": "鹅，",
+            "pinyin": "é"
+        },
+        {
+            "text": "鹅，",
+            "pinyin": "é"
+        },
+        {
+            "text": "曲项向天歌。",
+            "pinyin": "qū xiàng xiàng tiān gē 。"
+        },
+        {
+            "text": "白毛浮绿水，",
+            "pinyin": "bái máo fú lǜ shuǐ ，"
+        },
+        {
+            "text": "红掌拨清波。",
+            "pinyin": "hóng zhǎng bō qīng bō 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/372.mp3"
+}

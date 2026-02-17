@@ -1,0 +1,32 @@
+{
+    "id": 400,
+    "title": "渔歌子",
+    "author": "张志和",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "西塞山前白鹭飞，",
+            "pinyin": "xī sāi shān qián bái lù fēi ，"
+        },
+        {
+            "text": "桃花流水鳜鱼肥。",
+            "pinyin": "táo huā liú shuǐ guì yú féi 。"
+        },
+        {
+            "text": "青箬笠，",
+            "pinyin": "qīng ruò lì ，"
+        },
+        {
+            "text": "绿蓑衣，",
+            "pinyin": "lǜ suō yī"
+        },
+        {
+            "text": "斜风细雨不须归。",
+            "pinyin": "xié fēng xì yǔ bù xū guī 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/400.mp3"
+}

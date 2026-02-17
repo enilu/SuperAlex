@@ -1,0 +1,28 @@
+{
+    "id": 499,
+    "title": "舟过安仁",
+    "author": "杨万里",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "一叶渔船两小童，",
+            "pinyin": "yī yè yú chuán liǎng xiǎo tóng ，"
+        },
+        {
+            "text": "收篙停棹坐船中。",
+            "pinyin": "shōu gāo tíng zhào zuò chuán zhōng 。"
+        },
+        {
+            "text": "怪生无雨都张伞，",
+            "pinyin": "guài shēng wú yǔ dū zhāng sǎn ，"
+        },
+        {
+            "text": "不是遮头是使风。",
+            "pinyin": "bù shì zhē tóu shì shǐ fēng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/499.mp3"
+}

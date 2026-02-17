@@ -1,0 +1,28 @@
+{
+    "id": 388,
+    "title": "黄鹤楼送孟浩然之广陵",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "故人西辞黄鹤楼，",
+            "pinyin": "gù rén xī cí huáng hè lóu ，"
+        },
+        {
+            "text": "烟花三月下扬州。",
+            "pinyin": "yān huā sān yuè xià yáng zhōu 。"
+        },
+        {
+            "text": "孤帆远影碧空尽，",
+            "pinyin": "gū fān yuǎn yǐng bì kōng jìn ，"
+        },
+        {
+            "text": "惟见长江天际流。",
+            "pinyin": "wéi jiàn cháng jiāng tiān jì liú 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/388.mp3"
+}

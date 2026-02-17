@@ -1,0 +1,28 @@
+{
+    "id": 451,
+    "title": "春夜洛城闻笛",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "谁家玉笛暗飞声，",
+            "pinyin": "shuí jiā yù dí àn fēi shēng ，"
+        },
+        {
+            "text": "散入春风满洛城。",
+            "pinyin": "sàn rù chūn fēng mǎn luò chéng 。"
+        },
+        {
+            "text": "此夜曲中闻折柳，",
+            "pinyin": "cǐ yè qū zhōng wén zhē liǔ ，"
+        },
+        {
+            "text": "何人不起故园情",
+            "pinyin": "hé rén bù qǐ gù yuán qíng"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/451.mp3"
+}

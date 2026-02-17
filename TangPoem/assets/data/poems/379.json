@@ -1,0 +1,28 @@
+{
+    "id": 379,
+    "title": "出塞",
+    "author": "王昌龄",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "秦时明月汉时关，",
+            "pinyin": "qín shí míng yuè hàn shí guān ，"
+        },
+        {
+            "text": "万里长征人未还。",
+            "pinyin": "wàn lǐ cháng zhēng rén wèi huán 。"
+        },
+        {
+            "text": "但使龙城飞将在，",
+            "pinyin": "dàn shǐ lóng chéng fēi jiāng zài ，"
+        },
+        {
+            "text": "不教胡马度阴山！",
+            "pinyin": "bù jiào hú mǎ dù yīn shān ！"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/379.mp3"
+}

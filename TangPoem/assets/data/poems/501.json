@@ -1,0 +1,44 @@
+{
+    "id": 501,
+    "title": "游山西村",
+    "author": "陆游",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "莫笑农家腊酒浑，",
+            "pinyin": "mò xiào nóng jiā là jiǔ hún ，"
+        },
+        {
+            "text": "丰年留客足鸡豚。",
+            "pinyin": "fēng nián liú kè zú jī tún 。"
+        },
+        {
+            "text": "山重水复疑无路，",
+            "pinyin": "shān zhòng shuǐ fù yí wú lù ，"
+        },
+        {
+            "text": "柳暗花明又一村。",
+            "pinyin": "liǔ àn huā míng yòu yī cūn 。"
+        },
+        {
+            "text": "萧鼓追随春社近，",
+            "pinyin": "xiāo gǔ zhuī suí chūn shè jìn ，"
+        },
+        {
+            "text": "衣冠简朴古风存。",
+            "pinyin": "yī guān jiǎn pǔ gǔ fēng cún 。"
+        },
+        {
+            "text": "从今若许闲乘月，",
+            "pinyin": "cóng jīn ruò xǔ xián chéng yuè ，"
+        },
+        {
+            "text": "拄杖无时夜叩门。",
+            "pinyin": "zhǔ zhàng wú shí yè kòu mén 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/501.mp3"
+}

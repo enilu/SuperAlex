@@ -1,0 +1,24 @@
+{
+    "id": 461,
+    "title": "鸟",
+    "author": "白居易",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "谁道群生性命微？一般骨肉一般皮。",
+            "pinyin": "shuí dào qún shēng xìng mìng wēi ？ yī bān gǔ ròu yī bān pí 。"
+        },
+        {
+            "text": "劝君莫打枝头鸟，",
+            "pinyin": "quàn jūn mò dǎ zhī tóu niǎo ，"
+        },
+        {
+            "text": "子在巢中望母归。",
+            "pinyin": "zǐ zài cháo zhōng wàng mǔ guī 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/461.mp3"
+}

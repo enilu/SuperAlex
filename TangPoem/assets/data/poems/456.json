@@ -1,0 +1,28 @@
+{
+    "id": 456,
+    "title": "赠花卿",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "锦城丝管日纷纷，",
+            "pinyin": "jǐn chéng sī guǎn rì fēn fēn ，"
+        },
+        {
+            "text": "半入江风半入云。",
+            "pinyin": "bàn rù jiāng fēng bàn rù yún 。"
+        },
+        {
+            "text": "此曲只应天上有，",
+            "pinyin": "cǐ qū zhī yīng tiān shàng yǒu ，"
+        },
+        {
+            "text": "人间能得几回闻？",
+            "pinyin": "rén jiān néng dé jī huí wén ？"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/456.mp3"
+}

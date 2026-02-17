@@ -1,0 +1,28 @@
+{
+    "id": 436,
+    "title": "墨梅",
+    "author": "王冕",
+    "dynasty": "元",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "我家洗砚池头树，",
+            "pinyin": "wǒ jiā xǐ yàn chí tóu shù ，"
+        },
+        {
+            "text": "个个花开淡墨痕。",
+            "pinyin": "gè gè huā kāi dàn mò hén 。"
+        },
+        {
+            "text": "不要人夸好颜色，",
+            "pinyin": "bù yào rén kuā hǎo yán sè ，"
+        },
+        {
+            "text": "只流清气满乾坤。",
+            "pinyin": "zhī liú qīng qì mǎn qián kūn 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/436.mp3"
+}

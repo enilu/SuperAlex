@@ -1,0 +1,28 @@
+{
+    "id": 425,
+    "title": "示儿",
+    "author": "陆游",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "死去元知万事空，",
+            "pinyin": "sǐ qù yuán zhī wàn shì kōng ，"
+        },
+        {
+            "text": "但悲不见九州同。",
+            "pinyin": "dàn bēi bù jiàn jiǔ zhōu tóng 。"
+        },
+        {
+            "text": "王师北定中原日，",
+            "pinyin": "wáng shī běi dìng zhōng yuán rì ，"
+        },
+        {
+            "text": "家祭无忘告乃翁。",
+            "pinyin": "jiā jì wú wàng gào nǎi wēng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/425.mp3"
+}

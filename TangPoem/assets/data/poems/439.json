@@ -1,0 +1,28 @@
+{
+    "id": 439,
+    "title": "所见",
+    "author": "袁枚",
+    "dynasty": "清",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "牧童骑黄牛，",
+            "pinyin": "mù tóng qí huáng niú ，"
+        },
+        {
+            "text": "歌声振林樾。",
+            "pinyin": "gē shēng zhèn lín yuè 。"
+        },
+        {
+            "text": "意欲捕鸣蝉，",
+            "pinyin": "yì yù bǔ míng chán ，"
+        },
+        {
+            "text": "忽然闭口立。",
+            "pinyin": "hū rán bì kǒu lì 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/439.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 520,
+    "title": "论诗",
+    "author": "赵翼",
+    "dynasty": "清",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "李杜诗篇万口传，",
+            "pinyin": "lǐ dù shī piān wàn kǒu chuán ，"
+        },
+        {
+            "text": "至今已觉不新鲜。",
+            "pinyin": "zhì jīn yǐ jué bù xīn xiān 。"
+        },
+        {
+            "text": "江山代有才人出，",
+            "pinyin": "jiāng shān dài yǒu cái rén chū ，"
+        },
+        {
+            "text": "各领风骚数百年。",
+            "pinyin": "gè lǐng fēng sāo shù bǎi nián 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/520.mp3"
+}

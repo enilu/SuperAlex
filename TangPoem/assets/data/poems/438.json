@@ -1,0 +1,28 @@
+{
+    "id": 438,
+    "title": "竹石",
+    "author": "郑燮",
+    "dynasty": "清",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "咬定青山不放松，",
+            "pinyin": "yǎo dìng qīng shān bù fàng sōng ，"
+        },
+        {
+            "text": "立根原在破岩中。",
+            "pinyin": "lì gēn yuán zài pò yán zhōng 。"
+        },
+        {
+            "text": "千磨万击还坚劲，",
+            "pinyin": "qiān mó wàn jī huán jiān jìn ，"
+        },
+        {
+            "text": "任尔东西南北风。",
+            "pinyin": "rèn ěr dōng xī nán běi fēng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/438.mp3"
+}

@@ -1,0 +1,44 @@
+{
+    "id": 517,
+    "title": "长相思",
+    "author": "纳兰性德",
+    "dynasty": "清",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "山一程，",
+            "pinyin": "shān yī chéng ，"
+        },
+        {
+            "text": "水一程，",
+            "pinyin": "shuǐ yī chéng"
+        },
+        {
+            "text": "身向榆关那畔行，",
+            "pinyin": "shēn xiàng yú guān nà pàn háng ，"
+        },
+        {
+            "text": "夜深千帐灯，",
+            "pinyin": "yè shēn qiān zhàng dēng ，"
+        },
+        {
+            "text": "风一更。",
+            "pinyin": "fēng yī gēng 。"
+        },
+        {
+            "text": "雪一更，",
+            "pinyin": "xuě yī gēng ，"
+        },
+        {
+            "text": "聒碎乡心梦不成，",
+            "pinyin": "guō suì xiāng xīn mèng bù chéng ，"
+        },
+        {
+            "text": "故园无此声。",
+            "pinyin": "gù yuán wú cǐ shēng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/517.mp3"
+}

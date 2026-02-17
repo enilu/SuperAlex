@@ -1,0 +1,28 @@
+{
+    "id": 466,
+    "title": "竹枝词",
+    "author": "刘禹锡",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "杨柳青青江水平，",
+            "pinyin": "yáng liǔ qīng qīng jiāng shuǐ píng ，"
+        },
+        {
+            "text": "闻郎江上唱歌声，",
+            "pinyin": "wén láng jiāng shàng chàng gē shēng ，"
+        },
+        {
+            "text": "东边日出西边雨，",
+            "pinyin": "dōng biān rì chū xī biān yǔ ，"
+        },
+        {
+            "text": "道是无晴却有晴。",
+            "pinyin": "dào shì wú qíng què yǒu qíng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/466.mp3"
+}

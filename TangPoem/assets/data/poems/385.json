@@ -1,0 +1,44 @@
+{
+    "id": 385,
+    "title": "古朗月行",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "小时不识月，",
+            "pinyin": "xiǎo shí bù shí yuè ，"
+        },
+        {
+            "text": "呼作白玉盘。",
+            "pinyin": "hū zuò bái yù pán 。"
+        },
+        {
+            "text": "又疑瑶台镜，",
+            "pinyin": "yòu yí yáo tái jìng ，"
+        },
+        {
+            "text": "飞在青云端。",
+            "pinyin": "fēi zài qīng yún duān 。"
+        },
+        {
+            "text": "仙人垂两足，",
+            "pinyin": "xiān rén chuí liǎng zú ，"
+        },
+        {
+            "text": "桂树何团团。",
+            "pinyin": "guì shù hé tuán tuán 。"
+        },
+        {
+            "text": "白兔捣药成，",
+            "pinyin": "bái tù dǎo yào chéng ，"
+        },
+        {
+            "text": "问言与谁餐？",
+            "pinyin": "wèn yán yǔ shuí cān ？"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/385.mp3"
+}

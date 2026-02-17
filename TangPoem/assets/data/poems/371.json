@@ -1,0 +1,40 @@
+{
+    "id": 371,
+    "title": "敕勒歌",
+    "author": "北朝民歌",
+    "dynasty": "北朝",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "敕勒川，",
+            "pinyin": "chì lè chuān ，"
+        },
+        {
+            "text": "阴山下，",
+            "pinyin": "yīn shān xià"
+        },
+        {
+            "text": "天似穹庐，",
+            "pinyin": "tiān sì qióng lú ，"
+        },
+        {
+            "text": "笼盖四野，",
+            "pinyin": "lóng gài sì yě ，"
+        },
+        {
+            "text": "天苍苍。",
+            "pinyin": "tiān cāng cāng 。"
+        },
+        {
+            "text": "野茫茫，",
+            "pinyin": "yě máng máng ，"
+        },
+        {
+            "text": "风吹草低见牛羊。",
+            "pinyin": "fēng chuī cǎo dī jiàn niú yáng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/371.mp3"
+}

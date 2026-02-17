@@ -12,7 +12,18 @@
       "Bash(findstr:*)",
       "Bash(python:*)",
       "Bash(pip install:*)",
-      "Bash(powershell -Command:*)"
+      "Bash(powershell -Command:*)",
+      "Bash(grep:*)",
+      "Bash(Get-ChildItem \"D:\\\\workspace\\\\tare\\\\SuperAlex\\\\TangPoem\\\\assets\\\\data\\\\poems\" -Filter \"*.json\")",
+      "Bash(Select-Object Name)",
+      "Bash(for f in *.json)",
+      "Bash(do if grep -q '\"\"title\"\": \"\"江南\"\"' \"$f\")",
+      "Bash(then echo \"$f\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(xargs:*)",
+      "Bash(timeout:*)",
+      "Bash(del assetsaudiorecite005.mp3)"
     ]
   }
 }

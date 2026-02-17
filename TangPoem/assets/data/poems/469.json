@@ -1,0 +1,28 @@
+{
+    "id": 469,
+    "title": "泊秦淮",
+    "author": "杜牧",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "烟笼寒水月笼沙，",
+            "pinyin": "yān lóng hán shuǐ yuè lóng shā ，"
+        },
+        {
+            "text": "夜泊秦淮近酒家。",
+            "pinyin": "yè bó qín huái jìn jiǔ jiā 。"
+        },
+        {
+            "text": "商女不知亡国恨，",
+            "pinyin": "shāng nǚ bù zhī wáng guó hèn ，"
+        },
+        {
+            "text": "隔江犹唱后庭花。",
+            "pinyin": "gé jiāng yóu chàng hòu tíng huā 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/469.mp3"
+}

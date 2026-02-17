@@ -1,0 +1,36 @@
+{
+    "id": 398,
+    "title": "游子吟",
+    "author": "孟郊",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "慈母手中线，",
+            "pinyin": "cí mǔ shǒu zhōng xiàn ，"
+        },
+        {
+            "text": "游子身上衣。",
+            "pinyin": "yóu zǐ shēn shàng yī 。"
+        },
+        {
+            "text": "临行密密缝，",
+            "pinyin": "lín háng mì mì féng ，"
+        },
+        {
+            "text": "意恐迟迟归。",
+            "pinyin": "yì kǒng chí chí guī 。"
+        },
+        {
+            "text": "谁言寸草心，",
+            "pinyin": "shuí yán cùn cǎo xīn ，"
+        },
+        {
+            "text": "报得三春晖。",
+            "pinyin": "bào dé sān chūn huī 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/398.mp3"
+}

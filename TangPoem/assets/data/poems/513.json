@@ -1,0 +1,32 @@
+{
+    "id": 513,
+    "title": "天净沙·秋",
+    "author": "白朴",
+    "dynasty": "元",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "孤村落日残霞，",
+            "pinyin": "gū cūn luò rì cán xiá ，"
+        },
+        {
+            "text": "轻烟老树寒鸦，",
+            "pinyin": "qīng yān lǎo shù hán yā ，"
+        },
+        {
+            "text": "一点飞鸿影下。",
+            "pinyin": "yī diǎn fēi hóng yǐng xià 。"
+        },
+        {
+            "text": "青山绿水，",
+            "pinyin": "qīng shān lǜ shuǐ ，"
+        },
+        {
+            "text": "白草红叶黄花。",
+            "pinyin": "bái cǎo hóng yè huáng huā 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/513.mp3"
+}

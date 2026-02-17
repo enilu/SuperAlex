@@ -1,0 +1,28 @@
+{
+    "id": 465,
+    "title": "寒食",
+    "author": "韩翃",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "春城无处不飞花，",
+            "pinyin": "chūn chéng wú chǔ bù fēi huā ，"
+        },
+        {
+            "text": "寒食东风御柳斜。",
+            "pinyin": "hán shí dōng fēng yù liǔ xié 。"
+        },
+        {
+            "text": "日暮汉宫传蜡烛，",
+            "pinyin": "rì mù hàn gōng chuán là zhú ，"
+        },
+        {
+            "text": "轻烟散入五侯家。",
+            "pinyin": "qīng yān sàn rù wǔ hóu jiā 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/465.mp3"
+}

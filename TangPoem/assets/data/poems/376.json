@@ -1,0 +1,28 @@
+{
+    "id": 376,
+    "title": "凉州词",
+    "author": "王之涣",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "黄河远上白云间，",
+            "pinyin": "huáng hé yuǎn shàng bái yún jiān ，"
+        },
+        {
+            "text": "一片孤城万仞山。",
+            "pinyin": "yī piàn gū chéng wàn rèn shān 。"
+        },
+        {
+            "text": "羌笛何须怨杨柳，",
+            "pinyin": "qiāng dí hé xū yuàn yáng liǔ ，"
+        },
+        {
+            "text": "春风不度玉门关。",
+            "pinyin": "chūn fēng bù dù yù mén guān 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/376.mp3"
+}

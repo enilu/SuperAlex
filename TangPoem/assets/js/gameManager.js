@@ -11,19 +11,27 @@ const GameManager = {
     correctCount: 0,
     wrongCount: 0,
     isAnswering: false,
+    selectedPoems: new Set(),
+    currentFilter: 'all',
+    currentFilteredPoems: [],
 
-    startGameMode() {
+    startGameMode(customPoems = null) {
         this.currentQuestionIndex = 0;
         this.score = 0;
         this.correctCount = 0;
         this.wrongCount = 0;
         this.isAnswering = false;
-        this.generateQuestions();
+        this.generateQuestions(customPoems);
         this.showQuestion();
     },
 
-    generateQuestions() {
-        const poems = PoemManager.getRandomPoems(CONFIG.TOTAL_QUESTIONS);
+    generateQuestions(customPoems = null) {
+        // 如果传入了自定义诗词列表，使用自定义的；否则使用随机诗词
+        let poems = customPoems;
+        if (!poems || poems.length === 0) {
+            poems = PoemManager.getRandomPoems(CONFIG.TOTAL_QUESTIONS);
+        }
+
         this.questions = [];
 
         poems.forEach(poem => {
@@ -45,15 +53,22 @@ const GameManager = {
         const lineIndex = Math.floor(Math.random() * poem.content.length);
         const line = poem.content[lineIndex];
         const text = line.text;
+        const pinyin = line.pinyin;
         const blankIndex = Math.floor(Math.random() * text.length);
         const correctAnswer = text[blankIndex];
         const questionText = text.substring(0, blankIndex) + '___' + text.substring(blankIndex + 1);
+
+        // 生成对应的填空拼音
+        const pinyinArray = pinyin.split(' ');
+        const questionPinyin = pinyinArray.map((py, index) => index === blankIndex ? '___' : py).join(' ');
+
         const options = this.generateOptions(correctAnswer, poem);
 
         return {
             poemId: poem.id,
             poemTitle: poem.title,
             questionText: questionText,
+            questionPinyin: questionPinyin,
             correctAnswer: correctAnswer,
             options: options,
             lineIndex: lineIndex
@@ -101,6 +116,7 @@ const GameManager = {
         UIManager.updateScore(this.score);
 
         document.getElementById('poemHint').textContent = '《' + question.poemTitle + '》';
+        document.getElementById('questionPinyin').textContent = question.questionPinyin;
         document.getElementById('questionText').textContent = question.questionText;
 
         const optionsContainer = document.getElementById('answerOptions');
@@ -206,6 +222,181 @@ const GameManager = {
             this.questions.push(this.generateFillBlankQuestion(poem));
         });
         this.questions.sort(() => Math.random() - 0.5);
+    },
+
+    // ==================== 闯关诗词选择功能 ====================
+
+    initGameCatalog() {
+        const catalogBtn = document.getElementById('gameCatalogBtn');
+        const catalogClose = document.getElementById('gameCatalogClose');
+        const catalogOverlay = document.getElementById('gameCatalogOverlay');
+        const selectAllBtn = document.getElementById('selectAllBtn');
+        const deselectAllBtn = document.getElementById('deselectAllBtn');
+        const startSelectedGame = document.getElementById('startSelectedGame');
+
+        if (catalogBtn) {
+            catalogBtn.addEventListener('click', () => this.openGameCatalog());
+        }
+
+        if (catalogClose) {
+            catalogClose.addEventListener('click', () => this.closeGameCatalog());
+        }
+
+        if (catalogOverlay) {
+            catalogOverlay.addEventListener('click', () => this.closeGameCatalog());
+        }
+
+        if (selectAllBtn) {
+            selectAllBtn.addEventListener('click', () => this.selectAllPoems());
+        }
+
+        if (deselectAllBtn) {
+            deselectAllBtn.addEventListener('click', () => this.deselectAllPoems());
+        }
+
+        if (startSelectedGame) {
+            startSelectedGame.addEventListener('click', () => this.startSelectedGameMode());
+        }
+
+        // 筛选按钮事件
+        const filterButtons = document.querySelectorAll('#gameCatalogModal .filter-btn');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const grade = e.target.dataset.grade;
+                this.filterGameCatalog(grade);
+
+                // 更新激活状态
+                filterButtons.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+            });
+        });
+
+        // 初始渲染目录
+        this.renderGameCatalog();
+    },
+
+    openGameCatalog() {
+        const catalogModal = document.getElementById('gameCatalogModal');
+        if (catalogModal) {
+            catalogModal.classList.remove('hidden');
+            this.renderGameCatalog();
+        }
+    },
+
+    closeGameCatalog() {
+        const catalogModal = document.getElementById('gameCatalogModal');
+        if (catalogModal) {
+            catalogModal.classList.add('hidden');
+        }
+    },
+
+    renderGameCatalog(filter = 'all') {
+        const catalogList = document.getElementById('gameCatalogList');
+        if (!catalogList) return;
+
+        let filteredPoems = PoemManager.getAllPoems();
+
+        if (filter !== 'all') {
+            filteredPoems = filteredPoems.filter(poem => {
+                const grade = poem.grade || '';
+                if (filter === '初中') {
+                    return grade.includes('初中') || grade.includes('初一') || grade.includes('初二') || grade.includes('初三');
+                } else if (filter === '高中') {
+                    return grade.includes('高中') || grade.includes('高一') || grade.includes('高二') || grade.includes('高三');
+                } else {
+                    return grade.includes(filter);
+                }
+            });
+        }
+
+        // 保存当前筛选的诗词列表
+        this.currentFilteredPoems = filteredPoems;
+
+        if (filteredPoems.length === 0) {
+            catalogList.innerHTML = `
+                <div class="catalog-empty">
+                    <div class="catalog-empty-icon">📭</div>
+                    <p>暂无该年级的唐诗</p>
+                </div>
+            `;
+            return;
+        }
+
+        catalogList.innerHTML = filteredPoems.map(poem => {
+            const isSelected = this.selectedPoems.has(poem.id);
+            return `
+            <div class="catalog-item ${isSelected ? 'selected' : ''}" data-id="${poem.id}">
+                <div class="catalog-item-number">${poem.id}</div>
+                <div class="catalog-item-info">
+                    <div class="catalog-item-title">${poem.title}</div>
+                    <div class="catalog-item-meta">
+                        <span class="catalog-item-author">${poem.author}</span>
+                        <span class="catalog-item-grade">${poem.grade || '未分类'}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        }).join('');
+
+        // 添加点击事件
+        catalogList.querySelectorAll('.catalog-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const poemId = parseInt(item.dataset.id);
+                this.togglePoemSelection(poemId);
+            });
+        });
+
+        this.updateSelectedCount();
+    },
+
+    filterGameCatalog(grade) {
+        this.currentFilter = grade;
+        this.renderGameCatalog(grade);
+    },
+
+    togglePoemSelection(poemId) {
+        if (this.selectedPoems.has(poemId)) {
+            this.selectedPoems.delete(poemId);
+        } else {
+            this.selectedPoems.add(poemId);
+        }
+        this.renderGameCatalog(this.currentFilter);
+    },
+
+    selectAllPoems() {
+        // 只选择当前筛选范围内的诗词
+        this.currentFilteredPoems.forEach(poem => this.selectedPoems.add(poem.id));
+        this.renderGameCatalog(this.currentFilter);
+    },
+
+    deselectAllPoems() {
+        // 只取消选择当前筛选范围内的诗词
+        this.currentFilteredPoems.forEach(poem => this.selectedPoems.delete(poem.id));
+        this.renderGameCatalog(this.currentFilter);
+    },
+
+    updateSelectedCount() {
+        const countEl = document.getElementById('selectedCount');
+        const startBtn = document.getElementById('startSelectedGame');
+        if (countEl) {
+            countEl.textContent = this.selectedPoems.size;
+        }
+        if (startBtn) {
+            startBtn.disabled = this.selectedPoems.size === 0;
+        }
+    },
+
+    startSelectedGameMode() {
+        if (this.selectedPoems.size === 0) return;
+
+        const selectedPoemObjects = Array.from(this.selectedPoems).map(id =>
+            PoemManager.getPoemById(id)
+        ).filter(poem => poem !== undefined);
+
+        if (selectedPoemObjects.length > 0) {
+            this.closeGameCatalog();
+            this.startGameMode(selectedPoemObjects);
+        }
     }
 };
 

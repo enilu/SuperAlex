@@ -1,0 +1,44 @@
+{
+    "id": 491,
+    "title": "清平乐·村居",
+    "author": "辛弃疾",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "茅檐低小，",
+            "pinyin": "máo yán dī xiǎo ，"
+        },
+        {
+            "text": "溪上青青草。",
+            "pinyin": "xī shàng qīng qīng cǎo 。"
+        },
+        {
+            "text": "醉里吴音相媚好，",
+            "pinyin": "zuì lǐ wú yīn xiāng mèi hǎo ，"
+        },
+        {
+            "text": "白发谁家翁媪?",
+            "pinyin": "bái fā shuí jiā wēng ǎo ?"
+        },
+        {
+            "text": "大儿锄豆溪东，",
+            "pinyin": "dà ér chú dòu xī dōng ，"
+        },
+        {
+            "text": "中儿正织鸡笼。",
+            "pinyin": "zhōng ér zhèng zhī jī lóng 。"
+        },
+        {
+            "text": "最喜小儿无赖，",
+            "pinyin": "zuì xǐ xiǎo ér wú lài ，"
+        },
+        {
+            "text": "溪头卧剥莲蓬。",
+            "pinyin": "xī tóu wò bāo lián péng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/491.mp3"
+}

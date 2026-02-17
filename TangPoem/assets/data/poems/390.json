@@ -1,0 +1,28 @@
+{
+    "id": 390,
+    "title": "望天门山",
+    "author": "李白",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "天门中断楚江开，",
+            "pinyin": "tiān mén zhōng duàn chǔ jiāng kāi ，"
+        },
+        {
+            "text": "碧水东流至此回。",
+            "pinyin": "bì shuǐ dōng liú zhì cǐ huí 。"
+        },
+        {
+            "text": "两岸青山相对出，",
+            "pinyin": "liǎng àn qīng shān xiāng duì chū ，"
+        },
+        {
+            "text": "孤帆一片日边来。",
+            "pinyin": "gū fān yī piàn rì biān lái 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/390.mp3"
+}

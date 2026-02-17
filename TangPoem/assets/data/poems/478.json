@@ -1,0 +1,28 @@
+{
+    "id": 478,
+    "title": "小松",
+    "author": "杜荀鹤",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "自小刺头深草里，",
+            "pinyin": "zì xiǎo cì tóu shēn cǎo lǐ ，"
+        },
+        {
+            "text": "而今渐觉出蓬蒿。",
+            "pinyin": "ér jīn jiàn jué chū péng hāo 。"
+        },
+        {
+            "text": "时人不识凌云木，",
+            "pinyin": "shí rén bù shí líng yún mù ，"
+        },
+        {
+            "text": "直待凌云始道高。",
+            "pinyin": "zhí dài líng yún shǐ dào gāo 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/478.mp3"
+}

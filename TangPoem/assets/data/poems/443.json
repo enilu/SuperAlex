@@ -1,0 +1,28 @@
+{
+    "id": 443,
+    "title": "山中杂诗",
+    "author": "吴均",
+    "dynasty": "南朝",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "山际见来烟，",
+            "pinyin": "shān jì jiàn lái yān ，"
+        },
+        {
+            "text": "竹中窥落日。",
+            "pinyin": "zhú zhōng kuī luò rì 。"
+        },
+        {
+            "text": "鸟向檐上飞，",
+            "pinyin": "niǎo xiàng yán shàng fēi ，"
+        },
+        {
+            "text": "云从窗里出。",
+            "pinyin": "yún cóng chuāng lǐ chū 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/443.mp3"
+}

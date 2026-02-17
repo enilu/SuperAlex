@@ -1,0 +1,28 @@
+{
+    "id": 416,
+    "title": "元日",
+    "author": "王安石",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "爆竹声中一岁除，",
+            "pinyin": "bào zhú shēng zhōng yī suì chú ，"
+        },
+        {
+            "text": "春风送暖入屠苏。",
+            "pinyin": "chūn fēng sòng nuǎn rù tú sū 。"
+        },
+        {
+            "text": "千门万户瞳瞳日，",
+            "pinyin": "qiān mén wàn hù tóng tóng rì ，"
+        },
+        {
+            "text": "总把新桃换旧符。",
+            "pinyin": "zǒng bǎ xīn táo huàn jiù fú 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/416.mp3"
+}

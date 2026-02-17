@@ -1,0 +1,28 @@
+{
+    "id": 378,
+    "title": "春晓",
+    "author": "孟浩然",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "春眠不觉晓，",
+            "pinyin": "chūn mián bù jué xiǎo ，"
+        },
+        {
+            "text": "处处闻啼鸟。",
+            "pinyin": "chǔ chǔ wén tí niǎo 。"
+        },
+        {
+            "text": "夜来风雨声，",
+            "pinyin": "yè lái fēng yǔ shēng ，"
+        },
+        {
+            "text": "花落知多少?",
+            "pinyin": "huā luò zhī duō shǎo ?"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/378.mp3"
+}

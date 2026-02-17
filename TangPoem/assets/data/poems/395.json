@@ -1,0 +1,28 @@
+{
+    "id": 395,
+    "title": "江畔独步寻花",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "黄师塔前江水东，",
+            "pinyin": "huáng shī tǎ qián jiāng shuǐ dōng ，"
+        },
+        {
+            "text": "春光懒困倚微风。",
+            "pinyin": "chūn guāng lǎn kùn yǐ wēi fēng 。"
+        },
+        {
+            "text": "桃花一簇开无主，",
+            "pinyin": "táo huā yī cù kāi wú zhǔ ，"
+        },
+        {
+            "text": "可爱深红爱浅红？",
+            "pinyin": "kě ài shēn hóng ài qiǎn hóng ？"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/395.mp3"
+}

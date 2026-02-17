@@ -1,0 +1,32 @@
+{
+    "id": 506,
+    "title": "浣溪沙",
+    "author": "晏殊",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "一曲新词酒一杯，",
+            "pinyin": "yī qū xīn cí jiǔ yī bēi ，"
+        },
+        {
+            "text": "去年天气旧亭台。",
+            "pinyin": "qù nián tiān qì jiù tíng tái 。 。"
+        },
+        {
+            "text": "夕阳西下几时回？无可奈何花落去，",
+            "pinyin": "xī yáng xī xià jī shí huí ？ wú kě nài hé huā luò qù ，"
+        },
+        {
+            "text": "似曾相识燕归来，",
+            "pinyin": "sì zēng xiāng shí yàn guī lái ，"
+        },
+        {
+            "text": "小园香径独徘徊。",
+            "pinyin": "xiǎo yuán xiāng jìng dú pái huái 。 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/506.mp3"
+}

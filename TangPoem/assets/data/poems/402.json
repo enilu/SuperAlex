@@ -1,0 +1,28 @@
+{
+    "id": 402,
+    "title": "望洞庭",
+    "author": "刘禹锡",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "湖光秋月两相和，",
+            "pinyin": "hú guāng qiū yuè liǎng xiāng hé ，"
+        },
+        {
+            "text": "潭面无风镜未磨。",
+            "pinyin": "tán miàn wú fēng jìng wèi mó 。"
+        },
+        {
+            "text": "遥望洞庭山水翠，",
+            "pinyin": "yáo wàng dòng tíng shān shuǐ cuì ，"
+        },
+        {
+            "text": "白银盘里一青螺。",
+            "pinyin": "bái yín pán lǐ yī qīng luó 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/402.mp3"
+}

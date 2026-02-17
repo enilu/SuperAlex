@@ -1,0 +1,28 @@
+{
+    "id": 500,
+    "title": "宿新市徐公店",
+    "author": "杨万里",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "篱落疏疏一径深，",
+            "pinyin": "lí luò shū shū yī jìng shēn ，"
+        },
+        {
+            "text": "树头花落未成阴。",
+            "pinyin": "shù tóu huā luò wèi chéng yīn 。"
+        },
+        {
+            "text": "儿童急走追黄蝶，",
+            "pinyin": "ér tóng jí zǒu zhuī huáng dié ，"
+        },
+        {
+            "text": "飞入菜花无处寻。",
+            "pinyin": "fēi rù cài huā wú chǔ xún 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/500.mp3"
+}

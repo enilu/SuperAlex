@@ -1,0 +1,28 @@
+{
+    "id": 490,
+    "title": "菊花",
+    "author": "元稹",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "秋丛绕舍似陶家，",
+            "pinyin": "qiū cóng rào shě sì táo jiā ，"
+        },
+        {
+            "text": "遍绕篱边日渐斜。",
+            "pinyin": "biàn rào lí biān rì jiàn xié 。"
+        },
+        {
+            "text": "不是花中偏爱菊，",
+            "pinyin": "bù shì huā zhōng piān ài jú ，"
+        },
+        {
+            "text": "此花开尽更无花。",
+            "pinyin": "cǐ huā kāi jìn gēng wú huā 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/490.mp3"
+}

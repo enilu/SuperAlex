@@ -1,0 +1,28 @@
+{
+    "id": 468,
+    "title": "秋夕",
+    "author": "杜牧",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "银烛秋光冷画屏，",
+            "pinyin": "yín zhú qiū guāng lěng huà píng ，"
+        },
+        {
+            "text": "轻罗小扇扑流萤。",
+            "pinyin": "qīng luó xiǎo shàn pū liú yíng 。"
+        },
+        {
+            "text": "天阶夜色凉如水，",
+            "pinyin": "tiān jiē yè sè liáng rú shuǐ ，"
+        },
+        {
+            "text": "坐看牵牛织女星。",
+            "pinyin": "zuò kàn qiān niú zhī nǚ xīng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/468.mp3"
+}

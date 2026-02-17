@@ -1,0 +1,28 @@
+{
+    "id": 408,
+    "title": "悯农",
+    "author": "李绅",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "春种一粒粟，",
+            "pinyin": "chūn zhǒng yī lì sù ，"
+        },
+        {
+            "text": "秋收万颗子。",
+            "pinyin": "qiū shōu wàn kē zǐ 。"
+        },
+        {
+            "text": "四海无闲田，",
+            "pinyin": "sì hǎi wú xián tián ，"
+        },
+        {
+            "text": "农夫犹饿死。",
+            "pinyin": "nóng fū yóu è sǐ 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/408.mp3"
+}

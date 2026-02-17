@@ -1,0 +1,28 @@
+{
+    "id": 479,
+    "title": "塞下曲",
+    "author": "卢纶",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "林暗草惊风，",
+            "pinyin": "lín àn cǎo jīng fēng ，"
+        },
+        {
+            "text": "将军夜引弓。",
+            "pinyin": "jiāng jūn yè yǐn gōng 。"
+        },
+        {
+            "text": "平明寻白羽，",
+            "pinyin": "píng míng xún bái yǔ ，"
+        },
+        {
+            "text": "没在石棱中。",
+            "pinyin": "méi zài shí léng zhōng 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/479.mp3"
+}

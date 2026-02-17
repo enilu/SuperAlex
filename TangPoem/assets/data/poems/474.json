@@ -1,0 +1,28 @@
+{
+    "id": 474,
+    "title": "嫦娥",
+    "author": "李商隐",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "云母屏风烛影深，",
+            "pinyin": "yún mǔ píng fēng zhú yǐng shēn ，"
+        },
+        {
+            "text": "长河渐落晓星沉。",
+            "pinyin": "cháng hé jiàn luò xiǎo xīng chén 。"
+        },
+        {
+            "text": "嫦娥应悔偷灵药，",
+            "pinyin": "cháng é yīng huǐ tōu líng yào ，"
+        },
+        {
+            "text": "碧海青天夜夜心。",
+            "pinyin": "bì hǎi qīng tiān yè yè xīn 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/474.mp3"
+}

@@ -1,0 +1,40 @@
+{
+    "id": 453,
+    "title": "望岳",
+    "author": "杜甫",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "岱宗夫如何？齐鲁青未了。",
+            "pinyin": "dài zōng fū rú hé ？ qí lǔ qīng wèi le 。"
+        },
+        {
+            "text": "造化钟神秀，",
+            "pinyin": "zào huà zhōng shén xiù ，"
+        },
+        {
+            "text": "阴阳割昏晓。",
+            "pinyin": "yīn yáng gē hūn xiǎo 。"
+        },
+        {
+            "text": "荡胸生曾云，",
+            "pinyin": "dàng xiōng shēng zēng yún ，"
+        },
+        {
+            "text": "决眦入归鸟。",
+            "pinyin": "jué zì rù guī niǎo 。"
+        },
+        {
+            "text": "会当凌绝顶，",
+            "pinyin": "huì dāng líng jué dǐng ，"
+        },
+        {
+            "text": "一览众山小。",
+            "pinyin": "yī lǎn zhòng shān xiǎo 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/453.mp3"
+}

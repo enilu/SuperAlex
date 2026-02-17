@@ -1,0 +1,40 @@
+{
+    "id": 494,
+    "title": "如梦令",
+    "author": "李清照",
+    "dynasty": "宋",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "常记溪亭日暮，",
+            "pinyin": "cháng jì xī tíng rì mù ，"
+        },
+        {
+            "text": "沉醉不知归路，",
+            "pinyin": "chén zuì bù zhī guī lù ，"
+        },
+        {
+            "text": "兴尽晚回舟，",
+            "pinyin": "xīng jìn wǎn huí zhōu ，"
+        },
+        {
+            "text": "误入藕花深处。",
+            "pinyin": "wù rù ǒu huā shēn chǔ 。"
+        },
+        {
+            "text": "争渡，",
+            "pinyin": "zhēng dù ，"
+        },
+        {
+            "text": "争渡，",
+            "pinyin": "zhēng dù"
+        },
+        {
+            "text": "惊起一滩鸥鹭。",
+            "pinyin": "jīng qǐ yī tān ōu lù 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/494.mp3"
+}

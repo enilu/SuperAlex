@@ -1,0 +1,28 @@
+{
+    "id": 403,
+    "title": "浪淘沙",
+    "author": "刘禹锡",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "九曲黄河万里沙，",
+            "pinyin": "jiǔ qū huáng hé wàn lǐ shā ，"
+        },
+        {
+            "text": "浪淘风簸自天涯。",
+            "pinyin": "làng táo fēng bò zì tiān yá 。"
+        },
+        {
+            "text": "如今直上银河去，",
+            "pinyin": "rú jīn zhí shàng yín hé qù ，"
+        },
+        {
+            "text": "同到牵牛织女家。",
+            "pinyin": "tóng dào qiān niú zhī nǚ jiā 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/403.mp3"
+}

@@ -1,0 +1,28 @@
+{
+    "id": 375,
+    "title": "回乡偶书",
+    "author": "贺知章",
+    "dynasty": "唐",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "少小离家老大回，",
+            "pinyin": "shǎo xiǎo lí jiā lǎo dà huí ，"
+        },
+        {
+            "text": "乡音无改鬓毛衰。",
+            "pinyin": "xiāng yīn wú gǎi bìn máo shuāi 。"
+        },
+        {
+            "text": "儿童相见不相识，",
+            "pinyin": "ér tóng xiāng jiàn bù xiāng shí ，"
+        },
+        {
+            "text": "笑问客从何处来。",
+            "pinyin": "xiào wèn kè cóng hé chǔ lái 。"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/375.mp3"
+}

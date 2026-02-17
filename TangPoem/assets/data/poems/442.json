@@ -1,0 +1,36 @@
+{
+    "id": 442,
+    "title": "七步诗",
+    "author": "曹植",
+    "dynasty": "三国·魏",
+    "grade": "小学生必背",
+    "content": [
+        {
+            "text": "煮豆燃豆萁，",
+            "pinyin": "zhǔ dòu rán dòu qí ，"
+        },
+        {
+            "text": "漉豉以为汁。",
+            "pinyin": "lù chǐ yǐ wéi zhī 。"
+        },
+        {
+            "text": "萁在釜下燃，",
+            "pinyin": "qí zài fǔ xià rán ，"
+        },
+        {
+            "text": "豆在釜中泣，",
+            "pinyin": "dòu zài fǔ zhōng qì ，"
+        },
+        {
+            "text": "本是同根生，",
+            "pinyin": "běn shì tóng gēn shēng ，"
+        },
+        {
+            "text": "相煎何太急！",
+            "pinyin": "xiāng jiān hé tài jí ！"
+        }
+    ],
+    "annotation": "",
+    "translation": "",
+    "audio": "assets/audio/recite/442.mp3"
+}
