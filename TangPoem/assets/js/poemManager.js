@@ -163,8 +163,12 @@ const PoemManager = {
     },
 
     renderCatalog(filter = 'all') {
+        console.log('📋 [目录渲染] 开始渲染, 筛选条件:', filter);
         const catalogList = document.getElementById('catalogList');
-        if (!catalogList) return;
+        if (!catalogList) {
+            console.warn('⚠️ [目录渲染] catalogList 元素未找到');
+            return;
+        }
 
         let filteredPoems = this.poems;
 
@@ -179,6 +183,15 @@ const PoemManager = {
                     return grade.includes(filter);
                 }
             });
+            console.log(`🔍 [目录筛选] "${filter}" 筛选结果: ${filteredPoems.length} 首`);
+            // 打印前3首匹配的诗歌信息用于调试
+            if (filteredPoems.length > 0) {
+                console.log('📝 [目录筛选] 匹配的诗歌示例:', filteredPoems.slice(0, 3).map(p => `${p.id}.${p.title} (${p.grade})`));
+            } else {
+                console.warn('⚠️ [目录筛选] 没有找到匹配的诗歌！');
+                // 打印所有诗歌的grade信息用于调试
+                console.log('📚 所有诗歌的grade分布:', [...new Set(this.poems.map(p => p.grade || '未分类'))]);
+            }
         }
 
         if (filteredPoems.length === 0) {
@@ -206,27 +219,35 @@ const PoemManager = {
 
         // 添加点击事件
         catalogList.querySelectorAll('.catalog-item').forEach(item => {
-            item.addEventListener('click', () => {
+            item.addEventListener('click', (e) => {
                 const poemId = parseInt(item.dataset.id);
+                const poemTitle = item.querySelector('.catalog-item-title')?.textContent;
+                console.log(`👆 [目录点击] 用户点击目录项: ID=${poemId}, 标题=${poemTitle}, 元素=`, e.target);
                 this.jumpToPoem(poemId);
             });
         });
     },
 
     filterCatalog(grade) {
+        console.log('📂 [目录筛选] 点击分类:', grade);
         this.currentFilter = grade;
         this.renderCatalog(grade);
     },
 
     jumpToPoem(poemId) {
+        console.log('🎯 [目录跳转] 点击诗歌ID:', poemId);
         const poemIndex = this.poems.findIndex(poem => poem.id === poemId);
         if (poemIndex !== -1) {
+            const poem = this.poems[poemIndex];
+            console.log(`✅ [目录跳转] 跳转到: ${poem.id}.${poem.title} (${poem.grade || '未分类'})`);
             // 停止当前播放
             AudioManager.stopRecite();
             this.currentIndex = poemIndex;
             this.renderCurrentPoem();
             this.updateCatalogHighlight();
             this.closeCatalog();
+        } else {
+            console.error(`❌ [目录跳转] 未找到诗歌ID: ${poemId}`);
         }
     },
 
