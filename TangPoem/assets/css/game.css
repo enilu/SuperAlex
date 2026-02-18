@@ -1331,3 +1331,346 @@ body {
     }
 }
 
+/* ==================== 设置模态框 ==================== */
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-modal.hidden {
+    display: none;
+}
+
+.settings-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.settings-content {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 25px;
+    padding: 0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.settings-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+
+.settings-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.settings-body {
+    padding: 1.5rem 2rem;
+    max-height: calc(85vh - 80px);
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.settings-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.settings-body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.settings-body::-webkit-scrollbar-thumb {
+    background: #f5576c;
+    border-radius: 3px;
+}
+
+.settings-section {
+    margin-bottom: 2rem;
+}
+
+.settings-section:last-child {
+    margin-bottom: 0;
+}
+
+.settings-section-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f5576c;
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.settings-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.settings-item-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.settings-item-value {
+    font-size: 0.85rem;
+    color: #666;
+    font-family: monospace;
+}
+
+.settings-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.settings-btn-secondary,
+.settings-btn-danger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.settings-btn-secondary {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    color: #2d3436;
+}
+
+.settings-btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(253, 203, 110, 0.4);
+}
+
+.settings-btn-danger {
+    background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+    color: #fff;
+}
+
+.settings-btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(214, 48, 49, 0.4);
+}
+
+.settings-btn-secondary .icon,
+.settings-btn-danger .icon {
+    font-size: 1.5rem;
+}
+
+.settings-btn-secondary .text,
+.settings-btn-danger .text {
+    flex: 1;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.settings-btn-secondary .desc,
+.settings-btn-danger .desc {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.cache-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cache-detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.cache-detail-item-name {
+    color: #333;
+    font-weight: 500;
+}
+
+.cache-detail-item-size {
+    color: #666;
+    font-family: monospace;
+}
+
+.cache-detail-item.user-data {
+    background: #fff3cd;
+    border-left: 3px solid #ffc107;
+}
+
+.cache-detail-item.data-cache {
+    background: #d1ecf1;
+    border-left: 3px solid #17a2b8;
+}
+
+/* 确认对话框 */
+.confirm-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.confirm-dialog.hidden {
+    display: none;
+}
+
+.confirm-dialog-content {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 350px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.confirm-dialog-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.8rem;
+}
+
+.confirm-dialog-message {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.confirm-dialog-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.confirm-dialog-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-dialog-btn.cancel {
+    background: #f1f3f5;
+    color: #495057;
+}
+
+.confirm-dialog-btn.cancel:hover {
+    background: #e9ecef;
+}
+
+.confirm-dialog-btn.confirm {
+    background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+    color: #fff;
+}
+
+.confirm-dialog-btn.confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(214, 48, 49, 0.3);
+}
+

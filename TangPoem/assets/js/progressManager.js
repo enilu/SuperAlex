@@ -1,6 +1,7 @@
 import { CONFIG } from './config.js';
 import { PoemManager } from './poemManager.js';
 import { UIManager } from './uiManager.js';
+import { CacheManager, CacheType } from './cacheManager.js';
 
 const ProgressManager = {
     progress: {},
@@ -12,33 +13,22 @@ const ProgressManager = {
     },
 
     loadData() {
-        const savedProgress = localStorage.getItem(CONFIG.STORAGE_KEYS.PROGRESS);
-        if (savedProgress) {
-            this.progress = JSON.parse(savedProgress);
-        }
-
-        const savedAchievements = localStorage.getItem(CONFIG.STORAGE_KEYS.ACHIEVEMENTS);
-        if (savedAchievements) {
-            this.achievements = JSON.parse(savedAchievements);
-        }
-
-        const savedStats = localStorage.getItem(CONFIG.STORAGE_KEYS.STATS);
-        if (savedStats) {
-            this.stats = JSON.parse(savedStats);
-        } else {
-            this.stats = {
-                totalAnswered: 0,
-                totalCorrect: 0,
-                totalWrong: 0,
-                playCount: 0
-            };
-        }
+        // 使用CacheManager读取进度数据
+        this.progress = CacheManager.get(CacheType.PROGRESS) || {};
+        this.achievements = CacheManager.get(CacheType.ACHIEVEMENTS) || [];
+        this.stats = CacheManager.get(CacheType.STATS) || {
+            totalAnswered: 0,
+            totalCorrect: 0,
+            totalWrong: 0,
+            playCount: 0
+        };
     },
 
     saveData() {
-        localStorage.setItem(CONFIG.STORAGE_KEYS.PROGRESS, JSON.stringify(this.progress));
-        localStorage.setItem(CONFIG.STORAGE_KEYS.ACHIEVEMENTS, JSON.stringify(this.achievements));
-        localStorage.setItem(CONFIG.STORAGE_KEYS.STATS, JSON.stringify(this.stats));
+        // 使用CacheManager保存进度数据
+        CacheManager.set(CacheType.PROGRESS, this.progress);
+        CacheManager.set(CacheType.ACHIEVEMENTS, this.achievements);
+        CacheManager.set(CacheType.STATS, this.stats);
     },
 
     updateProgress(poemId, action) {

@@ -5,6 +5,7 @@ import { GameManager } from './gameManager.js';
 import { ProgressManager } from './progressManager.js';
 import { AudioManager } from './audioManager.js';
 import { UIManager } from './uiManager.js';
+import { CacheManager } from './cacheManager.js';
 
 // ==================== 全局状态 ====================
 const AppState = {
@@ -122,6 +123,12 @@ function handleModeSelect(mode) {
 // ==================== 初始化 ====================
 async function init() {
     console.log(`${CONFIG.GAME_NAME} ${CONFIG.GAME_VERSION} 启动中...`);
+
+    // 初始化缓存管理器（必须在PoemManager之前）
+    CacheManager.init();
+
+    // 初始化设置模态框
+    UIManager.initSettingsModal();
 
     // 绑定事件监听器
     bindEvents();

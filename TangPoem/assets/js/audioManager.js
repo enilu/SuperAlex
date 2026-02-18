@@ -1,5 +1,6 @@
 // ==================== 音频管理器 ====================
 import { CONFIG } from './config.js';
+import { CacheManager, CacheType } from './cacheManager.js';
 
 const AudioManager = {
     sounds: {},
@@ -9,10 +10,10 @@ const AudioManager = {
 
     // 初始化音频
     init() {
-        // 从 localStorage 加载静音设置
-        const muted = localStorage.getItem('tangpoem_muted');
-        if (muted !== null) {
-            this.isMuted = JSON.parse(muted);
+        // 从CacheManager加载音频设置
+        const audioSettings = CacheManager.get(CacheType.AUDIO_SETTINGS);
+        if (audioSettings) {
+            this.isMuted = audioSettings.muted || false;
         }
 
         // 获取播放按钮引用
@@ -201,7 +202,10 @@ const AudioManager = {
     // 切换静音
     toggleMute() {
         this.isMuted = !this.isMuted;
-        localStorage.setItem('tangpoem_muted', JSON.stringify(this.isMuted));
+        // 使用CacheManager保存音频设置
+        const audioSettings = CacheManager.get(CacheType.AUDIO_SETTINGS) || {};
+        audioSettings.muted = this.isMuted;
+        CacheManager.set(CacheType.AUDIO_SETTINGS, audioSettings);
         return this.isMuted;
     }
 };

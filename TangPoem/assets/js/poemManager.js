@@ -1,5 +1,6 @@
 import { CONFIG } from './config.js';
 import { AudioManager } from './audioManager.js';
+import { CacheManager, CacheType } from './cacheManager.js';
 
 const PoemManager = {
     poems: [],
@@ -11,9 +12,11 @@ const PoemManager = {
             const indexResponse = await fetch(CONFIG.POEMS_INDEX_PATH);
             const indexData = await indexResponse.json();
 
-            const cachedPoems = localStorage.getItem('tangpoem_poems_data');
+            // 使用CacheManager读取缓存的诗歌数据
+            const cachedPoems = CacheManager.get(CacheType.POEMS_DATA);
             if (cachedPoems) {
-                this.poems = JSON.parse(cachedPoems);
+                console.log('📦 [诗歌] 使用缓存的诗歌数据');
+                this.poems = cachedPoems;
                 // 即使使用缓存，也要通知加载完成
                 if (onProgress) onProgress(this.poems.length, this.poems.length, true);
             } else {
@@ -39,7 +42,8 @@ const PoemManager = {
             }
         }
         this.poems = loadedPoems;
-        localStorage.setItem('tangpoem_poems_data', JSON.stringify(this.poems));
+        // 使用CacheManager保存诗歌数据
+        CacheManager.set(CacheType.POEMS_DATA, this.poems);
         // 加载完成，通知回调
         if (onProgress) onProgress(loadedPoems.length, poemsList.length, true);
     },

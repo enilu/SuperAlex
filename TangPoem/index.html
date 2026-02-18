@@ -258,6 +258,55 @@
         </div>
     </div>
 
+    <!-- 设置弹窗 -->
+    <div id="settingsModal" class="settings-modal hidden">
+        <div class="settings-overlay" id="settingsOverlay"></div>
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2 class="settings-title">⚙️ 系统设置</h2>
+                <button class="settings-close" id="settingsClose">✕</button>
+            </div>
+            <div class="settings-body">
+                <!-- 缓存管理 -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">📦 缓存管理</h3>
+                    <div class="settings-item">
+                        <div class="settings-item-info">
+                            <span class="settings-item-label">缓存版本</span>
+                            <span class="settings-item-value" id="cacheVersion">-</span>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="settings-item-info">
+                            <span class="settings-item-label">缓存大小</span>
+                            <span class="settings-item-value" id="cacheSize">-</span>
+                        </div>
+                    </div>
+                    <div class="settings-actions">
+                        <button class="settings-btn-secondary" id="clearDataCacheBtn">
+                            <span class="icon">🗑️</span>
+                            <span class="text">清除数据缓存</span>
+                            <span class="desc">保留用户进度</span>
+                        </button>
+                        <button class="settings-btn-danger" id="clearAllCacheBtn">
+                            <span class="icon">⚠️</span>
+                            <span class="text">清除所有缓存</span>
+                            <span class="desc">包括用户进度</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 缓存详情 -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">📋 缓存详情</h3>
+                    <div class="cache-details" id="cacheDetails">
+                        <!-- 缓存详情会动态插入 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 引入脚本 -->
     <script type="module" src="assets/js/app.js"></script>
 </body>

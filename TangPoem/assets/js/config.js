@@ -4,6 +4,9 @@ const CONFIG = {
     GAME_NAME: '唐诗小当家',
     GAME_VERSION: 'v1.0.0',
 
+    // 缓存版本配置（与游戏版本解耦，数据结构变化时需升级此版本）
+    CACHE_VERSION: '1.0.0',
+
     // 闯关模式配置
     TOTAL_QUESTIONS: 10,           // 每局题目数量
     POINTS_PER_QUESTION: 10,       // 每题分数
@@ -17,13 +20,6 @@ const CONFIG = {
     POEMS_INDEX_PATH: 'assets/data/poems.json',
     POEMS_DATA_PATH: 'assets/data/poems/',
 
-    // 本地存储键名
-    STORAGE_KEYS: {
-        PROGRESS: 'tangpoem_progress',      // 学习进度
-        ACHIEVEMENTS: 'tangpoem_achievements', // 成就
-        SETTINGS: 'tangpoem_settings',      // 设置
-        STATS: 'tangpoem_stats'              // 统计数据
-    },
 
     // 成就配置
     ACHIEVEMENTS: {
