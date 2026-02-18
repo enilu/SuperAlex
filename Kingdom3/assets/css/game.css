@@ -1,0 +1,1156 @@
+/* ===================================
+   三国演义H5问答游戏 - 古风主题样式
+   =================================== */
+
+/* ===== 全局样式 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 主色调 - 金红色系 */
+    --primary-gold: #d4a574;
+    --primary-red: #c94b4b;
+    --dark-brown: #5d4037;
+    --text-white: #ffffff;
+    --parchment: #f5e6d3;
+    --success-green: #4caf50;
+    --error-red: #f44336;
+    --warning-orange: #ff9800;
+
+    /* 渐变背景 */
+    --bg-gradient: linear-gradient(135deg, #d4a574 0%, #c94b4b 100%);
+    --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 230, 211, 0.95) 100%);
+
+    /* 阴影 */
+    --shadow-sm: 0 2px 8px rgba(93, 64, 55, 0.15);
+    --shadow-md: 0 4px 16px rgba(93, 64, 55, 0.2);
+    --shadow-lg: 0 8px 32px rgba(93, 64, 55, 0.25);
+
+    /* 边框圆角 */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+
+    /* 动画时长 */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'SimHei', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    color: var(--dark-brown);
+    overflow-x: hidden;
+}
+
+/* ===== 主容器 ===== */
+#app {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.screen {
+    flex: 1;
+    display: none;
+    opacity: 0;
+    transition: opacity var(--transition-normal) ease;
+}
+
+.screen.active {
+    display: flex;
+    opacity: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== 开始界面 ===== */
+.title-card {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 0.8s ease;
+}
+
+.game-title {
+    font-size: 56px;
+    font-weight: bold;
+    color: var(--text-white);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 8px;
+    letter-spacing: 8px;
+}
+
+.game-subtitle {
+    font-size: 28px;
+    color: var(--primary-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 16px;
+    letter-spacing: 4px;
+}
+
+.decorative-line {
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* ===== 关卡选择 ===== */
+.level-selection {
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.section-title {
+    font-size: 24px;
+    color: var(--text-white);
+    text-align: center;
+    margin-bottom: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+}
+
+.level-card {
+    background: var(--card-gradient);
+    border-radius: var(--radius-lg);
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-normal) ease;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.level-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-gold), var(--primary-red));
+    transform: scaleX(0);
+    transition: transform var(--transition-normal) ease;
+}
+
+.level-card:hover:not(.locked) {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.level-card:hover:not(.locked)::before {
+    transform: scaleX(1);
+}
+
+.level-card.locked {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.level-icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.level-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dark-brown);
+    margin-bottom: 8px;
+}
+
+.level-stars {
+    font-size: 16px;
+    min-height: 20px;
+}
+
+.level-lock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    opacity: 0.5;
+}
+
+.star {
+    color: #ffd700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.star.empty {
+    color: #ccc;
+    text-shadow: none;
+}
+
+/* ===== 底部按钮 ===== */
+.bottom-buttons {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* ===== 按钮样式 ===== */
+button {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.btn-primary, .btn-secondary, .btn-success, .btn-danger, .btn-home, .btn-revive, .btn-certificate, .btn-back, .btn-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #b8956a 100%);
+    color: var(--dark-brown);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dark-brown);
+}
+
+.btn-secondary:hover {
+    background: var(--text-white);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success-green) 0%, #43a047 100%);
+    color: var(--text-white);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--error-red) 0%, #d32f2f 100%);
+    color: var(--text-white);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-home {
+    background: linear-gradient(135deg, #78909c 0%, #546e7a 100%);
+    color: var(--text-white);
+}
+
+.btn-revive {
+    background: linear-gradient(135deg, var(--warning-orange) 0%, #f57c00 100%);
+    color: var(--text-white);
+    padding: 16px 32px;
+    font-size: 18px;
+    animation: pulse 2s infinite;
+}
+
+.btn-certificate {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+    color: var(--dark-brown);
+    padding: 16px 32px;
+    font-size: 18px;
+}
+
+.btn-back {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-white);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-icon {
+    font-size: 20px;
+}
+
+/* ===== 游戏界面 ===== */
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.level-info {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.score-display {
+    font-size: 16px;
+    color: var(--text-white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.score-display strong {
+    color: var(--primary-gold);
+    font-size: 18px;
+}
+
+/* ===== 进度条 ===== */
+.progress-container {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-gold), var(--primary-red));
+    border-radius: 6px;
+    transition: width var(--transition-normal) ease;
+}
+
+.progress-text {
+    text-align: center;
+    color: var(--text-white);
+    font-size: 14px;
+    margin-top: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== 题目卡片 ===== */
+.question-card {
+    background: var(--card-gradient);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    width: 100%;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-lg);
+    animation: slideInUp 0.5s ease;
+}
+
+.question-number {
+    font-size: 14px;
+    color: var(--primary-red);
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.question-pinyin {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.question-content {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--dark-brown);
+    font-weight: 500;
+}
+
+.question-content .highlight {
+    background: linear-gradient(180deg, transparent 60%, #fff59d 60%);
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+/* ===== 选项按钮 ===== */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.option-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+}
+
+.option-btn:hover:not(:disabled) {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-gold);
+}
+
+.option-btn:active:not(:disabled) {
+    transform: translateX(2px);
+}
+
+.option-btn:disabled {
+    cursor: default;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary-gold), #b8956a);
+    color: var(--dark-brown);
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.option-text {
+    flex: 1;
+    font-size: 18px;
+    color: var(--dark-brown);
+}
+
+.option-btn.correct {
+    background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+    border-color: var(--success-green);
+}
+
+.option-btn.correct .option-label {
+    background: var(--success-green);
+    color: var(--text-white);
+}
+
+.option-btn.wrong {
+    background: linear-gradient(135deg, #ffcdd2, #ef9a9a);
+    border-color: var(--error-red);
+}
+
+.option-btn.wrong .option-label {
+    background: var(--error-red);
+    color: var(--text-white);
+}
+
+/* ===== 反馈区域 ===== */
+.feedback-area {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.feedback-message {
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeInScale 0.3s ease;
+}
+
+.feedback-message.correct {
+    background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+    color: #2e7d32;
+}
+
+.feedback-message.wrong {
+    background: linear-gradient(135deg, #ffcdd2, #ef9a9a);
+    color: #c62828;
+}
+
+.feedback-message.info {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dark-brown);
+}
+
+/* ===== 复活按钮 ===== */
+.revive-container {
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeInUp 0.5s ease;
+}
+
+.revive-hint {
+    margin-top: 12px;
+    color: var(--text-white);
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.revive-icon {
+    font-size: 24px;
+}
+
+/* ===== 结果界面 ===== */
+.result-card {
+    background: var(--card-gradient);
+    border-radius: var(--radius-xl);
+    padding: 40px 32px;
+    width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    animation: scaleIn 0.5s ease;
+    margin-bottom: 24px;
+}
+
+.result-icon {
+    font-size: 80px;
+    margin-bottom: 16px;
+    animation: bounceIn 0.6s ease;
+}
+
+.result-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--primary-red);
+    margin-bottom: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 32px;
+    font-size: 40px;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 24px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--primary-red);
+}
+
+.result-message {
+    font-size: 18px;
+    color: var(--dark-brown);
+    line-height: 1.6;
+}
+
+.result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+}
+
+.certificate-section {
+    margin-top: 24px;
+    animation: fadeInUp 0.5s ease 0.3s both;
+}
+
+/* ===== 证书界面 ===== */
+.certificate-card {
+    background: var(--parchment);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    width: 100%;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    border: 8px solid var(--primary-gold);
+    animation: scaleIn 0.5s ease;
+    margin-bottom: 24px;
+}
+
+.certificate-border {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 2px solid var(--primary-red);
+    border-radius: var(--radius-md);
+    pointer-events: none;
+}
+
+.certificate-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.certificate-seal {
+    font-size: 64px;
+    margin-bottom: 16px;
+    animation: rotateIn 1s ease;
+}
+
+.certificate-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--primary-red);
+    letter-spacing: 8px;
+}
+
+.certificate-body {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.certificate-text {
+    font-size: 18px;
+    line-height: 2;
+    color: var(--dark-brown);
+    margin-bottom: 12px;
+}
+
+.certificate-name {
+    font-weight: bold;
+    color: var(--primary-red);
+    font-size: 20px;
+}
+
+.certificate-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 24px;
+}
+
+.cert-stat {
+    text-align: center;
+}
+
+.cert-label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.cert-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--primary-red);
+}
+
+.certificate-footer {
+    text-align: center;
+}
+
+.certificate-date {
+    font-size: 16px;
+    color: #666;
+}
+
+.certificate-actions {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* ===== 设置界面 ===== */
+.settings-card {
+    background: var(--card-gradient);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+}
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.settings-header h2 {
+    font-size: 24px;
+    color: var(--dark-brown);
+}
+
+.settings-content {
+    margin-bottom: 32px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: var(--dark-brown);
+}
+
+.setting-icon {
+    font-size: 24px;
+}
+
+/* 开关按钮 */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 32px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: var(--transition-fast);
+    border-radius: 32px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: var(--transition-fast);
+    border-radius: 50%;
+}
+
+.toggle input:checked + .toggle-slider {
+    background: linear-gradient(135deg, var(--success-green), #43a047);
+}
+
+.toggle input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+.settings-actions {
+    text-align: center;
+}
+
+/* ===== 题库管理界面 ===== */
+.manager-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.manager-header h2 {
+    font-size: 24px;
+    color: var(--text-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.manager-tabs {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--text-white);
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tab-btn.active {
+    background: var(--text-white);
+    color: var(--dark-brown);
+}
+
+.manager-content {
+    background: var(--card-gradient);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    width: 100%;
+    min-height: 400px;
+}
+
+.filter-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.filter-section label {
+    font-weight: bold;
+    color: var(--dark-brown);
+}
+
+.filter-section select {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: white;
+    color: var(--dark-brown);
+}
+
+.questions-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.question-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.question-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-sm);
+}
+
+.question-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.question-item-text {
+    font-size: 14px;
+    color: var(--dark-brown);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.question-item-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: #666;
+}
+
+.question-item-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.question-item-actions button {
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: var(--radius-sm);
+}
+
+.empty-hint {
+    text-align: center;
+    color: #999;
+    padding: 40px 20px;
+}
+
+/* 题目表单 */
+.question-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: var(--dark-brown);
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color var(--transition-fast) ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.form-actions button {
+    flex: 1;
+}
+
+/* ===== 动画 ===== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 40px;
+        letter-spacing: 4px;
+    }
+
+    .game-subtitle {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+    .levels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .question-content {
+        font-size: 18px;
+    }
+
+    .option-text {
+        font-size: 16px;
+    }
+
+    .result-stats {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .certificate-stats {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .result-actions,
+    .certificate-actions {
+        flex-direction: column;
+    }
+}
+
+/* ===== 打印样式 ===== */
+@media print {
+    body {
+        background: white;
+    }
+
+    .certificate-card {
+        box-shadow: none;
+        border: 4px solid var(--primary-gold);
+    }
+
+    .certificate-actions,
+    .btn-back {
+        display: none;
+    }
+}

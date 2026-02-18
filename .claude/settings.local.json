@@ -23,7 +23,8 @@
       "Bash(done)",
       "Bash(xargs:*)",
       "Bash(timeout:*)",
-      "Bash(del assetsaudiorecite005.mp3)"
+      "Bash(del assetsaudiorecite005.mp3)",
+      "Bash(wc:*)"
     ]
   }
 }

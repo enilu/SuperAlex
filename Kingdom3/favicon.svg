@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 背景圆 - 古铜色 -->
+  <circle cx="32" cy="32" r="30" fill="#c94b4b" stroke="#d4a574" stroke-width="3"/>
+
+  <!-- 内圈装饰 - 金色 -->
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#d4a574" stroke-width="2" stroke-dasharray="3,2"/>
+
+  <!-- "三"字 - 代表三国 -->
+  <g fill="#f5e6d3">
+    <!-- 上面一横 -->
+    <rect x="18" y="20" width="28" height="4" rx="1"/>
+    <!-- 中间一横 -->
+    <rect x="18" y="30" width="28" height="4" rx="1"/>
+    <!-- 下面一横 -->
+    <rect x="18" y="40" width="28" height="4" rx="1"/>
+  </g>
+
+  <!-- 装饰点 - 四角 -->
+  <circle cx="12" cy="12" r="2" fill="#d4a574"/>
+  <circle cx="52" cy="12" r="2" fill="#d4a574"/>
+  <circle cx="12" cy="52" r="2" fill="#d4a574"/>
+  <circle cx="52" cy="52" r="2" fill="#d4a574"/>
+</svg>

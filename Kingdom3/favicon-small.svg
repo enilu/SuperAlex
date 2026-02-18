@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <!-- 背景 -->
+  <rect width="16" height="16" rx="3" fill="#c94b4b"/>
+  <!-- "三"字 -->
+  <g fill="#f5e6d3">
+    <rect x="4" y="4" width="8" height="2"/>
+    <rect x="4" y="7" width="8" height="2"/>
+    <rect x="4" y="10" width="8" height="2"/>
+  </g>
+</svg>

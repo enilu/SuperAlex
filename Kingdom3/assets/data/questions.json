@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "name": "三国演义H5问答游戏题库",
+  "description": "面向7岁儿童的三国演义知识闯关题库",
+  "totalQuestions": 200,
+  "levels": 4,
+  "questionsPerLevel": 50,
+  "randomSelection": true,
+  "categories": [
+    {
+      "id": 1,
+      "name": "人物小达人",
+      "icon": "🎯",
+      "description": "认识三国中的著名人物",
+      "questionCount": 50
+    },
+    {
+      "id": 2,
+      "name": "情节小能手",
+      "icon": "📖",
+      "description": "了解经典的故事情节",
+      "questionCount": 50
+    },
+    {
+      "id": 3,
+      "name": "道具配对师",
+      "icon": "⚔️",
+      "description": "认识人物与他们的武器",
+      "questionCount": 50
+    },
+    {
+      "id": 4,
+      "name": "趣味小问答",
+      "icon": "🏆",
+      "description": "综合趣味知识问答",
+      "questionCount": 50
+    }
+  ],
+  "lastUpdated": "2024-02-19",
+  "author": "三国演义H5问答游戏"
+}
