@@ -34,6 +34,7 @@ const UIManager = {
 
             // 游戏界面
             btnBack: document.getElementById('btn-back'),
+            btnAudio: document.getElementById('btn-audio'),
             currentLevelName: document.getElementById('current-level-name'),
             correctCount: document.getElementById('correct-count'),
             progressFill: document.getElementById('progress-fill'),
@@ -81,6 +82,7 @@ const UIManager = {
             toggleSound: document.getElementById('toggle-sound'),
             toggleMusic: document.getElementById('toggle-music'),
             togglePinyin: document.getElementById('toggle-pinyin'),
+            toggleAudio: document.getElementById('toggle-audio'),
             btnResetProgress: document.getElementById('btn-reset-progress'),
 
             // 题库管理界面
@@ -519,6 +521,10 @@ const UIManager = {
 
         if (this.elements.togglePinyin) {
             this.elements.togglePinyin.checked = settings.pinyin !== false;
+        }
+
+        if (this.elements.toggleAudio) {
+            this.elements.toggleAudio.checked = settings.audio === true;
         }
     },
 

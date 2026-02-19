@@ -640,6 +640,113 @@ body {
     transform: translateY(-1px);
 }
 
+/* ==================== 勋章系统 ==================== */
+.badges-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f7fafc;
+    border-radius: 15px;
+}
+
+.badges-title {
+    font-size: 1.3rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.badges-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.no-badges {
+    text-align: center;
+    color: #a0aec0;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--badge-color);
+    animation: badgeSlideIn 0.4s ease backwards;
+}
+
+.badge-item:nth-child(1) { animation-delay: 0.1s; }
+.badge-item:nth-child(2) { animation-delay: 0.2s; }
+.badge-item:nth-child(3) { animation-delay: 0.3s; }
+.badge-item:nth-child(4) { animation-delay: 0.4s; }
+
+.badge-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--badge-color) 0%, var(--badge-color) 100%);
+    border-radius: 50%;
+    opacity: 0.9;
+    filter: brightness(1.1);
+}
+
+.badge-info {
+    flex: 1;
+    text-align: left;
+}
+
+.badge-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 0.2rem;
+}
+
+.badge-description {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+@keyframes badgeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 勋章滚动条样式 */
+.badges-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.badges-container::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 3px;
+}
+
+.badges-container::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+}
+
+.badges-container::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
 /* ==================== 主题颜色 ==================== */
 /* 加法模式 - 绿色 */
 #gameScreen.mode-addition {

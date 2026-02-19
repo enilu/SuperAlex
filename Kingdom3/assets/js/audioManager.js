@@ -6,12 +6,16 @@
 const AudioManager = {
     // 音频对象
     sounds: {},
+    questionAudio: null,
     bgm: null,
 
     // 状态
     isInitialized: false,
     isPlaying: false,
+    isPlayingQuestion: false,
     currentBgm: null,
+    currentQuestionId: null,
+    questionAudioEnabled: false,
 
     /**
      * 初始化音频管理器
@@ -25,6 +29,7 @@ const AudioManager = {
         const settings = CacheManager.loadSettings();
         this.soundEnabled = settings.sound !== false;
         this.musicEnabled = settings.music === true;
+        this.questionAudioEnabled = settings.audio === true;
 
         // 创建音频对象
         this.sounds.correct = new Audio(GameConfig.AUDIO.correct);
@@ -190,6 +195,113 @@ const AudioManager = {
     },
 
     /**
+     * 设置题目语音开关
+     * @param {boolean} enabled - 是否启用题目语音
+     */
+    setQuestionAudioEnabled(enabled) {
+        this.questionAudioEnabled = enabled;
+
+        if (!enabled && this.isPlayingQuestion) {
+            this.stopQuestionAudio();
+        }
+
+        // 保存设置
+        const settings = CacheManager.loadSettings();
+        settings.audio = enabled;
+        CacheManager.saveSettings(settings);
+    },
+
+    /**
+     * 播放题目语音
+     * @param {number} questionId - 题目ID
+     */
+    playQuestionAudio(questionId) {
+        if (!this.questionAudioEnabled) {
+            console.warn('Question audio is disabled');
+            return;
+        }
+
+        // 停止当前正在播放的题目音频
+        if (this.isPlayingQuestion) {
+            this.stopQuestionAudio();
+        }
+
+        try {
+            // 构造音频文件路径
+            const audioPath = `assets/audio/questions/q${String(questionId).padStart(4, '0')}.mp3`;
+
+            // 创建新的音频对象
+            this.questionAudio = new Audio(audioPath);
+
+            // 播放音频
+            this.questionAudio.play().then(() => {
+                this.isPlayingQuestion = true;
+                this.currentQuestionId = questionId;
+
+                // 更新按钮状态
+                const btn = document.getElementById('btn-audio');
+                if (btn) {
+                    btn.classList.add('playing');
+                }
+            }).catch(error => {
+                console.warn('Question audio play failed:', error);
+                UIManager.showToast('音频播放失败，请检查音频文件是否存在', 'warning');
+            });
+
+            // 监听播放结束
+            this.questionAudio.addEventListener('ended', () => {
+                this.isPlayingQuestion = false;
+                this.currentQuestionId = null;
+
+                const btn = document.getElementById('btn-audio');
+                if (btn) {
+                    btn.classList.remove('playing');
+                }
+            }, { once: true });
+
+            // 监听播放错误
+            this.questionAudio.addEventListener('error', (e) => {
+                console.error('Question audio error:', e);
+                this.isPlayingQuestion = false;
+                this.currentQuestionId = null;
+
+                const btn = document.getElementById('btn-audio');
+                if (btn) {
+                    btn.classList.remove('playing');
+                }
+
+                UIManager.showToast('音频加载失败，请确保已生成音频文件', 'warning');
+            }, { once: true });
+
+        } catch (error) {
+            console.error('AudioManager.playQuestionAudio error:', error);
+        }
+    },
+
+    /**
+     * 停止题目语音
+     */
+    stopQuestionAudio() {
+        if (!this.isPlayingQuestion || !this.questionAudio) {
+            return;
+        }
+
+        try {
+            this.questionAudio.pause();
+            this.questionAudio.currentTime = 0;
+            this.isPlayingQuestion = false;
+            this.currentQuestionId = null;
+
+            const btn = document.getElementById('btn-audio');
+            if (btn) {
+                btn.classList.remove('playing');
+            }
+        } catch (error) {
+            console.error('AudioManager.stopQuestionAudio error:', error);
+        }
+    },
+
+    /**
      * 切换音效开关
      */
     toggleSound() {
@@ -244,6 +356,7 @@ const AudioManager = {
                 }
             }
             this.stopBgm();
+            this.stopQuestionAudio();
         } catch (error) {
             console.error('AudioManager.stopAll error:', error);
         }
@@ -278,8 +391,11 @@ const AudioManager = {
         return {
             soundEnabled: this.soundEnabled,
             musicEnabled: this.musicEnabled,
+            questionAudioEnabled: this.questionAudioEnabled,
             isPlaying: this.isPlaying,
+            isPlayingQuestion: this.isPlayingQuestion,
             currentBgm: this.currentBgm,
+            currentQuestionId: this.currentQuestionId,
             isInitialized: this.isInitialized
         };
     },
@@ -309,10 +425,13 @@ const AudioManager = {
     destroy() {
         this.stopAll();
         this.sounds = {};
+        this.questionAudio = null;
         this.bgm = null;
         this.isInitialized = false;
         this.isPlaying = false;
+        this.isPlayingQuestion = false;
         this.currentBgm = null;
+        this.currentQuestionId = null;
     }
 };
 

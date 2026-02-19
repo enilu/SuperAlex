@@ -42,6 +42,67 @@ const SoundController = {
     }
 };
 
+// ==================== 勋章系统 ====================
+const BadgeSystem = {
+    // 勋章定义
+    badges: {
+        perfect: { id: 'perfect', icon: '👑', name: '完美通关', description: '全部答对，太厉害了！', color: '#FFD700' },
+        speed: { id: 'speed', icon: '⚡', name: '闪电快手', description: '总耗时少于3分钟', color: '#4ECDC4' },
+        steady: { id: 'steady', icon: '🎯', name: '精准射手', description: '答对率超过85%', color: '#45B7D1' },
+        firstStep: { id: 'firstStep', icon: '🎉', name: '初出茅庐', description: '首次完成游戏', color: '#3498DB' }
+    },
+
+    // 计算获得的勋章
+    calculateBadges(resultData) {
+        const earnedBadges = [];
+
+        // 完美通关：全部答对
+        if (resultData.wrongCount === 0) {
+            earnedBadges.push(this.badges.perfect);
+        }
+
+        // 闪电快手：总耗时少于3分钟
+        if (resultData.totalTime < 180) {
+            earnedBadges.push(this.badges.speed);
+        }
+
+        // 精准射手：答对率超过85%
+        const accuracy = resultData.correctCount / CONFIG.TOTAL_QUESTIONS;
+        if (accuracy > 0.85) {
+            earnedBadges.push(this.badges.steady);
+        }
+
+        // 初出茅庐：首次完成游戏（通过检查localStorage）
+        const hasCompletedBefore = localStorage.getItem('math20_completed_before');
+        if (!hasCompletedBefore) {
+            earnedBadges.push(this.badges.firstStep);
+            localStorage.setItem('math20_completed_before', 'true');
+        }
+
+        return earnedBadges;
+    },
+
+    // 渲染勋章到DOM
+    renderBadges(badges, container) {
+        if (!container) return;
+
+        if (badges.length === 0) {
+            container.innerHTML = '<p class="no-badges">本次没有获得勋章，继续努力！💪</p>';
+            return;
+        }
+
+        container.innerHTML = badges.map(badge => `
+            <div class="badge-item" style="--badge-color: ${badge.color}">
+                <div class="badge-icon">${badge.icon}</div>
+                <div class="badge-info">
+                    <div class="badge-name">${badge.name}</div>
+                    <div class="badge-description">${badge.description}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+};
+
 // ==================== 倒计时控制器 ====================
 const TimerController = {
     intervalId: null,
@@ -79,9 +140,9 @@ const TimerController = {
             this.intervalId = null;
         }
 
-        // 累加本题耗时到总耗时
+        // 累加本题耗时到总耗时（至少1秒）
         if (this.questionStartTime) {
-            const elapsed = Math.floor((Date.now() - this.questionStartTime) / 1000);
+            const elapsed = Math.max(1, Math.ceil((Date.now() - this.questionStartTime) / 1000));
             this.totalTime += elapsed;
             this.questionStartTime = null;
             this.updateTotalTimeDisplay();
@@ -162,6 +223,7 @@ const elements = {
         correctCount: document.getElementById('correctCount'),
         wrongCount: document.getElementById('wrongCount'),
         resultTotalTime: document.getElementById('resultTotalTime'),
+        badgesContainer: document.getElementById('badgesContainer'),
         restartBtn: document.getElementById('restartBtn')
     }
 };
@@ -564,9 +626,19 @@ const GameController = {
 
         // 显示星星
         const stars = result.stars;
-        elements.result.resultStars.innerHTML = stars.map(() =>
+        elements.result.resultStars.innerHTML = Array.from({ length: stars }, () =>
             '<span class="star">⭐</span>'
         ).join('');
+
+        // 计算并显示勋章
+        const badgeData = {
+            score: gameState.score,
+            correctCount: gameState.correctCount,
+            wrongCount: gameState.wrongCount,
+            totalTime: TimerController.totalTime
+        };
+        const earnedBadges = BadgeSystem.calculateBadges(badgeData);
+        BadgeSystem.renderBadges(earnedBadges, elements.result.badgesContainer);
 
         // 切换到结算界面
         this.switchScreen('result');

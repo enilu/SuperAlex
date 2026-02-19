@@ -388,9 +388,54 @@ button {
     font-size: 14px;
     color: var(--primary-red);
     font-weight: bold;
-    margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.audio-play-btn {
+    background: linear-gradient(135deg, var(--main-gold) 0%, #b8860b 100%);
+    color: var(--text-white);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.audio-play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.audio-play-btn.playing {
+    animation: pulse-audio 1.5s infinite;
+    background: linear-gradient(135deg, var(--success-green) 0%, #43a047 100%);
+}
+
+.audio-play-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@keyframes pulse-audio {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
 }
 
 .question-pinyin {

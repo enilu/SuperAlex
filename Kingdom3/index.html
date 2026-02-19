@@ -95,7 +95,12 @@
 
                 <!-- 题目卡片 -->
                 <div class="question-card" id="question-card">
-                    <div class="question-number" id="question-number">题目 1</div>
+                    <div class="question-header">
+                        <div class="question-number" id="question-number">题目 1</div>
+                        <button class="audio-play-btn" id="btn-audio" title="播放题目语音">
+                            <span class="audio-icon">🔊</span>
+                        </button>
+                    </div>
                     <div class="question-pinyin" id="question-pinyin"></div>
                     <div class="question-content" id="question-content">
                         题目加载中...
@@ -284,6 +289,17 @@
                             </div>
                             <label class="toggle">
                                 <input type="checkbox" id="toggle-pinyin" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-label">
+                                <span class="setting-icon">🎧</span>
+                                <span>题目语音</span>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" id="toggle-audio">
                                 <span class="toggle-slider"></span>
                             </label>
                         </div>

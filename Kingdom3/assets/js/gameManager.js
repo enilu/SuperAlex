@@ -64,6 +64,11 @@ const GameManager = {
             this.useRevive();
         });
 
+        // 语音播放按钮
+        elements.btnAudio?.addEventListener('click', () => {
+            this.playQuestionAudio();
+        });
+
         // 结果界面按钮
         elements.btnRetry?.addEventListener('click', () => {
             this.restartLevel();
@@ -117,6 +122,14 @@ const GameManager = {
             CacheManager.saveSettings(settings);
             UIManager.togglePinyin(e.target.checked);
             UIManager.showToast(e.target.checked ? '拼音已开启' : '拼音已关闭', 'success');
+        });
+
+        elements.toggleAudio?.addEventListener('change', (e) => {
+            const settings = CacheManager.loadSettings();
+            settings.audio = e.target.checked;
+            CacheManager.saveSettings(settings);
+            AudioManager.setQuestionAudioEnabled(e.target.checked);
+            UIManager.showToast(e.target.checked ? '题目语音已开启' : '题目语音已关闭', 'success');
         });
 
         elements.btnResetProgress?.addEventListener('click', () => {
@@ -224,6 +237,9 @@ const GameManager = {
             this.showResult();
             return;
         }
+
+        // 停止当前题目音频
+        AudioManager.stopQuestionAudio();
 
         const question = this.currentQuestions[this.currentQuestionIndex];
         const questionNum = this.currentQuestionIndex + 1;
@@ -335,6 +351,9 @@ const GameManager = {
             return;
         }
 
+        // 停止题目音频
+        AudioManager.stopQuestionAudio();
+
         const question = this.currentQuestions[this.currentQuestionIndex];
 
         // 高亮提示
@@ -354,6 +373,23 @@ const GameManager = {
         this.isProcessing = false;
 
         UIManager.showToast('提示已显示，请重新选择答案', 'info');
+    },
+
+    /**
+     * 播放题目语音
+     */
+    playQuestionAudio() {
+        if (!AudioManager.questionAudioEnabled) {
+            UIManager.showToast('请先在设置中开启题目语音', 'warning');
+            return;
+        }
+
+        const question = this.currentQuestions[this.currentQuestionIndex];
+        if (question && question.id) {
+            AudioManager.playQuestionAudio(question.id);
+        } else {
+            UIManager.showToast('无法播放题目语音', 'warning');
+        }
     },
 
     /**
@@ -381,6 +417,9 @@ const GameManager = {
      */
     showResult() {
         this.gameData.isGameOver = true;
+
+        // 停止题目音频
+        AudioManager.stopQuestionAudio();
 
         const passed = this.checkPassCondition();
         const stars = this.calculateStars();
@@ -470,6 +509,9 @@ const GameManager = {
 
         // 停止背景音乐
         AudioManager.stopBgm();
+
+        // 停止题目语音
+        AudioManager.stopQuestionAudio();
 
         if (showHomeScreen) {
             UIManager.updateLevelSelection();
