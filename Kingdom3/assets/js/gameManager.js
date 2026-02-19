@@ -45,7 +45,10 @@ const GameManager = {
 
         // 返回按钮
         elements.btnBack?.addEventListener('click', () => {
-            this.endGame(false);
+            // 确认是否要退出当前关卡
+            if (UIManager.confirm('确定要退出当前关卡吗？进度将不会保存。')) {
+                this.goHome();
+            }
         });
 
         // 选项按钮
@@ -106,6 +109,14 @@ const GameManager = {
 
         elements.toggleMusic?.addEventListener('change', (e) => {
             AudioManager.setMusicEnabled(e.target.checked);
+        });
+
+        elements.togglePinyin?.addEventListener('change', (e) => {
+            const settings = CacheManager.loadSettings();
+            settings.pinyin = e.target.checked;
+            CacheManager.saveSettings(settings);
+            UIManager.togglePinyin(e.target.checked);
+            UIManager.showToast(e.target.checked ? '拼音已开启' : '拼音已关闭', 'success');
         });
 
         elements.btnResetProgress?.addEventListener('click', () => {

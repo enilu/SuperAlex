@@ -204,6 +204,7 @@ const CacheManager = {
         return {
             sound: true,
             music: true,
+            pinyin: true,
             vibration: true
         };
     },

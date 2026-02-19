@@ -80,6 +80,7 @@ const UIManager = {
             btnBackSettings: document.getElementById('btn-back-settings'),
             toggleSound: document.getElementById('toggle-sound'),
             toggleMusic: document.getElementById('toggle-music'),
+            togglePinyin: document.getElementById('toggle-pinyin'),
             btnResetProgress: document.getElementById('btn-reset-progress'),
 
             // 题库管理界面
@@ -167,14 +168,20 @@ const UIManager = {
      * @param {number} totalQuestions - 总题数
      */
     showQuestion(question, questionNum, totalQuestions) {
+        // 保存当前问题对象，供拼音切换使用
+        window.currentQuestion = question;
+
         // 更新题目编号
         if (this.elements.questionNumber) {
             this.elements.questionNumber.textContent = `题目 ${questionNum}`;
         }
 
-        // 更新题目拼音
+        // 更新题目拼音（根据设置决定是否显示）
         if (this.elements.questionPinyin) {
+            const settings = CacheManager.loadSettings();
+            const showPinyin = settings.pinyin !== false;
             this.elements.questionPinyin.textContent = question.pinyin || '';
+            this.elements.questionPinyin.style.display = showPinyin ? 'block' : 'none';
         }
 
         // 更新题目内容
@@ -508,6 +515,34 @@ const UIManager = {
 
         if (this.elements.toggleMusic) {
             this.elements.toggleMusic.checked = settings.music === true;
+        }
+
+        if (this.elements.togglePinyin) {
+            this.elements.togglePinyin.checked = settings.pinyin !== false;
+        }
+    },
+
+    /**
+     * 切换拼音显示
+     * @param {boolean} show - 是否显示拼音
+     */
+    togglePinyin(show) {
+        if (this.elements.questionPinyin) {
+            this.elements.questionPinyin.style.display = show ? 'block' : 'none';
+        }
+
+        // 如果当前正在显示题目，重新显示以应用拼音设置
+        const currentQuestion = this.elements.questionContent?.textContent;
+        if (currentQuestion && this.elements.questionNumber) {
+            // 触发重新显示当前题目
+            const questionNum = this.elements.questionNumber.textContent.replace('题目 ', '');
+            const totalText = this.elements.progressText?.textContent || '';
+            const totalQuestions = parseInt(totalText.match(/\d+/)?.pop() || 5);
+
+            // 从当前问题管理器获取问题
+            if (window.currentQuestion) {
+                this.showQuestion(window.currentQuestion, parseInt(questionNum), totalQuestions);
+            }
         }
     },
 
