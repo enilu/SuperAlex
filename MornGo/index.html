@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="theme-color" content="#FF6B6B">
+    <meta name="theme-color" content="#c94b4b">
     <meta name="description" content="儿童晨间流程激励游戏，帮助孩子养成良好的早晨习惯">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -25,13 +25,17 @@
     <!-- 任务选择界面 -->
     <div id="taskSelectionContainer" class="container hidden">
         <!-- 顶部状态栏 -->
-        <div class="status-bar">
-            <div id="currentDateSelection" class="date">2023年7月15日 星期六</div>
-            <div id="achievementCountSelection" class="achievement">闪电完成: 0</div>
-            <div class="header-buttons">
-                <button id="settingsButtonSelection" class="settings-button"><span class="icon-slot" data-icon="settings" data-size="24"></span></button>
-                <button id="backButtonSelection" class="back-button"><span class="icon-slot" data-icon="arrow-left" data-size="24"></span></button>
+        <div class="game-header">
+            <button id="backButtonSelection" class="btn-back"><span class="icon-slot" data-icon="arrow-left" data-size="24"></span></button>
+            <div class="header-info">
+                <div id="currentDateSelection" class="date">2023年7月15日 星期六</div>
             </div>
+            <button id="settingsButtonSelection" class="btn-settings"><span class="icon-slot" data-icon="settings" data-size="24"></span></button>
+        </div>
+
+        <!-- 成就统计 -->
+        <div class="achievement-bar">
+            <div id="achievementCountSelection" class="achievement-text">闪电完成: 0</div>
         </div>
 
         <h1 class="selection-title">选择要完成的任务</h1>
@@ -54,13 +58,17 @@
     <!-- 主游戏界面 -->
     <div id="gameContainer" class="container hidden">
         <!-- 顶部状态栏 -->
-        <div class="status-bar">
-            <div id="currentDate" class="date">2023年7月15日 星期六</div>
-            <div id="achievementCount" class="achievement">闪电完成: 0</div>
-            <div class="header-buttons">
-                <button id="settingsButton" class="settings-button"><span class="icon-slot" data-icon="settings" data-size="24"></span></button>
-                <button id="backButton" class="back-button hidden"><span class="icon-slot" data-icon="arrow-left" data-size="24"></span></button>
+        <div class="game-header">
+            <button id="backButton" class="btn-back hidden"><span class="icon-slot" data-icon="arrow-left" data-size="24"></span></button>
+            <div class="header-info">
+                <div id="currentDate" class="date">2023年7月15日 星期六</div>
             </div>
+            <button id="settingsButton" class="btn-settings"><span class="icon-slot" data-icon="settings" data-size="24"></span></button>
+        </div>
+
+        <!-- 成就统计 -->
+        <div class="achievement-bar">
+            <div id="achievementCount" class="achievement-text">闪电完成: 0</div>
         </div>
 
         <!-- 任务卡片 -->
@@ -94,6 +102,10 @@
             <h1>🎉 恭喜！</h1>
             <p id="celebrationMessage">今日晨光冲锋圆满完成！你真棒！</p>
             <p>准备出发上学吧！</p>
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                <button id="closeCelebrationButton" class="celebration-close-button">太棒了！</button>
+                <button id="restartButton" class="celebration-close-button" style="background: linear-gradient(135deg, #4ECDC4 0%, #44a08d 100%);">重新开始</button>
+            </div>
         </div>
     </div>
     

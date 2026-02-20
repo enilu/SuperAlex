@@ -1,4 +1,5 @@
 /* 晨光冲锋队 - 儿童晨间流程激励游戏样式 */
+/* 参考三国演义H5问答游戏的古风主题 */
 
 /* 全局样式重置 */
 * {
@@ -7,24 +8,52 @@
     box-sizing: border-box;
 }
 
-/* 根元素变量 */
+/* 根元素变量 - 金红色系 */
 :root {
-    --primary-color: #FF6B6B;
+    /* 主色调 - 金红色系 */
+    --primary-gold: #d4a574;
+    --primary-red: #c94b4b;
+    --dark-brown: #5d4037;
+    --text-white: #ffffff;
+    --parchment: #f5e6d3;
+    --success-green: #4caf50;
+    --error-red: #f44336;
+    --warning-orange: #ff9800;
+
+    /* 渐变背景 */
+    --bg-gradient: linear-gradient(135deg, #d4a574 0%, #c94b4b 100%);
+    --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 230, 211, 0.95) 100%);
+
+    /* 阴影 */
+    --shadow-sm: 0 2px 8px rgba(93, 64, 55, 0.15);
+    --shadow-md: 0 4px 16px rgba(93, 64, 55, 0.2);
+    --shadow-lg: 0 8px 32px rgba(93, 64, 55, 0.25);
+
+    /* 边框圆角 */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+
+    /* 动画时长 */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
+
+    /* 兼容旧变量 */
+    --primary-color: #c94b4b;
     --secondary-color: #4ECDC4;
     --accent-color: #FFD166;
-    --text-color: #292F36;
-    --light-bg: #F7FFF7;
-    --dark-bg: #292F36;
-    --success-color: #06D6A0;
-    --warning-color: #FFD166;
-    --danger-color: #EF476F;
-    --border-radius: 20px;
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --text-color: #5d4037;
+    --light-bg: #f5e6d3;
+    --dark-bg: #5d4037;
+    --border-radius: 16px;
+    --shadow: 0 4px 16px rgba(93, 64, 55, 0.2);
 }
 
 body {
-    font-family: 'Microsoft YaHei', sans-serif;
-    background-color: var(--light-bg);
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'SimHei', sans-serif;
+    background: var(--bg-gradient);
     color: var(--text-color);
     min-height: 100vh;
     overflow-x: hidden;
@@ -46,39 +75,159 @@ body {
     transition: opacity 0.5s ease;
 }
 
+/* 当覆盖层有hidden类时，确保完全隐藏 */
+.overlay.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 /* 首次访问引导样式 */
 .intro-content {
     text-align: center;
     padding: 40px;
-    background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    background: var(--card-gradient);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
     max-width: 90%;
     animation: pulse 2s infinite;
 }
 
 .intro-content h2 {
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: var(--primary-red);
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .intro-content p {
     font-size: 1.5rem;
     margin-bottom: 30px;
     line-height: 1.5;
+    color: var(--dark-brown);
+}
+
+/* 开始按钮样式 */
+#startButton {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #b8956a 100%);
+    color: var(--dark-brown);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
+}
+
+#startButton:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+#startButton:active {
+    transform: scale(0.95);
 }
 
 /* 主容器样式 */
 .container {
     max-width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     padding: 20px;
     display: flex;
     flex-direction: column;
 }
 
-/* 状态栏样式 */
+/* ===== 游戏头部样式 ===== */
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 8px 0;
+}
+
+/* 返回按钮样式 - 参考Kingdom3 */
+.btn-back {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-white);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast);
+}
+
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-back:active {
+    transform: scale(0.95);
+}
+
+.btn-back.hidden {
+    display: none;
+}
+
+/* 设置按钮样式 - 参考Kingdom3 */
+.btn-settings {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-white);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast);
+}
+
+.btn-settings:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-settings:active {
+    transform: scale(0.95);
+}
+
+/* 头部信息区域 */
+.header-info {
+    flex: 1;
+    text-align: center;
+}
+
+/* 成就统计条 */
+.achievement-bar {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.achievement-text {
+    font-size: 1.1rem;
+    color: var(--text-white);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 旧样式兼容 */
 .status-bar {
     display: flex;
     justify-content: space-between;
@@ -87,76 +236,27 @@ body {
     padding: 2px 0;
 }
 
-/* 设置按钮样式 */
-.settings-button {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 50%;
-    transition: background-color 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.settings-button:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.settings-button:active {
-    transform: scale(0.95);
-}
-
-/* 顶部按钮容器 */
-.header-buttons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* 返回按钮样式（与设置按钮保持一致） */
-.back-button {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 50%;
-    transition: background-color 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.back-button:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.back-button:active {
-    transform: scale(0.95);
-}
-
 .date {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--text-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .achievement {
     font-size: 1.1rem;
-    color: var(--accent-color);
+    color: var(--primary-gold);
     font-weight: bold;
 }
 
 /* 任务卡片样式 */
 .task-card {
-    background-color: white;
-    border-radius: var(--border-radius);
-    padding: 30px;
+    background: var(--card-gradient);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    padding: 40px 30px;
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-lg);
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -199,14 +299,15 @@ body {
 .countdown {
     font-size: 5rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--dark-brown);
     margin-bottom: 10px;
     font-family: 'Courier New', monospace;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* 不同状态的计时器颜色 */
 .countdown.normal {
-    color: var(--text-color);
+    color: var(--dark-brown);
 }
 
 .countdown.warning {
@@ -221,22 +322,23 @@ body {
 
 .time-status {
     font-size: 1.5rem;
-    color: var(--secondary-color);
+    color: var(--primary-red);
     font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* 完成按钮样式 */
 .complete-button {
-    background-color: var(--success-color);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #b8956a 100%);
+    color: var(--dark-brown);
     border: none;
     padding: 25px 50px;
     font-size: 2rem;
     font-weight: bold;
-    border-radius: 50px;
+    border-radius: var(--radius-lg);
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(6, 214, 160, 0.3);
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
     min-width: 280px;
 }
 
@@ -289,6 +391,11 @@ body {
     animation: celebrate 1s ease-in-out infinite alternate;
 }
 
+/* 勋章区域隐藏状态 */
+.medal-section.hidden {
+    display: none !important;
+}
+
 .medal-icon {
     font-size: 4rem;
     margin-bottom: 10px;
@@ -326,6 +433,29 @@ body {
     font-size: 1.8rem;
     margin-bottom: 15px;
     line-height: 1.5;
+}
+
+.celebration-close-button {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #b8956a 100%);
+    color: var(--dark-brown);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
+    margin-top: 20px;
+}
+
+.celebration-close-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.celebration-close-button:active {
+    transform: scale(0.95);
 }
 
 /* 成就通知样式 */
@@ -464,15 +594,17 @@ body {
 
 .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #4CAF50, #8BC34A);
-    transition: width 0.5s ease;
+    background: linear-gradient(90deg, var(--primary-gold), var(--primary-red));
+    transition: width var(--transition-normal) ease;
     border-radius: 10px;
 }
 
 .progress-text {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-white);
     text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
 }
 
 /* 隐藏元素 */
@@ -492,6 +624,13 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+}
+
+/* 当模态框有hidden类时，确保完全隐藏 */
+.modal-overlay.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 .settings-content {
@@ -618,6 +757,15 @@ body {
     background-color: #45a049;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.settings-action-button.danger {
+    background-color: var(--primary-red);
+}
+
+.settings-action-button.danger:hover {
+    background-color: #b03c3c;
+    box-shadow: 0 4px 8px rgba(201, 75, 75, 0.4);
 }
 
 .settings-close-button {
@@ -1161,14 +1309,7 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-.back-button {
-    border: none;
-    background: none;
-    font-size: 1.2rem;
-    padding: 8px;
-    cursor: pointer;
-}
-
+/* 设置页面标题 */
 .settings-title {
     flex: 1;
     text-align: center;
@@ -1340,9 +1481,15 @@ body {
 .ui-icon {
     width: 24px;
     height: 24px;
-    stroke: #666;
+    stroke: var(--text-white);
     fill: none;
     stroke-width: 2;
+}
+
+/* Header buttons icon color */
+.btn-back .ui-icon,
+.btn-settings .ui-icon {
+    stroke: var(--text-white);
 }
 
 .settings-item:hover .ui-icon,
@@ -1359,17 +1506,20 @@ body {
 /* 选择界面标题 */
 .selection-title {
     text-align: center;
-    font-size: 1.8rem;
-    color: var(--primary-color);
+    font-size: 2rem;
+    color: var(--text-white);
     margin: 0.2rem 0 0.5rem 0;
     font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
 }
 
 .selection-subtitle {
     text-align: center;
-    font-size: 1rem;
-    color: #666;
+    font-size: 1.1rem;
+    color: var(--primary-gold);
     margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* 任务列表容器 */
@@ -1385,18 +1535,19 @@ body {
     display: flex;
     align-items: center;
     padding: 1.2rem 1.5rem;
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    background: var(--card-gradient);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
     cursor: pointer;
     border: 2px solid transparent;
 }
 
 .task-selection-item:hover:not(.completed) {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    border-color: var(--secondary-color);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-gold);
 }
 
 .task-selection-item:active:not(.completed) {
@@ -1404,10 +1555,10 @@ body {
 }
 
 .task-selection-item.completed {
-    opacity: 0.7;
+    opacity: 0.6;
     cursor: not-allowed;
-    background: #f5f5f5;
-    border-color: #e0e0e0;
+    background: rgba(245, 230, 211, 0.7);
+    border-color: rgba(212, 165, 116, 0.3);
 }
 
 .task-selection-icon {
@@ -1441,16 +1592,17 @@ body {
 
 /* 完成进度区域 */
 .completion-progress {
-    background: white;
+    background: var(--card-gradient);
+    backdrop-filter: blur(10px);
     padding: 1.2rem 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
 }
 
 .completion-progress .progress-text {
     text-align: center;
     font-size: 1rem;
-    color: var(--text-color);
+    color: var(--dark-brown);
     margin-bottom: 0.8rem;
     font-weight: bold;
 }
@@ -1458,6 +1610,17 @@ body {
 .progress-bar-container {
     width: 100%;
     height: 12px;
+    background: rgba(212, 165, 116, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#completionProgressBar.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-gold), var(--primary-red));
+    border-radius: 10px;
+    transition: width var(--transition-normal) ease;
+}
     background: #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
@@ -1468,34 +1631,6 @@ body {
     background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
     border-radius: 10px;
     transition: width 0.5s ease;
-}
-
-/* 返回按钮 */
-.back-button {
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    color: var(--text-color);
-    font-weight: bold;
-}
-
-.back-button:hover {
-    background: white;
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.back-button:active {
-    transform: scale(1.05);
 }
 
 /* 完成按钮禁用状态 */

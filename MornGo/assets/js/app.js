@@ -45,6 +45,8 @@ const elements = {
     medalDescription: document.getElementById('medalDescription'),
     celebrationScreen: document.getElementById('celebrationScreen'),
     celebrationMessage: document.getElementById('celebrationMessage'),
+    closeCelebrationButton: document.getElementById('closeCelebrationButton'),
+    restartButton: document.getElementById('restartButton'),
     // 音效相关元素
     soundPackButtons: document.querySelectorAll('.sound-pack-button'),
     currentSoundPack: document.getElementById('currentSoundPack')
@@ -88,6 +90,36 @@ function initGame() {
         storageManager.markIntroAsSeen();
         startGame();
     });
+
+    // 设置庆祝界面关闭按钮事件
+    if (elements.closeCelebrationButton) {
+        elements.closeCelebrationButton.addEventListener('click', () => {
+
+            // 强制隐藏庆祝界面
+            elements.celebrationScreen.classList.add('hidden');
+
+            // 隐藏勋章区域
+            if (elements.medalSection) {
+                elements.medalSection.classList.add('hidden');
+            }
+
+            // 重置今天的任务完成状态
+            resetTodayTaskCompletion();
+
+            // 显示任务选择界面
+            showTaskSelection();
+        });
+    }
+
+    // 设置"重新开始"按钮事件
+    if (elements.restartButton) {
+        elements.restartButton.addEventListener('click', () => {
+            // 清除今天的数据
+            storageManager.resetTodayData();
+            // 刷新页面
+            location.reload();
+        });
+    }
 
     // 设置完成按钮事件
     elements.completeButton.addEventListener('click', handleTaskComplete);
@@ -138,7 +170,6 @@ async function loadUserSoundPackPreference() {
         const preferredPack = storageManager.getSoundPackPreference();
         const packToLoad = preferredPack || 'default'; // 如果没有保存的偏好，使用default
         await gameState.soundManager.switchSoundPack(packToLoad);
-        console.log(`已加载用户偏好的音效包: ${packToLoad}`);
     } catch (error) {
         console.error('加载用户音效包偏好失败:', error);
     }
@@ -184,7 +215,6 @@ async function switchToSoundPack(packName) {
         updateCurrentSoundPackDisplay(packName);
         // 保存用户偏好到本地存储
         storageManager.saveSoundPackPreference(packName);
-        console.log(`已切换到音效包: ${packName}`);
     } catch (error) {
         console.error('切换音效包失败:', error);
     }
@@ -217,6 +247,9 @@ function updateCurrentSoundPackDisplay(packName) {
 
 // 开始游戏
 function startGame() {
+    // 检查是否是新的一天，如果是则重置任务完成状态
+    checkAndResetForNewDay();
+
     // 加载任务配置 - 优先从本地存储加载用户配置
     let tasks = [];
 
@@ -224,7 +257,6 @@ function startGame() {
     if (storageManager.hasUserTasksConfig()) {
         try {
             tasks = storageManager.getUserTasksConfig();
-            console.log('已从本地存储加载用户任务配置');
         } catch (error) {
             console.error('加载本地任务配置失败:', error);
             // 如果本地配置加载失败，使用默认配置
@@ -295,14 +327,69 @@ function updateDateDisplay() {
     }
 }
 
+// 检查是否是新的一天，如果是则重置任务完成状态
+function checkAndResetForNewDay() {
+    const today = new Date().toDateString();
+    const lastPlayDate = localStorage.getItem('mornGo_lastPlayDate');
+
+    if (lastPlayDate !== today) {
+        // 新的一天，重置任务完成状态
+        localStorage.setItem('mornGo_lastPlayDate', today);
+        // 清除今天的任务完成记录
+        storageManager.resetTodayData();
+    }
+}
+
+// 重置今天的任务完成状态
+function resetTodayTaskCompletion() {
+    gameState.completedTasks = 0;
+    gameState.completedTaskIds = [];
+    gameState.flashCompletions = 0;
+    // 隐藏勋章区域
+    if (elements.medalSection) {
+        elements.medalSection.classList.add('hidden');
+    }
+}
+
 // 显示任务选择界面
 function showTaskSelection() {
     // 隐藏游戏界面，显示选择界面
     elements.gameContainer.classList.add('hidden');
+    elements.gameContainer.style.display = ''; // 清除内联display样式，让CSS类生效
+    // 强制确保gameContainer隐藏
+    if (window.getComputedStyle(elements.gameContainer).display !== 'none') {
+        elements.gameContainer.style.display = 'none';
+    }
+
     elements.taskSelectionContainer.classList.remove('hidden');
+    elements.taskSelectionContainer.style.display = ''; // 清除可能的内联display样式
     elements.backButton.classList.add('hidden');
 
+    // 强制触发重排，确保界面正确显示
+    void elements.taskSelectionContainer.offsetWidth;
+
+    // 不再需要强制设置内联样式，CSS类已足够
+
+    // 确保庆祝界面被隐藏
+    if (elements.celebrationScreen) {
+        elements.celebrationScreen.classList.add('hidden');
+    }
+
+    // 确保勋章区域被隐藏
+    if (elements.medalSection) {
+        elements.medalSection.classList.add('hidden');
+    }
+
     gameState.isInTaskSelection = true;
+
+    // 检查庆祝界面是否仍然在DOM中且可见
+    if (elements.celebrationScreen) {
+        const isVisible = elements.celebrationScreen.offsetParent !== null;
+        if (isVisible) {
+            // 强制移除
+            elements.celebrationScreen.remove();
+        }
+    }
 
     // 渲染任务列表
     renderTaskSelection();
@@ -310,7 +397,10 @@ function showTaskSelection() {
 
 // 渲染任务选择列表
 function renderTaskSelection() {
-    if (!elements.taskList) return;
+    if (!elements.taskList) {
+        console.error('taskList 元素不存在！');
+        return;
+    }
 
     elements.taskList.innerHTML = '';
 
@@ -341,6 +431,7 @@ function renderTaskSelection() {
         elements.taskList.appendChild(taskItem);
     });
 
+
     // 更新完成进度
     updateCompletionProgress();
 }
@@ -359,7 +450,10 @@ function updateCompletionProgress() {
 // 开始任务
 function startTask(taskId) {
     const task = gameState.tasks.find(t => t.id === taskId);
-    if (!task) return;
+    if (!task) {
+        console.error('未找到任务，taskId:', taskId);
+        return;
+    }
 
     gameState.currentTask = task;
     gameState.currentTaskIndex = gameState.tasks.findIndex(t => t.id === taskId);
@@ -367,19 +461,49 @@ function startTask(taskId) {
 
     // 隐藏选择界面，显示游戏界面
     elements.taskSelectionContainer.classList.add('hidden');
+    elements.taskSelectionContainer.style.display = ''; // 清除内联display样式，让CSS类生效
+    // 强制确保taskSelectionContainer隐藏
+    if (window.getComputedStyle(elements.taskSelectionContainer).display !== 'none') {
+        elements.taskSelectionContainer.style.display = 'none';
+    }
+
     elements.gameContainer.classList.remove('hidden');
+    elements.gameContainer.style.display = ''; // 清除可能的内联display样式
     elements.backButton.classList.remove('hidden');
+
+    // 强制触发重排，确保界面正确显示
+    void elements.gameContainer.offsetWidth;
+
+    // 不再需要强制设置内联样式，CSS类已足够
+
+    // 强制隐藏勋章区域（确保它不会遮挡）
+    if (elements.medalSection) {
+        elements.medalSection.classList.add('hidden');
+    }
 
     // 初始化倒计时
     gameState.countdownSeconds = task.countdownSeconds;
     gameState.remainingSeconds = task.countdownSeconds;
     gameState.taskStartTime = new Date();
 
-    // 更新任务显示
-    updateTaskDisplay();
+    try {
+        // 更新任务显示
+        updateTaskDisplay();
 
-    // 启动倒计时（新增）
-    startTaskCountdown();
+        // 立即更新倒计时显示（修复初始不显示的问题）
+        updateTaskCountdownDisplay();
+
+        // 启动倒计时
+        startTaskCountdown();
+    } catch (error) {
+        console.error('startTask 过程中出错:', error);
+        console.error('错误堆栈:', error.stack);
+    }
+
+
+
+    // 强制滚动到顶部，确保游戏界面可见
+    window.scrollTo(0, 0);
 }
 
 // 停止当前任务
@@ -1092,16 +1216,27 @@ document.addEventListener('visibilitychange', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // 创建成就通知元素
     createAchievementNotificationElement();
-    
+
     // 为了确保音频正常工作，在用户首次交互时初始化音效
     document.addEventListener('click', initializeAudioOnUserInteraction, { once: true });
-    
+
+    // 强制隐藏庆祝界面（确保页面加载时不会自动显示）
+    if (elements.celebrationScreen) {
+        elements.celebrationScreen.classList.add('hidden');
+    }
+
+    // 强制隐藏勋章区域
+    if (elements.medalSection) {
+        elements.medalSection.classList.add('hidden');
+    }
+
     initGame();
-    
+
     // 检查是否是首次访问，如果是，显示引导
     if (storageManager.isFirstVisit()) {
         showFirstVisitGuide();
     }
+
 });
 
 // 在用户首次交互时初始化音频

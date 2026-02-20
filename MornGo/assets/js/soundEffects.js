@@ -31,9 +31,6 @@ class SoundEffectsManager {
                 countdown: { frequency: 660, duration: 0.1, type: 'square' },
                 celebration: { frequency: 880, duration: 0.3, type: 'sine', slide: -100 }
             };
-
-            // 不在这里自动加载，由应用代码来控制加载
-            console.log('音效系统初始化完成，等待加载音效包...');
         } catch (error) {
             console.warn('无法初始化音频上下文，音效将不可用:', error);
         }
@@ -48,24 +45,18 @@ class SoundEffectsManager {
 
         // 如果正在加载，记录待加载的音效包并返回
         if (this.isLoadingPack) {
-            console.log(`⚠️ 正在加载音效包，新的请求 ${packName} 将被忽略`);
             return;
         }
 
         // 如果已经是当前音效包，不需要重新加载
         if (this.currentSoundPack === packName && Object.keys(this.audioBuffers).length > 0) {
-            console.log(`✅ 当前已经是 ${packName} 音效包，无需重新加载`);
             return;
         }
 
         this.isLoadingPack = true;
-        console.log(`=== 开始加载音效包: ${packName} ===`);
-        console.log(`音频上下文状态: ${this.audioContext.state}`);
-
         // 恢复音频上下文（如果被挂起）
         if (this.audioContext.state === 'suspended') {
             await this.audioContext.resume();
-            console.log(`音频上下文已恢复: ${this.audioContext.state}`);
         }
 
         const soundTypes = ['click', 'success', 'error', 'countdown', 'celebration'];
@@ -92,10 +83,6 @@ class SoundEffectsManager {
         }
 
         this.isLoadingPack = false;
-        console.log(`音效包 ${packName} 加载完成 (成功加载 ${successCount}/${soundTypes.length} 个音效)`);
-        console.log(`已加载的音效:`, Object.keys(this.audioBuffers));
-        console.log(`当前音效包: ${this.currentSoundPack}`);
-        console.log(`=== 加载完成 ===`);
     }
 
     /**
@@ -116,8 +103,6 @@ class SoundEffectsManager {
             const arrayBuffer = await response.arrayBuffer();
             const audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
             this.audioBuffers[soundType] = audioBuffer;
-
-            console.log(`音效 ${soundType} 已加载: ${filePath}`);
         } catch (error) {
             console.warn(`加载音效文件失败: ${filePath}`, error);
             throw error;
@@ -129,7 +114,6 @@ class SoundEffectsManager {
      * @param {string} packName 音效包名称
      */
     switchSoundPack(packName) {
-        console.log(`正在切换到音效包: ${packName}`);
         return this.loadSoundPack(packName);
     }
 
@@ -141,14 +125,12 @@ class SoundEffectsManager {
         if (!this.isMuted && this.audioContext) {
             // 如果有加载的音效文件，优先使用文件播放
             if (this.audioBuffers[soundType]) {
-                console.log(`🔊 播放音效 [${soundType}] 来自音效包 [${this.currentSoundPack}]`);
                 this._playAudioBuffer(this.audioBuffers[soundType]);
                 return true;
             }
 
             // 否则使用Web Audio API生成音效
             if (this.soundPresets[soundType]) {
-                console.log(`🎵 播放生成音效 [${soundType}] (无音频文件)`);
                 this._playTone(this.soundPresets[soundType]);
                 return true;
             }

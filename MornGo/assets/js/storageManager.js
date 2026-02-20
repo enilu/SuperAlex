@@ -95,19 +95,6 @@ class StorageManager {
         }
     }
 
-    /**
-     * 重置本周数据
-     */
-    resetWeekData() {
-        try {
-            localStorage.setItem(this.weekDataKey, JSON.stringify(this._getDefaultWeekData()));
-            // 清除所有今天的任务记录
-            const todayKey = this._getTodayKey();
-            localStorage.removeItem(todayKey);
-        } catch (error) {
-            console.error('重置周数据失败:', error);
-        }
-    }
 
     /**
      * 检查并更新连续完成天数

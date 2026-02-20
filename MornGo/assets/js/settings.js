@@ -13,11 +13,13 @@ const elements = {
   resetTasksButton: document.getElementById('resetTasksButton'),
   resetTodayButton: document.getElementById('resetTodayButton'),
   resetWeekButton: document.getElementById('resetWeekButton'),
+  clearCacheButton: document.getElementById('clearCacheButton'),
   settingsMenu: document.getElementById('settingsMenu'),
   sectionSound: document.getElementById('soundSettings'),
   sectionTasks: document.getElementById('taskConfig'),
   sectionToday: document.getElementById('resetToday'),
   sectionWeek: document.getElementById('resetWeek'),
+  sectionClear: document.getElementById('clearCache'),
   deleteConfirmModal: document.getElementById('deleteConfirmModal'),
   deleteCancelBtn: document.getElementById('deleteCancelBtn'),
   deleteConfirmBtn: document.getElementById('deleteConfirmBtn'),
@@ -211,11 +213,26 @@ function resetWeekData() {
   }
 }
 
+function clearAllCache() {
+  if (confirm('确定要清除所有缓存吗？\n\n这将清除：\n- 任务配置\n- 完成记录\n- 成就数据\n- 音效偏好\n- 所有其他本地数据\n\n此操作不可撤销！')) {
+    try {
+      // 清除所有 localStorage 数据
+      localStorage.clear();
+      alert('所有缓存已成功清除！\n\n页面将重新加载...');
+      // 重新加载页面
+      window.location.href = 'index.html';
+    } catch (error) {
+      console.error('清除缓存失败:', error);
+      alert('清除缓存失败，请稍后再试。');
+    }
+  }
+}
+
 function applyRouting() {
   const tab = new URLSearchParams(window.location.search).get('tab');
   const showMenu = !tab;
   elements.settingsMenu.style.display = showMenu ? 'block' : 'none';
-  const sections = [elements.sectionSound, elements.sectionTasks, elements.sectionToday, elements.sectionWeek];
+  const sections = [elements.sectionSound, elements.sectionTasks, elements.sectionToday, elements.sectionWeek, elements.sectionClear];
   sections.forEach(sec => { if (sec) sec.style.display = 'none'; });
   if (tab === 'sound') elements.sectionSound.style.display = 'block';
   else if (tab === 'tasks') elements.sectionTasks.style.display = 'block';
@@ -247,12 +264,16 @@ function init() {
   elements.resetTasksButton.addEventListener('click', resetToDefaultTasks);
   elements.resetTodayButton.addEventListener('click', resetTodayData);
   elements.resetWeekButton.addEventListener('click', resetWeekData);
+  elements.clearCacheButton.addEventListener('click', clearAllCache);
   elements.deleteCancelBtn.addEventListener('click', closeDeleteConfirm);
   elements.deleteConfirmBtn.addEventListener('click', confirmDeleteTask);
   if (!tab || tab === 'sound') loadSoundPreference();
   if (tab === 'tasks') {
     loadTasks();
     renderTaskList();
+  }
+  if (tab === 'clear') {
+    // 清除缓存页面不需要特殊处理，HTML已经包含说明
   }
   injectAllIcons(document);
 }
