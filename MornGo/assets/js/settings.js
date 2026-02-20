@@ -41,11 +41,12 @@ function updateCurrentSoundPackDisplay(packName) {
 
 async function loadSoundPreference() {
   const preferred = storageManager.getSoundPackPreference();
-  if (preferred) {
-    try {
-      await soundManager.switchSoundPack(preferred);
-      updateCurrentSoundPackDisplay(preferred);
-    } catch (e) {}
+  const packToLoad = preferred || 'default'; // 如果没有保存的偏好，使用default
+  try {
+    await soundManager.switchSoundPack(packToLoad);
+    updateCurrentSoundPackDisplay(packToLoad);
+  } catch (e) {
+    console.error('加载音效包失败:', e);
   }
 }
 

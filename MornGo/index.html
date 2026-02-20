@@ -22,13 +22,45 @@
         </div>
     </div>
 
+    <!-- 任务选择界面 -->
+    <div id="taskSelectionContainer" class="container hidden">
+        <!-- 顶部状态栏 -->
+        <div class="status-bar">
+            <div id="currentDateSelection" class="date">2023年7月15日 星期六</div>
+            <div id="achievementCountSelection" class="achievement">闪电完成: 0</div>
+            <div class="header-buttons">
+                <button id="settingsButtonSelection" class="settings-button"><span class="icon-slot" data-icon="settings" data-size="24"></span></button>
+                <button id="backButtonSelection" class="back-button"><span class="icon-slot" data-icon="arrow-left" data-size="24"></span></button>
+            </div>
+        </div>
+
+        <h1 class="selection-title">选择要完成的任务</h1>
+        <p class="selection-subtitle">点击一个任务开始挑战</p>
+
+        <!-- 任务列表 -->
+        <div id="taskList" class="task-list">
+            <!-- 任务项将动态生成 -->
+        </div>
+
+        <!-- 完成进度 -->
+        <div class="completion-progress">
+            <div class="progress-text" id="completionProgressText">已完成: 0/4</div>
+            <div class="progress-bar-container">
+                <div id="completionProgressBar" class="progress-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- 主游戏界面 -->
     <div id="gameContainer" class="container hidden">
         <!-- 顶部状态栏 -->
         <div class="status-bar">
             <div id="currentDate" class="date">2023年7月15日 星期六</div>
             <div id="achievementCount" class="achievement">闪电完成: 0</div>
-            <button id="settingsButton" class="settings-button"><span class="icon-slot" data-icon="settings" data-size="24"></span></button>
+            <div class="header-buttons">
+                <button id="settingsButton" class="settings-button"><span class="icon-slot" data-icon="settings" data-size="24"></span></button>
+                <button id="backButton" class="back-button hidden"><span class="icon-slot" data-icon="arrow-left" data-size="24"></span></button>
+            </div>
         </div>
 
         <!-- 任务卡片 -->

@@ -1,34 +1,25 @@
 // 晨光冲锋队游戏配置文件
 
 // 任务配置（可通过URL参数覆盖）
+// countdownSeconds: 任务倒计时秒数（点击任务后开始计时）
 const defaultTasks = [
     {
         id: 1,
-        name: "起床",
-        icon: "🛏️",
-        startTime: "06:50",
-        deadlineTime: "06:55"
+        name: "穿衣服",
+        icon: "👔",
+        countdownSeconds: 300  // 5分钟
     },
     {
         id: 2,
-        name: "穿衣服",
-        icon: "👔",
-        startTime: "06:55",
-        deadlineTime: "07:00"
+        name: "刷牙洗脸",
+        icon: "🦷",
+        countdownSeconds: 300  // 5分钟
     },
     {
         id: 3,
-        name: "刷牙洗脸",
-        icon: "🦷",
-        startTime: "07:00",
-        deadlineTime: "07:05"
-    },
-    {
-        id: 4,
         name: "吃早餐",
         icon: "🍞",
-        startTime: "07:05",
-        deadlineTime: "07:20"
+        countdownSeconds: 900  // 15分钟
     }
 ];
 
@@ -80,13 +71,24 @@ function getConfigFromUrl() {
     return tasks;
 }
 
-// 确保任务数据符合规范（移除nextTaskStartTime字段）
+// 确保任务数据符合规范（移除不需要的字段）
 function normalizeTasks(tasks) {
     return tasks.map(task => {
         const normalizedTask = { ...task };
-        // 移除nextTaskStartTime字段
+        // 移除旧的时间相关字段
         if (normalizedTask.hasOwnProperty('nextTaskStartTime')) {
             delete normalizedTask.nextTaskStartTime;
+        }
+        if (normalizedTask.hasOwnProperty('startTime')) {
+            delete normalizedTask.startTime;
+        }
+        if (normalizedTask.hasOwnProperty('deadlineTime')) {
+            delete normalizedTask.deadlineTime;
+        }
+        // 确保有countdownSeconds字段
+        if (!normalizedTask.countdownSeconds) {
+            // 如果没有设置倒计时，使用默认值120秒
+            normalizedTask.countdownSeconds = 120;
         }
         return normalizedTask;
     });

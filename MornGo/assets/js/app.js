@@ -16,14 +16,21 @@ import { soundManager } from './soundEffects.js';
 const elements = {
     introOverlay: document.getElementById('introOverlay'),
     startButton: document.getElementById('startButton'),
+    taskSelectionContainer: document.getElementById('taskSelectionContainer'),
     gameContainer: document.getElementById('gameContainer'),
     currentDate: document.getElementById('currentDate'),
     achievementCount: document.getElementById('achievementCount'),
+    currentDateSelection: document.getElementById('currentDateSelection'),
+    achievementCountSelection: document.getElementById('achievementCountSelection'),
     settingsButton: document.getElementById('settingsButton'),
+    settingsButtonSelection: document.getElementById('settingsButtonSelection'),
+    backButton: document.getElementById('backButton'),
+    backButtonSelection: document.getElementById('backButtonSelection'),
     settingsModal: document.getElementById('settingsModal'),
     resetTodayButton: document.getElementById('resetTodayButton'),
     resetWeekButton: document.getElementById('resetWeekButton'),
     closeSettingsButton: document.getElementById('closeSettingsButton'),
+    taskList: document.getElementById('taskList'),
     taskIcon: document.getElementById('taskIcon'),
     taskName: document.getElementById('taskName'),
     countdown: document.getElementById('countdown'),
@@ -31,6 +38,8 @@ const elements = {
     completeButton: document.getElementById('completeButton'),
     progressBar: document.getElementById('progressBar'),
     progressText: document.getElementById('progressText'),
+    completionProgressText: document.getElementById('completionProgressText'),
+    completionProgressBar: document.getElementById('completionProgressBar'),
     medalSection: document.getElementById('medalSection'),
     medalTitle: document.getElementById('medalTitle'),
     medalDescription: document.getElementById('medalDescription'),
@@ -47,12 +56,16 @@ const gameState = {
     currentTaskIndex: 0,
     currentTask: null,
     timer: null,
-    startTime: null,
+    taskStartTime: null,  // 任务开始时间
+    countdownSeconds: 0,  // 当前任务倒计时秒数
+    remainingSeconds: 0,  // 剩余秒数
     totalTasks: 0,
     completedTasks: 0,
+    completedTaskIds: [],  // 已完成的任务ID列表
     flashCompletions: 0,
     streakDays: 0,
     isInitialized: false,
+    isInTaskSelection: true,  // 是否在任务选择界面
     taskManager: null, // 将由TaskManager替换部分状态管理
     achievementSystem: achievementSystem,
     soundManager: soundManager
@@ -62,28 +75,56 @@ const gameState = {
 function initGame() {
     // 初始化任务管理器
     gameState.taskManager = new TaskManager();
-    
+
     // 检查是否应该显示介绍
     if (!gameConfig.showIntro || storageManager.hasSeenIntro()) {
         elements.introOverlay.classList.add('hidden');
-        elements.gameContainer.classList.remove('hidden');
         startGame();
     }
-    
+
     // 设置开始按钮事件
     elements.startButton.addEventListener('click', () => {
         elements.introOverlay.classList.add('hidden');
-        elements.gameContainer.classList.remove('hidden');
         storageManager.markIntroAsSeen();
         startGame();
     });
-    
+
     // 设置完成按钮事件
     elements.completeButton.addEventListener('click', handleTaskComplete);
-    
+
+    // 设置返回按钮事件
+    if (elements.backButton) {
+        elements.backButton.addEventListener('click', () => {
+            stopCurrentTask();
+            showTaskSelection();
+        });
+    }
+
+    // 任务选择界面的返回按钮事件（确认退出）
+    if (elements.backButtonSelection) {
+        elements.backButtonSelection.addEventListener('click', () => {
+            if (confirm('确定要退出晨光冲锋队吗？')) {
+                // 可以跳转到其他页面或刷新页面
+                window.location.reload();
+            }
+        });
+    }
+
+    // 设置按钮事件
+    if (elements.settingsButton) {
+        elements.settingsButton.addEventListener('click', () => {
+            window.location.href = 'settings.html';
+        });
+    }
+    if (elements.settingsButtonSelection) {
+        elements.settingsButtonSelection.addEventListener('click', () => {
+            window.location.href = 'settings.html';
+        });
+    }
+
     // 初始化设置相关事件监听
     initSettingsListeners();
-    
+
     // 加载用户偏好的音效包
     loadUserSoundPackPreference();
     injectAllIcons(document);
@@ -95,10 +136,9 @@ function initGame() {
 async function loadUserSoundPackPreference() {
     try {
         const preferredPack = storageManager.getSoundPackPreference();
-        if (preferredPack) {
-            await gameState.soundManager.switchSoundPack(preferredPack);
-            console.log(`已加载用户偏好的音效包: ${preferredPack}`);
-        }
+        const packToLoad = preferredPack || 'default'; // 如果没有保存的偏好，使用default
+        await gameState.soundManager.switchSoundPack(packToLoad);
+        console.log(`已加载用户偏好的音效包: ${packToLoad}`);
     } catch (error) {
         console.error('加载用户音效包偏好失败:', error);
     }
@@ -108,9 +148,8 @@ async function loadUserSoundPackPreference() {
  * 初始化设置相关的事件监听器
  */
 function initSettingsListeners() {
-    elements.settingsButton.addEventListener('click', () => {
-        window.location.href = 'settings.html';
-    });
+    // 设置按钮事件在initGame中已经绑定
+    // 这里可以添加其他设置相关的监听器
 }
 
 // 初始化任务配置相关的事件监听器
@@ -180,7 +219,7 @@ function updateCurrentSoundPackDisplay(packName) {
 function startGame() {
     // 加载任务配置 - 优先从本地存储加载用户配置
     let tasks = [];
-    
+
     // 1. 首先尝试从本地存储获取用户自定义配置
     if (storageManager.hasUserTasksConfig()) {
         try {
@@ -191,20 +230,21 @@ function startGame() {
             // 如果本地配置加载失败，使用默认配置
         }
     }
-    
+
     // 2. 如果没有本地配置，从URL参数获取
     if (tasks.length === 0) {
         tasks = getConfigFromUrl();
     }
-    
+
     // 3. 确保任务数据符合规范（移除不必要的字段）
     tasks = normalizeTasks(tasks);
-    
+
     gameState.tasks = tasks;
     gameState.totalTasks = gameState.tasks.length;
     gameState.completedTasks = 0;
+    gameState.completedTaskIds = [];
     gameState.flashCompletions = 0;
-    
+
     // 检查今天是否启用
     const today = new Date().getDay();
     if (!gameConfig.enabledDays.includes(today)) {
@@ -214,31 +254,31 @@ function startGame() {
         elements.completeButton.textContent = '明天再来';
         return;
     }
-    
+
     // 更新日期显示
     updateDateDisplay();
-    
+
     // 加载保存的成就数据
     loadAchievementData();
-    
+
     // 初始化任务管理器和成就系统
     gameState.taskManager.setTasks(gameState.tasks);
     gameState.achievementSystem.loadAchievements();
-    
+
     // 检查并显示已解锁的成就
-    // 由于achievementSystem没有renderAchievementList方法，我们使用getUnlockedAchievements获取数据
     const unlockedAchievements = gameState.achievementSystem.getUnlockedAchievements();
+
     // 更新成就计数显示
-    const achievementCountElement = document.getElementById('achievementCount');
-    if (achievementCountElement) {
-        achievementCountElement.textContent = unlockedAchievements.length;
+    if (elements.achievementCount) {
+        elements.achievementCount.textContent = unlockedAchievements.length;
     }
-    
-    // 查找当前任务
-    findCurrentTask();
-    
-    
-    
+    if (elements.achievementCountSelection) {
+        elements.achievementCountSelection.textContent = unlockedAchievements.length;
+    }
+
+    // 显示任务选择界面
+    showTaskSelection();
+
     gameState.isInitialized = true;
 }
 
@@ -246,7 +286,109 @@ function startGame() {
 function updateDateDisplay() {
     const now = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-    elements.currentDate.textContent = now.toLocaleDateString('zh-CN', options);
+    const dateStr = now.toLocaleDateString('zh-CN', options);
+    if (elements.currentDate) {
+        elements.currentDate.textContent = dateStr;
+    }
+    if (elements.currentDateSelection) {
+        elements.currentDateSelection.textContent = dateStr;
+    }
+}
+
+// 显示任务选择界面
+function showTaskSelection() {
+    // 隐藏游戏界面，显示选择界面
+    elements.gameContainer.classList.add('hidden');
+    elements.taskSelectionContainer.classList.remove('hidden');
+    elements.backButton.classList.add('hidden');
+
+    gameState.isInTaskSelection = true;
+
+    // 渲染任务列表
+    renderTaskSelection();
+}
+
+// 渲染任务选择列表
+function renderTaskSelection() {
+    if (!elements.taskList) return;
+
+    elements.taskList.innerHTML = '';
+
+    gameState.tasks.forEach((task, index) => {
+        const isCompleted = gameState.completedTaskIds.includes(task.id);
+        const taskItem = document.createElement('div');
+        taskItem.className = `task-selection-item ${isCompleted ? 'completed' : ''}`;
+        taskItem.dataset.taskId = task.id;
+
+        taskItem.innerHTML = `
+            <div class="task-selection-icon">${task.icon}</div>
+            <div class="task-selection-info">
+                <div class="task-selection-name">${task.name}</div>
+                <div class="task-selection-time">限时 ${Math.floor(task.countdownSeconds / 60)}:${(task.countdownSeconds % 60).toString().padStart(2, '0')}</div>
+            </div>
+            <div class="task-selection-status">
+                ${isCompleted ? '✅ 已完成' : '🎯 开始'}
+            </div>
+        `;
+
+        // 如果未完成，添加点击事件
+        if (!isCompleted) {
+            taskItem.addEventListener('click', () => {
+                startTask(task.id);
+            });
+        }
+
+        elements.taskList.appendChild(taskItem);
+    });
+
+    // 更新完成进度
+    updateCompletionProgress();
+}
+
+// 更新完成进度
+function updateCompletionProgress() {
+    if (elements.completionProgressText) {
+        elements.completionProgressText.textContent = `已完成: ${gameState.completedTasks}/${gameState.totalTasks}`;
+    }
+    if (elements.completionProgressBar) {
+        const progress = (gameState.completedTasks / gameState.totalTasks) * 100;
+        elements.completionProgressBar.style.width = `${progress}%`;
+    }
+}
+
+// 开始任务
+function startTask(taskId) {
+    const task = gameState.tasks.find(t => t.id === taskId);
+    if (!task) return;
+
+    gameState.currentTask = task;
+    gameState.currentTaskIndex = gameState.tasks.findIndex(t => t.id === taskId);
+    gameState.isInTaskSelection = false;
+
+    // 隐藏选择界面，显示游戏界面
+    elements.taskSelectionContainer.classList.add('hidden');
+    elements.gameContainer.classList.remove('hidden');
+    elements.backButton.classList.remove('hidden');
+
+    // 初始化倒计时
+    gameState.countdownSeconds = task.countdownSeconds;
+    gameState.remainingSeconds = task.countdownSeconds;
+    gameState.taskStartTime = new Date();
+
+    // 更新任务显示
+    updateTaskDisplay();
+
+    // 启动倒计时（新增）
+    startTaskCountdown();
+}
+
+// 停止当前任务
+function stopCurrentTask() {
+    if (gameState.timer) {
+        clearInterval(gameState.timer);
+        gameState.timer = null;
+    }
+    gameState.currentTask = null;
 }
 
 // 查找当前任务 - 始终从第一个任务开始
@@ -254,10 +396,10 @@ function findCurrentTask() {
     // 根据需求：即使超时，每次也都需要从第一个任务开始
     gameState.currentTaskIndex = 0;
     gameState.currentTask = gameState.tasks[0];
-    
+
     // 更新任务显示
     updateTaskDisplay();
-    
+
     // 启动计时器
     startCountdown();
 }
@@ -296,34 +438,129 @@ function startCountdown() {
     if (gameState.timer) {
         clearInterval(gameState.timer);
     }
-    
+
     gameState.timer = setInterval(() => {
         const now = new Date();
         const currentTask = gameState.currentTask;
-        
+
         if (!currentTask) {
             clearInterval(gameState.timer);
             return;
         }
-        
+
         // 计算剩余时间（包含秒数）
         const [deadlineHours, deadlineMinutes] = currentTask.deadlineTime.split(':').map(Number);
         const deadlineDate = new Date();
         deadlineDate.setHours(deadlineHours, deadlineMinutes, 0, 0);
-        
+
         // 计算剩余毫秒数
         const remainingMs = deadlineDate - now;
         let remainingMinutes = remainingMs / (1000 * 60);
         let isOverdue = remainingMs < 0;
-        
+
         // 更新倒计时显示
         updateCountdownDisplay(Math.abs(remainingMinutes), isOverdue);
-        
+
         // 检查任务状态
         const taskStatus = getTaskStatus();
         updateTimeStatus(taskStatus);
-        
+
     }, 1000);
+}
+
+// 启动任务倒计时（新模式）
+function startTaskCountdown() {
+    if (gameState.timer) {
+        clearInterval(gameState.timer);
+    }
+
+    gameState.timer = setInterval(() => {
+        if (gameState.remainingSeconds <= 0) {
+            // 时间到！
+            handleTimeUp();
+            return;
+        }
+
+        gameState.remainingSeconds--;
+
+        // 更新倒计时显示
+        updateTaskCountdownDisplay();
+
+        // 最后10秒警告
+        if (gameState.remainingSeconds <= 10 && gameState.remainingSeconds > 0) {
+            updateTimeStatusWarning();
+        }
+
+    }, 1000);
+}
+
+// 更新任务倒计时显示
+function updateTaskCountdownDisplay() {
+    const minutes = Math.floor(gameState.remainingSeconds / 60);
+    const seconds = gameState.remainingSeconds % 60;
+    const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    if (elements.countdown) {
+        elements.countdown.textContent = formattedTime;
+    }
+
+    // 更新倒计时颜色
+    if (elements.countdown) {
+        elements.countdown.className = 'countdown';
+        if (gameState.remainingSeconds <= 10) {
+            elements.countdown.classList.add('danger');
+        } else if (gameState.remainingSeconds <= 30) {
+            elements.countdown.classList.add('warning');
+        } else {
+            elements.countdown.classList.add('normal');
+        }
+    }
+
+    // 更新状态文本
+    if (elements.timeStatus) {
+        if (gameState.remainingSeconds <= 10) {
+            elements.timeStatus.textContent = '抓紧时间！';
+        } else if (gameState.remainingSeconds <= 30) {
+            elements.timeStatus.textContent = '加油！';
+        } else {
+            elements.timeStatus.textContent = '开始挑战！';
+        }
+    }
+}
+
+// 处理时间到
+function handleTimeUp() {
+    // 停止倒计时
+    if (gameState.timer) {
+        clearInterval(gameState.timer);
+        gameState.timer = null;
+    }
+
+    // 播放提示音
+    gameState.soundManager.playErrorSound();
+
+    // 显示时间到消息
+    if (elements.timeStatus) {
+        elements.timeStatus.textContent = '⏰ 时间到了！下次加油！';
+    }
+
+    // 禁用完成按钮
+    if (elements.completeButton) {
+        elements.completeButton.disabled = true;
+        elements.completeButton.textContent = '❌ 超时了';
+        elements.completeButton.classList.add('disabled');
+    }
+
+    // 2秒后返回任务选择
+    setTimeout(() => {
+        showTaskSelection();
+        // 重置完成按钮状态
+        if (elements.completeButton) {
+            elements.completeButton.disabled = false;
+            elements.completeButton.textContent = '✅ 我完成了！';
+            elements.completeButton.classList.remove('disabled');
+        }
+    }, 2000);
 }
 
 // 更新倒计时显示
@@ -351,7 +588,13 @@ function getTaskStatus() {
     if (!gameState.currentTask || !gameState.taskManager) {
         return 'unknown';
     }
-    
+
+    // 检查是否是任务选择模式（通过检查是否有countdownSeconds而不是startTime）
+    if (gameState.currentTask.countdownSeconds !== undefined) {
+        // 任务选择模式使用倒计时，不需要时间状态
+        return 'countdown_mode';
+    }
+
     // 使用taskManager的calculateTaskStatus方法，并传入当前任务和当前时间
     return gameState.taskManager.calculateTaskStatus(gameState.currentTask, new Date());
 }
@@ -371,91 +614,110 @@ function updateTimeStatus(status) {
         case 'very_late':
             elements.timeStatus.textContent = '严重超时，快点完成！';
             break;
+        case 'countdown_mode':
+            // 任务选择模式：倒计时模式，使用倒计时显示
+            if (gameState.remainingSeconds > 0) {
+                const minutes = Math.floor(gameState.remainingSeconds / 60);
+                const seconds = gameState.remainingSeconds % 60;
+                elements.timeStatus.textContent = `⏱️ ${minutes}:${seconds.toString().padStart(2, '0')}`;
+            } else {
+                elements.timeStatus.textContent = '⏰ 时间到！';
+            }
+            break;
         default:
             elements.timeStatus.textContent = '继续努力！';
+    }
+}
+
+// 更新时间状态警告（倒计时模式）
+function updateTimeStatusWarning() {
+    if (elements.timeStatus) {
+        if (gameState.remainingSeconds <= 5) {
+            elements.timeStatus.textContent = '⚠️ 最后5秒！';
+        } else if (gameState.remainingSeconds <= 10) {
+            elements.timeStatus.textContent = '⚠️ 最后10秒！';
+        } else {
+            elements.timeStatus.textContent = '抓紧时间！';
+        }
     }
 }
 
 // 处理任务完成
 function handleTaskComplete() {
     const currentTask = gameState.currentTask;
-    const currentTaskIndex = gameState.currentTaskIndex;
-    
-    if (!currentTask || !gameState.taskManager) return;
-    
+
+    if (!currentTask) return;
+
+    // 停止倒计时
+    if (gameState.timer) {
+        clearInterval(gameState.timer);
+        gameState.timer = null;
+    }
+
+    // 检查是否在倒计时结束前完成
+    const completedInTime = gameState.remainingSeconds > 0;
+
     // 播放点击音效
     gameState.soundManager.playClickSound();
-    
-    // 使用任务管理器处理任务完成
-    const completionInfo = gameState.taskManager.completeCurrentTask(new Date());
-    
-    // 如果提前完成，增加闪电完成次数
-    if (completionInfo && completionInfo.status === 'early') {
-        gameState.flashCompletions++;
-        saveAchievementData();
-    }
-    
-    // 记录任务完成
-    if (completionInfo) {
-        saveTaskCompletion(currentTaskIndex, completionInfo.status);
-    }
-        
-        // 检查成就
-        if (completionInfo && completionInfo.status === 'early') {
-            // 检查闪电完成成就
-            gameState.achievementSystem.checkAndUnlockAchievements('flash_completions', gameState.flashCompletions);
-        }
-        
-        // 检查连续完成天数成就
-        gameState.achievementSystem.checkAndUnlockAchievements('streak_days', getCurrentStreak());
-        
-        // 检查任务完成总数成就
-        const totalCompletions = (storageManager.getGameData().totalCompletions || 0) + 1;
-        storageManager.getGameData().totalCompletions = totalCompletions;
-        storageManager.saveGameData(storageManager.getGameData());
-        
-        // 检查准时完成成就（使用适当的成就类型）
-        // 注意：准时完成成就可能需要额外的计数逻辑
-    
-    // 播放完成音效
-    gameState.soundManager.playSuccessSound();
-    
-    
-    
-    // 显示任务完成反馈动画
-    if (completionInfo) {
-        // 获取下一个任务信息用于反馈
-        const nextTask = (currentTaskIndex < gameState.totalTasks - 1) ? gameState.tasks[currentTaskIndex + 1] : null;
-        
-        // 使用taskManager的getCompletionFeedback方法获取反馈内容
-        const feedback = gameState.taskManager.getCompletionFeedback(completionInfo, nextTask);
-        
-        // 使用导入的showTaskFeedback函数显示反馈
-        import('./taskManager.js').then(module => {
-            if (module.showTaskFeedback) {
-                module.showTaskFeedback(feedback);
-            }
-        }).catch(error => {
-            console.error('加载反馈组件失败:', error);
-        });
-    }
-    
-    // 检查是否所有任务都已完成
-    if (currentTaskIndex >= gameState.totalTasks - 1) {
-        // 所有任务完成
-        handleAllTasksComplete();
+
+    if (completedInTime) {
+        // 闯关成功！
+        handleTaskSuccess(currentTask);
     } else {
-        // 进入下一个任务
-        gameState.currentTaskIndex++;
-        gameState.currentTask = gameState.tasks[gameState.currentTaskIndex];
-        gameState.completedTasks++;
-        
-        // 更新显示
-        updateTaskDisplay();
-        
-        // 任务已自动更新，不需要额外的引导提示
+        // 超时完成（虽然技术上不应该发生，因为按钮会被禁用）
+        handleTaskTimeout(currentTask);
     }
 }
+
+// 处理任务成功
+function handleTaskSuccess(task) {
+    // 播放成功音效
+    gameState.soundManager.playSuccessSound();
+
+    // 添加到已完成列表
+    if (!gameState.completedTaskIds.includes(task.id)) {
+        gameState.completedTaskIds.push(task.id);
+        gameState.completedTasks++;
+    }
+
+    // 检查成就
+    gameState.achievementSystem.checkAndUnlockAchievements('flash_completions', gameState.completedTasks);
+
+    // 保存任务完成记录
+    saveTaskCompletion(task.id, 'success');
+
+    // 显示成功反馈
+    if (elements.timeStatus) {
+        elements.timeStatus.textContent = '🎉 闯关成功！';
+    }
+
+    // 1秒后返回任务选择界面
+    setTimeout(() => {
+        showTaskSelection();
+
+        // 检查是否所有任务都完成了
+        if (gameState.completedTasks >= gameState.totalTasks) {
+            handleAllTasksComplete();
+        }
+    }, 1000);
+}
+
+// 处理任务超时
+function handleTaskTimeout(task) {
+    // 播放失败音效
+    gameState.soundManager.playErrorSound();
+
+    // 显示超时反馈
+    if (elements.timeStatus) {
+        elements.timeStatus.textContent = '⏰ 时间到了！下次加油！';
+    }
+
+    // 2秒后返回任务选择界面
+    setTimeout(() => {
+        showTaskSelection();
+    }, 2000);
+}
+
 
 // 播放完成音效
 // 音效已由soundManager统一管理

@@ -84,7 +84,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    padding: 10px 0;
+    padding: 2px 0;
 }
 
 /* 设置按钮样式 */
@@ -106,6 +106,35 @@ body {
 }
 
 .settings-button:active {
+    transform: scale(0.95);
+}
+
+/* 顶部按钮容器 */
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 返回按钮样式（与设置按钮保持一致） */
+.back-button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.back-button:active {
     transform: scale(0.95);
 }
 
@@ -325,6 +354,7 @@ body {
     from {
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 20px #4CAF50;
     }
+
     to {
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 30px #8BC34A;
     }
@@ -340,6 +370,7 @@ body {
     from {
         transform: translateY(0);
     }
+
     to {
         transform: translateY(-10px);
     }
@@ -568,7 +599,8 @@ body {
     line-height: 1.4;
 }
 
-.settings-action-button, .settings-close-button {
+.settings-action-button,
+.settings-close-button {
     padding: 12px 20px;
     font-size: 1.1rem;
     border: none;
@@ -600,12 +632,19 @@ body {
 
 /* 动画效果 */
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0);
     }
+
     40% {
         transform: translateY(-20px);
     }
+
     60% {
         transform: translateY(-10px);
     }
@@ -615,9 +654,11 @@ body {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.03);
     }
+
     100% {
         transform: scale(1);
     }
@@ -627,9 +668,11 @@ body {
     0% {
         text-shadow: 0 0 5px rgba(255, 209, 102, 0.5);
     }
+
     50% {
         text-shadow: 0 0 20px rgba(255, 209, 102, 0.8);
     }
+
     100% {
         text-shadow: 0 0 5px rgba(255, 209, 102, 0.5);
     }
@@ -639,9 +682,11 @@ body {
     0% {
         text-shadow: 0 0 5px rgba(239, 71, 111, 0.5);
     }
+
     50% {
         text-shadow: 0 0 20px rgba(239, 71, 111, 0.8);
     }
+
     100% {
         text-shadow: 0 0 5px rgba(239, 71, 111, 0.5);
     }
@@ -651,6 +696,7 @@ body {
     0% {
         transform: scale(1);
     }
+
     100% {
         transform: scale(1.05);
     }
@@ -658,13 +704,16 @@ body {
 
 /* 响应式设计 - 移动设备优化 */
 @media (max-width: 768px) {
+
     /* 基础样式调整 */
     body {
         padding: 10px;
-        touch-action: manipulation; /* 防止双击缩放 */
-        -webkit-tap-highlight-color: transparent; /* 移除点击高亮 */
+        touch-action: manipulation;
+        /* 防止双击缩放 */
+        -webkit-tap-highlight-color: transparent;
+        /* 移除点击高亮 */
     }
-    
+
     /* 任务卡片优化 */
     .task-card {
         margin: 0.8rem;
@@ -674,22 +723,23 @@ body {
         flex-direction: column;
         justify-content: space-between;
     }
-    
+
     /* 字体大小优化 */
     .task-icon {
         font-size: 5rem;
     }
-    
+
     .task-name {
         font-size: 2rem;
         text-align: center;
     }
-    
+
     .countdown {
-        font-size: 2.5rem; /* 增大倒计时字体，更易读 */
+        font-size: 2.5rem;
+        /* 增大倒计时字体，更易读 */
         margin: 2rem 0;
     }
-    
+
     /* 按钮优化 - 更适合触摸 */
     .complete-button {
         font-size: 1.3rem;
@@ -698,52 +748,54 @@ body {
         min-height: 60px;
         border-radius: 30px;
         box-shadow: 0 6px 15px rgba(6, 214, 160, 0.3);
-        transition: transform 0.1s ease; /* 快速反馈 */
+        transition: transform 0.1s ease;
+        /* 快速反馈 */
     }
-    
+
     .complete-button:active {
-        transform: scale(0.97); /* 触摸反馈 */
+        transform: scale(0.97);
+        /* 触摸反馈 */
     }
-    
+
     /* 状态栏优化 */
     .status-bar {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     /* 内容优化 */
     .intro-content h2 {
         font-size: 1.8rem;
     }
-    
+
     .intro-content p {
         font-size: 1.2rem;
     }
-    
+
     .celebration-content h1 {
         font-size: 2.2rem;
     }
-    
+
     .celebration-content p {
         font-size: 1.3rem;
     }
-    
+
     /* 成就通知优化 */
     .achievement-notification {
         width: calc(100% - 40px);
         right: calc(-100% - 20px);
     }
-    
+
     .achievement-notification.show {
         right: 20px;
     }
-    
+
     /* 成就列表优化 */
     .achievement-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
-    
+
     /* 进度条优化 */
     .progress-bar-container {
         height: 24px;
@@ -754,49 +806,49 @@ body {
     .task-icon {
         font-size: 4rem;
     }
-    
+
     .task-name {
         font-size: 1.8rem;
     }
-    
+
     .countdown {
         font-size: 2.2rem;
     }
-    
+
     .complete-button {
         padding: 1rem 1.5rem;
         font-size: 1.2rem;
         min-width: 180px;
     }
-    
+
     .achievement-list {
         grid-template-columns: 1fr;
     }
-    
+
     .achievement-item {
         padding: 10px;
     }
-    
+
     .achievement-item-icon {
         font-size: 1.8rem;
     }
-    
+
     .intro-content h2 {
         font-size: 1.6rem;
     }
-    
+
     .intro-content p {
         font-size: 1.1rem;
     }
-    
+
     .celebration-content h1 {
         font-size: 2rem;
     }
-    
+
     .container {
         padding: 15px;
     }
-    
+
     .task-card {
         padding: 20px;
     }
@@ -990,29 +1042,29 @@ body {
         margin-top: 15px;
         padding-top: 15px;
     }
-    
+
     #taskConfiguration h3 {
         font-size: 1.3rem;
     }
-    
+
     #taskList {
         max-height: 250px;
     }
-    
+
     .task-item {
         padding: 12px;
     }
-    
+
     .task-field input {
         padding: 8px;
         font-size: 0.9rem;
     }
-    
+
     .task-field-row {
         flex-direction: column;
         gap: 8px;
     }
-    
+
     .task-config-buttons button {
         padding: 10px 16px;
         font-size: 0.9rem;
@@ -1023,22 +1075,22 @@ body {
     #taskConfiguration h3 {
         font-size: 1.2rem;
     }
-    
+
     #taskList {
         max-height: 200px;
         padding: 8px;
     }
-    
+
     .task-item {
         padding: 10px;
         margin-bottom: 10px;
     }
-    
+
     .task-field input {
         padding: 7px;
         font-size: 0.85rem;
     }
-    
+
     .task-config-buttons button {
         padding: 9px 14px;
         font-size: 0.85rem;
@@ -1051,15 +1103,15 @@ body {
         padding-bottom: env(safe-area-inset-bottom);
         padding-top: env(safe-area-inset-top);
     }
-    
+
     .task-card {
         padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
     }
-    
+
     .status-bar {
         margin-top: env(safe-area-inset-top);
     }
-    
+
     .achievement-notification {
         top: calc(20px + env(safe-area-inset-top));
     }
@@ -1067,12 +1119,13 @@ body {
 
 /* 触摸设备的交互优化 */
 @media (hover: none) and (pointer: coarse) {
+
     /* 针对触摸屏优化按钮 */
     .complete-button {
         -webkit-tap-highlight-color: transparent;
         outline: none;
     }
-    
+
     /* 增大可点击区域 */
     .task-card * {
         touch-action: manipulation;
@@ -1086,11 +1139,11 @@ body {
         padding: 15px 20px;
         min-width: 180px;
     }
-    
+
     .task-name {
         font-size: 1.8rem;
     }
-    
+
     .countdown {
         font-size: 3rem;
     }
@@ -1127,7 +1180,7 @@ body {
     margin: 12px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .settings-item {
@@ -1172,7 +1225,7 @@ body {
     margin: 12px;
     padding: 16px;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* 设置页：任务配置布局优化 */
@@ -1245,17 +1298,21 @@ body {
     .task-config-section {
         min-height: calc(100vh - 110px);
     }
+
     .task-config-section #taskList {
         min-height: 360px;
         padding: 10px;
     }
+
     .task-fields {
         grid-template-columns: 1fr;
     }
+
     .task-field-row {
         grid-template-columns: 1fr;
         gap: 8px;
     }
+
     .task-config-actions {
         gap: 8px;
     }
@@ -1265,17 +1322,21 @@ body {
     .task-config-section {
         min-height: calc(100vh - 100px);
     }
+
     .task-config-section #taskList {
         min-height: 320px;
     }
+
     .task-config-actions {
         flex-direction: column;
     }
+
     .task-config-actions .settings-action-button {
         width: 80%;
         min-width: 80%;
     }
 }
+
 .ui-icon {
     width: 24px;
     height: 24px;
@@ -1291,4 +1352,183 @@ body {
 
 .settings-action-button:disabled .ui-icon {
     stroke: #bbb;
+}
+
+/* ==================== 任务选择界面样式 ==================== */
+
+/* 选择界面标题 */
+.selection-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0.2rem 0 0.5rem 0;
+    font-weight: bold;
+}
+
+.selection-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* 任务列表容器 */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* 任务选择项 */
+.task-selection-item {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.task-selection-item:hover:not(.completed) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--secondary-color);
+}
+
+.task-selection-item:active:not(.completed) {
+    transform: translateY(-1px);
+}
+
+.task-selection-item.completed {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #f5f5f5;
+    border-color: #e0e0e0;
+}
+
+.task-selection-icon {
+    font-size: 2.5rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.task-selection-info {
+    flex: 1;
+}
+
+.task-selection-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 0.3rem;
+}
+
+.task-selection-time {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.task-selection-status {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--success-color);
+    flex-shrink: 0;
+}
+
+/* 完成进度区域 */
+.completion-progress {
+    background: white;
+    padding: 1.2rem 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.completion-progress .progress-text {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* 返回按钮 */
+.back-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-button:active {
+    transform: scale(1.05);
+}
+
+/* 完成按钮禁用状态 */
+.complete-button.disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .selection-title {
+        font-size: 1.5rem;
+    }
+
+    .selection-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .task-selection-item {
+        padding: 1rem 1.2rem;
+    }
+
+    .task-selection-icon {
+        font-size: 2rem;
+    }
+
+    .task-selection-name {
+        font-size: 1.1rem;
+    }
+
+    .task-selection-time {
+        font-size: 0.85rem;
+    }
 }
