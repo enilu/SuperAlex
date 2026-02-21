@@ -572,6 +572,26 @@ function startCountdown() {
             return;
         }
 
+        // 检查是否是任务选择模式（通过检查是否有countdownSeconds字段）
+        if (currentTask.countdownSeconds !== undefined) {
+            // 任务选择模式：不应该调用此函数，切换到任务倒计时模式
+            console.warn('任务选择模式不应调用startCountdown，切换到startTaskCountdown');
+            clearInterval(gameState.timer);
+            // 初始化剩余秒数（如果未设置）
+            if (gameState.remainingSeconds <= 0 && currentTask.countdownSeconds) {
+                gameState.remainingSeconds = currentTask.countdownSeconds;
+            }
+            startTaskCountdown();
+            return;
+        }
+
+        // 传统时间模式：需要deadlineTime字段
+        if (!currentTask.deadlineTime) {
+            console.warn('任务缺少deadlineTime字段，无法计算剩余时间', currentTask);
+            clearInterval(gameState.timer);
+            return;
+        }
+
         // 计算剩余时间（包含秒数）
         const [deadlineHours, deadlineMinutes] = currentTask.deadlineTime.split(':').map(Number);
         const deadlineDate = new Date();
@@ -977,22 +997,26 @@ function resetTodayData() {
 function renderTaskList() {
     const taskListElement = document.getElementById('taskList');
     if (!taskListElement) return;
-    
+
     // 清空现有任务列表
     taskListElement.innerHTML = '';
-    
+
     // 确保有任务数据
     if (!gameState.tasks || gameState.tasks.length === 0) {
         taskListElement.innerHTML = '<p class="no-tasks">暂无任务，请添加任务</p>';
         return;
     }
-    
+
     // 渲染每个任务
     gameState.tasks.forEach((task, index) => {
+        // 计算分钟数：将countdownSeconds转换为分钟（默认120秒=2分钟）
+        const countdownSeconds = task.countdownSeconds || 120;
+        const countdownMinutes = Math.floor(countdownSeconds / 60);
+
         const taskItem = document.createElement('div');
         taskItem.className = 'task-item';
         taskItem.dataset.index = index;
-        
+
         taskItem.innerHTML = `
             <div class="task-item-header">
                 <span class="task-index">${index + 1}</span>
@@ -1007,22 +1031,17 @@ function renderTaskList() {
                     <label>任务图标:</label>
                     <input type="text" class="task-icon-input" value="${task.icon || '📝'}" placeholder="输入表情图标">
                 </div>
-                <div class="task-field-row">
-                    <div class="task-field">
-                        <label>开始时间:</label>
-                        <input type="time" class="task-start-time" value="${task.startTime || '00:00'}">
-                    </div>
-                    <div class="task-field">
-                        <label>截止时间:</label>
-                        <input type="time" class="task-deadline-time" value="${task.deadlineTime || '00:00'}">
-                    </div>
+                <div class="task-field">
+                    <label>倒计时（分钟）:</label>
+                    <input type="number" class="task-countdown-minutes" min="1" max="60" value="${countdownMinutes}" placeholder="输入分钟数">
+                    <span class="field-hint">（${countdownSeconds}秒）</span>
                 </div>
             </div>
         `;
-        
+
         taskListElement.appendChild(taskItem);
     });
-    
+
     // 添加删除任务的事件监听
     document.querySelectorAll('.task-remove-button').forEach(button => {
         button.addEventListener('click', function() {
@@ -1038,17 +1057,16 @@ function addNewTask() {
         id: Date.now(), // 使用时间戳作为临时ID
         name: '新任务',
         icon: '📝',
-        startTime: '00:00',
-        deadlineTime: '00:00'
+        countdownSeconds: 120 // 默认2分钟
     };
-    
+
     // 添加到游戏状态
     gameState.tasks.push(newTask);
     gameState.totalTasks = gameState.tasks.length;
-    
+
     // 重新渲染任务列表
     renderTaskList();
-    
+
     // 播放点击音效
     gameState.soundManager.playClickSound();
 }
@@ -1075,38 +1093,39 @@ function removeTask(index) {
 function saveCurrentTaskConfig() {
     const taskItems = document.querySelectorAll('.task-item');
     const updatedTasks = [];
-    
+
     taskItems.forEach((item, index) => {
-        const task = {
-            id: index + 1, // 重新分配ID，从1开始连续编号
-            name: item.querySelector('.task-name-input').value.trim(),
-            icon: item.querySelector('.task-icon-input').value.trim(),
-            startTime: item.querySelector('.task-start-time').value,
-            deadlineTime: item.querySelector('.task-deadline-time').value
-        };
-        
+        const name = item.querySelector('.task-name-input').value.trim();
+        const icon = item.querySelector('.task-icon-input').value.trim() || '📝';
+        const countdownMinutesInput = item.querySelector('.task-countdown-minutes');
+        const countdownMinutes = countdownMinutesInput ? parseInt(countdownMinutesInput.value) : 2; // 默认2分钟
+        const countdownSeconds = countdownMinutes * 60; // 转换为秒
+
         // 验证任务数据
-        if (!task.name) {
+        if (!name) {
             alert('任务名称不能为空');
             return;
         }
-        
-        if (!task.icon) {
-            task.icon = '📝'; // 默认图标
-        }
-        
+
+        const task = {
+            id: index + 1, // 重新分配ID，从1开始连续编号
+            name: name,
+            icon: icon,
+            countdownSeconds: countdownSeconds
+        };
+
         updatedTasks.push(task);
     });
-    
+
     // 保存到本地存储
     if (storageManager.saveUserTasksConfig(updatedTasks)) {
         alert('任务配置已保存！');
         // 重新开始游戏以应用新配置
         startGame();
-        
+
         // 播放成功音效
         gameState.soundManager.playSuccessSound();
-        
+
         // 关闭设置弹窗
         hideSettingsModal();
     } else {

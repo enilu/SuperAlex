@@ -75,7 +75,30 @@ function getConfigFromUrl() {
 function normalizeTasks(tasks) {
     return tasks.map(task => {
         const normalizedTask = { ...task };
-        // 移除旧的时间相关字段
+
+        // 检查是否是旧版任务（有startTime和deadlineTime但没有countdownSeconds）
+        if (normalizedTask.startTime && normalizedTask.deadlineTime && !normalizedTask.countdownSeconds) {
+            // 迁移旧版任务：将时间间隔转换为countdownSeconds
+            try {
+                const startMinutes = timeToMinutes(normalizedTask.startTime);
+                const deadlineMinutes = timeToMinutes(normalizedTask.deadlineTime);
+                const timeDiffMinutes = deadlineMinutes - startMinutes;
+
+                // 确保时间差为正数且合理（1-60分钟）
+                if (timeDiffMinutes > 0 && timeDiffMinutes <= 60) {
+                    normalizedTask.countdownSeconds = timeDiffMinutes * 60;
+                    console.log(`迁移旧版任务 "${normalizedTask.name}": ${timeDiffMinutes}分钟 (${normalizedTask.countdownSeconds}秒)`);
+                } else {
+                    // 不合理的时间间隔，使用默认值
+                    normalizedTask.countdownSeconds = 120;
+                }
+            } catch (e) {
+                console.error('迁移旧版任务失败，使用默认值:', e);
+                normalizedTask.countdownSeconds = 120;
+            }
+        }
+
+        // 移除旧的时间相关字段（迁移后）
         if (normalizedTask.hasOwnProperty('nextTaskStartTime')) {
             delete normalizedTask.nextTaskStartTime;
         }
@@ -85,13 +108,21 @@ function normalizeTasks(tasks) {
         if (normalizedTask.hasOwnProperty('deadlineTime')) {
             delete normalizedTask.deadlineTime;
         }
+
         // 确保有countdownSeconds字段
         if (!normalizedTask.countdownSeconds) {
             // 如果没有设置倒计时，使用默认值120秒
             normalizedTask.countdownSeconds = 120;
         }
+
         return normalizedTask;
     });
+}
+
+// 辅助函数：将时间字符串转换为分钟数
+function timeToMinutes(timeStr) {
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    return hours * 60 + minutes;
 }
 
 // 导出配置

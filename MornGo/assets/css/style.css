@@ -10,9 +10,9 @@
 
 /* 根元素变量 - 金红色系 */
 :root {
-    /* 主色调 - 金红色系 */
-    --primary-gold: #d4a574;
-    --primary-red: #c94b4b;
+    /* 主色调 - 清新活泼色调 */
+    --primary-gold: #FFE082;
+    --primary-red: #EF476F;
     --dark-brown: #5d4037;
     --text-white: #ffffff;
     --parchment: #f5e6d3;
@@ -20,9 +20,9 @@
     --error-red: #f44336;
     --warning-orange: #ff9800;
 
-    /* 渐变背景 */
-    --bg-gradient: linear-gradient(135deg, #d4a574 0%, #c94b4b 100%);
-    --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 230, 211, 0.95) 100%);
+    /* 渐变背景 - 晨光清新色调 */
+    --bg-gradient: linear-gradient(135deg, #FFD166 0%, #4ECDC4 100%);
+    --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.95) 100%);
 
     /* 阴影 */
     --shadow-sm: 0 2px 8px rgba(93, 64, 55, 0.15);
@@ -41,11 +41,11 @@
     --transition-slow: 0.5s;
 
     /* 兼容旧变量 */
-    --primary-color: #c94b4b;
+    --primary-color: #EF476F;
     --secondary-color: #4ECDC4;
     --accent-color: #FFD166;
     --text-color: #5d4037;
-    --light-bg: #f5e6d3;
+    --light-bg: #F5F9FF;
     --dark-bg: #5d4037;
     --border-radius: 16px;
     --shadow: 0 4px 16px rgba(93, 64, 55, 0.2);
@@ -110,7 +110,7 @@ body {
 
 /* 开始按钮样式 */
 #startButton {
-    background: linear-gradient(135deg, var(--primary-gold) 0%, #b8956a 100%);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
     color: var(--dark-brown);
     border: none;
     padding: 15px 40px;
@@ -273,7 +273,7 @@ body {
     left: 0;
     width: 100%;
     height: 10px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
 }
 
 .task-icon {
@@ -329,7 +329,7 @@ body {
 
 /* 完成按钮样式 */
 .complete-button {
-    background: linear-gradient(135deg, var(--primary-gold) 0%, #b8956a 100%);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
     color: var(--dark-brown);
     border: none;
     padding: 25px 50px;
@@ -370,7 +370,7 @@ body {
     content: '';
     display: block;
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
 }
 
 .progress-text {
@@ -436,7 +436,7 @@ body {
 }
 
 .celebration-close-button {
-    background: linear-gradient(135deg, var(--primary-gold) 0%, #b8956a 100%);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
     color: var(--dark-brown);
     border: none;
     padding: 15px 40px;
@@ -594,7 +594,7 @@ body {
 
 .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-gold), var(--primary-red));
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
     transition: width var(--transition-normal) ease;
     border-radius: 10px;
 }
@@ -1123,6 +1123,13 @@ body {
     padding: 20px;
 }
 
+.field-hint {
+    font-size: 0.8rem;
+    color: #666;
+    margin-left: 8px;
+    font-style: italic;
+}
+
 /* 任务配置按钮组 */
 .task-config-buttons {
     display: flex;
@@ -1617,7 +1624,7 @@ body {
 
 #completionProgressBar.progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-gold), var(--primary-red));
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
     border-radius: 10px;
     transition: width var(--transition-normal) ease;
 }

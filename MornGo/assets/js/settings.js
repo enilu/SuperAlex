@@ -71,6 +71,10 @@ function renderTaskList() {
     return;
   }
   state.tasks.forEach((task, index) => {
+    // 计算分钟数：将countdownSeconds转换为分钟（默认120秒=2分钟）
+    const countdownSeconds = task.countdownSeconds || 120;
+    const countdownMinutes = Math.floor(countdownSeconds / 60);
+
     const item = document.createElement('div');
     item.className = 'task-item';
     item.dataset.index = String(index);
@@ -88,15 +92,10 @@ function renderTaskList() {
           <label>任务图标:</label>
           <input type="text" class="task-icon-input" value="${task.icon || '📝'}" placeholder="输入表情图标">
         </div>
-        <div class="task-field-row">
-          <div class="task-field">
-            <label>开始时间:</label>
-            <input type="time" class="task-start-time" value="${task.startTime || '00:00'}">
-          </div>
-          <div class="task-field">
-            <label>截止时间:</label>
-            <input type="time" class="task-deadline-time" value="${task.deadlineTime || '00:00'}">
-          </div>
+        <div class="task-field">
+          <label>倒计时（分钟）:</label>
+          <input type="number" class="task-countdown-minutes" min="1" max="60" value="${countdownMinutes}" placeholder="输入分钟数">
+          <span class="field-hint">（${countdownSeconds}秒）</span>
         </div>
       </div>
     `;
@@ -114,7 +113,7 @@ function renderTaskList() {
 }
 
 function addNewTask() {
-  const newTask = { id: Date.now(), name: '新任务', icon: '📝', startTime: '00:00', deadlineTime: '00:00' };
+  const newTask = { id: Date.now(), name: '新任务', icon: '📝', countdownSeconds: 120 }; // 默认2分钟
   state.tasks.push(newTask);
   renderTaskList();
   soundManager.playClickSound();
@@ -167,17 +166,23 @@ function saveCurrentTaskConfig() {
   const items = document.querySelectorAll('.task-item');
   const updated = [];
   items.forEach((item, i) => {
-    const t = {
-      id: i + 1,
-      name: item.querySelector('.task-name-input').value.trim(),
-      icon: item.querySelector('.task-icon-input').value.trim() || '📝',
-      startTime: item.querySelector('.task-start-time').value,
-      deadlineTime: item.querySelector('.task-deadline-time').value
-    };
-    if (!t.name) {
+    const name = item.querySelector('.task-name-input').value.trim();
+    const icon = item.querySelector('.task-icon-input').value.trim() || '📝';
+    const countdownMinutesInput = item.querySelector('.task-countdown-minutes');
+    const countdownMinutes = countdownMinutesInput ? parseInt(countdownMinutesInput.value) : 2; // 默认2分钟
+    const countdownSeconds = countdownMinutes * 60; // 转换为秒
+
+    if (!name) {
       alert('任务名称不能为空');
       return;
     }
+
+    const t = {
+      id: i + 1,
+      name: name,
+      icon: icon,
+      countdownSeconds: countdownSeconds
+    };
     updated.push(t);
   });
   if (updated.length === items.length && storageManager.saveUserTasksConfig(updated)) {

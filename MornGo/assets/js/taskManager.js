@@ -66,6 +66,18 @@ class TaskManager {
 
     // 计算当前任务的状态
     calculateTaskStatus(task, currentTime) {
+        // 检查是否是任务选择模式（通过检查是否有countdownSeconds字段）
+        if (task.countdownSeconds !== undefined) {
+            // 任务选择模式：返回特殊状态，表示使用倒计时模式
+            return 'countdown_mode';
+        }
+
+        // 传统时间模式：需要startTime和deadlineTime字段
+        if (!task.startTime || !task.deadlineTime) {
+            console.warn('任务缺少时间字段，无法计算状态', task);
+            return TASK_STATUS.NOT_STARTED;
+        }
+
         const currentTimeMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
         const startTimeMinutes = this.timeToMinutes(task.startTime);
         const deadlineMinutes = this.timeToMinutes(task.deadlineTime);
@@ -138,10 +150,23 @@ class TaskManager {
 
     // 确定任务完成状态
     determineCompletionStatus(task, currentTime) {
+        // 检查是否是任务选择模式（通过检查是否有countdownSeconds字段）
+        if (task.countdownSeconds !== undefined) {
+            // 任务选择模式：倒计时模式，总是返回ON_TIME
+            // 在倒计时模式下，完成状态由倒计时是否超时决定，这里返回ON_TIME作为默认值
+            return COMPLETION_STATUS.ON_TIME;
+        }
+
+        // 传统时间模式：需要deadlineTime字段
+        if (!task.deadlineTime) {
+            console.warn('任务缺少deadlineTime字段，无法确定完成状态', task);
+            return COMPLETION_STATUS.ON_TIME;
+        }
+
         const currentTimeMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
         const deadlineMinutes = this.timeToMinutes(task.deadlineTime);
         const startTimeMinutes = this.timeToMinutes(task.startTime);
-        
+
         if (currentTimeMinutes <= deadlineMinutes) {
             // 提前或准时完成
             return currentTimeMinutes < deadlineMinutes ? COMPLETION_STATUS.EARLY : COMPLETION_STATUS.ON_TIME;
@@ -158,9 +183,21 @@ class TaskManager {
 
     // 计算时间差异（分钟数）
     calculateTimeDifference(task, currentTime) {
+        // 检查是否是任务选择模式（通过检查是否有countdownSeconds字段）
+        if (task.countdownSeconds !== undefined) {
+            // 任务选择模式：倒计时模式，返回0表示没有时间差异
+            return 0;
+        }
+
+        // 传统时间模式：需要deadlineTime字段
+        if (!task.deadlineTime) {
+            console.warn('任务缺少deadlineTime字段，无法计算时间差异', task);
+            return 0;
+        }
+
         const currentTimeMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
         const deadlineMinutes = this.timeToMinutes(task.deadlineTime);
-        
+
         return currentTimeMinutes - deadlineMinutes; // 负数表示提前完成
     }
 
@@ -180,9 +217,9 @@ class TaskManager {
     // 获取任务完成反馈
     getCompletionFeedback(completionInfo, nextTask = null) {
         const { taskName, status, timeDifference } = completionInfo;
-        
+
         let feedback = {};
-        
+
         switch (status) {
             case COMPLETION_STATUS.EARLY:
                 const minutesEarly = Math.abs(Math.floor(timeDifference));
@@ -193,7 +230,7 @@ class TaskManager {
                     icon: '🎉'
                 };
                 break;
-                
+
             case COMPLETION_STATUS.ON_TIME:
                 feedback = {
                     title: '准时完成！✅',
@@ -202,7 +239,7 @@ class TaskManager {
                     icon: '👍'
                 };
                 break;
-                
+
             case COMPLETION_STATUS.LATE:
                 feedback = {
                     title: '继续加油！💪',
@@ -211,7 +248,7 @@ class TaskManager {
                     icon: '⏰'
                 };
                 break;
-                
+
             case COMPLETION_STATUS.VERY_LATE:
                 feedback = {
                     title: '别灰心！💖',
@@ -221,12 +258,21 @@ class TaskManager {
                 };
                 break;
         }
-        
+
         // 如果有下一个任务，添加相关信息
         if (nextTask) {
-            feedback.nextTaskMessage = `现在开始${nextTask.name}吧，记得${nextTask.startTime}前完成！`;
+            // 检查是否是任务选择模式（通过检查是否有countdownSeconds字段）
+            if (nextTask.countdownSeconds !== undefined) {
+                const minutes = Math.floor(nextTask.countdownSeconds / 60);
+                const seconds = nextTask.countdownSeconds % 60;
+                feedback.nextTaskMessage = `现在开始${nextTask.name}吧，限时${minutes}:${seconds.toString().padStart(2, '0')}完成！`;
+            } else if (nextTask.startTime) {
+                feedback.nextTaskMessage = `现在开始${nextTask.name}吧，记得${nextTask.startTime}前完成！`;
+            } else {
+                feedback.nextTaskMessage = `现在开始${nextTask.name}吧！`;
+            }
         }
-        
+
         return feedback;
     }
 
