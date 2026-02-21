@@ -513,6 +513,22 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(245, 87, 108, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.option-char {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.option-pinyin {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.8;
+    line-height: 1;
 }
 
 .option-btn:hover {
@@ -573,6 +589,10 @@ body {
     max-width: 500px;
     padding: 5rem 1.5rem 2rem;
     animation: fadeInUp 0.8s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+    gap: 1.5rem;
 }
 
 .review-stats {
@@ -600,11 +620,13 @@ body {
     border-radius: 25px;
     padding: 2rem;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    margin-bottom: 1.5rem;
     min-height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 60vh;
 }
 
 .empty-state {
@@ -623,6 +645,7 @@ body {
 
 .start-review-btn {
     width: 100%;
+    max-width: 500px;
     padding: 1.2rem;
     font-size: 1.2rem;
     font-weight: bold;
@@ -633,6 +656,8 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    align-self: center;
 }
 
 .start-review-btn:hover {
@@ -643,6 +668,32 @@ body {
 .start-review-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+/* 复习列表滚动条样式 */
+.review-list {
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 10px;
+    width: 100%;
+}
+
+.review-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.review-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.review-list::-webkit-scrollbar-thumb {
+    background: rgba(245, 87, 108, 0.5);
+    border-radius: 3px;
+}
+
+.review-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 87, 108, 0.7);
 }
 
 /* ==================== 结果界面 ==================== */

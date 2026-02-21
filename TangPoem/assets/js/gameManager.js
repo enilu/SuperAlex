@@ -15,6 +15,31 @@ const GameManager = {
     currentFilter: 'all',
     currentFilteredPoems: [],
 
+    /**
+     * 从诗歌内容中获取字符的拼音
+     * @param {Object} poem 诗歌对象
+     * @param {string} character 要查找拼音的字符
+     * @return {string|null} 字符的拼音，如果找不到则返回null
+     */
+    getPinyinForCharacter(poem, character) {
+        for (const line of poem.content) {
+            const text = line.text;
+            const pinyin = line.pinyin;
+
+            // 将文字和拼音按字符分割
+            const textChars = text.split('');
+            const pinyinParts = pinyin.split(' ');
+
+            // 查找字符位置
+            for (let i = 0; i < textChars.length; i++) {
+                if (textChars[i] === character) {
+                    return pinyinParts[i] || null;
+                }
+            }
+        }
+        return null;
+    },
+
     startGameMode(customPoems = null) {
         this.currentQuestionIndex = 0;
         this.score = 0;
@@ -120,9 +145,12 @@ const GameManager = {
         document.getElementById('questionText').textContent = question.questionText;
 
         const optionsContainer = document.getElementById('answerOptions');
-        optionsContainer.innerHTML = question.options.map(option =>
-            '<button class="option-btn" data-answer="' + option + '">' + option + '</button>'
-        ).join('');
+        optionsContainer.innerHTML = question.options.map(option => {
+            // 获取选项字符的拼音
+            const pinyin = this.getPinyinForCharacter(PoemManager.getPoemById(question.poemId), option);
+            const pinyinDisplay = pinyin ? `<span class="option-pinyin">(${pinyin})</span>` : '';
+            return `<button class="option-btn" data-answer="${option}"><span class="option-char">${option}</span>${pinyinDisplay}</button>`;
+        }).join('');
 
         this.bindOptionEvents(question);
     },
