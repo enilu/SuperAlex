@@ -482,6 +482,19 @@ button {
     text-align: left;
 }
 
+.option-btn span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.option-pinyin {
+    font-size: 0.8em;
+    color: #666;
+    font-style: italic;
+    margin-left: 8px;
+}
+
 .option-btn:hover:not(:disabled) {
     transform: translateX(4px);
     box-shadow: var(--shadow-md);
