@@ -47,8 +47,46 @@ const CONFIG = {
 
     // 复习模式配置
     REVIEW_CONFIG: {
-        REVIEW_INTERVAL: 2,          // 复习间隔（天）
-        MASTERY_THRESHOLD: 80       // 掌握度阈值
+        // 儿童友好复习间隔（分钟）
+        INTERVALS: [
+            5,      // 阶段0：5分钟
+            30,     // 阶段1：30分钟
+            180,    // 阶段2：3小时
+            1440,   // 阶段3：1天
+            4320,   // 阶段4：3天
+            10080,  // 阶段5：1周
+            20160,  // 阶段6：2周
+            43200   // 阶段7：1个月
+        ],
+
+        // 记忆强度参数
+        MEMORY_STRENGTH: {
+            BASE_GAIN: 30,          // 基础增益
+            PERFORMANCE_FACTOR: {   // 表现系数映射
+                min: 0.6,           // 60%答对率
+                max: 1.4            // 100%答对率
+            },
+            STAGE_FACTORS: [        // 阶段系数
+                1.2, 1.1, 1.0, 0.9, 0.9, 0.8, 0.8, 0.7
+            ],
+            DECAY_RATE: 1.5,        // 每日衰减系数
+            MASTERY_THRESHOLD: 85   // 掌握阈值
+        },
+
+        // 复习设置
+        REVIEW_SETTINGS: {
+            MAX_POEMS_PER_SESSION: 5,     // 每次复习最多5首
+            SESSION_TIME_LIMIT: 10,       // 单次复习限时10分钟
+            DAILY_REVIEW_LIMIT: 15,       // 每日最多复习15首
+            ENABLE_NOTIFICATIONS: true    // 启用复习提醒
+        },
+
+        // 动态调整规则
+        ADJUSTMENT_RULES: {
+            PROMOTE_THRESHOLD: 80,   // ≥80%答对率进入下一阶段
+            DEMOTE_THRESHOLD: 60,    // <60%答对率退回上一阶段
+            INTERVAL_ADJUSTMENT: 0.2 // 间隔调整比例（20%）
+        }
     },
 
     // 鼓励语配置

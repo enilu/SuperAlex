@@ -112,6 +112,9 @@ const UIManager = {
         const settingsOverlay = document.getElementById('settingsOverlay');
         const clearDataCacheBtn = document.getElementById('clearDataCacheBtn');
         const clearAllCacheBtn = document.getElementById('clearAllCacheBtn');
+        const clearProgressBtn = document.getElementById('clearProgressBtn');
+        const clearReviewBtn = document.getElementById('clearReviewBtn');
+        const exportReviewDataBtn = document.getElementById('exportReviewDataBtn');
 
         if (settingsBtn) {
             settingsBtn.addEventListener('click', () => this.openSettings());
@@ -150,6 +153,54 @@ const UIManager = {
                         this.showNotification('所有缓存已清除', 'success');
                     }
                 );
+            });
+        }
+
+        // 添加清除学习进度按钮的事件监听器
+        if (clearProgressBtn) {
+            clearProgressBtn.addEventListener('click', () => {
+                this.showConfirmDialog(
+                    '清除学习进度',
+                    '这将清除您的学习进度、成就和统计数据，但保留诗歌数据缓存。确认继续？',
+                    () => {
+                        CacheManager.clearByCategory('progress');
+                        this.updateCacheInfo();
+                        this.showNotification('学习进度已清除', 'success');
+                    }
+                );
+            });
+        }
+
+        // 添加清除复习数据按钮的事件监听器
+        if (clearReviewBtn) {
+            clearReviewBtn.addEventListener('click', () => {
+                this.showConfirmDialog(
+                    '清除复习数据',
+                    '这将清除您的复习历史数据，但保留其他学习进度。确认继续？',
+                    () => {
+                        CacheManager.clearByCategory('review');
+                        this.updateCacheInfo();
+                        this.showNotification('复习数据已清除', 'success');
+                    }
+                );
+            });
+        }
+
+        // 添加导出复习数据按钮的事件监听器
+        if (exportReviewDataBtn) {
+            exportReviewDataBtn.addEventListener('click', () => {
+                const reviewData = CacheManager.exportReviewData();
+
+                // 创建下载链接
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(reviewData, null, 2));
+                const downloadAnchorNode = document.createElement('a');
+                downloadAnchorNode.setAttribute("href", dataStr);
+                downloadAnchorNode.setAttribute("download", `tangpoem-review-data_${new Date().toISOString().slice(0, 19)}.json`);
+                document.body.appendChild(downloadAnchorNode); // required for firefox
+                downloadAnchorNode.click();
+                downloadAnchorNode.remove();
+
+                this.showNotification('复习数据已导出', 'success');
             });
         }
     },

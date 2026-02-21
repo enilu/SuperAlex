@@ -37,6 +37,7 @@ const elements = {
         playBtn: document.getElementById('playAudio'),
         prevBtn: document.getElementById('prevPoem'),
         nextBtn: document.getElementById('nextPoem'),
+        markBtn: document.getElementById('markForReview'),
         restartBtn: document.getElementById('restartBtn'),
         startReviewBtn: document.getElementById('startReview')
     },
@@ -84,6 +85,42 @@ function bindEvents() {
     elements.buttons.nextBtn?.addEventListener('click', () => {
         AudioManager.stopRecite();
         PoemManager.nextPoem();
+    });
+
+    elements.buttons.markBtn?.addEventListener('click', () => {
+        const currentPoem = PoemManager.getCurrentPoem();
+        if (currentPoem) {
+            const wasMarked = ProgressManager.isPoemMarkedForReview(currentPoem.id);
+
+            if (wasMarked) {
+                // 如果已标记，则取消标记
+                ProgressManager.unmarkPoemForReview(currentPoem.id);
+
+                // 更新按钮状态
+                const markBtn = document.getElementById('markForReview');
+                if (markBtn) {
+                    markBtn.classList.remove('marked');
+                    markBtn.setAttribute('title', '标记这首诗用于复习');
+                }
+
+                UIManager.showNotification('已取消标记', 'info');
+            } else {
+                // 如果未标记，则进行标记
+                ProgressManager.markPoemForReview(currentPoem.id);
+
+                // 更新按钮状态
+                const markBtn = document.getElementById('markForReview');
+                if (markBtn) {
+                    markBtn.classList.add('marked');
+                    markBtn.setAttribute('title', '已标记，点击取消');
+                }
+
+                UIManager.showNotification('已标记此诗用于复习', 'success');
+            }
+
+            // 更新复习计数
+            ProgressManager.updateReviewCount();
+        }
     });
 
     elements.buttons.playBtn?.addEventListener('click', () => {
@@ -216,6 +253,35 @@ async function loadWithProgress() {
         }
     });
 }
+
+
+// ==================== 扩展功能 ====================
+
+// 扩展PoemManager以更新标记按钮状态
+const originalRenderCurrentPoem = PoemManager.renderCurrentPoem;
+PoemManager.renderCurrentPoem = function() {
+    // 调用原始函数
+    originalRenderCurrentPoem.call(this);
+
+    // 然后更新标记按钮状态
+    setTimeout(() => {
+        const currentPoem = this.getCurrentPoem();
+        if (currentPoem) {
+            const markBtn = document.getElementById('markForReview');
+            if (markBtn) {
+                const isMarked = ProgressManager.isPoemMarkedForReview(currentPoem.id);
+
+                if (isMarked) {
+                    markBtn.classList.add('marked');
+                    markBtn.setAttribute('title', '已标记，点击取消');
+                } else {
+                    markBtn.classList.remove('marked');
+                    markBtn.setAttribute('title', '标记这首诗用于复习');
+                }
+            }
+        }
+    }, 0); // 使用setTimeout来确保DOM已经更新
+};
 
 
 export { AppState, elements, switchScreen };

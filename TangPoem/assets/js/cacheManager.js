@@ -17,7 +17,11 @@ const CacheType = {
     /** 音频设置 - 用户设置，保留 */
     AUDIO_SETTINGS: 'audio_settings',
     /** 应用设置 - 用户设置，保留 */
-    APP_SETTINGS: 'app_settings'
+    APP_SETTINGS: 'app_settings',
+    /** 复习历史 - 用户数据，特殊管理 */
+    REVIEW_HISTORY: 'review_history',
+    /** 标记复习的诗歌 - 用户数据 */
+    MARKED_FOR_REVIEW: 'marked_for_review'
 };
 
 /**
@@ -29,37 +33,57 @@ const CACHE_META = {
         key: 'tangpoem_poems_data',
         default: null,
         isUserData: false,
-        description: '诗歌数据缓存'
+        description: '诗歌数据缓存',
+        category: 'data'  // 数据缓存
     },
     [CacheType.PROGRESS]: {
         key: 'tangpoem_progress',
         default: {},
         isUserData: true,
-        description: '学习进度'
+        description: '学习进度',
+        category: 'progress'  // 学习进度
     },
     [CacheType.ACHIEVEMENTS]: {
         key: 'tangpoem_achievements',
         default: {},
         isUserData: true,
-        description: '成就数据'
+        description: '成就数据',
+        category: 'progress'  // 成就也属于进度数据
     },
     [CacheType.STATS]: {
         key: 'tangpoem_stats',
         default: { totalRecited: 0, totalGames: 0, highScore: 0 },
         isUserData: true,
-        description: '统计数据'
+        description: '统计数据',
+        category: 'progress'  // 统计数据
     },
     [CacheType.AUDIO_SETTINGS]: {
         key: 'tangpoem_audio_settings',
         default: { muted: false, volume: 1.0 },
         isUserData: true,
-        description: '音频设置'
+        description: '音频设置',
+        category: 'settings'  // 设置
     },
     [CacheType.APP_SETTINGS]: {
         key: 'tangpoem_app_settings',
         default: {},
         isUserData: true,
-        description: '应用设置'
+        description: '应用设置',
+        category: 'settings'  // 设置
+    },
+    [CacheType.REVIEW_HISTORY]: {
+        key: 'tangpoem_review_history',
+        default: {},
+        isUserData: true,
+        description: '复习历史数据',
+        category: 'review'  // 复习数据
+    },
+    [CacheType.MARKED_FOR_REVIEW]: {
+        key: 'tangpoem_marked_for_review',
+        default: [],
+        isUserData: true,
+        description: '标记复习的诗歌',
+        category: 'review'  // 复习数据
     }
 };
 
@@ -258,6 +282,38 @@ const CacheManager = {
     },
 
     /**
+     * 清除指定类别的缓存
+     * @param {string} category - 缓存类别 ('data', 'progress', 'settings', 'review')
+     */
+    clearByCategory(category) {
+        const cleared = [];
+        Object.entries(CACHE_META).forEach(([type, meta]) => {
+            if (meta.category === category && localStorage.getItem(meta.key)) {
+                localStorage.removeItem(meta.key);
+                cleared.push(meta.description);
+            }
+        });
+        console.log(`🗑️ [缓存] 已清除${category}类别缓存:`, cleared.join(', '));
+        return cleared;
+    },
+
+    /**
+     * 清除除了指定类别外的所有缓存
+     * @param {Array<string>} categoriesToKeep - 要保留的类别数组
+     */
+    clearAllExcept(categoriesToKeep = []) {
+        const cleared = [];
+        Object.entries(CACHE_META).forEach(([type, meta]) => {
+            if (!categoriesToKeep.includes(meta.category) && localStorage.getItem(meta.key)) {
+                localStorage.removeItem(meta.key);
+                cleared.push(meta.description);
+            }
+        });
+        console.log(`🗑️ [缓存] 已清除除[${categoriesToKeep.join(',')}]外的所有缓存:`, cleared.join(', '));
+        return cleared;
+    },
+
+    /**
      * 获取缓存统计信息
      * @returns {Object} 缓存统计
      */
@@ -324,6 +380,32 @@ const CacheManager = {
     },
 
     /**
+     * 导出复习数据（单独导出复习相关的数据）
+     * @returns {Object}
+     */
+    exportReviewData() {
+        const data = {
+            version: this.getCacheVersion(),
+            exportTime: new Date().toISOString(),
+            type: 'review_data',
+            data: {}
+        };
+
+        // 只导出复习相关的数据
+        const reviewTypes = ['progress', 'review_history'];
+        Object.entries(CACHE_META).forEach(([type, meta]) => {
+            if (reviewTypes.includes(meta.category) || type === CacheType.PROGRESS || type === CacheType.REVIEW_HISTORY) {
+                const value = this.get(type);
+                if (value !== null && value !== meta.default) {
+                    data.data[meta.key] = value;
+                }
+            }
+        });
+
+        return data;
+    },
+
+    /**
      * 导入缓存数据（用于恢复）
      * @param {Object} data - 导出的数据
      * @param {boolean} mergeUserData - 是否合并用户数据（false则覆盖）
@@ -356,6 +438,60 @@ const CacheManager = {
             return true;
         } catch (error) {
             console.error('❌ [缓存] 导入失败:', error);
+            return false;
+        }
+    },
+
+    /**
+     * 导入复习数据
+     * @param {Object} data - 导出的复习数据
+     * @param {boolean} merge - 是否合并数据（false则覆盖）
+     * @returns {boolean}
+     */
+    importReviewData(data, merge = true) {
+        try {
+            if (!data.data) {
+                console.error('❌ [缓存] 无效的复习数据');
+                return false;
+            }
+
+            Object.entries(data.data).forEach(([key, value]) => {
+                // 检查key是否为复习相关的缓存键
+                const meta = Object.values(CACHE_META).find(m =>
+                    (m.category === 'review' || m.category === 'progress') && m.key === key
+                );
+                if (meta) {
+                    if (merge && localStorage.getItem(key)) {
+                        // 合并复习数据
+                        const current = JSON.parse(localStorage.getItem(key));
+                        // 根据不同数据类型进行合并逻辑
+                        let merged;
+                        if (typeof current === 'object' && typeof value === 'object' && current !== null && value !== null) {
+                            if (Array.isArray(current) && Array.isArray(value)) {
+                                // 如果是数组，则合并数组
+                                merged = [...current, ...value];
+                            } else if (meta.type === CacheType.PROGRESS) {
+                                // 对于进度数据，合并各个诗歌的进度
+                                merged = { ...current, ...value };
+                            } else {
+                                // 其他情况深度合并
+                                merged = { ...current, ...value };
+                            }
+                        } else {
+                            merged = value;
+                        }
+                        localStorage.setItem(key, JSON.stringify(merged));
+                    } else {
+                        // 直接覆盖
+                        localStorage.setItem(key, JSON.stringify(value));
+                    }
+                }
+            });
+
+            console.log('✅ [缓存] 复习数据导入成功');
+            return true;
+        } catch (error) {
+            console.error('❌ [缓存] 复习数据导入失败:', error);
             return false;
         }
     }
