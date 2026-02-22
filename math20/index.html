@@ -25,6 +25,13 @@
                         <span class="mode-text">填写模式</span>
                     </button>
                 </div>
+
+                <!-- 设置按钮 -->
+                <div style="margin-top: 30px;">
+                    <a href="settings.html" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #ffa726 0%, #ff7043 100%); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 5px 20px rgba(255, 102, 0, 0.4); transition: all 0.3s ease;">
+                        ⚙️ 设置
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -60,7 +67,7 @@
             </div>
             <div class="timer-display">
                 <span class="label">⏱️</span>
-                <span class="value" id="timer">15</span> 
+                <span class="value" id="timer">15</span>
             </div>
             <div class="total-time-display">
                 <span class="label">🕐 总耗时</span>
@@ -70,6 +77,13 @@
                 <span class="label">📊 进度</span>
                 <span class="value" id="progress">1/20</span>
             </div>
+        </div>
+
+        <!-- 设置按钮 -->
+        <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+            <a href="settings.html" style="display: inline-block; padding: 8px 15px; background: rgba(255, 255, 255, 0.2); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 0.9rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                ⚙️ 设置
+            </a>
         </div>
 
         <!-- 题目区域 -->
@@ -162,9 +176,16 @@
                 </div>
             </div>
 
-            <button class="restart-btn" id="restartBtn">
-                🔄 再玩一次
-            </button>
+            <div class="result-actions">
+                <button class="restart-btn" id="restartBtn">
+                    🔄 再玩一次
+                </button>
+
+                <!-- 设置按钮 -->
+                <a href="settings.html" style="display: inline-block; margin-top: 15px; padding: 1rem 2rem; background: linear-gradient(135deg, #ffa726 0%, #ff7043 100%); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 5px 20px rgba(255, 102, 0, 0.4); transition: all 0.3s ease;">
+                    ⚙️ 查看历史记录
+                </a>
+            </div>
         </div>
     </div>
 

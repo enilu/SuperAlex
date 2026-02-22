@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学游戏 - 设置</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 设置页面专用样式 */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        .settings-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .settings-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-overview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .settings-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .action-btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .action-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+            color: #333;
+        }
+
+        .history-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+
+        .history-item {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .history-time {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .history-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 2px;
+        }
+
+        .detail-value {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .answer-mode-choice {
+            color: #667eea;
+        }
+
+        .answer-mode-input {
+            color: #28a745;
+        }
+
+        .math-mode-addition {
+            color: #28a745;
+        }
+
+        .math-mode-subtraction {
+            color: #007bff;
+        }
+
+        .math-mode-mixed {
+            color: #fd7e14;
+        }
+
+        .import-section {
+            margin-top: 20px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-input-display {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .file-input-display:hover {
+            border-color: #667eea;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+        }
+
+        .no-history {
+            text-align: center;
+            color: #6c757d;
+            font-style: italic;
+            padding: 30px;
+        }
+
+        /* 滚动条样式 */
+        .history-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .history-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .settings-container {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            .settings-title {
+                font-size: 2rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="settings-container">
+        <h1 class="settings-title">🎮 数学游戏设置</h1>
+
+        <!-- 统计概览 -->
+        <div class="stats-overview">
+            <h2>📊 答题统计概览</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-value" id="totalSessions">0</span>
+                    <span class="stat-label">游戏场次</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="totalQuestions">0</span>
+                    <span class="stat-label">答题总数</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="totalCorrect">0</span>
+                    <span class="stat-label">答对题目</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="totalWrong">0</span>
+                    <span class="stat-label">答错题目</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="avgScore">0</span>
+                    <span class="stat-label">平均得分</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="bestScore">0</span>
+                    <span class="stat-label">最佳得分</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 历史记录管理 -->
+        <div class="settings-section">
+            <div class="action-buttons">
+                <button class="action-btn btn-primary" id="viewHistoryBtn">🔍 查看</button>
+                <button class="action-btn btn-danger" id="clearHistoryBtn">🗑️ 清空</button>
+                <button class="action-btn btn-success" id="exportHistoryBtn">📤 导出</button>
+                <button class="action-btn btn-warning" id="importHistoryBtn">📥 导入</button>
+            </div>
+
+            <div class="import-section" id="importSection" style="display: none;">
+                <label>选择要导入的JSON文件：</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="importFile" accept=".json" />
+                    <div class="file-input-display" id="fileInputDisplay">点击选择文件或拖拽文件到此处</div>
+                </div>
+            </div>
+
+            <div class="history-list" id="historyList">
+                <div class="no-history">暂无答题记录，开始游戏后将在此显示历史记录</div>
+            </div>
+        </div>
+
+        <!-- 返回按钮 -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html"
+                style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;">
+                ← 返回游戏首页
+            </a>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // 定义缓存管理器，兼容动态加载和直接使用
+        function getCacheManager() {
+            // 首先检查全局是否有CacheManager
+            if (typeof CacheManager !== 'undefined') {
+                return CacheManager;
+            }
+
+            // 如果没有，则返回一个简单的实现
+            console.warn('缓存管理器未找到，使用localStorage替代实现');
+            return {
+                CACHE_KEY: 'math20_answer_history',
+
+                getHistory() {
+                    try {
+                        const history = localStorage.getItem(this.CACHE_KEY);
+                        return history ? JSON.parse(history) : [];
+                    } catch (e) {
+                        console.error('获取历史记录失败:', e);
+                        return [];
+                    }
+                },
+
+                saveHistory(history) {
+                    try {
+                        localStorage.setItem(this.CACHE_KEY, JSON.stringify(history));
+                    } catch (e) {
+                        console.error('保存历史记录失败:', e);
+                    }
+                },
+
+                addRecord(record) {
+                    try {
+                        const history = this.getHistory();
+
+                        // 添加时间戳
+                        record.timestamp = new Date().toISOString();
+
+                        // 将新记录添加到数组开头
+                        history.unshift(record);
+
+                        // 限制最大记录数（例如保留最近100条记录）
+                        if (history.length > 100) {
+                            history.splice(100);
+                        }
+
+                        this.saveHistory(history);
+                    } catch (e) {
+                        console.error('添加记录失败:', e);
+                    }
+                },
+
+                clearHistory() {
+                    try {
+                        localStorage.removeItem(this.CACHE_KEY);
+                    } catch (e) {
+                        console.error('清空历史记录失败:', e);
+                    }
+                },
+
+                exportHistory() {
+                    try {
+                        const history = this.getHistory();
+                        const dataStr = JSON.stringify(history, null, 2);
+                        const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+
+                        const exportFileDefaultName = `math20_history_${new Date().toISOString().slice(0, 19)}.json`;
+
+                        const linkElement = document.createElement('a');
+                        linkElement.setAttribute('href', dataUri);
+                        linkElement.setAttribute('download', exportFileDefaultName);
+                        linkElement.click();
+                    } catch (e) {
+                        console.error('导出历史记录失败:', e);
+                    }
+                },
+
+                importHistory(jsonString) {
+                    try {
+                        const importedData = JSON.parse(jsonString);
+                        if (Array.isArray(importedData)) {
+                            this.saveHistory(importedData);
+                            return { success: true, message: `成功导入 ${importedData.length} 条记录` };
+                        } else {
+                            return { success: false, message: '导入的数据格式不正确' };
+                        }
+                    } catch (error) {
+                        return { success: false, message: `解析JSON数据时出错: ${error.message}` };
+                    }
+                },
+
+                getStats() {
+                    try {
+                        const history = this.getHistory();
+                        if (history.length === 0) {
+                            return {
+                                totalSessions: 0,
+                                totalQuestions: 0,
+                                totalCorrect: 0,
+                                totalWrong: 0,
+                                avgScore: 0,
+                                bestScore: 0,
+                                worstScore: 0
+                            };
+                        }
+
+                        const totalSessions = history.length;
+                        const totalQuestions = history.reduce((sum, record) => sum + record.totalQuestions, 0);
+                        const totalCorrect = history.reduce((sum, record) => sum + record.correctCount, 0);
+                        const totalWrong = history.reduce((sum, record) => sum + record.wrongCount, 0);
+                        const scores = history.map(record => record.score);
+                        const avgScore = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+                        const bestScore = Math.max(...scores);
+                        const worstScore = Math.min(...scores);
+
+                        return {
+                            totalSessions,
+                            totalQuestions,
+                            totalCorrect,
+                            totalWrong,
+                            avgScore: Math.round(avgScore * 100) / 100,
+                            bestScore,
+                            worstScore
+                        };
+                    } catch (e) {
+                        console.error('获取统计数据失败:', e);
+                        return {
+                            totalSessions: 0,
+                            totalQuestions: 0,
+                            totalCorrect: 0,
+                            totalWrong: 0,
+                            avgScore: 0,
+                            bestScore: 0,
+                            worstScore: 0
+                        };
+                    }
+                }
+            };
+        }
+
+        // 显示通知
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // 格式化时间为易读格式
+        function formatTime(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleString('zh-CN');
+        }
+
+        // 格式化秒数为分:秒格式
+        function formatDuration(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}分${secs}秒`;
+        }
+
+        // 格式化百分比
+        function formatPercentage(value) {
+            return parseFloat(value).toFixed(1) + '%';
+        }
+
+        // 显示历史记录
+        function displayHistory() {
+            const cacheManager = getCacheManager();
+            const history = cacheManager.getHistory();
+            const historyList = document.getElementById('historyList');
+
+            if (history.length === 0) {
+                historyList.innerHTML = '<div class="no-history">暂无答题记录，开始游戏后将在此显示历史记录</div>';
+                return;
+            }
+
+            const historyHTML = history.map(record => `
+                <div class="history-item">
+                    <div class="history-header">
+                        <div class="history-time">${formatTime(record.endTime)}</div>
+                        <div class="record-score">得分: <strong>${record.score}</strong></div>
+                    </div>
+                    <div class="history-details">
+                        <div class="detail-item">
+                            <span class="detail-label">答题模式</span>
+                            <span class="detail-value answer-mode-${record.answerMode}">
+                                ${record.answerMode === 'choice' ? '选择模式' : '填写模式'}
+                            </span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">运算模式</span>
+                            <span class="detail-value math-mode-${record.mathMode}">
+                                ${record.mathMode === 'addition' ? '加法' : record.mathMode === 'subtraction' ? '减法' : '混合'}
+                            </span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">答题时间</span>
+                            <span class="detail-value">${formatDuration(record.totalTimeSeconds)}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">答题总数</span>
+                            <span class="detail-value">${record.totalQuestions}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">答对题目</span>
+                            <span class="detail-value">${record.correctCount}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">答错题目</span>
+                            <span class="detail-value">${record.wrongCount}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">正确率</span>
+                            <span class="detail-value">${formatPercentage(record.accuracyRate)}%</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            historyList.innerHTML = historyHTML;
+        }
+
+        // 显示统计数据
+        function displayStats() {
+            const cacheManager = getCacheManager();
+            const stats = cacheManager.getStats();
+
+            document.getElementById('totalSessions').textContent = stats.totalSessions;
+            document.getElementById('totalQuestions').textContent = stats.totalQuestions;
+            document.getElementById('totalCorrect').textContent = stats.totalCorrect;
+            document.getElementById('totalWrong').textContent = stats.totalWrong;
+            document.getElementById('avgScore').textContent = stats.avgScore;
+            document.getElementById('bestScore').textContent = stats.bestScore;
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            const cacheManager = getCacheManager();
+
+            // 显示初始统计数据和历史记录
+            displayStats();
+            displayHistory();
+
+            // 绑定事件监听器
+            document.getElementById('viewHistoryBtn').addEventListener('click', () => {
+                displayHistory();
+            });
+
+            document.getElementById('clearHistoryBtn').addEventListener('click', () => {
+                if (confirm('确定要清空所有历史记录吗？此操作不可撤销！')) {
+                    const cacheManager = getCacheManager();
+                    cacheManager.clearHistory();
+                    displayStats();
+                    displayHistory();
+                    showNotification('历史记录已清空！');
+                }
+            });
+
+            document.getElementById('exportHistoryBtn').addEventListener('click', () => {
+                const cacheManager = getCacheManager();
+                cacheManager.exportHistory();
+                showNotification('历史记录已导出！');
+            });
+
+            // 导入历史记录相关
+            const importHistoryBtn = document.getElementById('importHistoryBtn');
+            const importSection = document.getElementById('importSection');
+            const importFileInput = document.getElementById('importFile');
+            const fileInputDisplay = document.getElementById('fileInputDisplay');
+
+            importHistoryBtn.addEventListener('click', () => {
+                importSection.style.display = importSection.style.display === 'none' ? 'block' : 'none';
+            });
+
+            importFileInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (!file) return;
+
+                fileInputDisplay.textContent = file.name;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const cacheManager = getCacheManager();
+                        const result = cacheManager.importHistory(e.target.result);
+
+                        if (result.success) {
+                            showNotification(result.message, 'success');
+                            displayStats();
+                            displayHistory();
+                        } else {
+                            showNotification(result.message, 'error');
+                        }
+                    } catch (error) {
+                        showNotification(`导入失败: ${error.message}`, 'error');
+                    }
+
+                    // 重置文件输入
+                    event.target.value = '';
+                    fileInputDisplay.textContent = '点击选择文件或拖拽文件到此处';
+                };
+                reader.readAsText(file);
+            });
+
+            // 拖拽上传功能
+            fileInputDisplay.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileInputDisplay.style.borderColor = '#667eea';
+                fileInputDisplay.style.backgroundColor = 'rgba(102, 126, 234, 0.1)';
+            });
+
+            fileInputDisplay.addEventListener('dragleave', () => {
+                fileInputDisplay.style.borderColor = '#ccc';
+                fileInputDisplay.style.backgroundColor = '';
+            });
+
+            fileInputDisplay.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileInputDisplay.style.borderColor = '#ccc';
+                fileInputDisplay.style.backgroundColor = '';
+
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    const file = files[0];
+                    if (file.type === 'application/json' || file.name.endsWith('.json')) {
+                        fileInputDisplay.textContent = file.name;
+
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            try {
+                                const cacheManager = getCacheManager();
+                                const result = cacheManager.importHistory(e.target.result);
+
+                                if (result.success) {
+                                    showNotification(result.message, 'success');
+                                    displayStats();
+                                    displayHistory();
+                                } else {
+                                    showNotification(result.message, 'error');
+                                }
+                            } catch (error) {
+                                showNotification(`导入失败: ${error.message}`, 'error');
+                            }
+
+                            // 重置显示文本
+                            fileInputDisplay.textContent = '点击选择文件或拖拽文件到此处';
+                        };
+                        reader.readAsText(file);
+                    } else {
+                        showNotification('请选择有效的JSON文件', 'error');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

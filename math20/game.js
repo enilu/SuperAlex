@@ -382,6 +382,111 @@ const KeypadController = {
     }
 };
 
+// 异步加载缓存管理器
+function loadCacheManager() {
+    // 检查全局是否有CacheManager
+    if (typeof CacheManager !== 'undefined') {
+        return CacheManager;
+    }
+
+    // 如果没有，则返回一个简单的实现
+    console.warn('缓存管理器未找到，使用localStorage替代实现');
+    return {
+        CACHE_KEY: 'math20_answer_history',
+
+        getHistory() {
+            const history = localStorage.getItem(this.CACHE_KEY);
+            return history ? JSON.parse(history) : [];
+        },
+
+        saveHistory(history) {
+            localStorage.setItem(this.CACHE_KEY, JSON.stringify(history));
+        },
+
+        addRecord(record) {
+            const history = this.getHistory();
+
+            // 添加时间戳
+            record.timestamp = new Date().toISOString();
+
+            // 将新记录添加到数组开头
+            history.unshift(record);
+
+            // 限制最大记录数（例如保留最近100条记录）
+            if (history.length > 100) {
+                history.splice(100);
+            }
+
+            this.saveHistory(history);
+        },
+
+        clearHistory() {
+            localStorage.removeItem(this.CACHE_KEY);
+        },
+
+        exportHistory() {
+            const history = this.getHistory();
+            const dataStr = JSON.stringify(history, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+
+            const exportFileDefaultName = `math20_history_${new Date().toISOString().slice(0, 19)}.json`;
+
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+        },
+
+        importHistory(jsonString) {
+            try {
+                const importedData = JSON.parse(jsonString);
+                if (Array.isArray(importedData)) {
+                    this.saveHistory(importedData);
+                    return { success: true, message: `成功导入 ${importedData.length} 条记录` };
+                } else {
+                    return { success: false, message: '导入的数据格式不正确' };
+                }
+            } catch (error) {
+                return { success: false, message: `解析JSON数据时出错: ${error.message}` };
+            }
+        },
+
+        getStats() {
+            const history = this.getHistory();
+            if (history.length === 0) {
+                return {
+                    totalSessions: 0,
+                    totalQuestions: 0,
+                    totalCorrect: 0,
+                    totalWrong: 0,
+                    avgScore: 0,
+                    bestScore: 0,
+                    worstScore: 0
+                };
+            }
+
+            const totalSessions = history.length;
+            const totalQuestions = history.reduce((sum, record) => sum + record.totalQuestions, 0);
+            const totalCorrect = history.reduce((sum, record) => sum + record.correctCount, 0);
+            const totalWrong = history.reduce((sum, record) => sum + record.wrongCount, 0);
+            const scores = history.map(record => record.score);
+            const avgScore = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+            const bestScore = Math.max(...scores);
+            const worstScore = Math.min(...scores);
+
+            return {
+                totalSessions,
+                totalQuestions,
+                totalCorrect,
+                totalWrong,
+                avgScore: Math.round(avgScore * 100) / 100,
+                bestScore,
+                worstScore
+            };
+        }
+    };
+}
+
 // ==================== 游戏控制器 ====================
 const GameController = {
     // 选择答题模式
@@ -642,6 +747,27 @@ const GameController = {
 
         // 切换到结算界面
         this.switchScreen('result');
+
+        // 保存答题记录到缓存
+        const cacheManager = loadCacheManager();
+        const record = {
+            answerMode: gameState.answerMode,
+            mathMode: gameState.mathMode,
+            startTime: new Date(Date.now() - TimerController.totalTime * 1000).toISOString(),
+            endTime: new Date().toISOString(),
+            totalTimeSeconds: TimerController.totalTime,
+            totalQuestions: CONFIG.TOTAL_QUESTIONS,
+            correctCount: gameState.correctCount,
+            wrongCount: gameState.wrongCount,
+            score: gameState.score,
+            accuracyRate: (gameState.correctCount / CONFIG.TOTAL_QUESTIONS * 100).toFixed(2)
+        };
+
+        try {
+            cacheManager.addRecord(record);
+        } catch (error) {
+            console.error('保存答题记录失败:', error);
+        }
     },
 
     // 计算结果
@@ -718,10 +844,26 @@ function initEventListeners() {
     elements.result.restartBtn.addEventListener('click', () => {
         GameController.switchScreen('start');
     });
+
+    // 设置按钮
+    const settingsBtn = document.getElementById('settingsBtn');
+    if (settingsBtn) {
+        settingsBtn.addEventListener('click', () => {
+            // 重定向到设置页面
+            window.location.href = 'settings.html';
+        });
+    }
 }
 
 // ==================== 初始化 ====================
 document.addEventListener('DOMContentLoaded', () => {
     SoundController.init();
     initEventListeners();
+
+    // 预加载缓存管理器
+    try {
+        loadCacheManager();
+    } catch (e) {
+        console.warn('无法加载缓存管理器:', e);
+    }
 });
