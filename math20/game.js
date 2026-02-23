@@ -237,7 +237,9 @@ const QuestionGenerator = {
         return {
             num1,
             num2,
-            operator: '+',
+            num3: null, // 三则运算参数，二则运算时为null
+            operator1: '+',
+            operator2: null, // 二则运算时为null
             answer: num1 + num2
         };
     },
@@ -249,8 +251,76 @@ const QuestionGenerator = {
         return {
             num1,
             num2,
-            operator: '-',
+            num3: null, // 三则运算参数，二则运算时为null
+            operator1: '-',
+            operator2: null, // 二则运算时为null
             answer: num1 - num2
+        };
+    },
+
+    // 生成三则加法题目
+    generateTripleAddition() {
+        const num1 = Math.floor(Math.random() * 8); // 0-7 保证结果不超过20
+        const num2 = Math.floor(Math.random() * (11 - num1)); // 确保 num1+num2 不超过18
+        const num3 = Math.floor(Math.random() * (21 - num1 - num2)); // 确保总数不超过20
+
+        return {
+            num1,
+            num2,
+            num3,
+            operator1: '+',
+            operator2: '+',
+            answer: num1 + num2 + num3
+        };
+    },
+
+    // 生成三则减法题目 (确保结果非负)
+    generateTripleSubtraction() {
+        const num1 = Math.floor(Math.random() * 21) + 5; // 5-25 保证有足够的空间做两次减法
+        const num2 = Math.floor(Math.random() * (Math.floor(num1 / 2) + 1)); // 第一个减数
+        const num3 = Math.floor(Math.random() * (Math.floor((num1 - num2) / 2) + 1)); // 第二个减数，确保结果非负
+
+        return {
+            num1,
+            num2,
+            num3,
+            operator1: '-',
+            operator2: '-',
+            answer: num1 - num2 - num3
+        };
+    },
+
+    // 生成三则混合题目 (加法后减法，确保结果非负)
+    generateTripleMixed() {
+        const num1 = Math.floor(Math.random() * 15) + 1; // 1-15
+        const num2 = Math.floor(Math.random() * (21 - num1)); // 确保 num1+num2 不超过20
+        const resultAfterAdd = num1 + num2;
+        const num3 = Math.floor(Math.random() * (resultAfterAdd + 1)); // 减数不能超过前面的结果
+
+        return {
+            num1,
+            num2,
+            num3,
+            operator1: '+',
+            operator2: '-',
+            answer: num1 + num2 - num3
+        };
+    },
+
+    // 生成三则反向混合题目 (减法后加法)
+    generateTripleReverseMixed() {
+        const num1 = Math.floor(Math.random() * 21); // 0-20
+        const num2 = Math.floor(Math.random() * (num1 + 1)); // 确保非负结果
+        const intermediate = num1 - num2;
+        const num3 = Math.floor(Math.random() * (21 - intermediate)); // 加上的数，确保不超过20
+
+        return {
+            num1,
+            num2,
+            num3,
+            operator1: '-',
+            operator2: '+',
+            answer: num1 - num2 + num3
         };
     },
 
@@ -259,6 +329,20 @@ const QuestionGenerator = {
         return Math.random() > 0.5
             ? this.generateAddition()
             : this.generateSubtraction();
+    },
+
+    // 生成三则混合题目
+    generateTripleMixedAll() {
+        const random = Math.random();
+        if (random < 0.25) {
+            return this.generateTripleAddition();
+        } else if (random < 0.5) {
+            return this.generateTripleSubtraction();
+        } else if (random < 0.75) {
+            return this.generateTripleMixed();
+        } else {
+            return this.generateTripleReverseMixed();
+        }
     },
 
     // 生成题目列表
@@ -275,6 +359,23 @@ const QuestionGenerator = {
                     break;
                 case 'mixed':
                     question = this.generateMixed();
+                    break;
+                case 'triple-addition':
+                    question = this.generateTripleAddition();
+                    break;
+                case 'triple-subtraction':
+                    question = this.generateTripleSubtraction();
+                    break;
+                case 'triple-mixed':
+                    question = this.generateTripleMixedAll();
+                    break;
+                default:
+                    // 默认情况下随机选择二则或三则运算
+                    if (Math.random() > 0.5) {
+                        question = this.generateMixed();
+                    } else {
+                        question = this.generateTripleMixedAll();
+                    }
                     break;
             }
             questions.push(question);
@@ -537,6 +638,12 @@ const GameController = {
             elements.screens.game.classList.add('mode-subtraction');
         } else if (mode === 'mixed') {
             elements.screens.game.classList.add('mode-mixed');
+        } else if (mode === 'triple-addition') {
+            elements.screens.game.classList.add('mode-triple-addition');
+        } else if (mode === 'triple-subtraction') {
+            elements.screens.game.classList.add('mode-triple-subtraction');
+        } else if (mode === 'triple-mixed') {
+            elements.screens.game.classList.add('mode-triple-mixed');
         }
     },
 
@@ -551,14 +658,28 @@ const GameController = {
         elements.game.score.textContent = gameState.score;
         elements.game.progress.textContent = `${gameState.currentIndex + 1}/${CONFIG.TOTAL_QUESTIONS}`;
 
-        // 更新题目文本
-        elements.game.questionText.innerHTML = `
-            <span class="num1">${question.num1}</span>
-            <span class="operator">${question.operator}</span>
-            <span class="num2">${question.num2}</span>
-            <span class="equals">=</span>
-            <span class="question-mark">?</span>
-        `;
+        // 更新题目文本 - 现在处理二则和三则运算
+        if (question.num3 !== null) {
+            // 三则运算显示
+            elements.game.questionText.innerHTML = `
+                <span class="num1">${question.num1}</span>
+                <span class="operator">${question.operator1}</span>
+                <span class="num2">${question.num2}</span>
+                <span class="operator">${question.operator2}</span>
+                <span class="num3">${question.num3}</span>
+                <span class="equals">=</span>
+                <span class="question-mark">?</span>
+            `;
+        } else {
+            // 二则运算显示
+            elements.game.questionText.innerHTML = `
+                <span class="num1">${question.num1}</span>
+                <span class="operator">${question.operator1}</span>
+                <span class="num2">${question.num2}</span>
+                <span class="equals">=</span>
+                <span class="question-mark">?</span>
+            `;
+        }
 
         // 根据答题模式显示不同的交互界面
         if (gameState.answerMode === 'choice') {
