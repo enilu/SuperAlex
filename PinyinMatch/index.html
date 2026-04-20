@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="拼音配对乐园 - 轻量拼音启蒙小游戏">
+  <title>拼音配对乐园</title>
+  <script>
+    if (/\/PinyinMatch$/.test(window.location.pathname)) {
+      window.location.replace(window.location.pathname + "/" + window.location.search + window.location.hash);
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-orb orb-c"></div>
+
+  <section id="startScreen" class="screen active" aria-label="开始界面">
+    <div class="container start-container">
+      <div class="hero-badge">🎓 儿童拼音启蒙</div>
+      <h1 class="game-title">拼音配对乐园</h1>
+      <p class="subtitle">选好难度后开始挑战，每局只需一分钟左右。</p>
+
+      <div class="start-panel">
+        <p class="selection-title">选择挑战难度</p>
+        <div class="mode-group" role="group" aria-label="难度选择">
+          <button class="mode-btn active" data-mode="k1" type="button">🌱 幼儿园</button>
+          <button class="mode-btn" data-mode="g1" type="button">🌟 一年级</button>
+          <button class="mode-btn" data-mode="g2" type="button">🚀 二年级</button>
+        </div>
+        <button id="startBtn" type="button" class="start-btn">🚀 开始新一局</button>
+        <p class="best-summary" id="startBestText">历史最高：0 ｜ 已玩：0 局 ｜ 胜利：0 局</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gameScreen" class="screen" aria-label="游戏界面">
+    <div class="container game-container">
+      <header class="game-header">
+        <button id="exitBtn" type="button" class="ghost-btn">← 返回</button>
+        <div class="stat-pill">⏱️ <strong id="timeText">--</strong></div>
+        <div class="stat-pill">🎯 <strong id="matchText">0</strong></div>
+        <div class="stat-pill">🏆 <strong id="scoreText">0</strong></div>
+      </header>
+
+      <section class="panel status-panel" aria-live="polite">
+        <p id="statusText" class="status-text status-info">点击左侧汉字，再点右侧拼音。</p>
+      </section>
+
+      <section class="board" aria-label="拼音配对区域">
+        <div class="board-column">
+          <h2>汉字卡片</h2>
+          <div id="charGrid" class="card-grid"></div>
+        </div>
+        <div class="board-column">
+          <h2>拼音卡片</h2>
+          <div id="pinyinGrid" class="card-grid"></div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section id="resultScreen" class="screen" aria-label="结算界面">
+    <div class="container result-container panel">
+      <h2 class="result-title">🎉 本局完成</h2>
+      <div class="result-score">得分：<strong id="resultScoreText">0</strong></div>
+      <div class="result-stars" id="resultStars">
+        <span class="star">⭐</span>
+        <span class="star">⭐</span>
+        <span class="star">⭐</span>
+        <span class="star">⭐</span>
+        <span class="star">⭐</span>
+      </div>
+      <div class="result-rank" id="resultRank">继续加油</div>
+      <p class="result-message" id="resultMessageText">继续加油，你已经很棒了。</p>
+      <p class="best-summary" id="resultBestText">历史最高：0 ｜ 已玩：0 局 ｜ 胜利：0 局</p>
+      
+      <!-- 勋章展示区域 -->
+      <div class="badges-section">
+        <h3 class="badges-title">🏆 获得勋章</h3>
+        <div class="badges-container" id="badgesContainer">
+          <p class="no-badges">暂无勋章</p>
+        </div>
+      </div>
+      
+      <div class="result-actions">
+        <button id="resultRestartBtn" type="button" class="start-btn">🔄 再来一局</button>
+        <button id="resultBackBtn" type="button" class="ghost-btn">← 返回首页</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 反馈弹窗 -->
+  <div id="feedbackPopup" class="feedback-popup">
+    <div class="emoji">🎉</div>
+    <div class="text">太棒了！</div>
+  </div>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
