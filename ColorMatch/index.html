@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="颜色配对游戏 - 儿童益智小游戏">
+  <title>颜色配对乐园</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="bg-gradient"></div>
+
+  <section id="startScreen" class="screen active">
+    <div class="container start-container">
+      <div class="hero-badge">🎨 颜色认知启蒙</div>
+      <h1 class="game-title">颜色配对乐园</h1>
+      <p class="subtitle">找出相同颜色的卡片进行配对！</p>
+
+      <div class="start-panel">
+        <p class="selection-title">选择难度</p>
+        <div class="mode-group">
+          <button class="mode-btn active" data-mode="easy" type="button">🌱 简单</button>
+          <button class="mode-btn" data-mode="medium" type="button">⭐ 中等</button>
+          <button class="mode-btn" data-mode="hard" type="button">🚀 困难</button>
+        </div>
+        <button id="startBtn" type="button" class="start-btn">🎮 开始游戏</button>
+        <p class="best-summary" id="startBestText">历史最高：0 ｜ 已玩：0 局</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gameScreen" class="screen">
+    <div class="container game-container">
+      <header class="game-header">
+        <button id="exitBtn" type="button" class="ghost-btn">← 返回</button>
+        <div class="stat-pill">⏱️ <strong id="timeText">--</strong></div>
+        <div class="stat-pill">🎯 <strong id="matchText">0</strong></div>
+        <div class="stat-pill">🏆 <strong id="scoreText">0</strong></div>
+      </header>
+
+      <section class="panel status-panel">
+        <p id="statusText" class="status-text status-info">点击卡片，找出相同颜色的配对！</p>
+      </section>
+
+      <section class="card-grid-container">
+        <div id="cardGrid" class="card-grid"></div>
+      </section>
+    </div>
+  </section>
+
+  <section id="resultScreen" class="screen">
+    <div class="container result-container panel">
+      <h2 class="result-title">🎉 本局完成</h2>
+      <div class="result-score">得分：<strong id="resultScoreText">0</strong></div>
+      <div class="result-stars" id="resultStars">
+        <span class="star">⭐</span>
+        <span class="star">⭐</span>
+        <span class="star">⭐</span>
+        <span class="star">⭐</span>
+        <span class="star">⭐</span>
+      </div>
+      <p class="result-message" id="resultMessageText">继续加油！</p>
+      <p class="best-summary" id="resultBestText">历史最高：0 ｜ 已玩：0 局</p>
+      
+      <div class="result-actions">
+        <button id="resultRestartBtn" type="button" class="start-btn">🔄 再来一局</button>
+        <button id="resultBackBtn" type="button" class="ghost-btn">← 返回首页</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="feedbackPopup" class="feedback-popup">
+    <div class="emoji">🎉</div>
+    <div class="text">太棒了！</div>
+  </div>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
