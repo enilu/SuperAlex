@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>20以内加减法游戏</title>
+    <title>数学运算练习</title>
     <link rel="stylesheet" href="style.css?t=1">
 </head>
 <body>
@@ -12,9 +12,21 @@
     <div id="startScreen" class="screen active">
         <div class="container">
             <h1 class="game-title">🎮 数学小游戏</h1>
-            <p class="subtitle">20以内加减法练习</p>
+            <p class="subtitle">加减法练习</p>
             <div class="mode-selection">
-                <h2 class="selection-title">选择答题模式</h2>
+                <h2 class="selection-title">选择难度范围</h2>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn active" data-difficulty="easy">
+                        <span class="diff-icon">🌱</span>
+                        <span class="diff-text">20以内</span>
+                    </button>
+                    <button class="difficulty-btn" data-difficulty="hard">
+                        <span class="diff-icon">🚀</span>
+                        <span class="diff-text">100以内</span>
+                    </button>
+                </div>
+                
+                <h2 class="selection-title" style="margin-top: 30px;">选择答题模式</h2>
                 <div class="answer-mode-buttons">
                     <button class="answer-mode-btn" data-answer-mode="choice">
                         <span class="mode-icon">📝</span>

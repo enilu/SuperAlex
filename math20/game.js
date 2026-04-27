@@ -2,11 +2,19 @@
 const CONFIG = {
     TOTAL_QUESTIONS: 20,
     POINTS_PER_QUESTION: 5,
-    MAX_NUMBER: 20,
     ANSWER_DELAY: 1200,
     BUTTON_ENABLE_DELAY: 500,
-    QUESTION_TIME_LIMIT: 15  // 每题答题时间限制（秒）
+    QUESTION_TIME_LIMIT: 15,  // 每题答题时间限制（秒）
+    
+    // 难度配置
+    difficulties: {
+        easy: { maxNumber: 20, name: '20以内', timeLimit: 15 },
+        hard: { maxNumber: 100, name: '100以内', timeLimit: 20 }
+    }
 };
+
+// 当前难度设置
+let currentDifficulty = 'easy';
 
 // ==================== 音效控制器 ====================
 const SoundController = {
@@ -173,6 +181,7 @@ const TimerController = {
 let gameState = {
     answerMode: null,     // 'choice' 或 'input'
     mathMode: null,        // 'addition', 'subtraction', 'mixed'
+    difficulty: 'easy',    // 'easy' 20以内, 'hard' 100以内
     questions: [],         // 题目列表
     currentIndex: 0,       // 当前题目索引
     score: 0,              // 分数
@@ -192,7 +201,8 @@ const elements = {
         result: document.getElementById('resultScreen')
     },
     start: {
-        answerModeBtns: document.querySelectorAll('.answer-mode-btn')
+        answerModeBtns: document.querySelectorAll('.answer-mode-btn'),
+        difficultyBtns: document.querySelectorAll('.difficulty-btn')
     },
     mathMode: {
         modeBtns: document.querySelectorAll('.mode-btn'),
@@ -230,39 +240,49 @@ const elements = {
 
 // ==================== 题目生成器 ====================
 const QuestionGenerator = {
+    // 获取当前难度的最大数字
+    getMaxNumber() {
+        return CONFIG.difficulties[currentDifficulty].maxNumber;
+    },
+
     // 生成加法题目
     generateAddition() {
-        const num1 = Math.floor(Math.random() * 11); // 0-10
-        const num2 = Math.floor(Math.random() * 11); // 0-10
+        const maxNum = this.getMaxNumber();
+        const halfMax = Math.floor(maxNum / 2);
+        const num1 = Math.floor(Math.random() * (halfMax + 1));
+        const num2 = Math.floor(Math.random() * (halfMax + 1));
         return {
             num1,
             num2,
-            num3: null, // 三则运算参数，二则运算时为null
+            num3: null,
             operator1: '+',
-            operator2: null, // 二则运算时为null
+            operator2: null,
             answer: num1 + num2
         };
     },
 
     // 生成减法题目 (确保结果非负)
     generateSubtraction() {
-        const num1 = Math.floor(Math.random() * 21); // 0-20
-        const num2 = Math.floor(Math.random() * (num1 + 1)); // 0-num1
+        const maxNum = this.getMaxNumber();
+        const num1 = Math.floor(Math.random() * (maxNum + 1));
+        const num2 = Math.floor(Math.random() * (num1 + 1));
         return {
             num1,
             num2,
-            num3: null, // 三则运算参数，二则运算时为null
+            num3: null,
             operator1: '-',
-            operator2: null, // 二则运算时为null
+            operator2: null,
             answer: num1 - num2
         };
     },
 
     // 生成三则加法题目
     generateTripleAddition() {
-        const num1 = Math.floor(Math.random() * 8); // 0-7 保证结果不超过20
-        const num2 = Math.floor(Math.random() * (11 - num1)); // 确保 num1+num2 不超过18
-        const num3 = Math.floor(Math.random() * (21 - num1 - num2)); // 确保总数不超过20
+        const maxNum = this.getMaxNumber();
+        const thirdMax = Math.floor(maxNum / 3);
+        const num1 = Math.floor(Math.random() * (thirdMax + 1));
+        const num2 = Math.floor(Math.random() * (thirdMax + 1));
+        const num3 = Math.floor(Math.random() * (thirdMax + 1));
 
         return {
             num1,
@@ -276,9 +296,10 @@ const QuestionGenerator = {
 
     // 生成三则减法题目 (确保结果非负)
     generateTripleSubtraction() {
-        const num1 = Math.floor(Math.random() * 21) + 5; // 5-25 保证有足够的空间做两次减法
-        const num2 = Math.floor(Math.random() * (Math.floor(num1 / 2) + 1)); // 第一个减数
-        const num3 = Math.floor(Math.random() * (Math.floor((num1 - num2) / 2) + 1)); // 第二个减数，确保结果非负
+        const maxNum = this.getMaxNumber();
+        const num1 = Math.floor(Math.random() * maxNum) + Math.floor(maxNum / 4);
+        const num2 = Math.floor(Math.random() * (Math.floor(num1 / 2) + 1));
+        const num3 = Math.floor(Math.random() * (Math.floor((num1 - num2) / 2) + 1));
 
         return {
             num1,
@@ -292,10 +313,11 @@ const QuestionGenerator = {
 
     // 生成三则混合题目 (加法后减法，确保结果非负)
     generateTripleMixed() {
-        const num1 = Math.floor(Math.random() * 15) + 1; // 1-15
-        const num2 = Math.floor(Math.random() * (21 - num1)); // 确保 num1+num2 不超过20
+        const maxNum = this.getMaxNumber();
+        const num1 = Math.floor(Math.random() * Math.floor(maxNum * 0.7)) + 1;
+        const num2 = Math.floor(Math.random() * (maxNum - num1 + 1));
         const resultAfterAdd = num1 + num2;
-        const num3 = Math.floor(Math.random() * (resultAfterAdd + 1)); // 减数不能超过前面的结果
+        const num3 = Math.floor(Math.random() * (resultAfterAdd + 1));
 
         return {
             num1,
@@ -309,10 +331,11 @@ const QuestionGenerator = {
 
     // 生成三则反向混合题目 (减法后加法)
     generateTripleReverseMixed() {
-        const num1 = Math.floor(Math.random() * 21); // 0-20
-        const num2 = Math.floor(Math.random() * (num1 + 1)); // 确保非负结果
+        const maxNum = this.getMaxNumber();
+        const num1 = Math.floor(Math.random() * (maxNum + 1));
+        const num2 = Math.floor(Math.random() * (num1 + 1));
         const intermediate = num1 - num2;
-        const num3 = Math.floor(Math.random() * (21 - intermediate)); // 加上的数，确保不超过20
+        const num3 = Math.floor(Math.random() * (maxNum - intermediate + 1));
 
         return {
             num1,
@@ -386,16 +409,18 @@ const QuestionGenerator = {
     // 生成选项 (一个正确答案 + 两个干扰项)
     generateOptions(correctAnswer) {
         const options = [correctAnswer];
+        const maxNum = this.getMaxNumber();
+        const maxOffset = Math.min(5, Math.floor(maxNum / 10) + 2);
 
-        // 生成两个干扰项，与正确答案相差1-3
+        // 生成两个干扰项，与正确答案相差1-maxOffset
         while (options.length < 3) {
-            const offset = Math.floor(Math.random() * 4) + 1;
+            const offset = Math.floor(Math.random() * maxOffset) + 1;
             const wrongAnswer = Math.random() > 0.5
                 ? correctAnswer - offset
                 : correctAnswer + offset;
 
-            // 确保干扰项在0-20范围内且不重复
-            if (wrongAnswer >= 0 && wrongAnswer <= CONFIG.MAX_NUMBER &&
+            // 确保干扰项在0-maxNum范围内且不重复
+            if (wrongAnswer >= 0 && wrongAnswer <= maxNum &&
                 !options.includes(wrongAnswer)) {
                 options.push(wrongAnswer);
             }
@@ -596,12 +621,27 @@ const GameController = {
         this.switchScreen('mathMode');
     },
 
+    // 选择难度
+    selectDifficulty(difficulty) {
+        currentDifficulty = difficulty;
+        gameState.difficulty = difficulty;
+        
+        // 更新按钮状态
+        elements.start.difficultyBtns.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.difficulty === difficulty) {
+                btn.classList.add('active');
+            }
+        });
+    },
+
     // 开始游戏
     start(mathMode) {
         // 重置状态
         gameState = {
             answerMode: gameState.answerMode,
             mathMode: mathMode,
+            difficulty: currentDifficulty,
             questions: QuestionGenerator.generateList(mathMode, CONFIG.TOTAL_QUESTIONS),
             currentIndex: 0,
             score: 0,
@@ -614,6 +654,9 @@ const GameController = {
         // 重置总耗时
         TimerController.totalTime = 0;
         TimerController.updateTotalTimeDisplay();
+
+        // 更新倒计时限制
+        TimerController.remainingTime = CONFIG.difficulties[currentDifficulty].timeLimit;
 
         // 切换到游戏界面
         this.switchScreen('game');
@@ -919,6 +962,14 @@ const GameController = {
 
 // ==================== 事件绑定 ====================
 function initEventListeners() {
+    // 难度选择按钮
+    elements.start.difficultyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const difficulty = btn.dataset.difficulty;
+            GameController.selectDifficulty(difficulty);
+        });
+    });
+
     // 答题模式选择按钮
     elements.start.answerModeBtns.forEach(btn => {
         btn.addEventListener('click', () => {

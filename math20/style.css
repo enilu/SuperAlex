@@ -119,6 +119,49 @@ body {
     font-weight: normal;
 }
 
+/* 难度选择按钮 */
+.difficulty-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.difficulty-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem 2.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.difficulty-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.difficulty-btn.active {
+    background: rgba(255, 255, 255, 0.95);
+    color: #667eea;
+    border-color: #fff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.difficulty-btn .diff-icon {
+    font-size: 2rem;
+}
+
+.difficulty-btn .diff-text {
+    font-size: 1.1rem;
+}
+
 /* ==================== 运算模式选择界面 ==================== */
 #mathModeScreen {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
