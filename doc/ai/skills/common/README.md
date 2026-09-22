@@ -26,3 +26,4 @@
 
 - [project-shared/SKILL.md](./project-shared/SKILL.md)
 - [child-edu-game-development/SKILL.md](./child-edu-game-development/SKILL.md)
+- [cloud-host-deploy/SKILL.md](./cloud-host-deploy/SKILL.md)（发布 SuperAlex 游戏或 homework 学习资料馆到 cloud-host；站点地图以服务器 `/root/SERVER-SITES.md` 为准）

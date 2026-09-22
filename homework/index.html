@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>学习资料馆</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=20260904-learning-library-6">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">小学到高中 · 长期归档</p>
+        <h1>学习资料馆</h1>
+      </div>
+      <div class="header-actions">
+        <button class="icon-button" id="homeButton" title="返回首页" aria-label="返回首页">
+          <span aria-hidden="true">⌂</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="homeView">
+        <div class="hero-copy">
+          <p class="eyebrow">Learning Archive</p>
+          <h2>把每个学期的课本、音视频和作业资料认真收好。</h2>
+          <p>按学年、学段、年级、学期和学科长期归档，从小学一直延续到初中、高中。</p>
+        </div>
+        <div class="stats" id="stats"></div>
+      </section>
+
+      <section class="section-block" id="collectionsSection">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Collections</p>
+            <h2>资料集合</h2>
+          </div>
+        </div>
+        <div class="filter-bar" id="filterBar">
+          <div class="filter-group">
+            <span class="filter-label">学年</span>
+            <div class="filter-buttons" id="yearFilters"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">年级</span>
+            <div class="filter-buttons" id="gradeFilters"></div>
+          </div>
+        </div>
+        <div class="collection-groups" id="collectionGroups"></div>
+      </section>
+
+      <section class="workspace is-hidden" id="libraryView">
+        <aside class="sidebar">
+          <button class="back-button" id="backToHome">← 全部集合</button>
+          <div class="collection-meta" id="collectionMeta"></div>
+          <nav class="category-list" id="categoryList" aria-label="资料分类"></nav>
+        </aside>
+        <section class="library-panel">
+          <div class="library-toolbar">
+            <div>
+              <p class="eyebrow" id="activeBreadcrumb">Library</p>
+              <h2 id="activeTitle">资料目录</h2>
+            </div>
+            <label class="search-box">
+              <span>⌕</span>
+              <input id="searchInput" type="search" placeholder="搜索资料、单元或歌曲">
+            </label>
+          </div>
+          <div class="subject-grid" id="subjectGrid"></div>
+          <div class="item-grid" id="itemGrid"></div>
+        </section>
+      </section>
+
+      <section class="viewer is-hidden" id="viewerView" aria-live="polite">
+        <div class="viewer-toolbar">
+          <button class="back-button" id="backToLibrary">← 返回目录</button>
+          <div>
+            <p class="eyebrow" id="viewerType">Preview</p>
+            <h2 id="viewerTitle"></h2>
+          </div>
+          <a class="download-link" id="downloadLink" href="#" download>下载</a>
+        </div>
+        <div class="viewer-frame" id="viewerFrame"></div>
+        <div class="video-nav is-hidden" id="videoNav">
+          <button id="prevVideo">上一个</button>
+          <button id="nextVideo">下一个</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/vendor/pdfjs/pdf.min.js?v=20260904-learning-library-6"></script>
+    <script src="assets/js/app.js?v=20260904-learning-library-6"></script>
+  </body>
+</html>

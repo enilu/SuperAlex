@@ -1,0 +1,5 @@
+# 学习资料只保留在 cloud-host，禁止提交
+/files/
+
+# PDF.js 等预览库只在服务器维护，避免本机拷贝覆盖线上
+/assets/vendor/

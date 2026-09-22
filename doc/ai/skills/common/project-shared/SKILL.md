@@ -31,6 +31,7 @@ description: 适用于本仓库内的通用开发、排障和文档任务，且�
   - 快速开始
   - AI Agent Guide（统一入口）
 - 常见误判和遗漏项见 `references/gotchas.md`。
+- 部署到 cloud-host / `superalex.enilu.cn` 时改用 `common/cloud-host-deploy`，不要把发布流程写进本 skill。
 
 ## 验证与交付
 

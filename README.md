@@ -86,6 +86,14 @@ SuperAlex 是一个面向幼儿园和小学阶段孩子的轻量 Web 教育游�
 
 **目录：** `ColorMatch/`
 
+### 📚 学习资料馆
+
+同域名下的独立静态站，维护学期课本、音视频和作业目录。本仓库只放页面和 `data/homework.json`，资料文件留在服务器。
+
+**目录：** `homework/`  
+**线上：** `http://superalex.enilu.cn/homework/`  
+**说明：** `homework/README.md`。部署走 `doc/ai/skills/common/cloud-host-deploy`。
+
 ---
 
 ## 快速开始
@@ -120,6 +128,8 @@ SuperAlex/
 ├── TangPoem/                     # 唐诗小当家
 ├── Kingdom3/                     # 三国演义知识闯关
 ├── PinyinMatch/                  # 拼音配对乐园
+├── ColorMatch/                   # 颜色配对乐园
+├── homework/                     # 学习资料馆页面（资料文件只在服务器）
 ├── templates/
 │   └── light-game-template/      # 新游戏模板
 ├── index.html                    # 游戏目录首页

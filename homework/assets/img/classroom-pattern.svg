@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="700" fill="url(#grid)"/>
+  <g fill="none" stroke="rgba(255,255,255,0.34)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M122 162h220v132H122z"/>
+    <path d="M158 330h148"/>
+    <path d="M212 294v36"/>
+    <path d="M786 146l76 134 76-134"/>
+    <path d="M1040 190c-34-34-88-34-122 0s-34 88 0 122 88 34 122 0"/>
+    <path d="M662 426h250"/>
+    <path d="M662 490h180"/>
+    <path d="M140 522c52-58 112-58 164 0s112 58 164 0"/>
+  </g>
+  <g fill="rgba(255,255,255,0.2)">
+    <circle cx="474" cy="184" r="28"/>
+    <circle cx="1018" cy="510" r="34"/>
+    <circle cx="580" cy="548" r="20"/>
+  </g>
+</svg>

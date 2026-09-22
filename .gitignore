@@ -122,3 +122,7 @@ dist/
 # Local development configuration files
 local.config.js
 local.js
+
+# homework 资料文件和 PDF.js 只在 cloud-host
+homework/files/
+homework/assets/vendor/
