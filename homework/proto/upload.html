@@ -1,0 +1,498 @@
+<!doctype html>
+<!-- 学习工作台 · 静态原型 v1 —— 上传作业页
+     依据方案：doc/superpowers/plans/20260927-homework-workbench.md
+     说明：仅作设计与交互基准，不参与部署；正式版对应路由 /homework/upload。 -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>上传作业 · 学习工作台</title>
+<link rel="stylesheet" href="app.css">
+<style>
+  /* ---------- 上传区 ---------- */
+  .uploader{margin-top:14px}
+  .drop{
+    border:2px dashed #cbd5d3;border-radius:12px;background:#fbfcfc;
+    padding:34px 20px;text-align:center;cursor:pointer;transition:.15s
+  }
+  .drop:hover,.drop.over{border-color:var(--accent);background:#f0faf8}
+  .drop .icon{font-size:34px;line-height:1}
+  .drop b{display:block;font-size:16px;margin-top:10px}
+  .drop span{display:block;font-size:12px;color:var(--muted);margin-top:6px}
+  .queue{margin-top:14px}
+  .qitem{
+    display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);
+    border-radius:10px;padding:11px 14px;margin-top:8px
+  }
+  .qitem .fname{flex:1;min-width:0;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .qitem .fsize{font-size:12px;color:var(--muted)}
+  .ext{font-size:11px;background:#eef2ff;color:#4338ca;border-radius:6px;padding:2px 7px;text-transform:uppercase}
+  .qitem .rm{border:none;background:none;color:#d92d20;cursor:pointer;font-size:13px}
+  .bar{height:8px;border-radius:6px;background:#eef2f1;overflow:hidden;margin-top:14px;display:none}
+  .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .12s}
+  .bar.show{display:block}
+  .actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+
+  /* ---------- 表单 ---------- */
+  .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:14px}
+  .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  .field input,.field select,.field textarea{
+    width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;
+    font-size:14px;color:var(--ink);background:#fbfcfc;font-family:inherit
+  }
+  .field textarea{min-height:76px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--accent);background:#fff
+  }
+  .radios{display:flex;gap:8px}
+  .radios label{
+    flex:1;display:flex;align-items:center;justify-content:center;gap:6px;margin:0;
+    border:1px solid var(--line);border-radius:9px;padding:9px 6px;cursor:pointer;
+    font-size:14px;color:var(--ink);background:#fbfcfc
+  }
+  .radios input{accent-color:var(--accent)}
+  .radios label:has(input:checked){border-color:var(--accent);background:#eef8f6;color:var(--accent-ink);font-weight:600}
+  .full{grid-column:1/-1}
+
+  /* ---------- 关联资料 ---------- */
+  .res-block{margin-top:14px}
+  .res-sub{font-size:13px;color:var(--muted);margin:16px 0 8px}
+  .res-sub:first-child{margin-top:0}
+  .picks{display:flex;flex-direction:column;gap:8px}
+  .pick{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;
+        padding:10px 13px;background:#fbfcfc;font-size:14px}
+  .pick input{accent-color:var(--accent);width:15px;height:15px}
+  .pick .sz{margin-left:auto;font-size:12px;color:var(--muted)}
+  .res-search{position:relative}
+  .res-search input{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 12px;
+        font-size:14px;background:#fbfcfc;font-family:inherit}
+  .res-search input:focus{outline:none;border-color:var(--accent);background:#fff}
+  .hits{position:absolute;left:0;right:0;top:44px;background:#fff;border:1px solid var(--line);
+        border-radius:10px;box-shadow:0 8px 24px rgba(20,48,44,.12);z-index:10;max-height:230px;overflow:auto}
+  .hits:empty{display:none}
+  .hit{display:flex;align-items:center;gap:10px;padding:10px 13px;font-size:14px;cursor:pointer;border-bottom:1px solid var(--line)}
+  .hit:last-child{border-bottom:none}
+  .hit:hover{background:#f0faf8}
+  .hit .sz{margin-left:auto;font-size:12px;color:var(--muted)}
+  .hit .none{color:var(--muted);cursor:default}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:#eef8f6;border:1px solid #bfe3dc;
+        color:var(--accent-ink);border-radius:20px;padding:5px 12px;font-size:13px}
+  .chip button{border:none;background:none;color:var(--accent-ink);cursor:pointer;font-size:14px;line-height:1}
+  .chips .placeholder{font-size:13px;color:var(--muted)}
+
+  /* ---------- 最近上传 ---------- */
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{font-size:12px;color:var(--muted);font-weight:500;background:#fbfcfc}
+  td .st{font-size:12px;border-radius:20px;padding:3px 10px;background:#f1f4f3;color:#5b6f6b}
+  td .st.done{background:#eef8f6;color:var(--accent-ink)}
+  td a{font-size:13px;text-decoration:none}
+  tr.new{background:#f4fbf9}
+  .empty{font-size:13px;color:var(--muted);padding:14px 4px}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <h1>家庭学习台</h1>
+      <p>二年级上学期 · 学习工作台</p>
+    </div>
+    <nav class="nav">
+      <div class="nav-group">学习首页</div>
+      <a href="index.html">总览</a>
+      <div class="nav-group">作业管理</div>
+      <a href="#">校内作业</a>
+      <a href="#">校外作业</a>
+      <a href="upload.html" class="active">上传作业</a>
+      <div class="nav-group">资料库</div>
+      <a href="library.html">资料管理</a>
+      <a href="#">按学期浏览</a>
+      <a href="#">按学科浏览</a>
+      <div class="nav-group">复盘提升</div>
+      <a href="#">完成分析 <span class="soon">二期</span></a>
+      <a href="#">错题与强化 <span class="soon">二期</span></a>
+      <a href="#">课程表 <span class="soon">二期</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <span>已登录 · 家庭账号</span>
+      <a href="#">退出</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="btn menu-toggle" id="menuToggle">≡</button>
+      <div class="crumb"><b>上传作业</b><span>作业管理 · 上传并生成任务</span></div>
+      <div class="spacer"></div>
+      <button class="btn" onclick="location.href='index.html'">首页</button>
+      <button class="btn" onclick="toast('二期功能')">课程表</button>
+      <button class="btn primary" onclick="toast('当前就在上传页')">上传作业</button>
+      <div class="clock" id="clock"></div>
+    </header>
+
+    <div class="content">
+
+      <!-- 1. 选文件 -->
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>选择文件 <span class="pill">可多选</span></h2>
+            <div class="meta">图片 / PDF / 视频 / 音频 / 文本 / 压缩包，单文件 ≤ 50MB</div>
+          </div>
+        </div>
+
+        <div class="uploader">
+          <div class="drop" id="drop">
+            <div class="icon">⬆</div>
+            <b>点击选择文件，或拖拽到这里</b>
+            <span>作业照片、电子版练习、老师发布的 PDF 都可以</span>
+            <input type="file" id="fileInput" multiple hidden
+                   accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.mp4,.mov,.mp3,.wav,.txt,.md,.zip">
+          </div>
+
+          <div class="queue" id="queue"></div>
+
+          <div class="bar" id="bar"><i id="barFill"></i></div>
+
+          <div class="actions">
+            <button class="btn primary" id="uploadBtn">开始上传</button>
+            <button class="btn" id="clearBtn">清空列表</button>
+            <span class="clock" id="totalInfo"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. 生成任务 -->
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>生成任务</h2>
+            <div class="meta">上传后自动进入当日打卡清单，孩子写完即可勾选完成</div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field full">
+            <label>任务标题</label>
+            <input id="fTitle" placeholder="留空则自动取文件名">
+          </div>
+
+          <div class="field">
+            <label>学科</label>
+            <select id="fSubject">
+              <option>语文</option><option>数学</option><option selected>英语</option>
+              <option>物理</option><option>化学</option><option>生物</option>
+              <option>历史</option><option>地理</option><option>道法</option><option>其他</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>作业类型</label>
+            <div class="radios">
+              <label><input type="radio" name="kind" value="校内" checked>校内</label>
+              <label><input type="radio" name="kind" value="校外">校外</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>截止日期</label>
+            <input type="date" id="fDue">
+          </div>
+
+          <div class="field">
+            <label>预计时长（分钟）</label>
+            <input type="number" id="fEst" value="30" min="5" max="300" step="5">
+          </div>
+
+          <div class="field full">
+            <label>归属方式</label>
+            <div class="radios">
+              <label><input type="radio" name="mode" value="new" checked>上传即生成新任务</label>
+              <label><input type="radio" name="mode" value="link">关联到已有任务</label>
+            </div>
+          </div>
+
+          <div class="field full" id="linkField" style="display:none">
+            <label>选择已有任务</label>
+            <select id="fLink">
+              <option>英语 · 练P23-27、和校本1</option>
+              <option>数学 · 完成校本</option>
+              <option>语文 · 预习第2课</option>
+              <option>物理 · 完成校本P20, 21</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label>备注（可选）</label>
+            <textarea id="fNote" placeholder="例：纸质版已发，开学交；手机拍的前两页有点糊"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2.5 关联资料 -->
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>关联资料 <span class="pill" id="resPill">0 份</span></h2>
+            <div class="meta">先上传入库，再关联到任务：本次文件默认全部关联，也可从资料库搜索添加已有资料；清单页可直接打开在线预览</div>
+          </div>
+        </div>
+
+        <div class="res-block">
+          <div class="res-sub">本次上传（默认关联）</div>
+          <div class="picks" id="newRes"></div>
+
+          <div class="res-sub">从资料库添加</div>
+          <div class="res-search">
+            <input id="resQ" placeholder="搜索资料，如：暑假乐学手册、Unit3、口算、语文练习">
+            <div class="hits" id="resHits"></div>
+          </div>
+
+          <div class="res-sub">已选关联资料</div>
+          <div class="chips" id="selRes"><span class="placeholder">暂未选择资料库中的资料</span></div>
+        </div>
+      </section>
+
+      <!-- 3. 最近上传 -->
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>最近上传</h2>
+            <div class="meta">仅登录可见；下载走鉴权接口，不提供公开目录</div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>文件</th><th>上传时间</th><th>关联任务</th><th>状态</th><th>操作</th></tr>
+          </thead>
+          <tbody id="recent">
+            <tr>
+              <td>英语Unit3测试卷.pdf</td><td>09-22 19:40</td>
+              <td>英语 · Unit3 复习</td>
+              <td><span class="st done">已完成</span></td>
+              <td><a href="#">下载</a></td>
+            </tr>
+            <tr>
+              <td>数学口算第5页.jpg</td><td>09-22 18:12</td>
+              <td>数学 · 口算练习</td>
+              <td><span class="st">待完成</span></td>
+              <td><a href="#">下载</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hint">
+          正式版行为：POST <code>/homework/api/upload</code> → 扩展名白名单与 50MB 校验 → 随机存储名写入**站点之外**
+          <code>/var/lib/homework-workbench/uploads/</code> → 记录 sha256 去重 → 写入 <code>resources</code>（先入库，
+          <code>visibility=private</code>）→ 与任务经 <code>task_resources</code> 关联 1..N 份 → 清单页立即可预览。
+          public 资料返回静态 URL 直出，private 文件一律按附件 id 走鉴权接口，未登录与越权返回 401/404。
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const ALLOWED = ["jpg","jpeg","png","gif","webp","pdf","mp4","mov","mp3","wav","txt","md","zip"];
+const MAX = 50 * 1024 * 1024;
+let files = [];
+let checkedNew = new Set();          // 本次上传中被勾选关联的文件名
+let selected = new Set();            // 已选的资料库资源 id
+
+/* 资料库 mock（正式版由 GET /homework/api/resources 返回） */
+const LIB = [
+  {id:"r1", title:"一年级数学暑假乐学手册.pdf", subject:"数学", type:"pdf", size:"18.4 MB", src:"资料库·存量"},
+  {id:"r2", title:"英语1B英拓（3）语法练习.pdf", subject:"英语", type:"pdf", size:"5.5 MB", src:"资料库·存量"},
+  {id:"r3", title:"英语Unit3 单词表.pdf",       subject:"英语", type:"pdf", size:"420 KB", src:"资料库·新上传"},
+  {id:"r4", title:"口算练习第1-10页.pdf",       subject:"数学", type:"pdf", size:"1.2 MB", src:"资料库·新上传"},
+  {id:"r5", title:"语文必读书目清单.docx",       subject:"语文", type:"doc", size:"86 KB",  src:"资料库·存量"},
+  {id:"r6", title:"三年级上册电子课本（全科）.zip", subject:"其他", type:"zip", size:"32.7 MB", src:"资料库·存量"},
+  {id:"r7", title:"英语跟读音频 Unit1-3.mp3",    subject:"英语", type:"mp3", size:"8.9 MB", src:"资料库·存量"},
+  {id:"r8", title:"错题本模板.pdf",              subject:"其他", type:"pdf", size:"310 KB", src:"资料库·新上传"}
+];
+
+const $ = id => document.getElementById(id);
+const fmt = b => b > 1048576 ? (b/1048576).toFixed(1) + " MB" : Math.max(1, Math.round(b/1024)) + " KB";
+const ext = n => (n.split(".").pop() || "").toLowerCase();
+
+function renderQueue(){
+  $("queue").innerHTML = files.map((f,i)=>`
+    <div class="qitem">
+      <span class="ext">${ext(f.name)}</span>
+      <span class="fname">${f.name}</span>
+      <span class="fsize">${fmt(f.size)}</span>
+      <button class="rm" data-i="${i}">移除</button>
+    </div>`).join("");
+  $("queue").querySelectorAll(".rm").forEach(b=> b.onclick = ()=>{
+    files.splice(+b.dataset.i, 1); renderQueue();
+  });
+  const total = files.reduce((s,f)=>s+f.size, 0);
+  $("totalInfo").textContent = files.length ? `已选 ${files.length} 个 · 共 ${fmt(total)}` : "";
+
+  // 同步「本次上传」勾选列表：新文件默认勾选，已移除的清掉
+  checkedNew = new Set([...checkedNew].filter(n => files.some(f=>f.name===n)));
+  files.forEach(f => checkedNew.add(f.name));
+  renderNewRes();
+}
+
+function renderNewRes(){
+  const box = $("newRes");
+  if (!files.length){
+    box.innerHTML = `<div class="placeholder" style="font-size:13px;color:var(--muted)">尚未选择文件</div>`;
+    updateResPill(); return;
+  }
+  box.innerHTML = files.map(f=>`
+    <label class="pick">
+      <input type="checkbox" data-name="${esc(f.name)}" ${checkedNew.has(f.name)?"checked":""}>
+      <span>${esc(f.name)}</span>
+      <span class="sz">${fmt(f.size)}</span>
+    </label>`).join("");
+  box.querySelectorAll("input").forEach(c=> c.onchange = ()=>{
+    c.checked ? checkedNew.add(c.dataset.name) : checkedNew.delete(c.dataset.name);
+    updateResPill();
+  });
+  updateResPill();
+}
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function updateResPill(){
+  $("resPill").textContent = (checkedNew.size + selected.size) + " 份";
+}
+
+function renderChips(){
+  const box = $("selRes");
+  if (!selected.size){
+    box.innerHTML = `<span class="placeholder">暂未选择资料库中的资料</span>`;
+    updateResPill(); return;
+  }
+  box.innerHTML = [...selected].map(id=>{
+    const r = LIB.find(x=>x.id===id);
+    return `<span class="chip">${esc(r.title)} <button data-id="${id}" title="移除">×</button></span>`;
+  }).join("");
+  box.querySelectorAll("button").forEach(b=> b.onclick = ()=>{
+    selected.delete(b.dataset.id); renderChips();
+  });
+  updateResPill();
+}
+
+$("resQ").oninput = e => {
+  const q = e.target.value.trim().toLowerCase();
+  const hits = $("resHits");
+  if (!q){ hits.innerHTML = ""; return; }
+  const found = LIB.filter(r =>
+    (r.title + r.subject + r.type).toLowerCase().includes(q) && !selected.has(r.id));
+  hits.innerHTML = found.length
+    ? found.map(r=>`<div class="hit" data-id="${r.id}">
+        <span>${esc(r.title)}</span>
+        <span class="sz">${r.subject} · ${r.src} · ${r.size}</span></div>`).join("")
+    : `<div class="hit none">没有匹配的资料</div>`;
+  hits.querySelectorAll(".hit[data-id]").forEach(h=> h.onclick = ()=>{
+    selected.add(h.dataset.id);
+    $("resQ").value = ""; hits.innerHTML = "";
+    renderChips();
+  });
+};
+document.addEventListener("click", e=>{
+  if (!e.target.closest(".res-search")) $("resHits").innerHTML = "";
+});
+
+function addFiles(list){
+  let skipped = 0;
+  for (const f of list){
+    if (!ALLOWED.includes(ext(f.name)) || f.size > MAX){ skipped++; continue; }
+    if (!files.some(x=>x.name===f.name && x.size===f.size)) files.push(f);
+  }
+  if (skipped) toast(`已跳过 ${skipped} 个：格式不支持或超过 50MB`);
+  renderQueue();
+}
+
+$("drop").onclick = () => $("fileInput").click();
+$("fileInput").onchange = e => { addFiles(e.target.files); e.target.value = ""; };
+$("drop").addEventListener("dragover", e => { e.preventDefault(); $("drop").classList.add("over"); });
+$("drop").addEventListener("dragleave", () => $("drop").classList.remove("over"));
+$("drop").addEventListener("drop", e => {
+  e.preventDefault(); $("drop").classList.remove("over"); addFiles(e.dataTransfer.files);
+});
+$("clearBtn").onclick = () => { files = []; renderQueue(); };
+
+document.querySelectorAll("input[name=mode]").forEach(r=> r.onchange = ()=>{
+  $("linkField").style.display =
+    document.querySelector("input[name=mode]:checked").value === "link" ? "" : "none";
+});
+
+$("uploadBtn").onclick = () => {
+  if (!files.length){ toast("请先选择要上传的文件"); return; }
+  const btn = $("uploadBtn");
+  btn.disabled = true;
+  const bar = $("bar"), fill = $("barFill");
+  bar.classList.add("show");
+  let p = 0;
+  const timer = setInterval(()=>{
+    p = Math.min(100, p + 8 + Math.random()*14);
+    fill.style.width = p + "%";
+    if (p >= 100){
+      clearInterval(timer);
+      setTimeout(finish, 240);
+    }
+  }, 110);
+};
+
+function finish(){
+  const subject = $("fSubject").value;
+  const kind = document.querySelector("input[name=kind]:checked").value;
+  const title = $("fTitle").value.trim() || files[0].name;
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2,"0") + ":" + String(now.getMinutes()).padStart(2,"0");
+
+  files.forEach(f=>{
+    const tr = document.createElement("tr");
+    tr.className = "new";
+    tr.innerHTML = `<td>${f.name}</td><td>${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ${hh}</td>
+      <td>${subject} · ${title}</td><td><span class="st">待完成</span></td>
+      <td><a href="#">下载</a></td>`;
+    $("recent").prepend(tr);
+  });
+
+  const linked = checkedNew.size + selected.size;
+  toast(`已上传 ${files.length} 个文件入资料库，关联 ${linked} 份资料，任务已进入今日清单（原型）`);
+  files = [];
+  selected.clear();
+  renderQueue();
+  renderChips();
+  $("bar").classList.remove("show");
+  $("barFill").style.width = "0";
+  $("uploadBtn").disabled = false;
+}
+
+function tick(){
+  const n = new Date(), p = x => String(x).padStart(2,"0");
+  $("clock").textContent =
+    `${n.getFullYear()}-${p(n.getMonth()+1)}-${p(n.getDate())} 星期${"日一二三四五六"[n.getDay()]} ${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())}`;
+}
+
+let toastTimer;
+function toast(msg){
+  const t = $("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove("show"), 1600);
+}
+
+$("menuToggle").onclick = () => $("sidebar").classList.toggle("open");
+
+const today = new Date();
+$("fDue").value = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,"0")}-${String(today.getDate()).padStart(2,"0")}`;
+
+renderNewRes();
+renderChips();
+tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!doctype html>
+<!-- 学习工作台 · 静态原型 v1 —— 资料库管理页
+     依据方案：doc/superpowers/plans/20260927-homework-workbench.md
+     说明：仅作设计与交互基准，不参与部署；正式版对应路由 /homework/library。 -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>资料管理 · 学习工作台</title>
+<link rel="stylesheet" href="app.css">
+<style>
+  /* ---------- 工具条 ---------- */
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+  .toolbar input[type=search],.toolbar select{
+    border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:14px;
+    background:#fbfcfc;color:var(--ink);font-family:inherit
+  }
+  .toolbar input[type=search]{flex:1;min-width:220px}
+  .toolbar input:focus,.toolbar select:focus{outline:none;border-color:var(--accent);background:#fff}
+  .toolbar .btn{margin-left:auto}
+  .stats-strip{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:12px}
+  .stats-strip b{color:var(--ink);font-weight:600}
+
+  /* ---------- 上传入库 ---------- */
+  .drop{border:2px dashed #cbd5d3;border-radius:12px;background:#fbfcfc;padding:26px 18px;
+        text-align:center;cursor:pointer;margin-top:16px}
+  .drop:hover,.drop.over{border-color:var(--accent);background:#f0faf8}
+  .drop b{display:block;font-size:15px}
+  .drop span{display:block;font-size:12px;color:var(--muted);margin-top:6px}
+  .inline-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+  .inline-form input,.inline-form select{border:1px solid var(--line);border-radius:9px;
+        padding:9px 11px;font-size:14px;background:#fbfcfc;font-family:inherit}
+  [hidden]{display:none !important}
+
+  /* ---------- 表格 ---------- */
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{font-size:12px;color:var(--muted);font-weight:500;background:#fbfcfc}
+  td .fname{font-size:14px}
+  td .path{font-size:11px;color:var(--muted);word-break:break-all}
+  td .ops{display:flex;gap:10px;white-space:nowrap}
+  td .ops a{font-size:13px;text-decoration:none;cursor:pointer}
+  td .ops a.warn{color:#d92d20}
+  .badge{font-size:11px;border-radius:6px;padding:2px 7px;background:#f1f4f3;color:#5b6f6b}
+  .badge.pub{background:#ecfeff;color:#0e7490}
+  .badge.pri{background:#fff7ed;color:#c2410c}
+  .badge.lock{background:#f5f3ff;color:#6d28d9}
+  tr:hover{background:#fbfdfd}
+
+  /* ---------- 编辑弹层 ---------- */
+  .modal{position:fixed;inset:0;background:rgba(15,40,37,.45);z-index:40;
+         display:flex;align-items:center;justify-content:center;padding:20px}
+  .modal-card{background:#fff;border-radius:14px;width:min(560px,100%);max-height:86vh;
+              display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;
+              padding:16px 20px;border-bottom:1px solid var(--line);font-size:16px}
+  .modal-head button{border:none;background:none;font-size:22px;cursor:pointer;color:var(--muted)}
+  .modal-body{padding:18px 20px;overflow:auto}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:9px;
+        padding:9px 11px;font-size:14px;background:#fbfcfc;font-family:inherit}
+  .field textarea{min-height:70px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:#fff}
+  .lock-tip{font-size:12px;color:#6d28d9;background:#f5f3ff;border:1px solid #ddd6fe;
+            border-radius:8px;padding:9px 12px;margin-bottom:14px;line-height:1.7}
+  .modal-foot{display:flex;gap:10px;justify-content:flex-end;padding:14px 20px;
+              background:#fbfcfc;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <h1>家庭学习台</h1>
+      <p>二年级上学期 · 学习工作台</p>
+    </div>
+    <nav class="nav">
+      <div class="nav-group">学习首页</div>
+      <a href="index.html">总览</a>
+      <div class="nav-group">作业管理</div>
+      <a href="#">校内作业</a>
+      <a href="#">校外作业</a>
+      <a href="upload.html">上传作业</a>
+      <div class="nav-group">资料库</div>
+      <a href="library.html" class="active">资料管理</a>
+      <a href="#">按学期浏览</a>
+      <a href="#">按学科浏览</a>
+      <div class="nav-group">复盘提升</div>
+      <a href="#">完成分析 <span class="soon">二期</span></a>
+      <a href="#">错题与强化 <span class="soon">二期</span></a>
+      <a href="#">课程表 <span class="soon">二期</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <span>已登录 · 家庭账号</span>
+      <a href="#">退出</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="btn menu-toggle" id="menuToggle">≡</button>
+      <div class="crumb"><b>资料管理</b><span>资料库 · 元数据在 SQLite，文件在文件系统</span></div>
+      <div class="spacer"></div>
+      <button class="btn" onclick="location.href='index.html'">首页</button>
+      <button class="btn primary" onclick="location.href='upload.html'">上传作业</button>
+      <div class="clock" id="clock"></div>
+    </header>
+
+    <div class="content">
+
+      <!-- 检索与工具 -->
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>资料检索</h2>
+            <div class="meta">存量资料元数据可改（改名 / 分类 / 标签 / 备注），文件不可删、路径锁定</div>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <input type="search" id="q" placeholder="搜索标题、学科、标签，如：暑假乐学手册、Unit3、口算">
+          <select id="fSubject">
+            <option value="">全部学科</option>
+            <option>语文</option><option>数学</option><option>英语</option>
+            <option>物理</option><option>化学</option><option>其他</option>
+          </select>
+          <select id="fKind">
+            <option value="">全部类型</option>
+            <option value="library">存量资料</option>
+            <option value="homework">作业上传</option>
+          </select>
+          <select id="fVis">
+            <option value="">全部可见性</option>
+            <option value="public">public·静态直出</option>
+            <option value="private">private·鉴权下载</option>
+          </select>
+          <button class="btn primary" id="btnUpload">上传新资料</button>
+        </div>
+
+        <div class="stats-strip" id="statsStrip"></div>
+
+        <div id="uploadBox" hidden>
+          <div class="drop" id="drop">
+            <b>点击选择文件，或拖拽到这里入库</b>
+            <span>入库后成为资料库记录（visibility=private，站点外存储），可在任务中关联引用</span>
+          </div>
+          <div class="inline-form" id="upForm" hidden>
+            <input id="upTitle" placeholder="资料标题（默认取文件名）">
+            <select id="upSubject"><option>语文</option><option>数学</option><option>英语</option><option>其他</option></select>
+            <input id="upCat" placeholder="分类，如：练习卷">
+            <button class="btn primary" id="upSave">确认入库</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 资料列表 -->
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>资料列表 <span class="pill" id="countPill">0 条</span></h2>
+            <div class="meta">public 资料由 nginx 静态直出（外链兼容）；private 资料只能经鉴权接口打开</div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>标题</th><th>学科</th><th>分类</th><th>类型</th><th>大小</th>
+              <th>可见性</th><th>来源</th><th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </section>
+
+      <div class="hint">
+        正式版：列表数据来自 <code>GET /homework/api/resources?q=&amp;subject=&amp;kind=&amp;visibility=</code>；
+        改元数据走 <code>PATCH /api/resources/&lt;id&gt;</code>（<code>locked=1</code> 的记录只改元数据，不碰 <code>rel_path</code>）；
+        删除仅对非锁定的 private 记录开放，会同时删掉站点外的文件（二次确认 + 先备份）。
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 编辑元数据弹层 -->
+<div class="modal" id="editModal" hidden>
+  <div class="modal-card">
+    <div class="modal-head">
+      <b>编辑资料元数据</b>
+      <button id="emClose" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="lock-tip" id="lockTip" hidden>
+        🔒 存量资料：可修改标题、学科、分类、标签与备注；<b>文件不可删除、存储路径已锁定</b>。
+      </div>
+      <div class="field"><label>标题</label><input id="eTitle"></div>
+      <div class="field"><label>学科</label>
+        <select id="eSubject">
+          <option>语文</option><option>数学</option><option>英语</option>
+          <option>物理</option><option>化学</option><option>其他</option>
+        </select>
+      </div>
+      <div class="field"><label>分类</label><input id="eCat" placeholder="如：语法练习、纸质作业、拓展阅读"></div>
+      <div class="field"><label>标签（逗号分隔）</label><input id="eTags" placeholder="暑假, 必做, 开学交"></div>
+      <div class="field"><label>备注</label><textarea id="eNote" placeholder="纸质版已发，开学交"></textarea></div>
+      <div class="field"><label>存储路径（只读）</label><input id="ePath" readonly></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" id="emCancel">取消</button>
+      <button class="btn primary" id="emSave">保存</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- mock 数据（正式版由 /api/resources 返回） ---------- */
+let seq = 100;
+let DATA = [
+  {id:"m1",  title:"1B英拓（3）语法练习.pdf",     subject:"英语", cat:"语法练习", type:"pdf", size:"5.5 MB",  vis:"public",  kind:"library", locked:1, path:"files/library/2025-2026/primary/grade-01/summer-break/english/...", tags:"暑假,必做", note:"纸质版已发，开学交"},
+  {id:"m2",  title:"一年级暑假作业.pdf",           subject:"英语", cat:"纸质作业", type:"pdf", size:"130 KB",  vis:"public",  kind:"library", locked:1, path:"files/library/2025-2026/primary/grade-01/summer-break/english/...", tags:"暑假", note:"纸质版已发"},
+  {id:"m3",  title:"字母书写模版.pdf",             subject:"英语", cat:"书写练习", type:"pdf", size:"191 KB",  vis:"public",  kind:"library", locked:1, path:"files/library/2025-2026/primary/grade-01/summer-break/english/...", tags:"默写", note:"默写后核对"},
+  {id:"m4",  title:"一年级数学暑假乐学手册.pdf",    subject:"数学", cat:"假期手册", type:"pdf", size:"18.4 MB", vis:"public",  kind:"library", locked:1, path:"files/2026/grade-1-semester-2/summer/math/...", tags:"暑假", note:""},
+  {id:"m5",  title:"一年级数学暑假乐学手册-说明.txt", subject:"数学", cat:"说明",    type:"txt", size:"1.1 KB",  vis:"public",  kind:"library", locked:1, path:"files/2026/grade-1-semester-2/summer/math/...", tags:"暑假", note:""},
+  {id:"m6",  title:"三年级上册电子课本（全科）.zip", subject:"其他", cat:"电子课本", type:"zip", size:"32.7 MB", vis:"public",  kind:"library", locked:1, path:"files/library/2026/middle/...", tags:"课本", note:""},
+  {id:"m7",  title:"英语Unit3 单词表.pdf",          subject:"英语", cat:"单元资料", type:"pdf", size:"420 KB",  vis:"private", kind:"homework", locked:0, path:"/var/lib/homework-workbench/uploads/2026/9f3a…c1.pdf", tags:"Unit3", note:""},
+  {id:"m8",  title:"口算练习第1-10页.pdf",          subject:"数学", cat:"练习卷",   type:"pdf", size:"1.2 MB",  vis:"private", kind:"homework", locked:0, path:"/var/lib/homework-workbench/uploads/2026/71bd…2e.pdf", tags:"口算", note:""},
+  {id:"m9",  title:"错题本模板.pdf",                subject:"其他", cat:"模板",     type:"pdf", size:"310 KB",  vis:"private", kind:"homework", locked:0, path:"/var/lib/homework-workbench/uploads/2026/aa04…9b.pdf", tags:"错题", note:""},
+  {id:"m10", title:"英语跟读音频 Unit1-3.mp3",      subject:"英语", cat:"音频",     type:"mp3", size:"8.9 MB",  vis:"private", kind:"homework", locked:0, path:"/var/lib/homework-workbench/uploads/2026/55c7…f8.mp3", tags:"跟读", note:""}
+];
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function filtered(){
+  const q = $("q").value.trim().toLowerCase();
+  const sub = $("fSubject").value, kind = $("fKind").value, vis = $("fVis").value;
+  return DATA.filter(r =>
+    (!q || (r.title + r.subject + r.cat + r.tags).toLowerCase().includes(q)) &&
+    (!sub || r.subject === sub) && (!kind || r.kind === kind) && (!vis || r.vis === vis));
+}
+
+function renderStats(){
+  const total = DATA.reduce((s,r)=>s+parseSize(r.size),0);
+  const locked = DATA.filter(r=>r.locked).length;
+  const pub = DATA.filter(r=>r.vis==="public").length;
+  $("statsStrip").innerHTML =
+    `共 <b>${DATA.length}</b> 条 · 合计 <b>${(total/1048576).toFixed(1)} MB</b> ·
+     public <b>${pub}</b> / private <b>${DATA.length-pub}</b> · 存量锁定 <b>${locked}</b> 条（不可删文件）`;
+  $("countPill").textContent = filtered().length + " 条";
+}
+function parseSize(s){
+  const n = parseFloat(s);
+  return /MB/.test(s) ? n*1048576 : /KB/.test(s) ? n*1024 : /GB/.test(s) ? n*1073741824 : n;
+}
+
+function render(){
+  const rows = filtered();
+  $("rows").innerHTML = rows.length ? rows.map(r=>`
+    <tr data-id="${r.id}">
+      <td><div class="fname">${esc(r.title)}</div><div class="path">${esc(r.path)}</div></td>
+      <td>${r.subject}</td>
+      <td>${esc(r.cat) || "—"}</td>
+      <td><span class="badge">${r.type}</span></td>
+      <td>${r.size}</td>
+      <td><span class="badge ${r.vis==="public"?"pub":"pri"}">${r.vis}</span></td>
+      <td>${r.kind==="library"?'<span class="badge lock">🔒 存量</span>':'<span class="badge">新上传</span>'}</td>
+      <td><div class="ops">
+        <a data-op="open">打开</a>
+        <a data-op="edit">编辑</a>
+        ${(!r.locked && r.vis==="private") ? '<a data-op="del" class="warn">删除</a>' : ''}
+      </div></td>
+    </tr>`).join("")
+    : `<tr><td colspan="8" style="color:var(--muted);text-align:center;padding:26px">没有匹配的资料</td></tr>`;
+
+  $("rows").querySelectorAll("a[data-op]").forEach(a=>{
+    a.onclick = ()=>{
+      const id = a.closest("tr").dataset.id;
+      const r = DATA.find(x=>x.id===id);
+      if (a.dataset.op === "open"){
+        toast(r.vis === "public"
+          ? "正式版：public 直接返回静态 URL 打开"
+          : "正式版：private 走鉴权接口在线预览");
+      } else if (a.dataset.op === "edit"){
+        openEdit(r);
+      } else if (a.dataset.op === "del"){
+        if (r.locked){ toast("存量资料：文件不可删除"); return; }
+        if (!confirm(`删除「${r.title}」？将同时删除站点外的文件（原型不落盘）。`)) return;
+        DATA = DATA.filter(x=>x.id!==id);
+        render(); renderStats(); toast("已删除该资料记录与文件（原型）");
+      }
+    };
+  });
+  renderStats();
+}
+
+/* ---------- 编辑元数据 ---------- */
+let editingId = null;
+function openEdit(r){
+  editingId = r.id;
+  $("eTitle").value = r.title;
+  $("eSubject").value = r.subject;
+  $("eCat").value = r.cat;
+  $("eTags").value = r.tags;
+  $("eNote").value = r.note;
+  $("ePath").value = r.path;
+  $("ePath").readOnly = !!r.locked;
+  $("lockTip").hidden = !r.locked;
+  $("editModal").hidden = false;
+}
+function closeEdit(){ $("editModal").hidden = true; editingId = null; }
+
+$("emClose").onclick = closeEdit;
+$("emCancel").onclick = closeEdit;
+$("editModal").onclick = e => { if (e.target.id === "editModal") closeEdit(); };
+$("emSave").onclick = ()=>{
+  const r = DATA.find(x=>x.id===editingId);
+  if (!r) return;
+  r.title = $("eTitle").value.trim() || r.title;
+  r.subject = $("eSubject").value;
+  r.cat = $("eCat").value.trim();
+  r.tags = $("eTags").value.trim();
+  r.note = $("eNote").value.trim();
+  closeEdit(); render();
+  toast(r.locked ? "已更新元数据（文件与路径未动）" : "已保存");
+};
+
+/* ---------- 上传入库（mock） ---------- */
+let pending = null;
+$("btnUpload").onclick = ()=>{
+  const box = $("uploadBox");
+  box.hidden = !box.hidden;
+  $("upForm").hidden = true;
+};
+$("drop").onclick = ()=>{
+  pending = {name:"新上传资料_" + new Date().toISOString().slice(5,10) + ".pdf", size:"1.4 MB", type:"pdf"};
+  $("upTitle").value = pending.name.replace(/\.pdf$/,"");
+  $("upForm").hidden = false;
+  toast("已选择文件（原型不真传）：" + pending.name);
+};
+$("drop").addEventListener("dragover", e=>{ e.preventDefault(); $("drop").classList.add("over"); });
+$("drop").addEventListener("dragleave", ()=> $("drop").classList.remove("over"));
+$("drop").addEventListener("drop", e=>{ e.preventDefault(); $("drop").onclick(); });
+
+$("upSave").onclick = ()=>{
+  if (!pending) return;
+  const id = "n" + (++seq);
+  DATA.unshift({
+    id, title: $("upTitle").value.trim() || pending.name,
+    subject: $("upSubject").value, cat: $("upCat").value.trim(),
+    type: pending.type, size: pending.size, vis: "private", kind: "homework", locked: 0,
+    path: `/var/lib/homework-workbench/uploads/2026/${id}….${pending.type}`,
+    tags: "", note: ""
+  });
+  pending = null;
+  $("upForm").hidden = true;
+  $("uploadBox").hidden = true;
+  render(); toast("已入库：visibility=private，可在任务中关联");
+};
+
+/* ---------- 检索 ---------- */
+["q","fSubject","fKind","fVis"].forEach(id=>{
+  $(id).oninput = render; $(id).onchange = render;
+});
+
+/* ---------- 外壳 ---------- */
+function tick(){
+  const n = new Date(), p = x => String(x).padStart(2,"0");
+  $("clock").textContent =
+    `${n.getFullYear()}-${p(n.getMonth()+1)}-${p(n.getDate())} 星期${"日一二三四五六"[n.getDay()]} ${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())}`;
+}
+let toastTimer;
+function toast(msg){
+  const t = $("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>t.classList.remove("show"), 1800);
+}
+$("menuToggle").onclick = ()=> $("sidebar").classList.toggle("open");
+document.addEventListener("keydown", e=>{ if (e.key==="Escape") closeEdit(); });
+
+render(); tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>
