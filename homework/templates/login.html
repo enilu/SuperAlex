@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录 · 学习工作台</title>
+    <style>
+      :root{
+        --sidebar:#0e3b36; --bg:#f4f6f6; --card:#fff; --line:#e6ebea;
+        --ink:#16302c; --muted:#7d918d; --accent:#0f766e; --accent-ink:#0b5b54;
+      }
+      *{box-sizing:border-box}
+      body{
+        margin:0;min-height:100vh;background:var(--bg);color:var(--ink);
+        font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+        display:flex;align-items:center;justify-content:center;padding:20px;
+      }
+      .card{
+        width:min(400px,100%);background:var(--card);border:1px solid var(--line);
+        border-radius:16px;overflow:hidden;box-shadow:0 18px 50px rgba(15,40,37,.10);
+      }
+      .head{background:var(--sidebar);color:#fff;padding:26px 28px}
+      .head h1{margin:0;font-size:22px;letter-spacing:.5px}
+      .head p{margin:8px 0 0;font-size:13px;color:#8fb6b0}
+      form{padding:26px 28px 28px}
+      label{display:block;font-size:13px;color:var(--muted);margin:16px 0 6px}
+      label:first-of-type{margin-top:0}
+      input[type=text],input[type=password]{
+        width:100%;border:1px solid var(--line);border-radius:9px;padding:11px 13px;
+        font-size:15px;background:#fbfcfc;color:var(--ink);font-family:inherit;
+      }
+      input:focus{outline:none;border-color:var(--accent);background:#fff}
+      .error{
+        margin-top:16px;font-size:13px;color:#b42318;background:#fef3f2;
+        border:1px solid #fecdca;border-radius:8px;padding:9px 12px;
+      }
+      button[type=submit]{
+        width:100%;margin-top:22px;border:none;border-radius:9px;padding:12px;
+        background:var(--accent);color:#fff;font-size:15px;cursor:pointer;font-family:inherit;
+      }
+      button[type=submit]:hover{background:var(--accent-ink)}
+      .foot{margin-top:18px;font-size:12px;color:var(--muted);text-align:center;line-height:1.7}
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="head">
+        <h1>家庭学习台</h1>
+        <p>学习工作台 · 家庭账号登录</p>
+      </div>
+
+      <form method="post" action="{{ url_for('auth.login') }}" autocomplete="off">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <label for="username">用户名</label>
+        <input id="username" name="username" type="text" required autofocus>
+
+        <label for="password">密码</label>
+        <input id="password" name="password" type="password" required>
+
+        {% if error %}
+          <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <button type="submit">登 录</button>
+
+        <div class="foot">
+          单一共享账号，口令以 bcrypt 哈希存储；<br>
+          连续多次失败会触发限速，稍后再试。
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -19,7 +19,17 @@ def create_app(config: dict | None = None) -> Flask:
     _check_secret_key(app)
     db_mod.init_app(app)
 
+    from .auth import LoginLimiter, csrf_token, current_user
+    app.extensions["login_limiter"] = LoginLimiter(
+        app.config["LOGIN_RATE_LIMIT"], app.config["LOGIN_RATE_WINDOW"]
+    )
+    app.jinja_env.globals["csrf_token"] = csrf_token
+    app.jinja_env.globals["current_user"] = current_user
+
     prefix = app.config["URL_PREFIX"]
+
+    from .auth import bp as auth_bp
+    app.register_blueprint(auth_bp, url_prefix=prefix)
 
     from .api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix=f"{prefix}/api")

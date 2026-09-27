@@ -32,8 +32,11 @@
           <a href="#">课程表 <span class="soon">二期</span></a>
         </nav>
         <div class="sidebar-foot">
-          <span>未接入登录 · P0 骨架</span>
-          <a href="#">退出</a>
+          <span>{{ current_user().display_name or "未登录" }}</span>
+          <form method="post" action="{{ url_for('auth.logout') }}" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="linklike">退出</button>
+          </form>
         </div>
       </aside>
 

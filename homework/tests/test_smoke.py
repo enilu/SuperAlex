@@ -13,12 +13,10 @@ def test_health_returns_ok(client):
     assert payload["db"] == "ok"
 
 
-def test_home_page_renders(client):
+def test_home_requires_login(client):
     resp = client.get("/homework/")
-    assert resp.status_code == 200
-    html = resp.get_data(as_text=True)
-    assert "学习总览" in html
-    assert "P0 骨架已就绪" in html
+    assert resp.status_code == 302
+    assert resp.headers["Location"].endswith("/homework/login")
 
 
 def test_home_redirects_to_health(client):
@@ -82,6 +80,6 @@ def test_task_resource_relation_enforced(tmp_path):
         # 删除任务后关联级联清理
         conn.execute("DELETE FROM tasks WHERE id=1")
         conn.commit()
-        assert conn.execute("SELECT COUNT(*) c FROM task_resources").fetchone()["c"] == 0
+        assert conn.execute("SELECT COUNT(*) AS c FROM task_resources").fetchone()["c"] == 0
     finally:
         conn.close()

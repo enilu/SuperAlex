@@ -1,13 +1,15 @@
 """页面路由。"""
 from __future__ import annotations
 
-from flask import current_app, redirect, render_template, url_for
+from flask import current_app, render_template, url_for
 
+from ..auth import login_required
 from ..db import get_db, schema_version
 from . import bp
 
 
 @bp.get("/")
+@login_required
 def home():
     db_status = "ok"
     schema = None
@@ -24,10 +26,13 @@ def home():
         db_status=db_status,
         schema=schema,
         health_url=url_for("api.health"),
+        active="overview",
     )
 
 
 @bp.get("/healthz")
 def healthz():
-    """给 nginx / curl 用的极简探活（与 /api/health 同义）。"""
-    return redirect(url_for("api.health"))
+    """nginx / curl 用的极简探活（与 /api/health 同义，公开可访问）。"""
+    from ..api.routes import health
+
+    return health()
