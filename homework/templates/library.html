@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}资料库 · 学习工作台{% endblock %}
-{% block crumb_title %}资料库{% endblock %}
-{% block crumb_sub %}共 {{ data.total }} 条 · 检索与元数据管理{% endblock %}
-{% block topbar_actions %}
-  <button class="btn primary" id="libUploadBtn" type="button">上传入库</button>
-  <input type="file" id="libUploadInput" multiple hidden
-         accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.mp4,.mov,.mp3,.wav,.txt,.md,.zip">
-{% endblock %}
+{% block title %}资料管理 · 学习工作台{% endblock %}
+{% block crumb_title %}资料管理{% endblock %}
+{% block crumb_sub %}资料库 · 元数据在 SQLite，文件在文件系统{% endblock %}
 
 {% block content %}
 <section class="panel">
-  <form class="lib-search" method="get" action="{{ url_for('views.library') }}">
-    <input type="search" name="q" value="{{ q }}" placeholder="搜标题 / 备注 / 分类 / 标签">
+  <div class="panel-head">
+    <div>
+      <h2>资料检索</h2>
+      <div class="meta">存量资料元数据可改（改名 / 分类 / 标签 / 备注），文件不可删、路径锁定</div>
+    </div>
+  </div>
+
+  <form class="toolbar" method="get" action="{{ url_for('views.library') }}">
+    <input type="search" name="q" value="{{ q }}"
+           placeholder="搜索标题、学科、标签，如：暑假乐学手册、Unit3、口算">
     <select name="subject">
       <option value="">全部学科</option>
       {% for s in subjects %}
@@ -25,21 +28,51 @@
         <option value="{{ c }}" {{ "selected" if c == category }}>{{ c }}</option>
       {% endfor %}
     </select>
-    <button type="submit" class="btn">搜索</button>
-    {% if q or subject or category %}
+    <select name="kind">
+      <option value="">全部类型</option>
+      <option value="library" {{ "selected" if kind == "library" }}>存量资料</option>
+      <option value="homework" {{ "selected" if kind == "homework" }}>作业上传</option>
+    </select>
+    <select name="visibility">
+      <option value="">全部可见性</option>
+      <option value="public" {{ "selected" if visibility == "public" }}>public·静态直出</option>
+      <option value="private" {{ "selected" if visibility == "private" }}>private·鉴权下载</option>
+    </select>
+    {% if q or subject or category or kind or visibility %}
       <a class="btn ghost" href="{{ url_for('views.library') }}">清空</a>
     {% endif %}
+    <button class="btn primary" id="libUploadBtn" type="button">上传新资料</button>
+    <input type="file" id="libUploadInput" multiple hidden
+           accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.mp4,.mov,.mp3,.wav,.txt,.md,.zip">
   </form>
 
+  <div class="stats-strip">
+    共 <b>{{ stats.total }}</b> 条 · 合计 <b>{{ "%.1f" | format(stats.mb) }} MB</b> ·
+    public <b>{{ stats.pub }}</b> / private <b>{{ stats.pri }}</b> ·
+    存量锁定 <b>{{ stats.locked }}</b> 条（不可删文件）
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>资料列表 <span class="pill" id="countPill">{{ data.total }} 条</span></h2>
+      <div class="meta">public 资料由 nginx 静态直出（外链兼容）；private 资料只能经鉴权接口打开</div>
+    </div>
+  </div>
+
   {% if data['items'] %}
+  <div class="table-wrap">
   <table class="table" id="libTable">
     <thead>
       <tr>
         <th>标题</th>
         <th>学科</th>
         <th>分类</th>
+        <th>类型</th>
         <th>大小</th>
-        <th>状态</th>
+        <th>可见性</th>
+        <th>来源</th>
         <th>操作</th>
       </tr>
     </thead>
@@ -51,57 +84,71 @@
           data-category="{{ item.category }}"
           data-tags="{{ item.tags }}"
           data-note="{{ item.note }}"
+          data-path="{{ item.rel_path }}"
           data-locked="{{ 1 if item.locked else 0 }}"
           data-visibility="{{ item.visibility }}">
         <td class="cell-title">
-          <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>
+          <a class="fname" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>
+          <div class="path">{{ item.rel_path }}</div>
           {% if item.note %}<div class="cell-note">{{ item.note }}</div>{% endif %}
         </td>
         <td>{{ item.subject or "—" }}</td>
         <td>{{ item.category or "—" }}</td>
+        <td><span class="badge">{{ item.rel_path.rsplit(".", 1)[-1].lower() if "." in item.rel_path else "—" }}</span></td>
         <td class="num">{{ item.size_human }}</td>
         <td>
-          {% if item.locked %}<span class="badge">存量</span>{% endif %}
-          {% if item.visibility == "private" %}<span class="badge warn">私有</span>{% endif %}
+          <span class="badge {{ 'pub' if item.visibility == 'public' else 'pri' }}">{{ item.visibility }}</span>
         </td>
-        <td class="row-actions">
-          <button class="btn small" data-act="edit" type="button">编辑</button>
-          {% if not item.locked and item.visibility == "private" %}
-            <button class="btn small danger" data-act="del" type="button">删除</button>
-          {% endif %}
+        <td>
+          {% if item.locked %}<span class="badge lock">🔒 存量</span>
+          {% else %}<span class="badge">新上传</span>{% endif %}
+        </td>
+        <td>
+          <div class="ops">
+            <a class="op" href="{{ item.url }}" target="_blank" rel="noopener">打开</a>
+            <a class="op" data-act="edit" href="javascript:void(0)">编辑</a>
+            {% if not item.locked and item.visibility == "private" %}
+              <a class="op warn" data-act="del" href="javascript:void(0)">删除</a>
+            {% endif %}
+          </div>
         </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
+  </div>
 
   <div class="pager">
     {% if data.page > 1 %}
-      <a class="btn ghost" href="{{ url_for('views.library', q=q, subject=subject, category=category, page=data.page - 1) }}">上一页</a>
+      <a class="btn ghost" href="{{ url_for('views.library', q=q, subject=subject, category=category, kind=kind, visibility=visibility, page=data.page - 1) }}">上一页</a>
     {% endif %}
     <span class="meta">第 {{ data.page }} / {{ data.pages }} 页</span>
     {% if data.page < data.pages %}
-      <a class="btn ghost" href="{{ url_for('views.library', q=q, subject=subject, category=category, page=data.page + 1) }}">下一页</a>
+      <a class="btn ghost" href="{{ url_for('views.library', q=q, subject=subject, category=category, kind=kind, visibility=visibility, page=data.page + 1) }}">下一页</a>
     {% endif %}
   </div>
   {% else %}
-  <div class="hint">没有匹配的资料{% if q %}（关键词：{{ q }}）{% endif %}。</div>
+  <div class="empty-note">没有匹配的资料{% if q %}（关键词：{{ q }}）{% endif %}。</div>
   {% endif %}
 
   <div class="hint">
-    存量 140 条（<b>存量</b> 标记）：可改标题 / 学科 / 分类 / 标签 / 备注，文件与路径锁定、不可删除；
-    本页「上传入库」的新资料为私有（private），可删除——删记录时同步删文件并解除任务关联。
-    public 资料继续由 nginx 静态直出，保持外链兼容。
+    检索走 <code>GET /homework/api/resources?q=&amp;subject=&amp;kind=&amp;visibility=</code>；
+    改元数据走 <code>PATCH /api/resources/&lt;id&gt;</code>（<code>locked=1</code> 的记录只改元数据，不碰
+    <code>rel_path</code>）；删除仅对非锁定的 private 记录开放，会同时删掉站点外的文件（二次确认）。
+    存量 140 条（<b>存量</b> 标记）文件与路径锁定；「上传新资料」入库为 private，可删除。
   </div>
 </section>
 
 <div class="modal" id="editModal" hidden>
-  <div class="modal-card" style="width:min(520px,100%)">
+  <div class="modal-card">
     <div class="modal-head">
-      <b id="emHeading">编辑资料</b>
+      <b id="emHeading">编辑资料元数据</b>
       <button id="emClose" type="button" aria-label="关闭">×</button>
     </div>
-    <div class="modal-list">
+    <div class="modal-body">
+      <div class="lock-tip" id="emLockNote" hidden>
+        🔒 存量资料：可修改标题、学科、分类、标签与备注；<b>文件不可删除、存储路径已锁定</b>。
+      </div>
       <div class="field"><label>标题</label><input id="emTitle"></div>
       <div class="field"><label>学科</label>
         <input id="emSubject" list="libSubjects" placeholder="如：英语">
@@ -109,17 +156,15 @@
           {% for s in subjects %}<option value="{{ s }}">{% endfor %}
         </datalist>
       </div>
-      <div class="field"><label>分类</label><input id="emCategory" placeholder="如：语法练习"></div>
-      <div class="field"><label>标签（逗号分隔）</label><input id="emTags" placeholder="如：词汇,复习"></div>
-      <div class="field"><label>备注</label><textarea id="emNote"></textarea></div>
-      <div class="hint" id="emLockNote" hidden>
-        这是<b>存量</b>资料：仅元数据可改，文件路径已锁定。
-      </div>
+      <div class="field"><label>分类</label><input id="emCategory" placeholder="如：语法练习、纸质作业、拓展阅读"></div>
+      <div class="field"><label>标签（逗号分隔）</label><input id="emTags" placeholder="暑假, 必做, 开学交"></div>
+      <div class="field"><label>备注</label><textarea id="emNote" placeholder="纸质版已发，开学交"></textarea></div>
+      <div class="field"><label>存储路径（只读）</label><input id="emPath" readonly></div>
     </div>
     <div class="modal-foot">
-      <button class="btn primary" id="emSave" type="button">保存</button>
+      <span class="meta" id="emStatus"></span>
       <button class="btn" id="emCancel" type="button">取消</button>
-      <span class="meta" id="emStatus" style="margin-left:8px"></span>
+      <button class="btn primary" id="emSave" type="button">保存</button>
     </div>
   </div>
 </div>
@@ -133,5 +178,5 @@
     csrf: document.querySelector('meta[name="csrf-token"]').content
   };
 </script>
-<script src="{{ url_for('views.static', filename='js/library.js') }}?v=20260927-p35"></script>
+<script src="{{ url_for('views.static', filename='js/library.js') }}?v=20260927-p4"></script>
 {% endblock %}

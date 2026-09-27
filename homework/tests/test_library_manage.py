@@ -240,9 +240,10 @@ def test_library_manage_page_controls(client, login, app, tmp_path, monkeypatch)
     rid = _seed(app, tmp_path, monkeypatch)
 
     body = client.get("/homework/library").get_data(as_text=True)
-    assert "上传入库" in body
+    assert "上传新资料" in body
     assert 'data-id="%d"' % rid in body
     assert 'data-act="edit"' in body
+    assert "存量锁定" in body  # 统计条
     # 存量 locked 行不出现删除按钮
     row = re.search(r'<tr data-id="%d".*?</tr>' % rid, body, re.S)
     assert row and 'data-act="del"' not in row.group(0)
@@ -255,3 +256,33 @@ def test_library_manage_page_controls(client, login, app, tmp_path, monkeypatch)
     assert body.count('data-act="del"') == 1
     assert 'data-locked="1"' in body
     assert 'data-visibility="private"' in body
+
+
+def test_library_visibility_and_kind_filters(client, login, app, tmp_path, monkeypatch):
+    login()
+    token = _csrf(client)
+    _seed(app, tmp_path, monkeypatch)  # 1 条 public+library
+    priv = _upload(client, token, name="筛选用.pdf", blob=PDF + b"filter",
+                   kind="homework")
+
+    # visibility
+    body = client.get("/homework/library?visibility=private").get_data(as_text=True)
+    assert 'data-id="%d"' % priv["id"] in body
+    assert "存量语法练习" not in body
+    body = client.get("/homework/library?visibility=public").get_data(as_text=True)
+    assert "存量语法练习" in body
+    assert 'data-id="%d"' % priv["id"] not in body
+
+    # kind
+    body = client.get("/homework/library?kind=library").get_data(as_text=True)
+    assert "存量语法练习" in body
+    assert 'data-id="%d"' % priv["id"] not in body
+    body = client.get("/homework/library?kind=homework").get_data(as_text=True)
+    assert "存量语法练习" not in body
+    assert 'data-id="%d"' % priv["id"] in body
+
+    # API 同参生效
+    resp = client.get("/homework/api/resources?visibility=private")
+    assert resp.status_code == 200
+    ids = [r["id"] for r in resp.get_json()["items"]]
+    assert ids == [priv["id"]]

@@ -3,15 +3,11 @@
 {% block title %}{{ label }} · 学习工作台{% endblock %}
 {% block crumb_title %}{{ label }}{% endblock %}
 {% block crumb_sub %}{{ "校内清单" if kind == "in_school" else ("校外清单" if kind == "extra_school" else "打卡与维护") }}{% endblock %}
-{% block topbar_actions %}
-  <a class="btn" href="{{ url_for('views.library') }}">资料库</a>
-  <a class="btn primary" href="{{ url_for('api.health') }}">API 健康</a>
-{% endblock %}
 
 {% block content %}
 <div class="stats">
   <div class="stat">
-    <div class="label">当日确认完成</div>
+    <div class="label">今日确认完成</div>
     <div class="big"><span id="doneCount">0</span> <em>/ <span id="totalCount">0</span></em></div>
     <div class="sub">完成率 <span id="rate">0%</span></div>
   </div>
@@ -21,9 +17,9 @@
     <div class="sub">今日学习时间倒计时</div>
   </div>
   <div class="stat">
-    <div class="label">最近 7 天完成</div>
+    <div class="label">最近 7 天未完成</div>
     <div class="days" id="days"><span class="sub">加载中…</span></div>
-    <div class="sub">点击日期查看当日清单</div>
+    <div class="sub">点击日期查看当日打卡清单</div>
   </div>
 </div>
 
@@ -73,8 +69,9 @@
     </div>
     <div class="modal-list" id="rmList"></div>
     <div class="modal-foot">
-      public 资料直接静态打开；private 文件走
-      <code>/homework/api/files/&lt;id&gt;</code> 鉴权下载（P3 接入在线预览）。
+      public 资料返回静态 URL 直接打开；private 文件经
+      <code>/homework/api/files/&lt;id&gt;</code> 鉴权后在线预览
+      （PDF、图片、视频、音频用浏览器原生能力），未登录与越权返回 401/404。
     </div>
   </div>
 </div>
@@ -90,5 +87,5 @@
     kind: {{ kind | tojson }}
   };
 </script>
-<script src="{{ url_for('views.static', filename='js/overview.js') }}?v=20260927-p2"></script>
+<script src="{{ url_for('views.static', filename='js/overview.js') }}?v=20260927-p4"></script>
 {% endblock %}

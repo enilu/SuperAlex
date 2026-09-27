@@ -6,7 +6,7 @@
     <title>{% block title %}学习工作台{% endblock %}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet"
-          href="{{ url_for('views.static', filename='css/app.css') }}?v=20260927-p2">
+          href="{{ url_for('views.static', filename='css/app.css') }}?v=20260927-p4">
   </head>
   <body>
     <div class="app">
@@ -53,7 +53,20 @@
             <span>{% block crumb_sub %}{% endblock %}</span>
           </div>
           <div class="spacer"></div>
-          {% block topbar_actions %}{% endblock %}
+          {% block topbar_actions %}
+            {% set act = active | default("") %}
+            {% if act != "overview" %}
+              <a class="btn" href="{{ url_for('views.home') }}">首页</a>
+            {% else %}
+              <button class="btn" type="button" onclick="toast('当前就在总览页')">首页</button>
+            {% endif %}
+            <button class="btn" type="button" onclick="toast('二期功能')">课程表</button>
+            {% if act != "upload" %}
+              <a class="btn primary" href="{{ url_for('views.upload') }}">上传作业</a>
+            {% else %}
+              <button class="btn primary" type="button" onclick="toast('当前就在上传页')">上传作业</button>
+            {% endif %}
+          {% endblock %}
           <div class="clock" id="clock"></div>
         </header>
 

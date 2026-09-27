@@ -28,6 +28,11 @@
     var parts = iso.split("-");
     return parts[1] + "月" + parts[2] + "日";
   }
+  function weekdayLabel(iso) {
+    var p = iso.split("-");
+    var d = new Date(+p[0], +p[1] - 1, +p[2]);
+    return "日一二三四五六".charAt(d.getDay());
+  }
 
   function api(url, opts) {
     opts = opts || {};
@@ -123,10 +128,14 @@
     $("viewDate").value = data.date;
 
     $("days").innerHTML = data.series.map(function (d) {
-      var cls = d.date === todayStr() ? " today" : "";
+      var isToday = d.date === todayStr();
+      var wd = weekdayLabel(d.date);
+      var cls = isToday ? "today"
+        : ((d.total && d.done < d.total) ? " warn" : "");
       var pct = d.rate == null ? "—" : d.rate + "%";
-      return '<div class="day' + cls + '" data-date="' + d.date + '">' +
-        "<b>" + d.date.slice(5).replace("-", "/") + "</b>" +
+      return '<div class="day' + cls + '" data-date="' + d.date + '"' +
+        (isToday ? '' : ' title="查看该日清单"') + '>' +
+        "<b>" + d.date.slice(5).replace("-", "/") + " 周" + wd + "</b>" +
         "<i>" + (d.total ? d.done + "/" + d.total + " · " + pct : "无清单") + "</i></div>";
     }).join("");
     Array.prototype.forEach.call($("days").querySelectorAll(".day"), function (el) {

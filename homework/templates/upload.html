@@ -3,9 +3,6 @@
 {% block title %}上传作业 · 学习工作台{% endblock %}
 {% block crumb_title %}上传作业{% endblock %}
 {% block crumb_sub %}作业管理 · 上传并生成任务{% endblock %}
-{% block topbar_actions %}
-  <a class="btn" href="{{ url_for('views.home') }}">返回总览</a>
-{% endblock %}
 
 {% block content %}
 <section class="panel">
@@ -135,7 +132,7 @@
 
   <table class="table">
     <thead>
-      <tr><th>文件</th><th>时间</th><th>大小</th><th>可见性</th><th>操作</th></tr>
+      <tr><th>文件</th><th>上传时间</th><th>大小</th><th>可见性</th><th>操作</th></tr>
     </thead>
     <tbody id="recent">
       <tr id="recentEmpty"><td colspan="5" class="empty">还没有上传记录</td></tr>

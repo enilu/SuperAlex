@@ -40,6 +40,7 @@ def serialize(row: sqlite3.Row) -> dict:
         "size": row["size"],
         "size_human": human_size(row["size"]),
         "url": file_url(row),
+        "rel_path": row["rel_path"],
         "collection_id": row["collection_id"],
         "created_at": row["created_at"],
         "legacy_id": row["legacy_id"] if "legacy_id" in row.keys() else None,
@@ -52,6 +53,7 @@ def search_resources(
     subject: str = "",
     category: str = "",
     kind: str = "",
+    visibility: str = "",
     page: int = 1,
     per_page: int = 50,
     sort: str = "",
@@ -71,6 +73,7 @@ def search_resources(
         ("r.subject", subject),
         ("r.category", category),
         ("r.kind", kind),
+        ("r.visibility", visibility),
     ):
         if value:
             where.append(f"{column} = ?")

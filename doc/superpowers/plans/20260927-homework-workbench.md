@@ -1,7 +1,7 @@
 # 学习工作台（homework Workbench）改造方案
 
 - 日期：2026-09-27
-- 状态：实施中（P0、P1、P1.5、P2、P3、P3.5 已完成并提交）
+- 状态：实施中（P0、P1、P1.5、P2、P3、P3.5、P4 已完成并提交）
 - 视觉基线：`homework/proto/index.html`（静态原型，可直接浏览器打开预览）
 - 旧版实现：`homework/index.html` + `homework/assets/js/app.js` + `homework/data/homework.json`
 
@@ -63,7 +63,7 @@ SuperAlex/homework/
 ├── proto/index.html          # 静态原型（视觉基线，不部署）
 ├── data/homework.json        # 保留：资料库清单导入源 + 资料库数据
 ├── uploads/                  # 仓库内占位；服务器实际落 /var/lib/homework-workbench/uploads/
-├── index.html + assets/      # 旧静态页，P4 完成后归档移除
+├── index.html + assets/      # 旧静态页（P5 回滚依赖，切换验证后归档移除）
 └── README.md
 ```
 

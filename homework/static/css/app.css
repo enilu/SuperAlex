@@ -79,17 +79,6 @@ a{color:var(--accent-ink)}
 .btn.ghost:hover{background:#f1f5f4}
 .meta{font-size:13px;color:var(--muted)}
 
-.lib-search{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
-.lib-search input[type=search]{
-  flex:1;min-width:220px;border:1px solid var(--line);border-radius:9px;
-  padding:9px 13px;font-size:14px;background:#fbfcfc;color:var(--ink);font-family:inherit;
-}
-.lib-search select{
-  border:1px solid var(--line);border-radius:9px;padding:9px 10px;font-size:14px;
-  background:#fbfcfc;color:var(--ink);font-family:inherit;
-}
-.lib-search input:focus,.lib-search select:focus{outline:none;border-color:var(--accent)}
-
 .table{width:100%;border-collapse:collapse;font-size:14px}
 .table th{
   text-align:left;font-weight:600;color:var(--muted);font-size:12px;
@@ -284,3 +273,48 @@ a{color:var(--accent-ink)}
 .btn.small.danger:hover{background:#fef3f2;border-color:#fecdca}
 #editModal .field{margin-top:12px}
 #editModal .field:first-child{margin-top:0}
+
+/* ---------- 资料库页 v2（对齐 proto/library.html） ---------- */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.toolbar input[type=search]{
+  flex:1;min-width:220px;border:1px solid var(--line);border-radius:9px;padding:9px 12px;
+  font-size:14px;background:#fbfcfc;color:var(--ink);font-family:inherit}
+.toolbar select{
+  border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:14px;
+  background:#fbfcfc;color:var(--ink);font-family:inherit}
+.toolbar input:focus,.toolbar select:focus{outline:none;border-color:var(--accent);background:#fff}
+.toolbar .btn.primary{margin-left:auto}
+.stats-strip{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:12px}
+.stats-strip b{color:var(--ink);font-weight:600}
+
+.table-wrap{overflow-x:auto}
+.table .fname{font-size:14px;font-weight:600}
+.table .path{font-size:11px;color:var(--muted);word-break:break-all;margin-top:3px}
+.table tbody tr:hover{background:#fbfdfd}
+.badge.pub{background:#ecfeff;color:#0e7490;border-color:#cffafe}
+.badge.pri{background:#fff7ed;color:#b45309;border-color:#fed7aa}
+.badge.lock{background:#f5f3ff;color:#6d28d9;border-color:#ddd6fe}
+.ops{display:flex;gap:12px;white-space:nowrap}
+.ops .op{font-size:13px;color:var(--accent-ink);text-decoration:none;cursor:pointer}
+.ops .op:hover{text-decoration:underline}
+.ops .op.warn{color:#d92d20}
+.ops .op.warn:hover{color:#b42318}
+
+/* ---------- 编辑弹层（资料库） ---------- */
+.modal-body{padding:18px 20px;overflow:auto}
+.modal-body .field{margin-bottom:14px}
+.modal-body .field:first-child{margin-top:0}
+.lock-tip{font-size:12px;color:#6d28d9;background:#f5f3ff;border:1px solid #ddd6fe;
+          border-radius:8px;padding:9px 12px;margin-bottom:14px;line-height:1.7}
+.lock-tip[hidden]{display:none}
+#editModal .modal-foot{display:flex;gap:10px;align-items:center;justify-content:flex-end}
+#editModal .modal-foot .meta{margin-right:auto}
+
+/* ---------- 7 天色块：历史未完成告警 ---------- */
+.day.warn{background:#fff7ed;border-color:#fed7aa}
+.day.warn i{color:var(--amber)}
+
+@media(max-width:900px){
+  .toolbar .btn.primary{margin-left:0}
+  .stats-strip{gap:8px 14px}
+}

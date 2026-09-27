@@ -54,16 +54,19 @@
   /* ---------- 编辑元数据 ---------- */
 
   var editingId = null;
+  var editingLocked = false;
 
   function openEdit(tr) {
     editingId = +tr.dataset.id;
+    editingLocked = tr.dataset.locked === "1";
     $("emHeading").textContent = "编辑 · " + tr.dataset.title;
     $("emTitle").value = tr.dataset.title || "";
     $("emSubject").value = tr.dataset.subject || "";
     $("emCategory").value = tr.dataset.category || "";
     $("emTags").value = tr.dataset.tags || "";
     $("emNote").value = tr.dataset.note || "";
-    $("emLockNote").hidden = tr.dataset.locked !== "1";
+    $("emPath").value = tr.dataset.path || "";
+    $("emLockNote").hidden = !editingLocked;
     $("emStatus").textContent = "";
     $("editModal").hidden = false;
     $("emTitle").focus();
@@ -72,6 +75,7 @@
   function closeEdit() {
     $("editModal").hidden = true;
     editingId = null;
+    editingLocked = false;
   }
 
   function saveEdit() {
@@ -86,7 +90,7 @@
     $("emStatus").textContent = "保存中…";
     api(cfg.resourceUrlBase + "/" + editingId, { method: "PATCH", body: payload })
       .then(function () {
-        toast("已保存元数据");
+        toast(editingLocked ? "已更新元数据（文件与路径未动）" : "已保存");
         closeEdit();
         setTimeout(function () { location.reload(); }, 500);
       })
@@ -126,8 +130,9 @@
   var table = $("libTable");
   if (table) {
     table.addEventListener("click", function (e) {
-      var btn = e.target.closest ? e.target.closest("button[data-act]") : null;
+      var btn = e.target.closest ? e.target.closest("[data-act]") : null;
       if (!btn) return;
+      e.preventDefault();
       var tr = btn.closest("tr");
       if (!tr) return;
       if (btn.dataset.act === "edit") openEdit(tr);

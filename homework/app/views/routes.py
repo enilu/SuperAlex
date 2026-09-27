@@ -84,23 +84,47 @@ def upload():
 @bp.get("/library")
 @login_required
 def library():
-    """资料库检索页（原资料馆，元数据来自 SQLite）。"""
+    """资料库检索 + 管理页（还原 proto/library.html）。"""
     q = request.args.get("q", "").strip()
     subject = request.args.get("subject", "").strip()
     category = request.args.get("category", "").strip()
+    kind = request.args.get("kind", "").strip()
+    visibility = request.args.get("visibility", "").strip()
     page = request.args.get("page", 1, type=int)
 
     conn = get_db()
     data = search_resources(
-        conn, q=q, subject=subject, category=category, page=page, per_page=50
-    )
-    f = facets(conn)
-    return render_template(
-        "library.html",
-        data=data,
+        conn,
         q=q,
         subject=subject,
         category=category,
+        kind=kind,
+        visibility=visibility,
+        page=page,
+        per_page=50,
+    )
+    f = facets(conn)
+    stats = conn.execute(
+        "SELECT COUNT(*) AS total, COALESCE(SUM(size), 0) AS bytes, "
+        " SUM(CASE WHEN visibility='public' THEN 1 ELSE 0 END) AS pub, "
+        " SUM(CASE WHEN visibility='private' THEN 1 ELSE 0 END) AS pri, "
+        " SUM(locked) AS locked FROM resources"
+    ).fetchone()
+    return render_template(
+        "library.html",
+        data=data,
+        stats={
+            "total": int(stats["total"] or 0),
+            "mb": (stats["bytes"] or 0) / 1048576,
+            "pub": int(stats["pub"] or 0),
+            "pri": int(stats["pri"] or 0),
+            "locked": int(stats["locked"] or 0),
+        },
+        q=q,
+        subject=subject,
+        category=category,
+        kind=kind,
+        visibility=visibility,
         subjects=f["subjects"],
         categories=f["categories"],
         active="library",
