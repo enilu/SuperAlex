@@ -84,7 +84,7 @@ homework 维护说明以仓库 `homework/README.md` 为准。
 ssh -o BatchMode=yes -o ConnectTimeout=10 root@cloud-host 'cd /root/workspace/SuperAlex && git fetch origin && git status -sb && git pull --ff-only'
 ```
 
-   拉取后 HEAD 必须等于 `origin/main`；`git status` 有本地改动或冲突就停下处理，不要在服务器上手工改文件。
+   拉取后 HEAD 必须等于 `origin/main`；`git status` 有本地改动或冲突就停下处理，不要在服务器上手工改文件。服务器仓库 remote 是 `https://github.com/enilu/SuperAlex.git`，拉取无需额外凭据；若突然拉不动，先在服务器上确认 remote 和网络，不要改用拷贝文件的方式绕过。
 4. 连通性（在服务器上执行）：
 
 ```bash
@@ -121,4 +121,10 @@ curl -sI http://superalex.enilu.cn/
 curl -sI http://superalex.enilu.cn/game/
 ```
 
-交付时写清：目标、同步了哪些路径、备份路径、homework 是否动过 `files/`（必须没有）、是否改 Nginx、公网抽检结果、未覆盖风险。
+交付时写清：目标、本地提交号与服务器 `git log -1`（两者必须一致）、同步了哪些路径、备份路径、homework 是否动过 `files/`（必须没有）、是否改 Nginx、公网抽检结果、未覆盖风险。
+
+资料目录完整性抽检（在服务器上执行，读站点 `data/homework.json` 逐条比对 `files/`）：
+
+```bash
+cd /root/workspace/SuperAlex && python3 doc/ai/skills/common/cloud-host-deploy/scripts/check-homework-files.py
+```
