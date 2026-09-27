@@ -1,10 +1,20 @@
 """页面路由。"""
 from __future__ import annotations
 
-from flask import current_app, render_template, url_for
+from pathlib import Path
+
+from flask import (
+    abort,
+    current_app,
+    render_template,
+    request,
+    send_file,
+    url_for,
+)
 
 from ..auth import login_required
 from ..db import get_db, schema_version
+from ..library import facets, search_resources
 from . import bp
 
 
@@ -36,3 +46,52 @@ def healthz():
     from ..api.routes import health
 
     return health()
+
+
+# ---------- 资料库 ----------
+
+@bp.get("/library")
+@login_required
+def library():
+    """资料库检索页（原资料馆，元数据来自 SQLite）。"""
+    q = request.args.get("q", "").strip()
+    subject = request.args.get("subject", "").strip()
+    category = request.args.get("category", "").strip()
+    page = request.args.get("page", 1, type=int)
+
+    conn = get_db()
+    data = search_resources(
+        conn, q=q, subject=subject, category=category, page=page, per_page=50
+    )
+    f = facets(conn)
+    return render_template(
+        "library.html",
+        data=data,
+        q=q,
+        subject=subject,
+        category=category,
+        subjects=f["subjects"],
+        categories=f["categories"],
+        active="library",
+    )
+
+
+# ---------- 旧静态页兜底（P4 归档前保持外链可用） ----------
+
+_LEGACY_PREFIXES = ("assets/", "data/")
+
+
+@bp.get("/<path:filename>")
+def legacy_static(filename: str):
+    """旧静态站白名单：index.html / assets/ / data/。
+
+    files/（900MB）永远由 nginx 直出，不经过本路由；
+    其余路径一律 404，避免泄露仓库内代码。
+    """
+    root = Path(current_app.root_path).resolve().parent  # homework/ 仓库根
+    if not (filename == "index.html" or filename.startswith(_LEGACY_PREFIXES)):
+        abort(404)
+    target = (root / filename).resolve()
+    if not target.is_relative_to(root) or not target.is_file():
+        abort(404)
+    return send_file(target)

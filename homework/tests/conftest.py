@@ -1,10 +1,14 @@
 from __future__ import annotations
 
+import re
+
 import pytest
 
 from app import create_app
 from app import db as db_mod
 from app import users as users_mod
+
+CSRF_RE = re.compile(r'name="csrf_token" value="([^"]+)"')
 
 
 @pytest.fixture()
@@ -44,3 +48,22 @@ def make_user(app):
             conn.close()
 
     return _create
+
+
+@pytest.fixture()
+def login(client, make_user):
+    """已登录的 client；每调用一次建一个新账号再登录。"""
+    counter = {"n": 0}
+
+    def _login(username: str | None = None, password: str = "pass-12345"):
+        counter["n"] += 1
+        username = username or f"user{counter['n']}"
+        make_user(username, password, "测试家长")
+        html = client.get("/homework/login").get_data(as_text=True)
+        token = CSRF_RE.search(html).group(1)
+        return client.post(
+            "/homework/login",
+            data={"username": username, "password": password, "csrf_token": token},
+        )
+
+    return _login

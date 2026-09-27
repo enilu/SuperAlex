@@ -2,7 +2,7 @@
 
 {% block title %}学习总览 · 学习工作台{% endblock %}
 {% block crumb_title %}学习总览{% endblock %}
-{% block crumb_sub %}P0 骨架{% endblock %}
+{% block crumb_sub %}P1.5 存量已导入{% endblock %}
 {% block topbar_actions %}
   <a class="btn" href="{{ health_url }}">API 健康检查</a>
 {% endblock %}
@@ -22,21 +22,24 @@
     <div class="stat">
       <div class="label">接口</div>
       <div class="big"><a href="{{ health_url }}">/api/health</a></div>
-      <div class="sub">P1 起接入登录、任务与资料接口</div>
+      <div class="sub">已接入登录与 <a href="/homework/api/resources">/api/resources</a></div>
     </div>
   </div>
 
   <section class="panel">
     <div class="panel-head">
       <div>
-        <h2>P0 骨架已就绪</h2>
+        <h2>P0 / P1 / P1.5 已完成</h2>
         <div class="meta">依据方案 doc/superpowers/plans/20260927-homework-workbench.md 实施</div>
       </div>
+      <div class="spacer"></div>
+      <a class="btn" href="{{ url_for('views.library') }}">打开资料库</a>
     </div>
     <div class="hint">
-      本阶段交付：应用工厂与配置、SQLite 迁移执行器（<code>python -m app.manage migrate</code>）、
-      页面与 API 两个蓝图、统一 <code>/homework</code> 前缀、健康检查接口。
-      下一阶段 P1：单账号登录、CSRF、登录限速与用户表。
+      已交付：Flask 骨架与迁移执行器、单账号登录 / CSRF / 登录限速、
+      <code>import-json</code> 存量 140 条资料入库（<code>locked=1</code>、public）、
+      资料库检索页与 <code>/api/resources</code>、旧静态路径白名单兜底。<br>
+      下一阶段 P2：任务 CRUD、打卡完成/撤销、清单维护模式与复制昨日、总览 API + 页面。
     </div>
   </section>
 {% endblock %}

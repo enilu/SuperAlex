@@ -1,7 +1,7 @@
 # 学习工作台（homework Workbench）改造方案
 
 - 日期：2026-09-27
-- 状态：待实施
+- 状态：实施中（P0、P1、P1.5 已完成并提交）
 - 视觉基线：`homework/proto/index.html`（静态原型，可直接浏览器打开预览）
 - 旧版实现：`homework/index.html` + `homework/assets/js/app.js` + `homework/data/homework.json`
 
@@ -52,10 +52,10 @@ SuperAlex/homework/
 │   ├── auth.py               # 登录、session、CSRF、登录限速
 │   ├── views/                # 页面蓝图：overview / tasks / upload / library
 │   ├── api/                  # JSON 蓝图：tasks、overview、stats、upload、resources、files
-│   └── manage.py             # CLI：init-db / migrate-json / backup
+│   └── manage.py             # CLI：migrate / status / backup / create-user / import-json
 ├── templates/                # Jinja2：base / login / overview / tasks / upload / library
 ├── static/                   # css/js/img（承接 proto 的样式与交互）
-├── migrations/               # 001_init.sql、002_import_library.sql（140 条资料导入）
+├── migrations/               # 001_init.sql、002_legacy_ids.sql（存量导入用 legacy_id 列）
 ├── tests/                    # pytest：登录、任务 CRUD、打卡、上传、CSRF
 ├── run.py                    # 本地开发（Flask dev server, 8081）
 ├── wsgi.py                   # 生产（waitress）

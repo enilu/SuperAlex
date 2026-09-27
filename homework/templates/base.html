@@ -23,7 +23,8 @@
           <a href="#" class="{{ 'active' if active == 'extra' }}">校外作业</a>
           <a href="#" class="{{ 'active' if active == 'upload' }}">上传作业</a>
           <div class="nav-group">资料库</div>
-          <a href="#" class="{{ 'active' if active == 'library' }}">资料管理</a>
+          <a href="{{ url_for('views.library') }}"
+             class="{{ 'active' if active == 'library' }}">资料管理</a>
           <a href="#">按学期浏览</a>
           <a href="#">按学科浏览</a>
           <div class="nav-group">复盘提升</div>
