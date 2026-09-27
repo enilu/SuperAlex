@@ -292,6 +292,58 @@ def clear_day(conn: sqlite3.Connection, due_date: str) -> int:
     return cur.rowcount
 
 
+# ---------- 任务 ⇄ 资料（多对多） ----------
+
+def set_resource_links(
+    conn: sqlite3.Connection,
+    task_id: int,
+    resource_ids: list,
+    mode: str = "set",
+) -> None:
+    """关联资料：mode=set（覆盖）| add（追加）| remove（移除）。"""
+    if mode not in ("set", "add", "remove"):
+        raise ValueError("mode 必须是 set/add/remove")
+    try:
+        ids = sorted({int(i) for i in resource_ids})
+    except (TypeError, ValueError):
+        raise ValueError("resource_ids 必须是整数数组") from None
+
+    if ids and mode != "remove":
+        placeholders = ",".join("?" * len(ids))
+        found = {
+            r["id"]
+            for r in conn.execute(
+                f"SELECT id FROM resources WHERE id IN ({placeholders})", ids
+            )
+        }
+        missing = set(ids) - found
+        if missing:
+            raise ValueError(f"无效 resource_id: {sorted(missing)}")
+
+    if mode == "set":
+        conn.execute("DELETE FROM task_resources WHERE task_id = ?", (task_id,))
+        for rid in ids:
+            conn.execute(
+                "INSERT INTO task_resources(task_id, resource_id) VALUES (?, ?)",
+                (task_id, rid),
+            )
+    elif mode == "add":
+        for rid in ids:
+            conn.execute(
+                "INSERT OR IGNORE INTO task_resources(task_id, resource_id) VALUES (?, ?)",
+                (task_id, rid),
+            )
+    else:
+        if ids:
+            placeholders = ",".join("?" * len(ids))
+            conn.execute(
+                f"DELETE FROM task_resources WHERE task_id = ? "
+                f"AND resource_id IN ({placeholders})",
+                [task_id, *ids],
+            )
+    conn.commit()
+
+
 # ---------- 总览统计 ----------
 
 def series(conn: sqlite3.Connection, end_date: str, days: int = 7) -> list[dict]:

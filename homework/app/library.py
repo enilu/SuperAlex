@@ -41,6 +41,7 @@ def serialize(row: sqlite3.Row) -> dict:
         "size_human": human_size(row["size"]),
         "url": file_url(row),
         "collection_id": row["collection_id"],
+        "created_at": row["created_at"],
         "legacy_id": row["legacy_id"] if "legacy_id" in row.keys() else None,
     }
 
@@ -53,6 +54,7 @@ def search_resources(
     kind: str = "",
     page: int = 1,
     per_page: int = 50,
+    sort: str = "",
 ) -> dict:
     where: list[str] = []
     params: list = []
@@ -83,13 +85,18 @@ def search_resources(
     page = max(1, int(page or 1))
     per_page = max(1, min(200, int(per_page or 50)))
     offset = (page - 1) * per_page
+    order = (
+        "ORDER BY r.created_at DESC, r.id DESC"
+        if sort == "recent"
+        else "ORDER BY r.collection_id, r.id"
+    )
     rows = conn.execute(
         f"""
         SELECT r.*, c.name AS collection_name
           FROM resources r
           LEFT JOIN collections c ON c.id = r.collection_id
           {clause}
-         ORDER BY r.collection_id, r.id
+         {order}
          LIMIT ? OFFSET ?
         """,
         [*params, per_page, offset],

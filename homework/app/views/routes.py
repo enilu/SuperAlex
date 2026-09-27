@@ -65,6 +65,20 @@ def healthz():
     return health()
 
 
+@bp.get("/upload")
+@login_required
+def upload():
+    """上传作业页：先上传入库，再生成任务并关联资料。"""
+    from ..tasks import SUBJECTS, today_str
+
+    return render_template(
+        "upload.html",
+        active="upload",
+        subjects=list(SUBJECTS),
+        today=today_str(),
+    )
+
+
 # ---------- 资料库 ----------
 
 @bp.get("/library")

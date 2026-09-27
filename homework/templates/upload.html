@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}上传作业 · 学习工作台{% endblock %}
+{% block crumb_title %}上传作业{% endblock %}
+{% block crumb_sub %}作业管理 · 上传并生成任务{% endblock %}
+{% block topbar_actions %}
+  <a class="btn" href="{{ url_for('views.home') }}">返回总览</a>
+{% endblock %}
+
+{% block content %}
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>选择文件 <span class="pill">可多选</span></h2>
+      <div class="meta">图片 / PDF / 视频 / 音频 / 文本 / 压缩包，单文件 ≤ 50MB</div>
+    </div>
+  </div>
+
+  <div class="uploader">
+    <div class="drop" id="drop">
+      <div class="icon">⬆</div>
+      <b>点击选择文件，或拖拽到这里</b>
+      <span>作业照片、电子版练习、老师发布的 PDF 都可以</span>
+      <input type="file" id="fileInput" multiple hidden
+             accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.mp4,.mov,.mp3,.wav,.txt,.md,.zip">
+    </div>
+
+    <div class="queue" id="queue"></div>
+    <div class="bar" id="bar"><i id="barFill"></i></div>
+
+    <div class="actions">
+      <button class="btn primary" id="uploadBtn" type="button">开始上传</button>
+      <button class="btn" id="clearBtn" type="button">清空列表</button>
+      <span class="clock" id="totalInfo"></span>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>生成任务</h2>
+      <div class="meta">上传后自动进入当日打卡清单，孩子写完即可勾选完成</div>
+    </div>
+  </div>
+
+  <div class="form-grid">
+    <div class="field full">
+      <label>任务标题</label>
+      <input id="fTitle" placeholder="留空则自动取文件名">
+    </div>
+
+    <div class="field">
+      <label>学科</label>
+      <select id="fSubject">
+        {% for s in subjects %}
+          <option value="{{ s }}" {{ "selected" if s == "英语" else "" }}>{{ s }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="field">
+      <label>作业类型</label>
+      <div class="radios">
+        <label><input type="radio" name="kind" value="in_school" checked>校内</label>
+        <label><input type="radio" name="kind" value="extra_school">校外</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>截止日期</label>
+      <input type="date" id="fDue" value="{{ today }}">
+    </div>
+
+    <div class="field">
+      <label>预计时长（分钟）</label>
+      <input type="number" id="fEst" value="30" min="1" max="600" step="5">
+    </div>
+
+    <div class="field full">
+      <label>归属方式</label>
+      <div class="radios">
+        <label><input type="radio" name="mode" value="new" checked>上传即生成新任务</label>
+        <label><input type="radio" name="mode" value="link">关联到已有任务</label>
+      </div>
+    </div>
+
+    <div class="field full" id="linkField" style="display:none">
+      <label>选择已有任务</label>
+      <select id="fLink"><option value="">加载中…</option></select>
+    </div>
+
+    <div class="field full">
+      <label>备注（可选）</label>
+      <textarea id="fNote" placeholder="例：纸质版已发，开学交；手机拍的前两页有点糊"></textarea>
+    </div>
+
+    <div class="field full">
+      <button class="btn primary" id="genBtn" type="button">生成任务</button>
+      <span class="clock" id="genHint" style="margin-left:12px"></span>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>关联资料 <span class="pill" id="resPill">0 份</span></h2>
+      <div class="meta">先上传入库，再关联到任务：本次文件默认全部关联，也可从资料库搜索添加已有资料；清单页可直接打开</div>
+    </div>
+  </div>
+
+  <div class="res-block">
+    <div class="res-sub">本次上传（默认关联）</div>
+    <div class="picks" id="newRes"></div>
+
+    <div class="res-sub">从资料库添加</div>
+    <div class="res-search">
+      <input id="resQ" placeholder="搜索资料，如：暑假乐学手册、Unit3、口算、语文练习">
+      <div class="hits" id="resHits"></div>
+    </div>
+
+    <div class="res-sub">已选资料库资料</div>
+    <div class="chips" id="selRes"><span class="placeholder">暂未选择资料库中的资料</span></div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>最近上传</h2>
+      <div class="meta">仅登录可见；private 下载走鉴权接口，不提供公开目录</div>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr><th>文件</th><th>时间</th><th>大小</th><th>可见性</th><th>操作</th></tr>
+    </thead>
+    <tbody id="recent">
+      <tr id="recentEmpty"><td colspan="5" class="empty">还没有上传记录</td></tr>
+    </tbody>
+  </table>
+
+  <div class="hint">
+    行为：<code>POST /homework/api/upload</code> → 扩展名白名单与 50MB 校验 → 随机存储名写入站点之外
+    <code>uploads/</code> → sha256 去重 → 写入 <code>resources</code>（先入库，<code>visibility=private</code>）
+    → 与任务经 <code>task_resources</code> 关联 1..N 份 → 清单页立即可打开。
+    public 资料静态直出，private 一律走 <code>/homework/api/files/&lt;id&gt;</code>，未登录与越权返回 401/404。
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  window.UP = {
+    uploadUrl: {{ url_for('api.upload_files') | tojson }},
+    tasksUrl: {{ url_for('api.list_tasks_api') | tojson }},
+    createTaskUrl: {{ url_for('api.create_task') | tojson }},
+    resourcesUrl: {{ url_for('api.list_resources') | tojson }},
+    homeUrl: {{ url_for('views.home') | tojson }},
+    csrf: document.querySelector('meta[name="csrf-token"]').content
+  };
+</script>
+<script src="{{ url_for('views.static', filename='js/upload.js') }}?v=20260927-p3"></script>
+{% endblock %}

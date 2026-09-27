@@ -2,13 +2,15 @@
 from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
-from flask import current_app, jsonify, request
+from flask import current_app, jsonify, redirect, request, send_file
 
 from .. import tasks as tasks_mod
+from .. import uploads as uploads_mod
 from ..auth import csrf_protect, current_user, login_required
 from ..db import get_db, schema_version
-from ..library import facets, search_resources
+from ..library import facets, file_url, search_resources
 from . import bp
 
 
@@ -46,9 +48,63 @@ def list_resources():
         kind=request.args.get("kind", ""),
         page=request.args.get("page", 1, type=int),
         per_page=request.args.get("per_page", 50, type=int),
+        sort=request.args.get("sort", ""),
     )
     data["facets"] = facets(conn)
     return jsonify(data)
+
+
+@bp.post("/upload")
+@login_required
+@csrf_protect
+def upload_files():
+    """上传入库：多文件（表单字段 files），先入 resources 再由任务关联。"""
+    files = [f for f in request.files.getlist("files") if f and f.filename]
+    if not files:
+        return _err("缺少文件（表单字段 files）", 400)
+    kind = request.form.get("kind", "homework")
+    if kind not in ("library", "homework"):
+        return _err("kind 必须是 library/homework", 400)
+
+    uid, _ = _actor()
+    uploaded, deduped, errors = [], [], []
+    for file in files:
+        try:
+            res = uploads_mod.save_upload(file, uid, kind)
+        except ValueError as exc:
+            errors.append({"file": file.filename, "error": str(exc)})
+        else:
+            (deduped if res["deduped"] else uploaded).append(res)
+
+    if not uploaded and not deduped:
+        return jsonify(ok=False, uploaded=[], deduped=[], errors=errors), 400
+    return jsonify(ok=True, uploaded=uploaded, deduped=deduped, errors=errors)
+
+
+@bp.get("/files/<int:resource_id>")
+@login_required
+def serve_file(resource_id: int):
+    """private 鉴权下载/预览；public 302 到 nginx 静态 URL。"""
+    conn = get_db()
+    row = conn.execute(
+        "SELECT * FROM resources WHERE id = ?", (resource_id,)
+    ).fetchone()
+    if row is None:
+        return _err("资料不存在", 404)
+    if row["visibility"] == "public":
+        return redirect(file_url(row))
+
+    root = Path(current_app.config["UPLOAD_DIR"]).resolve()
+    rel = Path(row["rel_path"])
+    target = (rel if rel.is_absolute() else root / rel).resolve()
+    if not target.is_relative_to(root) or not target.is_file():
+        return _err("文件不存在", 404)  # 不泄露路径细节
+    return send_file(
+        target,
+        mimetype=row["mime"] or None,
+        as_attachment=request.args.get("dl") == "1",
+        download_name=Path(row["rel_path"]).name,
+    )
 
 
 # ---------- 任务 / 打卡 / 每日清单 ----------
@@ -108,8 +164,15 @@ def create_task():
     if due_date < tasks_mod.today_str():
         return _err("历史日期只读，不能新建任务", 403)
     data["due_date"] = due_date
+    conn = get_db()
     try:
-        task = tasks_mod.create_task(get_db(), data, _actor()[0])
+        task = tasks_mod.create_task(conn, data, _actor()[0])
+        resource_ids = data.get("resource_ids")
+        if resource_ids:
+            if not isinstance(resource_ids, list):
+                raise ValueError("resource_ids 必须是数组")
+            tasks_mod.set_resource_links(conn, task["id"], resource_ids, "set")
+            task = tasks_mod.get_task(conn, task["id"])
     except ValueError as exc:
         return _err(str(exc), 400)
     return jsonify(task), 201
@@ -221,46 +284,17 @@ def link_resources(task_id: int):
     """关联/取消关联资料（多对多）：mode=set|add|remove。"""
     data = _payload()
     mode = data.get("mode", "set")
-    ids = data.get("resource_ids") or []
-    if mode not in ("set", "add", "remove") or not isinstance(ids, list):
-        return _err("mode 必须是 set/add/remove，且 resource_ids 为数组", 400)
+    ids = data.get("resource_ids")
+    if not isinstance(ids, list):
+        return _err("resource_ids 必须是数组", 400)
 
     conn = get_db()
     if tasks_mod.get_task(conn, task_id) is None:
         return _err("任务不存在", 404)
-    existing = {
-        r["id"]
-        for r in conn.execute(
-            "SELECT id FROM resources WHERE id IN ({})".format(
-                ",".join("?" * len(ids)) or "NULL"
-            ),
-            [int(i) for i in ids],
-        )
-    } if ids else set()
-    if ids and len(existing) != len({int(i) for i in ids}):
-        return _err("存在无效 resource_id", 400)
-
-    if mode == "set":
-        conn.execute("DELETE FROM task_resources WHERE task_id = ?", (task_id,))
-        for rid in sorted(existing):
-            conn.execute(
-                "INSERT INTO task_resources(task_id, resource_id) VALUES (?, ?)",
-                (task_id, rid),
-            )
-    elif mode == "add":
-        for rid in sorted(existing):
-            conn.execute(
-                "INSERT OR IGNORE INTO task_resources(task_id, resource_id) VALUES (?, ?)",
-                (task_id, rid),
-            )
-    else:
-        conn.execute(
-            "DELETE FROM task_resources WHERE task_id = ? AND resource_id IN ({})".format(
-                ",".join("?" * len(ids))
-            ),
-            [task_id, *[int(i) for i in ids]],
-        )
-    conn.commit()
+    try:
+        tasks_mod.set_resource_links(conn, task_id, ids, mode)
+    except ValueError as exc:
+        return _err(str(exc), 400)
     return jsonify(tasks_mod.get_task(conn, task_id))
 
 

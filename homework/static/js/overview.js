@@ -287,13 +287,11 @@
     $("rmTitle").textContent = "关联资料 · " + t.subject + " · " + t.title;
     var list = t.resources || [];
     $("rmList").innerHTML = list.length ? list.map(function (r) {
-      var action = r.visibility === "public"
-        ? '<a class="open" href="' + esc(r.url) + '" target="_blank" rel="noopener">打开</a>'
-        : '<span class="open muted">P3 预览</span>';
       return '<div class="mitem">' +
         '<span class="tag">' + (r.visibility === "public" ? "public" : "private") + "</span>" +
         '<div class="mt"><b>' + esc(r.title) + "</b><span>" + esc(r.size_human) + "</span></div>" +
-        action + "</div>";
+        '<a class="open" href="' + esc(r.url) + '" target="_blank" rel="noopener">打开</a>' +
+        "</div>";
     }).join("") : '<div class="empty-note">该任务暂未关联资料</div>';
     $("resModal").hidden = false;
   }

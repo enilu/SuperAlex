@@ -22,6 +22,7 @@ def app(tmp_path):
             "UPLOAD_DIR": str(tmp_path / "uploads"),
             "LOGIN_RATE_LIMIT": 5,
             "LOGIN_RATE_WINDOW": 60,
+            "MAX_CONTENT_LENGTH": 1024 * 1024,  # 1MB，便于测试超限路径
         }
     )
     conn = db_mod.connect_db(application.config["DATABASE"])
