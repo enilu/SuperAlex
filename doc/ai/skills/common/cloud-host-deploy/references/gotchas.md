@@ -7,7 +7,7 @@
 | URL | 磁盘目录 | 本仓库？ |
 | --- | --- | --- |
 | `/` | `/opt/microapp-store/site/superalex` | 是 |
-| `/homework/` | `/opt/microapp-store/site/homework` | 否 |
+| `/homework/` | `/opt/microapp-store/site/homework` | 是，仅 `homework/` 页面与 `data/homework.json` |
 | `/game/` | `/opt/microapp-store/site/game` | 否 |
 
 把 SuperAlex 同步到 `/opt/microapp-store/site/` 或带 `--delete` 清站点父目录，会毁掉学习资料馆或其它 H5 游戏。
@@ -24,9 +24,14 @@
 
 线上根目录可能有仓库没有的历史文件（例如旧 `assets/`）。默认同步是覆盖同名文件，不删除线上多余项。
 
-## 本机没有 rsync
+## 部署走 git 拉取，不要跨机拷贝
 
-当前开发机 Git Bash 有 `ssh`/`scp`/`tar`，没有 `rsync`。部署脚本用 `tar | ssh`。不要临时改成依赖 rsync 的流程。
+规范流程：本地提交并 `git push origin main` → 服务器 `cd /root/workspace/SuperAlex && git pull --ff-only` → 在该目录运行部署脚本。脚本检测到站点目录和 `/root/SERVER-SITES.md` 都在本机时自动进入 `local` 模式，直接覆盖站点目录。
+
+- 禁止用 `scp`、`sftp`、`rsync`、`tar | ssh` 把文件从开发机拷到服务器（开发机也没有 `rsync`）。
+- 本地忘记 push 就在服务器上部署，发布的是旧代码。`git status -sb` 必须显示与 `origin/main` 一致。
+- 不要在服务器仓库里手工改文件：会被下次 `git pull` 覆盖或造成冲突，改动一律回到本地仓库提交。
+- 脚本的 `remote` 模式（开发机经 ssh 直传）只是后备，除非用户明确要求，否则不用。
 
 ## homework 缓存版本必须三处一起改
 

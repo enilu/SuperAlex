@@ -67,14 +67,14 @@ files/library/<学年>/<学段>/<年级>/<学期或假期>/<学科>/<内容类�
 
 ## 部署 homework
 
-用户说「部署 homework / 发布学习资料馆」时走 `doc/ai/skills/common/cloud-host-deploy`。先 dry-run，确认后再上传：
+用户说「部署 homework / 发布学习资料馆」时走 `doc/ai/skills/common/cloud-host-deploy`。部署只走 Git：本地提交并 `git push origin main`，然后在服务器 `cd /root/workspace/SuperAlex && git pull --ff-only`，再在该目录里 dry-run 确认后执行：
 
 ```bash
 bash doc/ai/skills/common/cloud-host-deploy/scripts/deploy-homework.sh --dry-run
 bash doc/ai/skills/common/cloud-host-deploy/scripts/deploy-homework.sh
 ```
 
-脚本只会覆盖：
+脚本运行在服务器上（自动 local 模式），不会从开发机拷贝任何文件。只会覆盖：
 
 - `index.html`
 - `assets/css/`
@@ -82,6 +82,6 @@ bash doc/ai/skills/common/cloud-host-deploy/scripts/deploy-homework.sh
 - `assets/img/`
 - `data/homework.json`
 
-不会上传、不会删除 `files/` 和 `assets/vendor/`。上传前在服务器备份上述页面文件到 `/root/backups/homework-pages-<时间戳>/`。
+不会同步、不会删除 `files/` 和 `assets/vendor/`。发布前在服务器备份上述页面文件到 `/root/backups/homework-pages-<时间戳>/`。
 
 纯页面同步不必改 `/root/SERVER-SITES.md`。只有 Nginx 路径或站点地图变了才更新那份文档。
