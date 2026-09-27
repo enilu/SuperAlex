@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}{{ label }} · 学习工作台{% endblock %}
+{% block crumb_title %}{{ label }}{% endblock %}
+{% block crumb_sub %}{{ "校内清单" if kind == "in_school" else ("校外清单" if kind == "extra_school" else "打卡与维护") }}{% endblock %}
+{% block topbar_actions %}
+  <a class="btn" href="{{ url_for('views.library') }}">资料库</a>
+  <a class="btn primary" href="{{ url_for('api.health') }}">API 健康</a>
+{% endblock %}
+
+{% block content %}
+<div class="stats">
+  <div class="stat">
+    <div class="label">当日确认完成</div>
+    <div class="big"><span id="doneCount">0</span> <em>/ <span id="totalCount">0</span></em></div>
+    <div class="sub">完成率 <span id="rate">0%</span></div>
+  </div>
+  <div class="stat">
+    <div class="label">距离 21:00</div>
+    <div class="big" id="countdown">--:--:--</div>
+    <div class="sub">今日学习时间倒计时</div>
+  </div>
+  <div class="stat">
+    <div class="label">最近 7 天完成</div>
+    <div class="days" id="days"><span class="sub">加载中…</span></div>
+    <div class="sub">点击日期查看当日清单</div>
+  </div>
+</div>
+
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>
+        {{ label }}
+        <span class="pill" id="kindPill">{{ "校内+校外" if not kind else ("校内" if kind == "in_school" else "校外") }}</span>
+      </h2>
+      <div class="meta" id="listMeta">加载中…</div>
+    </div>
+    <label class="date-picker">查看日期
+      <input type="date" id="viewDate">
+    </label>
+  </div>
+
+  <div class="panel-tools">
+    <label class="switch">
+      <input type="checkbox" id="editToggle"> 维护模式（家长维护清单）
+    </label>
+    <div class="edit-tools" id="editTools" hidden>
+      <button class="btn small" id="copyY" type="button">复制昨日</button>
+      <button class="btn small" id="copyW" type="button">复制上周同日</button>
+      <button class="btn small" id="clearAll" type="button">从零开始</button>
+    </div>
+  </div>
+
+  <div class="maint-note" id="maintNote" hidden>
+    维护模式：在学科卡片内直接改标题 / 调学科 / 调预计时长 / 删除，底部输入框回车即可连续添加作业；
+    「复制昨日」「复制上周同日」把已有清单一键灌入当天再微调。
+    仅今天与未来日期可维护，历史日期只读（保护统计）。
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="hint">
+    关闭维护模式时：点击任务行或左侧圆圈标记完成，再点撤销；完成会写入打卡流水。
+    数据由 SQLite 持久化（接口 <code>/homework/api/overview</code>）。
+  </div>
+</section>
+
+<div class="modal" id="resModal" hidden>
+  <div class="modal-card">
+    <div class="modal-head">
+      <b id="rmTitle">关联资料</b>
+      <button id="rmClose" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-list" id="rmList"></div>
+    <div class="modal-foot">
+      public 资料直接静态打开；private 文件走
+      <code>/homework/api/files/&lt;id&gt;</code> 鉴权下载（P3 接入在线预览）。
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  window.WB = {
+    overviewUrl: {{ url_for('api.overview') | tojson }},
+    tasksUrl: {{ url_for('api.list_tasks_api') | tojson }},
+    bulkUrl: {{ url_for('api.bulk_tasks') | tojson }},
+    csrf: document.querySelector('meta[name="csrf-token"]').content,
+    kind: {{ kind | tojson }}
+  };
+</script>
+<script src="{{ url_for('views.static', filename='js/overview.js') }}?v=20260927-p2"></script>
+{% endblock %}

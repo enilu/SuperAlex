@@ -21,6 +21,22 @@ from . import bp
 @bp.get("/")
 @login_required
 def home():
+    return _overview(kind="", active="overview", label="学习总览")
+
+
+@bp.get("/tasks/school")
+@login_required
+def tasks_school():
+    return _overview(kind="in_school", active="school", label="校内作业")
+
+
+@bp.get("/tasks/extra")
+@login_required
+def tasks_extra():
+    return _overview(kind="extra_school", active="extra", label="校外作业")
+
+
+def _overview(kind: str, active: str, label: str):
     db_status = "ok"
     schema = None
     try:
@@ -31,12 +47,13 @@ def home():
         db_status = f"error: {type(exc).__name__}"
 
     return render_template(
-        "home.html",
+        "overview.html",
+        kind=kind,
+        active=active,
+        label=label,
         env=current_app.config["ENV_NAME"],
         db_status=db_status,
         schema=schema,
-        health_url=url_for("api.health"),
-        active="overview",
     )
 
 
