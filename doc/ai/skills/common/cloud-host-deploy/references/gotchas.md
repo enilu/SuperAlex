@@ -7,12 +7,12 @@
 | URL | 磁盘目录 | 本仓库？ |
 | --- | --- | --- |
 | `/` | `/opt/microapp-store/site/superalex` | 是 |
-| `/homework/` | `/opt/microapp-store/site/homework` | 是，仅 `homework/` 页面与 `data/homework.json` |
+| `/homework/` | 反代 `127.0.0.1:8085`（学习工作台）；`/homework/files/` → `/opt/microapp-store/site/homework/files/` 静态直出 | 服务走 Git 部署；站点目录只剩回滚静态页 |
 | `/game/` | `/opt/microapp-store/site/game` | 否 |
 
-把 SuperAlex 同步到 `/opt/microapp-store/site/` 或带 `--delete` 清站点父目录，会毁掉学习资料馆或其它 H5 游戏。
+把 SuperAlex 同步到 `/opt/microapp-store/site/` 或带 `--delete` 清站点父目录，会毁掉回滚静态页或其它 H5 游戏。
 
-部署 homework 时只覆盖页面和 `data/homework.json`。`files/` 约 900MB，只在服务器；`assets/vendor/`（PDF.js）也只在服务器。备份 homework 时只备份页面文件，不要把整个 `files/` 拷一遍。
+部署 homework 时只覆盖回滚用页面（`index.html`、`assets/`、`data/homework.json`）。`files/` 约 900MB，只在服务器；`assets/vendor/`（PDF.js）也只在服务器。备份 homework 脚本用硬链接处理 `files/`，不要额外整目录复制。
 
 ## SERVER-SITES.md 会过期
 
@@ -52,7 +52,11 @@
 
 ## Nginx 变更
 
-`sites-enabled` 里既有软链接也有普通文件。SuperAlex 当前是软链接，改 `sites-available` 即可。改完只能 `reload`，不要无故 `restart`。当前站点只有 HTTP，不要顺手上 HTTPS，除非用户明确要求。
+`sites-enabled` 里既有软链接也有普通文件。SuperAlex 当前是软链接，改 `sites-available` 即可。改完只能 `reload`，不要无故 `restart`。
+
+- `superalex.enilu.cn` 自 2026-09-27 起 HTTPS 全站（Certbot 管理，HTTP 301 到 HTTPS）；改 80/443 配置后确认 443 块与重定向仍在。
+- `/homework/` 是反代（`proxy_pass http://127.0.0.1:8085`），`/homework/files/` 靠更长前缀的 alias 直出；两个 location 顺序与前缀长度不要动错。
+- 服务器到 `github.com:443` 的 HTTPS 目前不通，仓库 remote 已改 SSH `git@github.com:enilu/SuperAlex.git`，不要改回 HTTPS。
 
 ## 权限
 

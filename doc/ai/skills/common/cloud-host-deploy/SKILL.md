@@ -1,34 +1,34 @@
 ---
 name: superalex-cloud-host-deploy
-description: 将 SuperAlex 游戏站或学习资料馆 homework 部署到 cloud-host（superalex.enilu.cn）。用户提到部署 SuperAlex、部署 homework、发布学习资料馆、同步 superalex.enilu.cn、更新线上游戏或资料馆页面时使用。homework 只同步页面和 homework.json，不同步 files/ 资料文件，也不动 /game/ 微应用。
+description: 将 SuperAlex 游戏站或学习工作台 homework（原学习资料馆）部署到 cloud-host（superalex.enilu.cn）。用户提到部署 SuperAlex、部署 homework、发布学习工作台、同步 superalex.enilu.cn、更新线上游戏或 homework 页面时使用。游戏站只同步静态页面；homework 走 Flask 服务（waitress + systemd），脚本自动完成备份、依赖、迁移、重启与抽检；files/ 资料文件不同步，也不动 /game/ 微应用。
 ---
 
 # SuperAlex 部署到 cloud-host
 
-把本仓库的静态内容发布到 `root@cloud-host` 上已有的 Nginx 站点。本机已配置免密：`ssh root@cloud-host`。
+把本仓库的静态内容（游戏站）和 homework 工作台发布到 `root@cloud-host` 上已有的 Nginx 站点。本机已配置免密：`ssh root@cloud-host`。
 
-部署方式固定为 **git 拉取发布**：本地提交并 push，登录服务器进入源码目录 `/root/workspace/SuperAlex` 执行 `git pull`，再在该目录里运行部署脚本，由脚本把文件覆盖到站点目录。**禁止从开发机 scp / tar 直传站点目录**（脚本的 remote 模式只是后备，不是规范流程）。
+部署方式固定为 **git 拉取发布**：本地提交并 push，登录服务器进入源码目录 `/root/workspace/SuperAlex` 执行 `git pull`，再在该目录里运行部署脚本。**禁止从开发机 scp / tar 直传站点目录**（脚本的 remote 模式只是后备，不是规范流程）。
 
 同域名有三个根，先按用户口令选目标，不要混发：
 
 | 用户说法 | 目标 | 仓库目录 | 线上目录 |
 | --- | --- | --- | --- |
 | 部署 SuperAlex / 上线游戏 | 游戏首页 | 仓库根（各游戏目录） | `/opt/microapp-store/site/superalex` |
-| 部署 homework / 发布学习资料馆 | 资料馆页面 | `homework/` | `/opt/microapp-store/site/homework` |
+| 部署 homework / 学习工作台 | Flask 应用 + 回滚静态页 | `homework/` | 服务 `homework-workbench`；静态副本 `/opt/microapp-store/site/homework` |
 | （本 skill 不处理） | `/game/` 微应用 | 无 | `/opt/microapp-store/site/game` |
 
 ## 何时使用
 
 - 用户要求部署、发布、上线或同步 SuperAlex 游戏。
-- 用户要求部署 homework、学习资料馆，或更新 `superalex.enilu.cn/homework`。
+- 用户要求部署 homework、学习工作台、学习资料馆，或更新 `superalex.enilu.cn/homework`。
 - 用户提到 `cloud-host`、`superalex.enilu.cn`。
 
 ## 目标与边界
 
 - 游戏目标：只同步游戏静态文件到 SuperAlex 根目录。
-- homework 目标：只同步页面和 `data/homework.json`。资料文件 `files/`、预览库 `assets/vendor/` 只留在服务器。
+- homework 目标：部署 Flask 工作台（依赖、迁移、systemd 服务重启、公网抽检）；站点目录只同步回滚用旧静态页（`index.html`、`assets/`、`data/`）。资料文件 `files/`、预览库 `assets/vendor/` 只留在服务器。
 - 站点地图、Nginx 路径以服务器 `/root/SERVER-SITES.md` 为准；不要把该文件全文复制进 skill。
-- 默认不做 Nginx 结构改造、不加 HTTPS、不 `--delete`、不重启无关服务。
+- homework 的 `/homework/` 已反代 `127.0.0.1:8085`，HTTPS 由 Certbot 管理；脚本与 Nginx 改动必须 `nginx -t` 后 reload，不 `--delete`、不重启无关服务。
 - 代码流转只走 Git：本地仓库（聚合工作区入口 `projects/SuperAlex`）→ `origin/main` → 服务器 `/root/workspace/SuperAlex`。本地只做提交与 push，所有发布命令在服务器仓库根目录执行。
 
 ## 硬规则
@@ -65,10 +65,11 @@ ssh -o BatchMode=yes root@cloud-host 'cat /etc/nginx/sites-available/superalex.e
 | 项 | 值 |
 | --- | --- |
 | SSH | `ssh root@cloud-host` |
-| 公网 | `http://superalex.enilu.cn/`（当前仅 HTTP） |
+| 公网 | `https://superalex.enilu.cn/`（HTTP 一律 301 到 HTTPS） |
 | 静态根 | `/opt/microapp-store/site/superalex` |
 | Nginx | `/etc/nginx/sites-available/superalex.enilu.cn`，已在 `sites-enabled` 软链接 |
-| 同域但禁止误伤 | `/homework/` → `/opt/microapp-store/site/homework/`；`/game/` → `/opt/microapp-store/site/game/` |
+| homework 服务 | `homework-workbench.service` → `127.0.0.1:8085`（waitress，venv `/var/lib/homework-workbench/venv`） |
+| 同域但禁止误伤 | `/homework/` 反代工作台（`/homework/files/` 静态直出）；`/game/` → `/opt/microapp-store/site/game/` |
 
 游戏发布内容：根目录 `index.html`、`favicon.svg`，以及 `MornGo/`、`math20/`、`TangPoem/`、`Kingdom3/`、`PinyinMatch/`、`ColorMatch/`。有根目录 `assets/` 时一并同步。
 
@@ -84,7 +85,7 @@ homework 维护说明以仓库 `homework/README.md` 为准。
 ssh -o BatchMode=yes -o ConnectTimeout=10 root@cloud-host 'cd /root/workspace/SuperAlex && git fetch origin && git status -sb && git pull --ff-only'
 ```
 
-   拉取后 HEAD 必须等于 `origin/main`；`git status` 有本地改动或冲突就停下处理，不要在服务器上手工改文件。服务器仓库 remote 是 `https://github.com/enilu/SuperAlex.git`，拉取无需额外凭据；若突然拉不动，先在服务器上确认 remote 和网络，不要改用拷贝文件的方式绕过。
+   拉取后 HEAD 必须等于 `origin/main`；`git status` 有本地改动或冲突就停下处理，不要在服务器上手工改文件。服务器仓库 remote 是 SSH 协议 `git@github.com:enilu/SuperAlex.git`（2026-09-27 起，服务器到 github.com 的 HTTPS 443 不通）；若突然拉不动，先在服务器上确认 remote 和网络，不要改用拷贝文件的方式绕过。
 4. 连通性（在服务器上执行）：
 
 ```bash
@@ -98,8 +99,8 @@ ssh -o BatchMode=yes root@cloud-host 'cd /root/workspace/SuperAlex && bash doc/a
 ssh -o BatchMode=yes root@cloud-host 'cd /root/workspace/SuperAlex && bash doc/ai/skills/common/cloud-host-deploy/scripts/deploy-homework.sh --dry-run'
 ```
 
-6. 确认后执行对应脚本（同样在服务器仓库根目录），脚本自带站点目录备份和三条 URL 抽检。
-7. homework 若改了 `index.html` / `app.js` / `style.css` / `homework.json`，必须先按 `homework/README.md` 统一提升 `?v=` 版本号，再提交、push、拉取、发布。
+6. 确认后执行对应脚本（同样在服务器仓库根目录）。`deploy-homework.sh` 自动完成：venv 依赖 → 备份（sqlite/uploads/files 硬链/页面/nginx 配置，保留 14 天）→ 迁移 → 同步回滚静态页 → `systemctl restart homework-workbench` → 公网抽检（含 private 直链 401/302 拦截）；`--backup` 供 cron 每日调用。
+7. homework 若改动回滚用旧静态页（`index.html` / `app.js` / `style.css` / `homework.json`），按 `homework/README.md` 统一提升 `?v=` 版本号后再提交；改 `data/homework.json` 还需在服务器重跑 `python -m app.manage import-json --force` 才进数据库。
 8. 若还要改 Nginx：备份配置，`nginx -t && systemctl reload nginx`，再更新 `/root/SERVER-SITES.md`。
 9. 验收本次目标 URL，并抽检另外两个根路径仍返回 200。
 
@@ -108,17 +109,25 @@ ssh -o BatchMode=yes root@cloud-host 'cd /root/workspace/SuperAlex && bash doc/a
 游戏最少检查：
 
 ```bash
-curl -sI http://superalex.enilu.cn/
-curl -sI http://superalex.enilu.cn/MornGo/index.html
-curl -sI http://superalex.enilu.cn/homework/
+curl -sI https://superalex.enilu.cn/
+curl -sI https://superalex.enilu.cn/MornGo/index.html
+curl -sI https://superalex.enilu.cn/homework/
 ```
 
 homework 最少检查：
 
 ```bash
-curl -sI http://superalex.enilu.cn/homework/
-curl -sI http://superalex.enilu.cn/
-curl -sI http://superalex.enilu.cn/game/
+curl -s -o /dev/null -w '%{http_code}\n' https://superalex.enilu.cn/homework/login   # 200
+curl -s https://superalex.enilu.cn/homework/api/health                                # JSON status=ok
+curl -s -o /dev/null -w '%{http_code}\n' https://superalex.enilu.cn/homework/         # 302（未登录）
+curl -s -o /dev/null -w '%{http_code}\n' https://superalex.enilu.cn/                  # 200
+curl -s -o /dev/null -w '%{http_code}\n' https://superalex.enilu.cn/game/             # 200
+```
+
+服务状态与日志：
+
+```bash
+ssh root@cloud-host 'systemctl status homework-workbench --no-pager | head -8; journalctl -u homework-workbench -n 30 --no-pager'
 ```
 
 交付时写清：目标、本地提交号与服务器 `git log -1`（两者必须一致）、同步了哪些路径、备份路径、homework 是否动过 `files/`（必须没有）、是否改 Nginx、公网抽检结果、未覆盖风险。

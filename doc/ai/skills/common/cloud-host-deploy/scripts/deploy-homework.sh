@@ -22,7 +22,7 @@ MODE="${HOMEWORK_DEPLOY_MODE:-auto}"   # auto | local | remote
 SECRETS=/var/lib/homework-workbench/secrets.env
 VENV=/var/lib/homework-workbench/venv
 UNIT=homework-workbench.service
-PUBLIC_BASE="${HOMEWORK_PUBLIC_BASE:-http://superalex.enilu.cn}"
+PUBLIC_BASE="${HOMEWORK_PUBLIC_BASE:-https://superalex.enilu.cn}"
 BACKUP_ROOT=/root/backups
 BACKUP_KEEP_DAYS=14
 
