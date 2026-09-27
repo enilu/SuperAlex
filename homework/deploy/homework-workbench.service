@@ -1,0 +1,16 @@
+[Unit]
+Description=Homework Workbench (Flask + waitress, 127.0.0.1:8085)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/workspace/SuperAlex/homework
+EnvironmentFile=/var/lib/homework-workbench/secrets.env
+ExecStart=/var/lib/homework-workbench/venv/bin/waitress-serve --host=127.0.0.1 --port=8085 wsgi:app
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
