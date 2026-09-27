@@ -1,7 +1,7 @@
 # 学习工作台（homework Workbench）改造方案
 
 - 日期：2026-09-27
-- 状态：实施中（P0、P1、P1.5、P2、P3 已完成并提交）
+- 状态：实施中（P0、P1、P1.5、P2、P3、P3.5 已完成并提交）
 - 视觉基线：`homework/proto/index.html`（静态原型，可直接浏览器打开预览）
 - 旧版实现：`homework/index.html` + `homework/assets/js/app.js` + `homework/data/homework.json`
 

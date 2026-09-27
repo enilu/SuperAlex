@@ -276,3 +276,11 @@ a{color:var(--accent-ink)}
 .chip button{border:none;background:none;color:var(--accent-ink);cursor:pointer;font-size:14px;line-height:1}
 .chips .placeholder{font-size:13px;color:var(--muted)}
 .empty{font-size:13px;color:var(--muted);padding:14px 4px;text-align:center}
+
+/* ---------- 资料库管理 ---------- */
+.row-actions{white-space:nowrap}
+.row-actions .btn.small{margin:0 4px 4px 0}
+.btn.small.danger{color:#d92d20}
+.btn.small.danger:hover{background:#fef3f2;border-color:#fecdca}
+#editModal .field{margin-top:12px}
+#editModal .field:first-child{margin-top:0}

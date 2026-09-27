@@ -10,7 +10,7 @@ from .. import tasks as tasks_mod
 from .. import uploads as uploads_mod
 from ..auth import csrf_protect, current_user, login_required
 from ..db import get_db, schema_version
-from ..library import facets, file_url, search_resources
+from ..library import facets, file_url, search_resources, serialize
 from . import bp
 
 
@@ -296,6 +296,97 @@ def link_resources(task_id: int):
     except ValueError as exc:
         return _err(str(exc), 400)
     return jsonify(tasks_mod.get_task(conn, task_id))
+
+
+# ---------- 资料库管理：改元数据 / 删除保护 ----------
+
+_RESOURCE_TEXT_FIELDS = {
+    "title": 200,
+    "subject": 50,
+    "category": 50,
+    "tags": 200,
+    "note": 1000,
+}
+
+
+@bp.patch("/resources/<int:resource_id>")
+@login_required
+@csrf_protect
+def patch_resource(resource_id: int):
+    """改名 / 学科 / 分类 / 标签 / 备注。
+
+    rel_path、visibility、locked、size、sha256 一律不接受：
+    存量资料 locked=1 只改元数据，路径与文件保持锁定。
+    """
+    data = _payload()
+    updates: dict = {}
+    errors: list[str] = []
+    for field, limit in _RESOURCE_TEXT_FIELDS.items():
+        if field in data and data[field] is not None:
+            value = str(data[field]).strip()
+            if field == "title" and not value:
+                errors.append("标题不能为空")
+            elif len(value) > limit:
+                errors.append(f"{field} 过长（≤{limit}）")
+            else:
+                updates[field] = value
+    if errors:
+        return _err("；".join(errors), 400)
+    if not updates:
+        return _err("没有可更新的字段（title/subject/category/tags/note）", 400)
+
+    conn = get_db()
+    row = conn.execute(
+        "SELECT id FROM resources WHERE id = ?", (resource_id,)
+    ).fetchone()
+    if row is None:
+        return _err("资料不存在", 404)
+
+    assignments = ", ".join(f"{col} = ?" for col in updates)
+    conn.execute(
+        f"UPDATE resources SET {assignments}, updated_at = datetime('now') "
+        "WHERE id = ?",
+        [*updates.values(), resource_id],
+    )
+    conn.commit()
+    updated = conn.execute(
+        "SELECT * FROM resources WHERE id = ?", (resource_id,)
+    ).fetchone()
+    return jsonify(serialize(updated))
+
+
+@bp.delete("/resources/<int:resource_id>")
+@login_required
+@csrf_protect
+def delete_resource(resource_id: int):
+    """删除保护：仅非 locked 的 private（本系统新上传）可删记录 + 文件。
+
+    locked=1（存量 140 条）→ 403；public → 403（保留外链兼容）。
+    """
+    conn = get_db()
+    row = conn.execute(
+        "SELECT * FROM resources WHERE id = ?", (resource_id,)
+    ).fetchone()
+    if row is None:
+        return _err("资料不存在", 404)
+    if row["locked"]:
+        return _err("存量资料仅支持修改元数据，文件不可删除", 403)
+    if row["visibility"] != "private":
+        return _err("公开资料保留外链，不可删除", 403)
+
+    root = Path(current_app.config["UPLOAD_DIR"]).resolve()
+    rel = Path(row["rel_path"])
+    target = (rel if rel.is_absolute() else root / rel).resolve()
+    file_removed = False
+    if target.is_relative_to(root) and target.is_file():
+        target.unlink()
+        file_removed = True
+
+    # 解除任务关联（task_resources 无 ON DELETE CASCADE）
+    conn.execute("DELETE FROM task_resources WHERE resource_id = ?", (resource_id,))
+    conn.execute("DELETE FROM resources WHERE id = ?", (resource_id,))
+    conn.commit()
+    return jsonify(deleted=True, file_removed=file_removed, resource=serialize(row))
 
 
 @bp.get("/stats")

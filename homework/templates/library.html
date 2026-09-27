@@ -2,9 +2,11 @@
 
 {% block title %}资料库 · 学习工作台{% endblock %}
 {% block crumb_title %}资料库{% endblock %}
-{% block crumb_sub %}共 {{ data.total }} 条 · 学习资料检索{% endblock %}
+{% block crumb_sub %}共 {{ data.total }} 条 · 检索与元数据管理{% endblock %}
 {% block topbar_actions %}
-  <a class="btn" href="{{ url_for('views.home') }}">返回总览</a>
+  <button class="btn primary" id="libUploadBtn" type="button">上传入库</button>
+  <input type="file" id="libUploadInput" multiple hidden
+         accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.mp4,.mov,.mp3,.wav,.txt,.md,.zip">
 {% endblock %}
 
 {% block content %}
@@ -29,8 +31,8 @@
     {% endif %}
   </form>
 
-      {% if data['items'] %}
-  <table class="table">
+  {% if data['items'] %}
+  <table class="table" id="libTable">
     <thead>
       <tr>
         <th>标题</th>
@@ -38,11 +40,19 @@
         <th>分类</th>
         <th>大小</th>
         <th>状态</th>
+        <th>操作</th>
       </tr>
     </thead>
     <tbody>
-        {% for item in data['items'] %}
-      <tr>
+      {% for item in data['items'] %}
+      <tr data-id="{{ item.id }}"
+          data-title="{{ item.title }}"
+          data-subject="{{ item.subject }}"
+          data-category="{{ item.category }}"
+          data-tags="{{ item.tags }}"
+          data-note="{{ item.note }}"
+          data-locked="{{ 1 if item.locked else 0 }}"
+          data-visibility="{{ item.visibility }}">
         <td class="cell-title">
           <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>
           {% if item.note %}<div class="cell-note">{{ item.note }}</div>{% endif %}
@@ -53,6 +63,12 @@
         <td>
           {% if item.locked %}<span class="badge">存量</span>{% endif %}
           {% if item.visibility == "private" %}<span class="badge warn">私有</span>{% endif %}
+        </td>
+        <td class="row-actions">
+          <button class="btn small" data-act="edit" type="button">编辑</button>
+          {% if not item.locked and item.visibility == "private" %}
+            <button class="btn small danger" data-act="del" type="button">删除</button>
+          {% endif %}
         </td>
       </tr>
       {% endfor %}
@@ -71,5 +87,51 @@
   {% else %}
   <div class="hint">没有匹配的资料{% if q %}（关键词：{{ q }}）{% endif %}。</div>
   {% endif %}
+
+  <div class="hint">
+    存量 140 条（<b>存量</b> 标记）：可改标题 / 学科 / 分类 / 标签 / 备注，文件与路径锁定、不可删除；
+    本页「上传入库」的新资料为私有（private），可删除——删记录时同步删文件并解除任务关联。
+    public 资料继续由 nginx 静态直出，保持外链兼容。
+  </div>
 </section>
+
+<div class="modal" id="editModal" hidden>
+  <div class="modal-card" style="width:min(520px,100%)">
+    <div class="modal-head">
+      <b id="emHeading">编辑资料</b>
+      <button id="emClose" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-list">
+      <div class="field"><label>标题</label><input id="emTitle"></div>
+      <div class="field"><label>学科</label>
+        <input id="emSubject" list="libSubjects" placeholder="如：英语">
+        <datalist id="libSubjects">
+          {% for s in subjects %}<option value="{{ s }}">{% endfor %}
+        </datalist>
+      </div>
+      <div class="field"><label>分类</label><input id="emCategory" placeholder="如：语法练习"></div>
+      <div class="field"><label>标签（逗号分隔）</label><input id="emTags" placeholder="如：词汇,复习"></div>
+      <div class="field"><label>备注</label><textarea id="emNote"></textarea></div>
+      <div class="hint" id="emLockNote" hidden>
+        这是<b>存量</b>资料：仅元数据可改，文件路径已锁定。
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn primary" id="emSave" type="button">保存</button>
+      <button class="btn" id="emCancel" type="button">取消</button>
+      <span class="meta" id="emStatus" style="margin-left:8px"></span>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  window.LIB = {
+    uploadUrl: {{ url_for('api.upload_files') | tojson }},
+    resourceUrlBase: {{ url_for('api.list_resources') | tojson }},
+    csrf: document.querySelector('meta[name="csrf-token"]').content
+  };
+</script>
+<script src="{{ url_for('views.static', filename='js/library.js') }}?v=20260927-p35"></script>
 {% endblock %}
