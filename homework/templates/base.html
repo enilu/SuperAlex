@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}学习工作台{% endblock %}</title>
+    <link rel="stylesheet"
+          href="{{ url_for('views.static', filename='css/app.css') }}?v=20260927-p0">
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <h1>家庭学习台</h1>
+          <p>学习工作台</p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">学习首页</div>
+          <a href="{{ url_for('views.home') }}"
+             class="{{ 'active' if active == 'overview' }}">总览</a>
+          <div class="nav-group">作业管理</div>
+          <a href="#" class="{{ 'active' if active == 'school' }}">校内作业</a>
+          <a href="#" class="{{ 'active' if active == 'extra' }}">校外作业</a>
+          <a href="#" class="{{ 'active' if active == 'upload' }}">上传作业</a>
+          <div class="nav-group">资料库</div>
+          <a href="#" class="{{ 'active' if active == 'library' }}">资料管理</a>
+          <a href="#">按学期浏览</a>
+          <a href="#">按学科浏览</a>
+          <div class="nav-group">复盘提升</div>
+          <a href="#">完成分析 <span class="soon">二期</span></a>
+          <a href="#">错题与强化 <span class="soon">二期</span></a>
+          <a href="#">课程表 <span class="soon">二期</span></a>
+        </nav>
+        <div class="sidebar-foot">
+          <span>未接入登录 · P0 骨架</span>
+          <a href="#">退出</a>
+        </div>
+      </aside>
+
+      <div class="main">
+        <header class="topbar">
+          <button class="btn menu-toggle" id="menuToggle" type="button">≡</button>
+          <div class="crumb">
+            <b>{% block crumb_title %}学习工作台{% endblock %}</b>
+            <span>{% block crumb_sub %}{% endblock %}</span>
+          </div>
+          <div class="spacer"></div>
+          {% block topbar_actions %}{% endblock %}
+          <div class="clock" id="clock"></div>
+        </header>
+
+        <div class="content">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      function tick() {
+        var n = new Date();
+        var p = function (x) { return String(x).padStart(2, "0"); };
+        var el = document.getElementById("clock");
+        if (el) {
+          el.textContent = n.getFullYear() + "-" + p(n.getMonth() + 1) + "-" + p(n.getDate()) +
+            " 星期" + "日一二三四五六".charAt(n.getDay()) + " " +
+            p(n.getHours()) + ":" + p(n.getMinutes()) + ":" + p(n.getSeconds());
+        }
+      }
+      tick();
+      setInterval(tick, 1000);
+
+      var toastTimer;
+      function toast(msg) {
+        var t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { t.classList.remove("show"); }, 1600);
+      }
+
+      var mt = document.getElementById("menuToggle");
+      if (mt) {
+        mt.onclick = function () {
+          document.getElementById("sidebar").classList.toggle("open");
+        };
+      }
+    </script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

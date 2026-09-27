@@ -1,5 +1,12 @@
-# 学习资料只保留在 cloud-host，禁止提交
+# 学习资料只保留在 cloud-host，禁止提交 /files/
 /files/
 
 # PDF.js 等预览库只在服务器维护，避免本机拷贝覆盖线上
 /assets/vendor/
+
+# Python 运行产物与本地数据（SQLite、上传件、备份）
+__pycache__/
+*.py[cod]
+.pytest_cache/
+/var/
+/uploads/

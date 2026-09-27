@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}学习总览 · 学习工作台{% endblock %}
+{% block crumb_title %}学习总览{% endblock %}
+{% block crumb_sub %}P0 骨架{% endblock %}
+{% block topbar_actions %}
+  <a class="btn" href="{{ health_url }}">API 健康检查</a>
+{% endblock %}
+
+{% block content %}
+  <div class="stats">
+    <div class="stat">
+      <div class="label">运行环境</div>
+      <div class="big">{{ env }}</div>
+      <div class="sub">Flask 应用工厂 + waitress（生产）</div>
+    </div>
+    <div class="stat">
+      <div class="label">数据库</div>
+      <div class="big">{{ db_status }}</div>
+      <div class="sub">SQLite WAL · schema {{ schema or "未初始化" }}</div>
+    </div>
+    <div class="stat">
+      <div class="label">接口</div>
+      <div class="big"><a href="{{ health_url }}">/api/health</a></div>
+      <div class="sub">P1 起接入登录、任务与资料接口</div>
+    </div>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>P0 骨架已就绪</h2>
+        <div class="meta">依据方案 doc/superpowers/plans/20260927-homework-workbench.md 实施</div>
+      </div>
+    </div>
+    <div class="hint">
+      本阶段交付：应用工厂与配置、SQLite 迁移执行器（<code>python -m app.manage migrate</code>）、
+      页面与 API 两个蓝图、统一 <code>/homework</code> 前缀、健康检查接口。
+      下一阶段 P1：单账号登录、CSRF、登录限速与用户表。
+    </div>
+  </section>
+{% endblock %}
