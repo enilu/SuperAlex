@@ -31,6 +31,24 @@ def test_static_css_served_under_prefix(client):
     assert "--accent" in resp.get_data(as_text=True)
 
 
+def test_mobile_shell(client, login):
+    """移动端适配：视口、抽屉遮罩、响应式断点齐全。"""
+    login()
+    body = client.get("/homework/").get_data(as_text=True)
+    assert 'name="viewport" content="width=device-width, initial-scale=1"' in body
+    assert 'id="sidebarMask"' in body
+    assert 'id="menuToggle"' in body
+    assert "app.css?v=20260928-p8" in body
+    assert "mask.classList.toggle" in body
+
+    css = client.get("/homework/static/css/app.css").get_data(as_text=True)
+    assert "@media(max-width:900px)" in css
+    assert "@media(max-width:700px)" in css
+    assert "@media(max-width:560px)" in css
+    assert ".sidebar-mask.show" in css
+    assert "font-size:16px" in css  # iOS 聚焦缩放规避
+
+
 def test_unknown_route_returns_404(client):
     assert client.get("/homework/nope").status_code == 404
 

@@ -6,7 +6,7 @@
     <title>{% block title %}学习工作台{% endblock %}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet"
-          href="{{ url_for('views.static', filename='css/app.css') }}?v=20260928-p7">
+          href="{{ url_for('views.static', filename='css/app.css') }}?v=20260928-p8">
   </head>
   <body>
     <div class="app">
@@ -79,6 +79,7 @@
       </div>
     </div>
 
+    <div class="sidebar-mask" id="sidebarMask"></div>
     <div class="toast" id="toast"></div>
 
     <script>
@@ -105,10 +106,22 @@
       }
 
       var mt = document.getElementById("menuToggle");
-      if (mt) {
+      var sb = document.getElementById("sidebar");
+      var mask = document.getElementById("sidebarMask");
+      function closeMenu() {
+        if (sb) sb.classList.remove("open");
+        if (mask) mask.classList.remove("show");
+      }
+      if (mt && sb && mask) {
         mt.onclick = function () {
-          document.getElementById("sidebar").classList.toggle("open");
+          var open = sb.classList.toggle("open");
+          mask.classList.toggle("show", open);
         };
+        mask.onclick = closeMenu;
+        var links = sb.querySelectorAll("a");
+        for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener("click", closeMenu);
+        }
       }
     </script>
     {% block scripts %}{% endblock %}
