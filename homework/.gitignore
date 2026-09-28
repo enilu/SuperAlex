@@ -10,3 +10,6 @@ __pycache__/
 .pytest_cache/
 /var/
 /uploads/
+
+# 本地登录凭据，禁止提交
+.credentials.local*
