@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}课程表 · 学习工作台{% endblock %}
+{% block crumb_title %}课程表{% endblock %}
+{% block crumb_sub %}{{ sch.term }} · {{ sch.school }} · {{ sch.title }}{% endblock %}
+
+{% block content %}
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>{{ sch.term }} {{ sch.title }}</h2>
+      <div class="meta">
+        {{ sch.school }} · 更新于 {{ sch.updated }} ·
+        <a href="{{ sch.source_image }}" target="_blank" rel="noopener">查看原始图片</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sched-wrap">
+    <table class="sched" id="schedTable">
+      <thead>
+        <tr>
+          <th class="label-col">节次</th>
+          <th class="time-col">时间</th>
+          {% for d in sch.days %}
+          <th data-day="{{ loop.index }}">{{ d }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in sch.rows %}
+        <tr class="kind-{{ row.kind }}" data-time="{{ row.time }}">
+          {% if row.label %}
+          <th class="label-col" rowspan="{{ row.label_span or 1 }}">{{ row.label }}</th>
+          {% endif %}
+          <td class="time-col">{{ row.time }}</td>
+          {% if row.kind == "lesson" %}
+            {% for c in row.cells %}
+            <td data-day="{{ loop.index }}"><span class="subj subj-{{ c.key }}">{{ c.name }}</span></td>
+            {% endfor %}
+          {% else %}
+          <td colspan="5" class="span-note">
+            {% if row.kind == "service" %}<span class="subj subj-service">{{ row.note }}</span>
+            {% else %}{{ row.note }}{% endif %}
+          </td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% if sch.notes %}
+  <div class="sched-notes">
+    <b>备注</b>
+    <ol>
+      {% for n in sch.notes %}<li>{{ n }}</li>{% endfor %}
+    </ol>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('views.static', filename='js/schedule.js') }}?v=20260928-p6"></script>
+{% endblock %}

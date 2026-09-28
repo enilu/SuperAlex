@@ -6,7 +6,7 @@
     <title>{% block title %}学习工作台{% endblock %}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet"
-          href="{{ url_for('views.static', filename='css/app.css') }}?v=20260927-p5">
+          href="{{ url_for('views.static', filename='css/app.css') }}?v=20260928-p6">
   </head>
   <body>
     <div class="app">
@@ -34,7 +34,8 @@
           <div class="nav-group">复盘提升</div>
           <a href="#">完成分析 <span class="soon">二期</span></a>
           <a href="#">错题与强化 <span class="soon">二期</span></a>
-          <a href="#">课程表 <span class="soon">二期</span></a>
+          <a href="{{ url_for('views.schedule') }}"
+             class="{{ 'active' if active == 'schedule' }}">课程表</a>
         </nav>
         <div class="sidebar-foot">
           <span>{{ current_user().display_name or "未登录" }}</span>
@@ -60,7 +61,11 @@
             {% else %}
               <button class="btn" type="button" onclick="toast('当前就在总览页')">首页</button>
             {% endif %}
-            <button class="btn" type="button" onclick="toast('二期功能')">课程表</button>
+            {% if act != "schedule" %}
+              <a class="btn" href="{{ url_for('views.schedule') }}">课程表</a>
+            {% else %}
+              <button class="btn" type="button" onclick="toast('当前就在课程表')">课程表</button>
+            {% endif %}
             {% if act != "upload" %}
               <a class="btn primary" href="{{ url_for('views.upload') }}">上传作业</a>
             {% else %}

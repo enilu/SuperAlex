@@ -1,6 +1,7 @@
 """页面路由。"""
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from flask import (
@@ -81,6 +82,47 @@ def upload():
 
 
 # ---------- 资料库 ----------
+
+# 周课表学科 → 配色 key（顺序敏感：先匹配更具体的名称）
+_SUBJECT_KEYS = (
+    ("道德", "moral"),
+    ("唱游", "music"),
+    ("音乐", "music"),
+    ("造型", "art"),
+    ("美术", "art"),
+    ("语文", "chinese"),
+    ("数学", "math"),
+    ("外语", "english"),
+    ("校本", "school"),
+    ("体育", "sport"),
+    ("科学", "science"),
+    ("劳动", "labor"),
+    ("校本", "school"),
+    ("综合实践", "activity"),
+    ("班队", "team"),
+)
+
+
+def _subject_key(name: str) -> str:
+    for frag, key in _SUBJECT_KEYS:
+        if frag in name:
+            return key
+    return "none"
+
+
+@bp.get("/schedule")
+@login_required
+def schedule():
+    """周课表：数据来自 data/schedule.json（对照学校纸质课表人工核对录入）。"""
+    src = Path(current_app.root_path).resolve().parent / "data" / "schedule.json"
+    sch = json.loads(src.read_text(encoding="utf-8"))
+    for row in sch["rows"]:
+        if row.get("cells"):
+            row["cells"] = [
+                {"name": name, "key": _subject_key(name)} for name in row["cells"]
+            ]
+    return render_template("schedule.html", sch=sch, active="schedule")
+
 
 @bp.get("/library")
 @login_required
