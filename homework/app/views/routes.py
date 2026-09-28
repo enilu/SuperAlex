@@ -121,6 +121,13 @@ def schedule():
             row["cells"] = [
                 {"name": name, "key": _subject_key(name)} for name in row["cells"]
             ]
+    dismissal = sch.get("dismissal")
+    if dismissal:
+        my = dismissal.get("my_class", "")
+        dismissal["my_batch"] = next(
+            (b["order"] for b in dismissal.get("batches", []) if my in b["points"]),
+            "",
+        )
     return render_template("schedule.html", sch=sch, active="schedule")
 
 

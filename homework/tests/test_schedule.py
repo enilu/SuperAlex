@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -34,6 +35,21 @@ def test_schedule_page_shows_timetable(client, login):
     assert "schedule.js" in body
     # 原始图片外链
     assert "%E5%91%A8%E8%AF%BE%E8%A1%A8.png" in body
+
+
+def test_schedule_dismissal(client, login):
+    """放学安排整合：批次表 + 本班高亮。"""
+    login()
+    body = client.get("/homework/schedule").get_data(as_text=True)
+    assert "菏泽路校门420放学安排" in body
+    assert "周一到周四" in body
+    for text in ("第一批", "4:25", "第七批", "4:31", "三1", "二4"):
+        assert text in body, text
+    # 本班在第五批：该行高亮、班级格高亮
+    row = re.search(r'<tr class="is-ours">.*?</tr>', body, re.S)
+    assert row, "第五批行应标记 is-ours"
+    assert ">二4<" in row.group(0) and 'class="ours"' in row.group(0)
+    assert "在第五批（已高亮）" in body
 
 
 def test_schedule_json_structure():

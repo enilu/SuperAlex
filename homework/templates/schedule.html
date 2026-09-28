@@ -59,6 +59,44 @@
   </div>
   {% endif %}
 </section>
+
+{% if sch.dismissal %}
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h2>{{ sch.dismissal.title }}</h2>
+      <div class="meta">
+        {{ sch.dismissal.days_note }} · 本班 {{ sch.dismissal.my_class }}
+        {% if sch.dismissal.my_batch %}在{{ sch.dismissal.my_batch }}（已高亮）{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="sched-wrap">
+    <table class="sched dismiss">
+      <thead>
+        <tr>
+          <th>放学顺序</th>
+          <th>{{ sch.dismissal.days_note }}</th>
+          <th>班级放学点1</th>
+          <th>班级放学点2</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for b in sch.dismissal.batches %}
+        <tr class="{{ 'is-ours' if sch.dismissal.my_class in b.points else '' }}">
+          <th class="label-col">{{ b.order }}</th>
+          <td class="time-col dismiss-time">{{ b.time }}</td>
+          {% for p in b.points %}
+          <td class="{{ 'ours' if p == sch.dismissal.my_class else '' }}">{{ p }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endif %}
 {% endblock %}
 
 {% block scripts %}
