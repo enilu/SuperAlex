@@ -270,9 +270,16 @@
 
   function generate() {
     var ids = currentResourceIds();
-    if (!ids.length && !files.length) { toast("请先上传文件或选择关联资料"); return; }
-
     var mode = document.querySelector("input[name=mode]:checked").value;
+    if (files.length) {
+      toast("还有 " + files.length + " 个文件未上传，请先「开始上传」或移除");
+      return;
+    }
+    if (mode === "link" && !ids.length) {
+      toast("请先选择要关联的资料");
+      return;
+    }
+
     var kind = document.querySelector("input[name=kind]:checked").value;
     var subject = $("fSubject").value;
     var title = $("fTitle").value.trim() ||
@@ -299,8 +306,10 @@
           est_minutes: est, note: note, resource_ids: ids
         }
       }).then(function () {
-        toast("任务已进入" + (due === $("fDue").defaultValue ? "当日" : "") +
-          "清单，关联 " + ids.length + " 份资料");
+        var when = due === $("fDue").defaultValue ? "当日" : "";
+        toast(ids.length
+          ? "任务已进入" + when + "清单，关联 " + ids.length + " 份资料"
+          : "任务已进入" + when + "清单");
       });
     }
 
