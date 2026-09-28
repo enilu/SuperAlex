@@ -6,6 +6,7 @@ from pathlib import Path
 from flask import (
     abort,
     current_app,
+    redirect,
     render_template,
     request,
     send_file,
@@ -14,7 +15,7 @@ from flask import (
 
 from ..auth import login_required
 from ..db import get_db, schema_version
-from ..library import facets, search_resources
+from ..library import facet_counts, facets, search_resources
 from . import bp
 
 
@@ -104,12 +105,23 @@ def library():
         per_page=50,
     )
     f = facets(conn)
+    fc = facet_counts(
+        conn,
+        q=q,
+        subject=subject,
+        category=category,
+        kind=kind,
+        visibility=visibility,
+    )
     stats = conn.execute(
         "SELECT COUNT(*) AS total, COALESCE(SUM(size), 0) AS bytes, "
         " SUM(CASE WHEN visibility='public' THEN 1 ELSE 0 END) AS pub, "
         " SUM(CASE WHEN visibility='private' THEN 1 ELSE 0 END) AS pri, "
         " SUM(locked) AS locked FROM resources"
     ).fetchone()
+    filter_rows = _library_filter_rows(
+        fc, q=q, subject=subject, category=category, kind=kind, visibility=visibility
+    )
     return render_template(
         "library.html",
         data=data,
@@ -127,8 +139,58 @@ def library():
         visibility=visibility,
         subjects=f["subjects"],
         categories=f["categories"],
+        fc=fc,
+        filter_rows=filter_rows,
         active="library",
     )
+
+
+_KIND_LABELS = {"library": "存量资料", "homework": "作业上传"}
+_VIS_LABELS = {"public": "public·静态直出", "private": "private·鉴权下载"}
+_ROW_LABELS = {"subject": "学科", "category": "分类", "kind": "类型", "visibility": "可见性"}
+_FIXED_OPTIONS = {
+    "kind": _KIND_LABELS,
+    "visibility": _VIS_LABELS,
+}
+
+
+def _library_filter_rows(fc: dict, **active) -> list[dict]:
+    """按钮组筛选行（借鉴旧 index.html 的 filter-bar）：全部 + 各值带计数。"""
+    rows = []
+    for dim in ("subject", "category", "kind", "visibility"):
+        others = {k: v for k, v in active.items() if k != dim and v}
+        chips = [
+            {
+                "label": "全部",
+                "count": fc[dim]["all"],
+                "active": not active[dim],
+                "href": url_for("views.library", **others),
+            }
+        ]
+
+        def add(value: str, label: str) -> None:
+            chips.append(
+                {
+                    "label": label,
+                    "count": fc[dim]["counts"].get(value, 0),
+                    "active": active[dim] == value,
+                    "href": url_for(
+                        "views.library", **{**others, dim: value}
+                    ),
+                }
+            )
+
+        options = _FIXED_OPTIONS.get(dim)
+        if options:
+            for value, label in options.items():
+                add(value, label)
+        else:
+            for value, _n in fc[dim]["items"]:
+                add(value, value)
+            if active[dim] and active[dim] not in fc[dim]["counts"]:
+                add(active[dim], active[dim])
+        rows.append({"label": _ROW_LABELS[dim], "chips": chips})
+    return rows
 
 
 # ---------- 旧静态页兜底（P4 归档前保持外链可用） ----------
@@ -144,7 +206,10 @@ def legacy_static(filename: str):
     其余路径一律 404，避免泄露仓库内代码。
     """
     root = Path(current_app.root_path).resolve().parent  # homework/ 仓库根
-    if not (filename == "index.html" or filename.startswith(_LEGACY_PREFIXES)):
+    if filename == "index.html":
+        # 旧首页入口归档：一律引导到登录页（回滚模式由 nginx alias 直出旧页）
+        return redirect(url_for("auth.login"))
+    if not filename.startswith(_LEGACY_PREFIXES):
         abort(404)
     target = (root / filename).resolve()
     if not target.is_relative_to(root) or not target.is_file():

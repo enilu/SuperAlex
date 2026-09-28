@@ -286,3 +286,28 @@ def test_library_visibility_and_kind_filters(client, login, app, tmp_path, monke
     assert resp.status_code == 200
     ids = [r["id"] for r in resp.get_json()["items"]]
     assert ids == [priv["id"]]
+
+
+def test_library_filter_button_rows(client, login, app, tmp_path, monkeypatch):
+    """按钮组筛选（借鉴旧 index.html）：全部+计数、active 高亮、URL 同步。"""
+    login()
+    _seed(app, tmp_path, monkeypatch)
+
+    body = client.get("/homework/library").get_data(as_text=True)
+    assert 'class="filter-bar"' in body
+    for label in ("学科", "分类", "类型", "可见性"):
+        assert label in body
+    # 四行的「全部」默认高亮
+    assert body.count("filter-button is-active") == 4
+    # 分面计数：1 条存量（英语 / 语法练习 / library / public）
+    assert '<span class="fcount">1</span>' in body
+    assert "存量资料" in body and "作业上传" in body  # 类型固定两项
+
+    # 选中学科 → 高亮落在对应 chip，URL 保留其它条件、清掉 page
+    body2 = client.get("/homework/library?subject=英语&page=3").get_data(as_text=True)
+    m = re.search(r'<a class="filter-button is-active" href="([^"]*)">\s*英语', body2)
+    assert m, "学科高亮应落在 英语 chip"
+    assert "subject=" in m.group(1) and "page=" not in m.group(1)
+    # 结果不回归（不带 page）
+    body3 = client.get("/homework/library?subject=英语").get_data(as_text=True)
+    assert "存量语法练习" in body3

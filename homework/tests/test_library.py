@@ -170,7 +170,10 @@ def test_resources_api(client, login, app, tmp_path, monkeypatch):
 
 
 def test_legacy_static_paths_still_served(client):
-    assert client.get("/homework/index.html").status_code == 200
+    # 旧首页入口归档：index.html 一律引导到登录页
+    resp = client.get("/homework/index.html")
+    assert resp.status_code == 302
+    assert resp.headers["Location"].endswith("/homework/login")
     assert client.get("/homework/data/homework.json").status_code == 200
 
     assets = sorted(p for p in (REPO_ROOT / "assets").rglob("*") if p.is_file())

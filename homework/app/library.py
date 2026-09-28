@@ -47,6 +47,41 @@ def serialize(row: sqlite3.Row) -> dict:
     }
 
 
+def _conditions(
+    q: str = "",
+    subject: str = "",
+    category: str = "",
+    kind: str = "",
+    visibility: str = "",
+    skip: str = "",
+) -> tuple[list[str], list]:
+    """WHERE 条件与参数；skip 用于分面计数时忽略某一维自身条件。"""
+    conds: list[str] = []
+    params: list = []
+    q = (q or "").strip()
+    if q:
+        like = f"%{q}%"
+        conds.append(
+            "(r.title LIKE ? OR r.note LIKE ? OR r.category LIKE ? "
+            "OR r.tags LIKE ? OR r.subject LIKE ?)"
+        )
+        params += [like] * 5
+    for column, value in (
+        ("subject", subject),
+        ("category", category),
+        ("kind", kind),
+        ("visibility", visibility),
+    ):
+        if value and column != skip:
+            conds.append(f"r.{column} = ?")
+            params.append(value)
+    return conds, params
+
+
+def _clause(conds: list[str]) -> str:
+    return f"WHERE {' AND '.join(conds)}" if conds else ""
+
+
 def search_resources(
     conn: sqlite3.Connection,
     q: str = "",
@@ -58,28 +93,10 @@ def search_resources(
     per_page: int = 50,
     sort: str = "",
 ) -> dict:
-    where: list[str] = []
-    params: list = []
-
-    q = (q or "").strip()
-    if q:
-        like = f"%{q}%"
-        where.append(
-            "(r.title LIKE ? OR r.note LIKE ? OR r.category LIKE ? "
-            "OR r.tags LIKE ? OR r.subject LIKE ?)"
-        )
-        params += [like] * 5
-    for column, value in (
-        ("r.subject", subject),
-        ("r.category", category),
-        ("r.kind", kind),
-        ("r.visibility", visibility),
-    ):
-        if value:
-            where.append(f"{column} = ?")
-            params.append(value)
-
-    clause = f"WHERE {' AND '.join(where)}" if where else ""
+    conds, params = _conditions(
+        q=q, subject=subject, category=category, kind=kind, visibility=visibility
+    )
+    clause = _clause(conds)
 
     total = conn.execute(
         f"SELECT COUNT(*) AS c FROM resources r {clause}", params
@@ -132,3 +149,39 @@ def facets(conn: sqlite3.Connection) -> dict:
             )
         ],
     }
+
+
+def facet_counts(
+    conn: sqlite3.Connection,
+    q: str = "",
+    subject: str = "",
+    category: str = "",
+    kind: str = "",
+    visibility: str = "",
+) -> dict:
+    """四维分面计数（供按钮组筛选）：某维计数时带上其它维条件、忽略自身。"""
+    dims = {
+        "subject": subject,
+        "category": category,
+        "kind": kind,
+        "visibility": visibility,
+    }
+    out: dict[str, dict] = {}
+    for dim, active in dims.items():
+        conds, params = _conditions(
+            q=q, skip=dim, **{k: v for k, v in dims.items() if k != dim}
+        )
+        conds.append(f"r.{dim} != ''")
+        rows = conn.execute(
+            f"SELECT r.{dim} AS v, COUNT(*) AS n FROM resources r "
+            f"{_clause(conds)} GROUP BY r.{dim} ORDER BY r.{dim}",
+            params,
+        ).fetchall()
+        items = [(row["v"], int(row["n"])) for row in rows]
+        out[dim] = {
+            "items": items,
+            "counts": {v: n for v, n in items},
+            "all": sum(n for _, n in items),
+            "active": active,
+        }
+    return out

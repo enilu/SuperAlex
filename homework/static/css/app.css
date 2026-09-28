@@ -287,6 +287,19 @@ a{color:var(--accent-ink)}
 .stats-strip{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:12px}
 .stats-strip b{color:var(--ink);font-weight:600}
 
+/* ---------- 按钮组筛选（借鉴旧 index.html 的 filter-bar：全部+计数+高亮+URL 同步） ---------- */
+.filter-bar{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:14px;padding:12px 14px;
+  border:1px solid var(--line);border-radius:12px;background:#fbfcfc}
+.filter-group{display:flex;align-items:center;gap:10px}
+.filter-label{color:var(--muted);font-size:13px;font-weight:700;white-space:nowrap}
+.filter-buttons{display:flex;flex-wrap:wrap;gap:6px}
+.filter-button{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 11px;
+  border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);
+  font-size:13px;font-weight:600;text-decoration:none;transition:.15s}
+.filter-button:hover{border-color:rgba(15,118,110,.45);color:var(--ink)}
+.filter-button.is-active{background:#dceee9;border-color:rgba(15,118,110,.55);color:var(--accent-ink)}
+.filter-button .fcount{font-size:11px;opacity:.75;font-weight:700}
+
 .table-wrap{overflow-x:auto}
 .table .fname{font-size:14px;font-weight:600}
 .table .path{font-size:11px;color:var(--muted);word-break:break-all;margin-top:3px}
@@ -317,4 +330,8 @@ a{color:var(--accent-ink)}
 @media(max-width:900px){
   .toolbar .btn.primary{margin-left:0}
   .stats-strip{gap:8px 14px}
+}
+@media(max-width:560px){
+  .filter-group{flex-direction:column;align-items:flex-start;gap:6px}
+  .filter-bar{gap:10px 14px;padding:10px}
 }

@@ -16,28 +16,7 @@
   <form class="toolbar" method="get" action="{{ url_for('views.library') }}">
     <input type="search" name="q" value="{{ q }}"
            placeholder="搜索标题、学科、标签，如：暑假乐学手册、Unit3、口算">
-    <select name="subject">
-      <option value="">全部学科</option>
-      {% for s in subjects %}
-        <option value="{{ s }}" {{ "selected" if s == subject }}>{{ s }}</option>
-      {% endfor %}
-    </select>
-    <select name="category">
-      <option value="">全部分类</option>
-      {% for c in categories %}
-        <option value="{{ c }}" {{ "selected" if c == category }}>{{ c }}</option>
-      {% endfor %}
-    </select>
-    <select name="kind">
-      <option value="">全部类型</option>
-      <option value="library" {{ "selected" if kind == "library" }}>存量资料</option>
-      <option value="homework" {{ "selected" if kind == "homework" }}>作业上传</option>
-    </select>
-    <select name="visibility">
-      <option value="">全部可见性</option>
-      <option value="public" {{ "selected" if visibility == "public" }}>public·静态直出</option>
-      <option value="private" {{ "selected" if visibility == "private" }}>private·鉴权下载</option>
-    </select>
+    <button class="btn" type="submit">搜索</button>
     {% if q or subject or category or kind or visibility %}
       <a class="btn ghost" href="{{ url_for('views.library') }}">清空</a>
     {% endif %}
@@ -45,6 +24,22 @@
     <input type="file" id="libUploadInput" multiple hidden
            accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.mp4,.mov,.mp3,.wav,.txt,.md,.zip">
   </form>
+
+  {# 按钮组筛选（借鉴旧 index.html：全部+各值带计数、active 高亮、URL 同步） #}
+  <div class="filter-bar">
+    {% for row in filter_rows %}
+    <div class="filter-group">
+      <span class="filter-label">{{ row.label }}</span>
+      <div class="filter-buttons">
+        {% for c in row.chips %}
+        <a class="filter-button{{ ' is-active' if c.active }}" href="{{ c.href }}">
+          {{ c.label }}<span class="fcount">{{ c.count }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 
   <div class="stats-strip">
     共 <b>{{ stats.total }}</b> 条 · 合计 <b>{{ "%.1f" | format(stats.mb) }} MB</b> ·
