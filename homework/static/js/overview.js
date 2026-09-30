@@ -12,7 +12,8 @@
   };
   var SUBJECTS = Object.keys(SUBJECT_COLORS);
 
-  var state = { date: todayStr(), data: null, editing: false, busy: false };
+  var state = { date: todayStr(), data: null, editing: false, busy: false,
+                statusFilter: "" };
 
   function todayStr() {
     var d = new Date(), p = function (n) { return String(n).padStart(2, "0"); };
@@ -149,19 +150,39 @@
     });
 
     var groups = data.groups || [];
-    $("grid").innerHTML = groups.length ? groups.map(function (g) {
-      var rows = g.items.map(state.editing ? editRow : viewRow).join("");
-      var add = state.editing
-        ? '<div class="add-row"><input data-subject="' + esc(g.subject) +
-          '" placeholder="＋ 添加' + esc(g.subject) + '作业，回车即建"></div>'
-        : "";
-      return '<div class="subject' + (state.editing ? " editing" : "") +
-        '" style="--c:' + colorOf(g.subject) + '">' +
-        '<div class="subject-head"><h3>' + esc(g.subject) + "</h3>" +
-        '<span class="count">' + g.done + "/" + g.items.length + "</span></div>" +
-        rows + add + "</div>";
-    }).join("") :
-      '<div class="empty-note">清单为空。开启「维护模式」后在学科卡片里添加作业，或点「复制昨日」。</div>';
+    // 快速筛选计数（校内/校外页 chips，总览页无则跳过）
+    if ($("sfAll")) {
+      $("sfAll").textContent = data.total;
+      $("sfDone").textContent = data.done;
+      $("sfOpen").textContent = data.total - data.done;
+    }
+    var filter = state.statusFilter;
+    var shown = groups.map(function (g) {
+      return {
+        group: g,
+        items: filter
+          ? g.items.filter(function (t) { return t.status === filter; })
+          : g.items
+      };
+    }).filter(function (c) { return c.items.length > 0; });
+
+    $("grid").innerHTML = !groups.length
+      ? '<div class="empty-note">清单为空。开启「维护模式」后在学科卡片里添加作业，或点「复制昨日」。</div>'
+      : shown.length ? shown.map(function (c) {
+          var g = c.group;
+          var rows = c.items.map(state.editing ? editRow : viewRow).join("");
+          var add = state.editing
+            ? '<div class="add-row"><input data-subject="' + esc(g.subject) +
+              '" placeholder="＋ 添加' + esc(g.subject) + '作业，回车即建"></div>'
+            : "";
+          // 卡片计数保持当日全况口径，不受筛选影响
+          return '<div class="subject' + (state.editing ? " editing" : "") +
+            '" style="--c:' + colorOf(g.subject) + '">' +
+            '<div class="subject-head"><h3>' + esc(g.subject) + "</h3>" +
+            '<span class="count">' + g.done + "/" + g.items.length + "</span></div>" +
+            rows + add + "</div>";
+        }).join("")
+      : '<div class="empty-note">当前筛选下无作业，点「全部」查看当日清单。</div>';
 
     if (state.editing) wireEdit(); else wireCheck();
   }
@@ -353,6 +374,20 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeRes(); });
 
   /* ---------- 启动 ---------- */
+
+  // 快速筛选：全部 / 已完成 / 未完成（仅校内、校外页渲染 chips）
+  var sf = $("statusFilter");
+  if (sf) {
+    Array.prototype.forEach.call(sf.querySelectorAll(".filter-button"), function (btn) {
+      btn.onclick = function () {
+        state.statusFilter = btn.dataset.status || "";
+        Array.prototype.forEach.call(sf.querySelectorAll(".filter-button"), function (b) {
+          b.classList.toggle("is-active", b === btn);
+        });
+        render();
+      };
+    });
+  }
 
   $("viewDate").value = state.date;
   syncTools();

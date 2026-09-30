@@ -23,3 +23,13 @@
 - 部署（cloud-host-deploy / deploy-homework.sh，local 模式）：服务器 `git pull --ff-only` 99c5d4d→32bfac1；venv 依赖 ok；备份 `/root/backups/homework-20260930-084440`（sqlite+uploads+files 硬链+页面+nginx，保留 14 天）；**迁移 003 已应用**（schema=003，待应用 0）；`homework-workbench.service` 重启 active，127.0.0.1:8085 监听。
 - 公网抽检 7 项全 PASS：login 200、`/homework/` 302、api/health 200、主站 200、/game/ 200、files 学年目录直出 200、`api/files/1` 未登录 401。未改 Nginx，未覆盖 files/ 与 assets/vendor/。
 - 线上学年回填核验：resources.year 列已存在；分布 `2026-2027: 111、2025-2026: 29、空: 5`（5 条旧式路径不可解析，按方案留空，可在资料库编辑补填）。
+
+## 2026-09-30 09:06:00 实现：校内/校外作业已完成/未完成快速筛选
+
+- 方案（已确认）：纯前端筛选，不改后端与接口；仅 `kind` 非空页渲染 chips；统计卡保持当日全量口径；改动 3 文件不拆子任务。
+- 落地：
+  - `templates/overview.html`：`panel-tools` 加 `#statusFilter`（全部/已完成/未完成，带 `fcount` 计数，`{% if kind %}` 守卫），`overview.js` 版本升 `?v=20260930-p1`；
+  - `static/js/overview.js`：`state.statusFilter`，render 按 status 过滤学科卡（无匹配行的卡隐藏，全隐藏提示"当前筛选下无作业"，清单为空提示不变），chips 计数取 `data.total/done/total-done` 全量，卡片计数保持学科当日全况；chips 点击切换 is-active 并重渲染（总览页无 chips 判空跳过）；打卡/切日期/维护模式后筛选保持；
+  - `tests/test_tasks.py`：新增 `test_status_filter_chips`（school/extra 含 statusFilter 与 done/open、总览页不含、版本号断言）。
+- 校验：`python -m pytest -q` **65 passed**；`node --check overview.js` 语法 OK。
+- 未提交、未推送、未部署（待指示）。

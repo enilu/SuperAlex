@@ -252,6 +252,21 @@ def test_kind_filter_and_task_pages(client, login):
     assert client.get("/homework/api/overview?kind=bad").status_code == 400
 
 
+def test_status_filter_chips(client, login):
+    """校内/校外页提供已完成/未完成快速筛选，总览页不提供。"""
+    login()
+
+    for path in ("/homework/tasks/school", "/homework/tasks/extra"):
+        body = client.get(path).get_data(as_text=True)
+        assert 'id="statusFilter"' in body, path
+        assert 'data-status="done"' in body, path
+        assert 'data-status="open"' in body, path
+        assert "overview.js?v=20260930-p1" in body, path
+
+    home = client.get("/homework/").get_data(as_text=True)
+    assert 'id="statusFilter"' not in home
+
+
 def test_api_requires_auth(client):
     assert client.get("/homework/api/overview").status_code == 401
     assert client.get("/homework/api/tasks").status_code == 401

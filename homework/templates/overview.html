@@ -38,6 +38,19 @@
   </div>
 
   <div class="panel-tools">
+    {% if kind %}
+    <div class="filter-buttons" id="statusFilter" role="group" aria-label="完成状态快速筛选">
+      <button class="filter-button is-active" data-status="" type="button">
+        全部 <span class="fcount" id="sfAll">0</span>
+      </button>
+      <button class="filter-button" data-status="done" type="button">
+        已完成 <span class="fcount" id="sfDone">0</span>
+      </button>
+      <button class="filter-button" data-status="open" type="button">
+        未完成 <span class="fcount" id="sfOpen">0</span>
+      </button>
+    </div>
+    {% endif %}
     <label class="switch">
       <input type="checkbox" id="editToggle"> 维护模式（家长维护清单）
     </label>
@@ -87,5 +100,5 @@
     kind: {{ kind | tojson }}
   };
 </script>
-<script src="{{ url_for('views.static', filename='js/overview.js') }}?v=20260927-p4"></script>
+<script src="{{ url_for('views.static', filename='js/overview.js') }}?v=20260930-p1"></script>
 {% endblock %}
