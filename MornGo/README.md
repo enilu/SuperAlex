@@ -4,7 +4,7 @@
 
 ## 演示地址
 
-http://superalex.enilu.cn/MornGo
+https://microapp.store/superalex/MornGo/
 
 ## 项目概述
 
