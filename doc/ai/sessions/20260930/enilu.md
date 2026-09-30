@@ -63,3 +63,9 @@
 - 落地：`overview.js` 新增 `offsetDays(n)`，默认 `state{start: 今天-7, end: 今天+60}`（68 天 ≤92 上限）；`?v=` 升 `20260930-p3`；测试：`test_overview_range` 增 `series[-1]==今天` 断言、两处版本断言升 p3。
 - 校验：`python -m pytest -q` **68 passed**；`node --check` 语法 OK。
 - 未提交、未推送、未部署（待指示）。
+
+## 2026-09-30 16:31 提交推送与部署（默认时间段上线）
+
+- 本地提交 `b6a60fe feat: 时间段查询默认7天前至60天后并锚定7天卡`（5 文件），已推送 `f611627..b6a60fe`，工作树干净。
+- 部署（deploy-homework.sh）：服务器 `git pull --ff-only` 8403afd→b6a60fe（HEAD=origin/main 一致）；备份 `/root/backups/homework-20260930-163105`（保留 14 天）；迁移无待应用（schema 003）；服务 16:31 重启 active（pid 195835）；公网抽检 7 项全 PASS。
+- 功能核验（服务工作目录 grep）：`overview.js` 含 `offsetDays`(2)、`overview.html` 含 `20260930-p3`(1)、`tasks.py` 含 `series_end`(2)。`files/`、`assets/vendor/` 未覆盖，Nginx 未改动。
