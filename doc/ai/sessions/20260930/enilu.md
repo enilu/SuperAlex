@@ -49,3 +49,9 @@
 - **C 测试**：新增 `test_overview_range`（聚合/kind 过滤/日期升序/兼容字段/口径）、`test_overview_range_validation`（起>止、格式、>92 天、旧 `?date=` 与单端参数兼容）、`test_range_picker_pages`（三页双输入与版本断言、`viewDate` 已移除）；`test_status_filter_chips` 版本断言升 p2。
 - 校验：`python -m pytest -q` **68 passed**；`node --check overview.js` 语法 OK。零 CSS 改动（`.btn.small`/`.date-picker` 复用）。
 - 未提交、未推送、未部署（待指示）。
+
+## 2026-09-30 09:29 提交推送与部署（时间段查询上线）
+
+- 本地提交 `8403afd feat: 总览查看日期支持时间段查询`（6 文件），已推送 `3397a4e..8403afd`，工作树干净。
+- 部署（deploy-homework.sh）：服务器 `git pull --ff-only` dc26de8→8403afd（HEAD=origin/main 一致）；备份 `/root/backups/homework-20260930-092901`（保留 14 天）；迁移无待应用（schema 003）；服务 09:29 重启 active（pid 194629）；公网抽检 7 项全 PASS。
+- 功能核验（服务工作目录 grep）：`overview.html` 含 `startDate`(1)、`?v=20260930-p2`(1)；`overview.js` 含 `setRange`(5)；`tasks.py` 含 `MAX_RANGE_DAYS`(3)。`files/`、`assets/vendor/` 未覆盖，Nginx 未改动。
