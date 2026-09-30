@@ -16,3 +16,10 @@
   - C 上传页：`upload.html` 学年下拉（默认当前学年）、`upload.js` 提交 year、脚本版本号同步；`homework/README.md` 新增学年说明条目（后续条目重排序号）。
 - 校验：`python -m pytest` 全量 **64 passed**（新增：003 回填、导入解析、API/页面学年筛选与 chips 排序、patch 与上传校验、上传页下拉渲染；`test_smoke` 迁移清单更新为含 003）。
 - 影响与后续：15 个文件修改 + 1 个新迁移（另有既存 `MornGo/README.md` 本地改动与本任务无关，未提交）；线上生效需按 cloud-host-deploy skill 走 git push → 服务器 pull → `deploy-homework.sh`（自动 migrate 完成回填）。本轮未提交、未部署。
+
+## 2026-09-30 08:47:00 提交推送与部署（学年功能上线）
+
+- 本地提交：`d134631 feat: 资料管理增加学年概念，支持上传与筛选`（16 文件）、`32bfac1 docs: 更新MornGo演示地址为microapp.store`，已推送 `1a32aa3..32bfac1`，工作树干净。
+- 部署（cloud-host-deploy / deploy-homework.sh，local 模式）：服务器 `git pull --ff-only` 99c5d4d→32bfac1；venv 依赖 ok；备份 `/root/backups/homework-20260930-084440`（sqlite+uploads+files 硬链+页面+nginx，保留 14 天）；**迁移 003 已应用**（schema=003，待应用 0）；`homework-workbench.service` 重启 active，127.0.0.1:8085 监听。
+- 公网抽检 7 项全 PASS：login 200、`/homework/` 302、api/health 200、主站 200、/game/ 200、files 学年目录直出 200、`api/files/1` 未登录 401。未改 Nginx，未覆盖 files/ 与 assets/vendor/。
+- 线上学年回填核验：resources.year 列已存在；分布 `2026-2027: 111、2025-2026: 29、空: 5`（5 条旧式路径不可解析，按方案留空，可在资料库编辑补填）。
