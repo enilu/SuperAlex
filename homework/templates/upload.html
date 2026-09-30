@@ -57,6 +57,18 @@
     </div>
 
     <div class="field">
+      <label>学年</label>
+      <select id="fYear">
+        {% for y in years %}
+          <option value="{{ y }}" {{ "selected" if y == current_year else "" }}>{{ y }}</option>
+        {% endfor %}
+        {% if current_year not in years %}
+          <option value="{{ current_year }}" selected>{{ current_year }}</option>
+        {% endif %}
+      </select>
+    </div>
+
+    <div class="field">
       <label>作业类型</label>
       <div class="radios">
         <label><input type="radio" name="kind" value="in_school" checked>校内</label>
@@ -159,5 +171,5 @@
     csrf: document.querySelector('meta[name="csrf-token"]').content
   };
 </script>
-<script src="{{ url_for('views.static', filename='js/upload.js') }}?v=20260927-p3"></script>
+<script src="{{ url_for('views.static', filename='js/upload.js') }}?v=20260930-year"></script>
 {% endblock %}

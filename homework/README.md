@@ -98,7 +98,8 @@ set -a && . /var/lib/homework-workbench/secrets.env && set +a
 
    工作台的 Jinja 模板与 `static/` 不走这套版本号。
 2. 新增资料：先把文件放到服务器 `files/library/...`，再在 `data/homework.json` 增加条目。只拷文件或只改 JSON 都不完整；页面不会自动扫描目录，`data/homework.json` 变更后还需在服务器重跑 `python -m app.manage import-json --force` 才进数据库。
-3. 路径规范：
+3. 学年：资料元数据带学年字段（`YYYY-YYYY`，相邻学年，如 `2026-2027`）。存量导入从 `files/library/<学年>/` 路径解析；页面上传默认当前学年（9 月起算），资料管理页可按学年筛选，也可在编辑弹窗中修改，空值视为未设置。
+4. 路径规范：
 
 ```text
 files/library/<学年>/<学段>/<年级>/<学期或假期>/<学科>/<内容类别>/<文件类型>/
@@ -106,7 +107,7 @@ files/library/<学年>/<学段>/<年级>/<学期或假期>/<学科>/<内容类�
 
 学段：`primary` / `middle` / `high`；年级：`grade-01` … `grade-12`；时间：`semester-1` / `winter-break` / `semester-2` / `summer-break`；文件类型：`documents` / `images` / `audio` / `video`。
 
-4. 含学生姓名、学号、联系方式或个人安排的文件只能进 `/root/private-learning-library/`，或经工作台上传为 private（落站点外 `/var/lib/homework-workbench/uploads/`，走鉴权接口下载），不要写入公开的 `homework.json`。
+5. 含学生姓名、学号、联系方式或个人安排的文件只能进 `/root/private-learning-library/`，或经工作台上传为 private（落站点外 `/var/lib/homework-workbench/uploads/`，走鉴权接口下载），不要写入公开的 `homework.json`。
 
 ## 部署 homework
 

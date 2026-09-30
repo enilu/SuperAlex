@@ -17,9 +17,13 @@
     <input type="search" name="q" value="{{ q }}"
            placeholder="搜索标题、学科、标签，如：暑假乐学手册、Unit3、口算">
     <button class="btn" type="submit">搜索</button>
-    {% if q or subject or category or kind or visibility %}
+    {% if q or subject or category or kind or visibility or year %}
       <a class="btn ghost" href="{{ url_for('views.library') }}">清空</a>
     {% endif %}
+    <select id="libUploadYear" aria-label="上传学年">
+      {% for y in years %}<option value="{{ y }}" {{ "selected" if y == current_year else "" }}>{{ y }}</option>{% endfor %}
+      {% if current_year not in years %}<option value="{{ current_year }}" selected>{{ current_year }}</option>{% endif %}
+    </select>
     <button class="btn primary" id="libUploadBtn" type="button">上传新资料</button>
     <input type="file" id="libUploadInput" multiple hidden
            accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.mp4,.mov,.mp3,.wav,.txt,.md,.zip">
@@ -62,6 +66,7 @@
     <thead>
       <tr>
         <th>标题</th>
+        <th>学年</th>
         <th>学科</th>
         <th>分类</th>
         <th>类型</th>
@@ -75,6 +80,7 @@
       {% for item in data['items'] %}
       <tr data-id="{{ item.id }}"
           data-title="{{ item.title }}"
+          data-year="{{ item.year }}"
           data-subject="{{ item.subject }}"
           data-category="{{ item.category }}"
           data-tags="{{ item.tags }}"
@@ -87,6 +93,7 @@
           <div class="path">{{ item.rel_path }}</div>
           {% if item.note %}<div class="cell-note">{{ item.note }}</div>{% endif %}
         </td>
+        <td>{{ item.year or "—" }}</td>
         <td>{{ item.subject or "—" }}</td>
         <td>{{ item.category or "—" }}</td>
         <td><span class="badge">{{ item.rel_path.rsplit(".", 1)[-1].lower() if "." in item.rel_path else "—" }}</span></td>
@@ -115,11 +122,11 @@
 
   <div class="pager">
     {% if data.page > 1 %}
-      <a class="btn ghost" href="{{ url_for('views.library', q=q, subject=subject, category=category, kind=kind, visibility=visibility, page=data.page - 1) }}">上一页</a>
+      <a class="btn ghost" href="{{ url_for('views.library', q=q, subject=subject, category=category, kind=kind, visibility=visibility, year=year, page=data.page - 1) }}">上一页</a>
     {% endif %}
     <span class="meta">第 {{ data.page }} / {{ data.pages }} 页</span>
     {% if data.page < data.pages %}
-      <a class="btn ghost" href="{{ url_for('views.library', q=q, subject=subject, category=category, kind=kind, visibility=visibility, page=data.page + 1) }}">下一页</a>
+      <a class="btn ghost" href="{{ url_for('views.library', q=q, subject=subject, category=category, kind=kind, visibility=visibility, year=year, page=data.page + 1) }}">下一页</a>
     {% endif %}
   </div>
   {% else %}
@@ -127,7 +134,7 @@
   {% endif %}
 
   <div class="hint">
-    检索走 <code>GET /homework/api/resources?q=&amp;subject=&amp;kind=&amp;visibility=</code>；
+    检索走 <code>GET /homework/api/resources?q=&amp;year=&amp;subject=&amp;kind=&amp;visibility=</code>；
     改元数据走 <code>PATCH /api/resources/&lt;id&gt;</code>（<code>locked=1</code> 的记录只改元数据，不碰
     <code>rel_path</code>）；删除仅对非锁定的 private 记录开放，会同时删掉站点外的文件（二次确认）。
     存量 140 条（<b>存量</b> 标记）文件与路径锁定；「上传新资料」入库为 private，可删除。
@@ -142,9 +149,15 @@
     </div>
     <div class="modal-body">
       <div class="lock-tip" id="emLockNote" hidden>
-        🔒 存量资料：可修改标题、学科、分类、标签与备注；<b>文件不可删除、存储路径已锁定</b>。
+        🔒 存量资料：可修改标题、学年、学科、分类、标签与备注；<b>文件不可删除、存储路径已锁定</b>。
       </div>
       <div class="field"><label>标题</label><input id="emTitle"></div>
+      <div class="field"><label>学年</label>
+        <input id="emYear" list="libYears" placeholder="2026-2027">
+        <datalist id="libYears">
+          {% for y in years %}<option value="{{ y }}">{% endfor %}
+        </datalist>
+      </div>
       <div class="field"><label>学科</label>
         <input id="emSubject" list="libSubjects" placeholder="如：英语">
         <datalist id="libSubjects">
@@ -173,5 +186,5 @@
     csrf: document.querySelector('meta[name="csrf-token"]').content
   };
 </script>
-<script src="{{ url_for('views.static', filename='js/library.js') }}?v=20260927-p4"></script>
+<script src="{{ url_for('views.static', filename='js/library.js') }}?v=20260930-year"></script>
 {% endblock %}

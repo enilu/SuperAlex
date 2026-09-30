@@ -22,6 +22,7 @@ from pathlib import Path
 from .config import Config
 from . import db as db_mod
 from . import users as users_mod
+from .library import year_from_path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -150,8 +151,8 @@ def cmd_import_json(args: argparse.Namespace) -> int:
                 conn.execute(
                     "INSERT INTO resources"
                     "(legacy_id, collection_id, kind, title, subject, category, "
-                    " tags, note, rel_path, size, mime, visibility, locked) "
-                    "VALUES (?, ?, 'library', ?, ?, ?, '', ?, ?, ?, ?, 'public', 1)",
+                    " tags, note, rel_path, size, mime, visibility, locked, year) "
+                    "VALUES (?, ?, 'library', ?, ?, ?, '', ?, ?, ?, ?, 'public', 1, ?)",
                     (
                         item_legacy,
                         col_id,
@@ -162,6 +163,7 @@ def cmd_import_json(args: argparse.Namespace) -> int:
                         rel_path,
                         int(item.get("size") or 0),
                         mime,
+                        year_from_path(rel_path),
                     ),
                 )
                 res_new += 1

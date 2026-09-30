@@ -19,10 +19,13 @@ def _csrf(client) -> str:
     return match.group(1)
 
 
-def _upload(client, token, files, kind="homework"):
+def _upload(client, token, files, kind="homework", year=None):
+    data = {"files": files, "kind": kind}
+    if year is not None:
+        data["year"] = year
     return client.post(
         "/homework/api/upload",
-        data={"files": files, "kind": kind},
+        data=data,
         headers={"X-CSRF-Token": token},
         content_type="multipart/form-data",
     )
@@ -49,6 +52,9 @@ def test_upload_page_renders(client, login):
     assert 'id="drop"' in body
     assert "生成任务" in body
     assert "关联资料" in body
+    assert 'id="fYear"' in body  # 学年下拉（默认当前学年）
+    from app.library import current_school_year
+    assert current_school_year() in body
 
 
 def test_upload_private_dedupe_and_storage(client, login, app):
@@ -259,3 +265,36 @@ def test_upload_library_kind(client, login):
 
     resp = _upload(client, token, [(io.BytesIO(b"x"), "bad.kind")], kind="nope")
     assert resp.status_code == 400
+
+
+def test_upload_year_default_and_validation(client, login, app):
+    login()
+    token = _csrf(client)
+    from app.library import current_school_year
+
+    # 不传学年 → 默认当前学年
+    item = _upload(client, token,
+                   [(io.BytesIO(PDF + b"def"), "默认学年.pdf")]).get_json()["uploaded"][0]
+    assert item["year"] == current_school_year()
+
+    # 显式指定合法学年
+    item2 = _upload(client, token, [(io.BytesIO(PDF + b"fix"), "指定学年.pdf")],
+                    year="2025-2026").get_json()["uploaded"][0]
+    assert item2["year"] == "2025-2026"
+
+    # 非相邻 / 格式错误 → 400，且不入库
+    resp = _upload(client, token, [(io.BytesIO(PDF + b"bad1"), "bad1.pdf")],
+                   year="2026-2028")
+    assert resp.status_code == 400
+    assert "相邻" in resp.get_json()["error"]
+    resp = _upload(client, token, [(io.BytesIO(PDF + b"bad2"), "bad2.pdf")],
+                   year="abc")
+    assert resp.status_code == 400
+    assert "YYYY-YYYY" in resp.get_json()["error"]
+
+    conn = db_mod.connect_db(app.config["DATABASE"])
+    try:
+        n = conn.execute("SELECT COUNT(*) AS c FROM resources").fetchone()["c"]
+    finally:
+        conn.close()
+    assert n == 2

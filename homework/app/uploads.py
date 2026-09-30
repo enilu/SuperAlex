@@ -31,8 +31,12 @@ def _extension(filename: str) -> str:
     return ext
 
 
-def save_upload(file, user_id: int | None, kind: str = "homework") -> dict:
-    """把上传文件落盘并写入 resources；sha256 命中则返回既有记录。"""
+def save_upload(file, user_id: int | None, kind: str = "homework",
+                year: str = "") -> dict:
+    """把上传文件落盘并写入 resources；sha256 命中则返回既有记录。
+
+    year 为学年（YYYY-YYYY），由路由层校验后传入；缺省空串=未设置。
+    """
     if kind not in ("library", "homework"):
         raise ValueError("kind 必须是 library/homework")
     filename = Path(file.filename or "").name  # 防路径注入
@@ -63,8 +67,9 @@ def save_upload(file, user_id: int | None, kind: str = "homework") -> dict:
 
     cur = conn.execute(
         "INSERT INTO resources(collection_id, kind, title, subject, category, "
-        " tags, note, rel_path, size, mime, sha256, visibility, locked, created_by) "
-        "VALUES (NULL, ?, ?, '', '', '', ?, ?, ?, ?, ?, 'private', 0, ?)",
+        " tags, note, rel_path, size, mime, sha256, visibility, locked, "
+        " created_by, year) "
+        "VALUES (NULL, ?, ?, '', '', '', ?, ?, ?, ?, ?, 'private', 0, ?, ?)",
         (
             kind,
             filename,
@@ -74,6 +79,7 @@ def save_upload(file, user_id: int | None, kind: str = "homework") -> dict:
             mimetypes.guess_type(filename)[0] or f"application/{ext}",
             sha,
             user_id,
+            year,
         ),
     )
     conn.commit()

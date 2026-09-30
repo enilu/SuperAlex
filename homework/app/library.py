@@ -1,10 +1,44 @@
 """资料库检索与序列化（页面与 API 共用）。"""
 from __future__ import annotations
 
+import re
 import sqlite3
+from datetime import date
 from pathlib import PurePosixPath
 
 from flask import current_app
+
+YEAR_RE = re.compile(r"^\d{4}-\d{4}$")
+
+
+def normalize_year(value) -> str:
+    """校验学年：空串=未设置；非空必须 YYYY-YYYY 且首尾相邻。"""
+    v = (value or "").strip()
+    if not v:
+        return ""
+    if not YEAR_RE.fullmatch(v):
+        raise ValueError("学年格式应为 YYYY-YYYY，如 2026-2027")
+    start, end = int(v[:4]), int(v[5:])
+    if end != start + 1:
+        raise ValueError("学年首尾需相邻，如 2026-2027")
+    return v
+
+
+def current_school_year(today: date | None = None) -> str:
+    """9 月及以后为当年起学年，否则为上一年起学年（2026-09-30 → 2026-2027）。"""
+    d = today or date.today()
+    return f"{d.year}-{d.year + 1}" if d.month >= 9 else f"{d.year - 1}-{d.year}"
+
+
+def year_from_path(rel_path: str) -> str:
+    """从 files/library/YYYY-YYYY/... 路径解析学年，无法解析返回空串。"""
+    parts = PurePosixPath(rel_path or "").parts
+    if len(parts) >= 3 and parts[0] == "files" and parts[1] == "library":
+        try:
+            return normalize_year(parts[2])
+        except ValueError:
+            return ""
+    return ""
 
 
 def human_size(num: int) -> str:
@@ -44,6 +78,7 @@ def serialize(row: sqlite3.Row) -> dict:
         "collection_id": row["collection_id"],
         "created_at": row["created_at"],
         "legacy_id": row["legacy_id"] if "legacy_id" in row.keys() else None,
+        "year": row["year"] if "year" in row.keys() else "",
     }
 
 
@@ -53,6 +88,7 @@ def _conditions(
     category: str = "",
     kind: str = "",
     visibility: str = "",
+    year: str = "",
     skip: str = "",
 ) -> tuple[list[str], list]:
     """WHERE 条件与参数；skip 用于分面计数时忽略某一维自身条件。"""
@@ -71,6 +107,7 @@ def _conditions(
         ("category", category),
         ("kind", kind),
         ("visibility", visibility),
+        ("year", year),
     ):
         if value and column != skip:
             conds.append(f"r.{column} = ?")
@@ -89,12 +126,14 @@ def search_resources(
     category: str = "",
     kind: str = "",
     visibility: str = "",
+    year: str = "",
     page: int = 1,
     per_page: int = 50,
     sort: str = "",
 ) -> dict:
     conds, params = _conditions(
-        q=q, subject=subject, category=category, kind=kind, visibility=visibility
+        q=q, subject=subject, category=category, kind=kind,
+        visibility=visibility, year=year,
     )
     clause = _clause(conds)
 
@@ -142,6 +181,14 @@ def facets(conn: sqlite3.Connection) -> dict:
     return {
         "subjects": values("subject"),
         "categories": values("category"),
+        "years": [
+            row["v"]
+            for row in conn.execute(
+                "SELECT DISTINCT year AS v FROM resources "
+                "WHERE year != '' ORDER BY v DESC"
+            )
+        ],
+        "current_year": current_school_year(),
         "collections": [
             {"id": row["id"], "name": row["name"]}
             for row in conn.execute(
@@ -158,9 +205,11 @@ def facet_counts(
     category: str = "",
     kind: str = "",
     visibility: str = "",
+    year: str = "",
 ) -> dict:
-    """四维分面计数（供按钮组筛选）：某维计数时带上其它维条件、忽略自身。"""
+    """五维分面计数（供按钮组筛选）：某维计数时带上其它维条件、忽略自身。"""
     dims = {
+        "year": year,
         "subject": subject,
         "category": category,
         "kind": kind,
@@ -172,9 +221,10 @@ def facet_counts(
             q=q, skip=dim, **{k: v for k, v in dims.items() if k != dim}
         )
         conds.append(f"r.{dim} != ''")
+        order = "DESC" if dim == "year" else "ASC"  # 学年新学年在前
         rows = conn.execute(
             f"SELECT r.{dim} AS v, COUNT(*) AS n FROM resources r "
-            f"{_clause(conds)} GROUP BY r.{dim} ORDER BY r.{dim}",
+            f"{_clause(conds)} GROUP BY r.{dim} ORDER BY r.{dim} {order}",
             params,
         ).fetchall()
         items = [(row["v"], int(row["n"])) for row in rows]

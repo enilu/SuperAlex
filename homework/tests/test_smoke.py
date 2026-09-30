@@ -58,14 +58,14 @@ def test_migrations_create_schema(tmp_path):
     conn = db_mod.connect_db(str(db_path))
     try:
         applied = db_mod.run_migrations(conn)
-        assert applied == ["001_init.sql", "002_legacy_ids.sql"]
+        assert applied == ["001_init.sql", "002_legacy_ids.sql", "003_year.sql"]
         tables = {
             row["name"]
             for row in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")
         }
         assert {"users", "tasks", "collections", "resources",
                 "task_resources", "checkins", "meta"} <= tables
-        assert db_mod.schema_version(conn) == "002_legacy_ids.sql"
+        assert db_mod.schema_version(conn) == "003_year.sql"
         # 幂等：重复执行不再应用
         assert db_mod.run_migrations(conn) == []
     finally:

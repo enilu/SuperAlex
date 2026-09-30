@@ -10,7 +10,14 @@ from .. import tasks as tasks_mod
 from .. import uploads as uploads_mod
 from ..auth import csrf_protect, current_user, login_required
 from ..db import get_db, schema_version
-from ..library import facets, file_url, search_resources, serialize
+from ..library import (
+    current_school_year,
+    facets,
+    file_url,
+    normalize_year,
+    search_resources,
+    serialize,
+)
 from . import bp
 
 
@@ -38,7 +45,7 @@ def health():
 @bp.get("/resources")
 @login_required
 def list_resources():
-    """资料检索：关键词 + 学科/分类/类型筛选，分页返回。"""
+    """资料检索：关键词 + 学年/学科/分类/类型筛选，分页返回。"""
     conn = get_db()
     data = search_resources(
         conn,
@@ -47,6 +54,7 @@ def list_resources():
         category=request.args.get("category", ""),
         kind=request.args.get("kind", ""),
         visibility=request.args.get("visibility", ""),
+        year=request.args.get("year", ""),
         page=request.args.get("page", 1, type=int),
         per_page=request.args.get("per_page", 50, type=int),
         sort=request.args.get("sort", ""),
@@ -66,12 +74,20 @@ def upload_files():
     kind = request.form.get("kind", "homework")
     if kind not in ("library", "homework"):
         return _err("kind 必须是 library/homework", 400)
+    year_raw = request.form.get("year")
+    if year_raw is None or not year_raw.strip():
+        year = current_school_year()  # 缺省默认当前学年（兼容旧调用方）
+    else:
+        try:
+            year = normalize_year(year_raw)
+        except ValueError as exc:
+            return _err(str(exc), 400)
 
     uid, _ = _actor()
     uploaded, deduped, errors = [], [], []
     for file in files:
         try:
-            res = uploads_mod.save_upload(file, uid, kind)
+            res = uploads_mod.save_upload(file, uid, kind, year=year)
         except ValueError as exc:
             errors.append({"file": file.filename, "error": str(exc)})
         else:
@@ -314,10 +330,11 @@ _RESOURCE_TEXT_FIELDS = {
 @login_required
 @csrf_protect
 def patch_resource(resource_id: int):
-    """改名 / 学科 / 分类 / 标签 / 备注。
+    """改名 / 学科 / 分类 / 标签 / 备注 / 学年。
 
     rel_path、visibility、locked、size、sha256 一律不接受：
     存量资料 locked=1 只改元数据，路径与文件保持锁定。
+    学年 year：空串=清除；非空必须 YYYY-YYYY 且首尾相邻。
     """
     data = _payload()
     updates: dict = {}
@@ -331,10 +348,15 @@ def patch_resource(resource_id: int):
                 errors.append(f"{field} 过长（≤{limit}）")
             else:
                 updates[field] = value
+    if "year" in data and data["year"] is not None:
+        try:
+            updates["year"] = normalize_year(str(data["year"]))
+        except ValueError as exc:
+            errors.append(str(exc))
     if errors:
         return _err("；".join(errors), 400)
     if not updates:
-        return _err("没有可更新的字段（title/subject/category/tags/note）", 400)
+        return _err("没有可更新的字段（title/subject/category/tags/note/year）", 400)
 
     conn = get_db()
     row = conn.execute(

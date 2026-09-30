@@ -73,10 +73,13 @@ def upload():
     """上传作业页：先上传入库，再生成任务并关联资料。"""
     from ..tasks import SUBJECTS, today_str
 
+    f = facets(get_db())
     return render_template(
         "upload.html",
         active="upload",
         subjects=list(SUBJECTS),
+        years=f["years"],
+        current_year=f["current_year"],
         today=today_str(),
     )
 
@@ -140,6 +143,7 @@ def library():
     category = request.args.get("category", "").strip()
     kind = request.args.get("kind", "").strip()
     visibility = request.args.get("visibility", "").strip()
+    year = request.args.get("year", "").strip()
     page = request.args.get("page", 1, type=int)
 
     conn = get_db()
@@ -150,6 +154,7 @@ def library():
         category=category,
         kind=kind,
         visibility=visibility,
+        year=year,
         page=page,
         per_page=50,
     )
@@ -161,6 +166,7 @@ def library():
         category=category,
         kind=kind,
         visibility=visibility,
+        year=year,
     )
     stats = conn.execute(
         "SELECT COUNT(*) AS total, COALESCE(SUM(size), 0) AS bytes, "
@@ -169,7 +175,8 @@ def library():
         " SUM(locked) AS locked FROM resources"
     ).fetchone()
     filter_rows = _library_filter_rows(
-        fc, q=q, subject=subject, category=category, kind=kind, visibility=visibility
+        fc, q=q, subject=subject, category=category, kind=kind,
+        visibility=visibility, year=year,
     )
     return render_template(
         "library.html",
@@ -186,8 +193,11 @@ def library():
         category=category,
         kind=kind,
         visibility=visibility,
+        year=year,
         subjects=f["subjects"],
         categories=f["categories"],
+        years=f["years"],
+        current_year=f["current_year"],
         fc=fc,
         filter_rows=filter_rows,
         active="library",
@@ -196,7 +206,8 @@ def library():
 
 _KIND_LABELS = {"library": "存量资料", "homework": "作业上传"}
 _VIS_LABELS = {"public": "public·静态直出", "private": "private·鉴权下载"}
-_ROW_LABELS = {"subject": "学科", "category": "分类", "kind": "类型", "visibility": "可见性"}
+_ROW_LABELS = {"year": "学年", "subject": "学科", "category": "分类",
+               "kind": "类型", "visibility": "可见性"}
 _FIXED_OPTIONS = {
     "kind": _KIND_LABELS,
     "visibility": _VIS_LABELS,
@@ -206,7 +217,7 @@ _FIXED_OPTIONS = {
 def _library_filter_rows(fc: dict, **active) -> list[dict]:
     """按钮组筛选行（借鉴旧 index.html 的 filter-bar）：全部 + 各值带计数。"""
     rows = []
-    for dim in ("subject", "category", "kind", "visibility"):
+    for dim in ("year", "subject", "category", "kind", "visibility"):
         others = {k: v for k, v in active.items() if k != dim and v}
         chips = [
             {

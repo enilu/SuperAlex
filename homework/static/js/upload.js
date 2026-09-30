@@ -133,6 +133,8 @@
     var form = new FormData();
     files.forEach(function (f) { form.append("files", f); });
     form.append("kind", "homework");
+    var yearSel = $("fYear");
+    if (yearSel && yearSel.value) form.append("year", yearSel.value);
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", cfg.uploadUrl);

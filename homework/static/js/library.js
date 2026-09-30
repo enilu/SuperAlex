@@ -29,6 +29,8 @@
     var form = new FormData();
     for (var i = 0; i < files.length; i++) form.append("files", files[i]);
     form.append("kind", "library");
+    var yearSel = $("libUploadYear");
+    if (yearSel && yearSel.value) form.append("year", yearSel.value);
 
     $("libUploadBtn").disabled = true;
     toast("上传中…");
@@ -61,6 +63,7 @@
     editingLocked = tr.dataset.locked === "1";
     $("emHeading").textContent = "编辑 · " + tr.dataset.title;
     $("emTitle").value = tr.dataset.title || "";
+    $("emYear").value = tr.dataset.year || "";
     $("emSubject").value = tr.dataset.subject || "";
     $("emCategory").value = tr.dataset.category || "";
     $("emTags").value = tr.dataset.tags || "";
@@ -82,6 +85,7 @@
     if (!editingId) return;
     var payload = {
       title: $("emTitle").value.trim(),
+      year: $("emYear").value.trim(),
       subject: $("emSubject").value.trim(),
       category: $("emCategory").value.trim(),
       tags: $("emTags").value.trim(),

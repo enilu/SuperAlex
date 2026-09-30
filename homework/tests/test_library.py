@@ -115,8 +115,11 @@ def test_import_real_homework_json(tmp_path, monkeypatch):
             "WHERE locked != 1 OR visibility != 'public'"
         ).fetchone()["c"]
         assert bad == 0
+        years = {r["year"] for r in conn.execute(
+            "SELECT DISTINCT year FROM resources")}
     finally:
         conn.close()
+    assert years == {"2025-2026", "2026-2027"}  # 存量全部从路径解析出学年
 
 
 def test_library_page_requires_login(client):
@@ -193,3 +196,73 @@ def test_legacy_static_whitelist_blocks_repo_code(client):
         assert client.get(path).status_code == 404, path
     # 目录穿越
     assert client.get("/homework/../pyproject.toml").status_code == 404
+
+
+def test_003_year_migration_backfills_from_path(tmp_path):
+    """003 增列并回填存量：files/library/YYYY-YYYY/ 取第二段，解析不了留空。"""
+    db_path = tmp_path / "bf.db"
+    mig = REPO_ROOT / "migrations"
+    conn = db_mod.connect_db(str(db_path))
+    try:
+        conn.executescript((mig / "001_init.sql").read_text(encoding="utf-8"))
+        conn.executescript((mig / "002_legacy_ids.sql").read_text(encoding="utf-8"))
+        conn.execute(
+            "INSERT INTO resources(title, rel_path) VALUES "
+            "('可解析', 'files/library/2025-2026/a.pdf'), "
+            "('旧路径', 'files/library/2026/b.pdf'), "
+            "('站外', '2026/uuid.pdf')"
+        )
+        conn.commit()
+        conn.executescript((mig / "003_year.sql").read_text(encoding="utf-8"))
+        cols = {r["name"] for r in conn.execute("PRAGMA table_info(resources)")}
+        assert "year" in cols
+        years = [r["year"] for r in conn.execute(
+            "SELECT year FROM resources ORDER BY id")]
+        assert years == ["2025-2026", "", ""]
+    finally:
+        conn.close()
+
+
+def test_import_derives_year_from_path(tmp_path, monkeypatch):
+    payload = json.loads(json.dumps(FIXTURE, ensure_ascii=False))
+    items = payload["collections"][0]["items"]
+    items[0]["path"] = "files/library/2026-2027/grammar.pdf"
+    items[1]["path"] = "files/library/2026/math.pdf"
+    src = tmp_path / "homework.json"
+    src.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    assert _import(tmp_path, monkeypatch, src) == 0
+
+    conn = db_mod.connect_db(str(tmp_path / "imp.db"))
+    try:
+        years = {r["legacy_id"]: r["year"] for r in conn.execute(
+            "SELECT legacy_id, year FROM resources")}
+    finally:
+        conn.close()
+    assert years["i-grammar"] == "2026-2027"
+    assert years["i-math"] == ""  # 旧式路径无法解析 → 未设置
+
+
+def test_resources_api_year_filter(client, login, app):
+    login()
+    conn = db_mod.connect_db(app.config["DATABASE"])
+    try:
+        conn.execute(
+            "INSERT INTO resources(title, rel_path, year) VALUES "
+            "('旧学年', 'files/library/2025-2026/x.pdf', '2025-2026'), "
+            "('新学年', 'files/library/2026-2027/y.pdf', '2026-2027'), "
+            "('未设置', 'files/z.pdf', '')"
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+    payload = client.get("/homework/api/resources?year=2025-2026").get_json()
+    assert payload["total"] == 1
+    assert payload["items"][0]["title"] == "旧学年"
+    assert payload["items"][0]["year"] == "2025-2026"
+
+    all_resp = client.get("/homework/api/resources").get_json()
+    assert all_resp["total"] == 3
+    assert all_resp["facets"]["years"] == ["2026-2027", "2025-2026"]  # 新学年在前
+    from app.library import current_school_year
+    assert all_resp["facets"]["current_year"] == current_school_year()

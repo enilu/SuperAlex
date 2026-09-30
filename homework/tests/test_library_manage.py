@@ -56,10 +56,13 @@ def _seed(app, tmp_path, monkeypatch):
         conn.close()
 
 
-def _upload(client, token, name="新资料.pdf", blob=PDF, kind="library"):
+def _upload(client, token, name="新资料.pdf", blob=PDF, kind="library", year=None):
+    data = {"files": [(io.BytesIO(blob), name)], "kind": kind}
+    if year is not None:
+        data["year"] = year
     resp = client.post(
         "/homework/api/upload",
-        data={"files": [(io.BytesIO(blob), name)], "kind": kind},
+        data=data,
         headers={"X-CSRF-Token": token},
         content_type="multipart/form-data",
     )
@@ -295,10 +298,10 @@ def test_library_filter_button_rows(client, login, app, tmp_path, monkeypatch):
 
     body = client.get("/homework/library").get_data(as_text=True)
     assert 'class="filter-bar"' in body
-    for label in ("学科", "分类", "类型", "可见性"):
+    for label in ("学年", "学科", "分类", "类型", "可见性"):
         assert label in body
-    # 四行的「全部」默认高亮
-    assert body.count("filter-button is-active") == 4
+    # 五行的「全部」默认高亮
+    assert body.count("filter-button is-active") == 5
     # 分面计数：1 条存量（英语 / 语法练习 / library / public）
     assert '<span class="fcount">1</span>' in body
     assert "存量资料" in body and "作业上传" in body  # 类型固定两项
@@ -311,3 +314,71 @@ def test_library_filter_button_rows(client, login, app, tmp_path, monkeypatch):
     # 结果不回归（不带 page）
     body3 = client.get("/homework/library?subject=英语").get_data(as_text=True)
     assert "存量语法练习" in body3
+
+
+def test_year_filter_and_chips(client, login, app, tmp_path, monkeypatch):
+    login()
+    token = _csrf(client)
+    _seed(app, tmp_path, monkeypatch)  # 旧式路径 → 学年未设置
+    old = _upload(client, token, name="旧学年.pdf", blob=PDF + b"old", year="2025-2026")
+    new = _upload(client, token, name="新学年.pdf", blob=PDF + b"new", year="2026-2027")
+
+    # 页面按学年筛选：未设置的 seed 与其它学年不出现
+    body = client.get("/homework/library?year=2025-2026").get_data(as_text=True)
+    assert 'data-id="%d"' % old["id"] in body
+    assert 'data-id="%d"' % new["id"] not in body
+    assert "存量语法练习" not in body
+
+    # 学年筛选行：两个 chip 各 1、新学年在前、「全部」= 有学年的条数
+    body_all = client.get("/homework/library").get_data(as_text=True)
+    group = re.search(
+        r'filter-label">学年</span>.*?filter-buttons">(.*?)</div>', body_all, re.S
+    )
+    assert group, "应存在学年筛选行"
+    chips = group.group(1)
+    assert "2025-2026" in chips and "2026-2027" in chips
+    assert chips.index("2026-2027") < chips.index("2025-2026")
+    m_all = re.search(r'>\s*全部\s*<span class="fcount">(\d+)</span>', chips)
+    assert m_all and m_all.group(1) == "2"
+
+    # API 同参生效
+    ids = [r["id"] for r in
+           client.get("/homework/api/resources?year=2026-2027").get_json()["items"]]
+    assert ids == [new["id"]]
+
+
+def test_patch_year_validation(client, login, app, tmp_path, monkeypatch):
+    login()
+    token = _csrf(client)
+    rid = _seed(app, tmp_path, monkeypatch)
+    headers = {"X-CSRF-Token": token}
+
+    # 合法学年
+    resp = client.patch(f"/homework/api/resources/{rid}",
+                        json={"year": "2026-2027"}, headers=headers)
+    assert resp.status_code == 200, resp.get_json()
+    assert resp.get_json()["year"] == "2026-2027"
+
+    # 非相邻 / 格式错误 → 400，且不落库
+    resp = client.patch(f"/homework/api/resources/{rid}",
+                        json={"year": "2026-2028"}, headers=headers)
+    assert resp.status_code == 400
+    assert "相邻" in resp.get_json()["error"]
+    resp = client.patch(f"/homework/api/resources/{rid}",
+                        json={"year": "26-27"}, headers=headers)
+    assert resp.status_code == 400
+    assert "YYYY-YYYY" in resp.get_json()["error"]
+
+    conn = db_mod.connect_db(app.config["DATABASE"])
+    try:
+        year = conn.execute("SELECT year FROM resources WHERE id = ?",
+                            (rid,)).fetchone()["year"]
+    finally:
+        conn.close()
+    assert year == "2026-2027"
+
+    # 空串 = 清除
+    resp = client.patch(f"/homework/api/resources/{rid}",
+                        json={"year": ""}, headers=headers)
+    assert resp.status_code == 200
+    assert resp.get_json()["year"] == ""
