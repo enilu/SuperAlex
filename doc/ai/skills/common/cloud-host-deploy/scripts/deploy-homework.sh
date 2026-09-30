@@ -128,7 +128,7 @@ echo "服务: $UNIT（127.0.0.1:8085）  公网: $PUBLIC_BASE"
 
 load_secrets() {
   remote_exec "test -f '$SECRETS'" || {
-    echo "缺少 $SECRETS（首次部署见 deploy/homework-workbench.service 与 secrets.env.example）" >&2
+    echo "缺少 $SECRETS（首次部署见本 skill 的 references/first-deploy.md）" >&2
     exit 1
   }
 }

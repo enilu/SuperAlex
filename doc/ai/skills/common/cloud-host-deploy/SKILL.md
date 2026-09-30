@@ -51,7 +51,8 @@ description: 将 SuperAlex 游戏站或学习工作台 homework（原学习资�
 1. 本仓库 `README.md` 的项目结构和 AI Agent Guide。
 2. 部署 homework 时先读 `homework/README.md`。
 3. 本 skill 的 `references/gotchas.md`。
-4. 服务器实时事实：
+4. 服务器上还没有 `homework-workbench` 服务时（首次安装）：本 skill 的 `references/first-deploy.md`；日常更新不要走该篇。
+5. 服务器实时事实：
 
 ```bash
 ssh -o BatchMode=yes root@cloud-host 'sed -n "1,140p" /root/SERVER-SITES.md'
