@@ -425,6 +425,8 @@ def overview(
         "extra_school": sum(1 for t in tasks if t["kind"] == "extra_school"),
     }
     dt = datetime.strptime(end, "%Y-%m-%d")
+    # 「最近7天」卡锚定：结束日在未来时按今天取（避免显示未来日期），过去区间仍贴区间结束日
+    series_end = end if end < today_str() else today_str()
     return {
         "start": start,
         "end": end,
@@ -440,6 +442,6 @@ def overview(
              "done": sum(1 for t in items if t["status"] == "done")}
             for name, items in groups.items()
         ],
-        "series": series(conn, end, 7),
+        "series": series(conn, series_end, 7),
         "maintainable": start == end and start >= today_str(),
     }

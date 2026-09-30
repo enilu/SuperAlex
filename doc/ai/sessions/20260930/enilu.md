@@ -55,3 +55,11 @@
 - 本地提交 `8403afd feat: 总览查看日期支持时间段查询`（6 文件），已推送 `3397a4e..8403afd`，工作树干净。
 - 部署（deploy-homework.sh）：服务器 `git pull --ff-only` dc26de8→8403afd（HEAD=origin/main 一致）；备份 `/root/backups/homework-20260930-092901`（保留 14 天）；迁移无待应用（schema 003）；服务 09:29 重启 active（pid 194629）；公网抽检 7 项全 PASS。
 - 功能核验（服务工作目录 grep）：`overview.html` 含 `startDate`(1)、`?v=20260930-p2`(1)；`overview.js` 含 `setRange`(5)；`tasks.py` 含 `MAX_RANGE_DAYS`(3)。`files/`、`assets/vendor/` 未覆盖，Nginx 未改动。
+
+## 2026-09-30 16:25 实现：默认时间段改为 7 天前 ~ 60 天后
+
+- 方案已确认：仅改前端默认值（快捷按钮/手动修改后覆盖）；API/无参默认口径不动。
+- 连带问题（已征询）：「最近 7 天未完成」卡原按区间结束日锚定，默认区间改未来后会显示未来日期 → 用户确认**锚定到今天**：`tasks.py` `series_end = end if end < today_str() else today_str()`（过去区间仍贴区间结束日），一行后端改动，共 4 文件按后端+前端两小步执行。
+- 落地：`overview.js` 新增 `offsetDays(n)`，默认 `state{start: 今天-7, end: 今天+60}`（68 天 ≤92 上限）；`?v=` 升 `20260930-p3`；测试：`test_overview_range` 增 `series[-1]==今天` 断言、两处版本断言升 p3。
+- 校验：`python -m pytest -q` **68 passed**；`node --check` 语法 OK。
+- 未提交、未推送、未部署（待指示）。

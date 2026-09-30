@@ -12,14 +12,20 @@
   };
   var SUBJECTS = Object.keys(SUBJECT_COLORS);
 
-  var state = { start: todayStr(), end: todayStr(), data: null, editing: false,
-                busy: false, statusFilter: "" };
+  // 默认时间段：7 天前 ~ 60 天后（快捷按钮/手动修改后覆盖）
+  var state = { start: offsetDays(-7), end: offsetDays(60), data: null,
+                editing: false, busy: false, statusFilter: "" };
 
   function fmtDate(d) {
     var p = function (n) { return String(n).padStart(2, "0"); };
     return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
   }
   function todayStr() { return fmtDate(new Date()); }
+  function offsetDays(n) {
+    var d = new Date();
+    d.setDate(d.getDate() + n);
+    return fmtDate(d);
+  }
   function rangeMode() { return state.start !== state.end; }
   function colorOf(name) { return SUBJECT_COLORS[name] || "#64748b"; }
   function esc(s) {

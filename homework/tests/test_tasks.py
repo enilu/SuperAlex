@@ -261,7 +261,7 @@ def test_status_filter_chips(client, login):
         assert 'id="statusFilter"' in body, path
         assert 'data-status="done"' in body, path
         assert 'data-status="open"' in body, path
-        assert "overview.js?v=20260930-p2" in body, path
+        assert "overview.js?v=20260930-p3" in body, path
 
     home = client.get("/homework/").get_data(as_text=True)
     assert 'id="statusFilter"' not in home
@@ -293,6 +293,8 @@ def test_overview_range(client, login):
     assert ov["days"] == 3
     assert ov["total"] == 2             # kind 过滤在区间内生效
     assert ov["maintainable"] is False  # 多日不可维护
+    # 未来结束日时「最近7天」卡仍锚定今天
+    assert ov["series"][-1]["date"] == _today()
     dates = [t["due_date"] for g in ov["groups"] for t in g["items"]]
     assert dates == [_today(), _shift(1)]  # 日期升序
 
@@ -348,7 +350,7 @@ def test_range_picker_pages(client, login):
         assert 'id="startDate"' in body, path
         assert 'id="endDate"' in body, path
         assert 'data-range="week"' in body, path
-        assert "overview.js?v=20260930-p2" in body, path
+        assert "overview.js?v=20260930-p3" in body, path
     assert 'id="viewDate"' not in client.get("/homework/").get_data(as_text=True)
 
 
