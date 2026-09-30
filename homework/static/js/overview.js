@@ -12,13 +12,15 @@
   };
   var SUBJECTS = Object.keys(SUBJECT_COLORS);
 
-  var state = { date: todayStr(), data: null, editing: false, busy: false,
-                statusFilter: "" };
+  var state = { start: todayStr(), end: todayStr(), data: null, editing: false,
+                busy: false, statusFilter: "" };
 
-  function todayStr() {
-    var d = new Date(), p = function (n) { return String(n).padStart(2, "0"); };
+  function fmtDate(d) {
+    var p = function (n) { return String(n).padStart(2, "0"); };
     return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
   }
+  function todayStr() { return fmtDate(new Date()); }
+  function rangeMode() { return state.start !== state.end; }
   function colorOf(name) { return SUBJECT_COLORS[name] || "#64748b"; }
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
@@ -56,7 +58,8 @@
   /* ---------- 数据加载 ---------- */
 
   function load() {
-    var url = cfg.overviewUrl + "?date=" + encodeURIComponent(state.date) +
+    var url = cfg.overviewUrl + "?start=" + encodeURIComponent(state.start) +
+      "&end=" + encodeURIComponent(state.end) +
       (cfg.kind ? "&kind=" + encodeURIComponent(cfg.kind) : "");
     return api(url).then(function (data) {
       state.data = data;
@@ -71,6 +74,15 @@
 
   function reloadQuiet() { load(); }
 
+  function setRange(start, end) {
+    state.start = start;
+    state.end = end;
+    state.editing = false;
+    $("editToggle").checked = false;
+    syncTools();
+    load();
+  }
+
   /* ---------- 渲染 ---------- */
 
   function viewRow(t) {
@@ -80,6 +92,10 @@
       '<div class="info">' +
         '<div class="title">' + esc(t.title) + "</div>" +
         '<div class="tags">' +
+          (rangeMode()
+            ? '<span class="tag date">' + cnDate(t.due_date) + " 周" +
+              weekdayLabel(t.due_date) + "</span>"
+            : "") +
           '<span class="tag subject">' + esc(t.subject) + "</span>" +
           '<span class="tag' + (t.kind === "in_school" ? "" : " extra") + '">' +
             (t.kind === "in_school" ? "校内" : "校外") + "</span>" +
@@ -123,10 +139,15 @@
     $("doneCount").textContent = data.done;
     $("totalCount").textContent = data.total;
     $("rate").textContent = data.rate + "%";
-    $("listMeta").textContent = cnDate(data.date) + " " + data.weekday +
+    $("doneStatLabel").textContent =
+      data.days > 1 ? "区间确认完成" : "今日确认完成";
+    $("listMeta").textContent = (data.days > 1
+        ? cnDate(data.start) + "~" + cnDate(data.end) + "（" + data.days + "天）"
+        : cnDate(data.end) + " " + data.weekday) +
       " · 已完成 " + data.done + "/" + data.total +
-      (data.maintainable ? "" : " · 历史只读");
-    $("viewDate").value = data.date;
+      (data.days > 1 || data.maintainable ? "" : " · 历史只读");
+    $("startDate").value = data.start;
+    $("endDate").value = data.end;
 
     $("days").innerHTML = data.series.map(function (d) {
       var isToday = d.date === todayStr();
@@ -141,11 +162,7 @@
     }).join("");
     Array.prototype.forEach.call($("days").querySelectorAll(".day"), function (el) {
       el.onclick = function () {
-        state.date = el.dataset.date;
-        state.editing = false;
-        $("editToggle").checked = false;
-        syncTools();
-        load();
+        setRange(el.dataset.date, el.dataset.date);
       };
     });
 
@@ -275,7 +292,7 @@
           title: title,
           subject: inp.dataset.subject,
           kind: cfg.kind || "in_school",
-          due_date: state.date
+          due_date: state.end
         };
         api(cfg.tasksUrl, { method: "POST", body: JSON.stringify(body) })
           .then(function () {
@@ -298,7 +315,7 @@
     if (mode === "clear" && !confirm("清空当日全部清单？（不可撤销）")) return;
     api(cfg.bulkUrl, {
       method: "POST",
-      body: JSON.stringify({ mode: mode, date: state.date })
+      body: JSON.stringify({ mode: mode, date: state.end })
     })
       .then(function (res) {
         var n = mode === "clear" ? res.removed : res.created;
@@ -348,7 +365,9 @@
   $("editToggle").onchange = function (e) {
     if (e.target.checked && state.data && !state.data.maintainable) {
       e.target.checked = false;
-      toast("历史日期只读，请切回今天或未来日期");
+      toast(state.data.days > 1
+        ? "时间段视图仅查看，请切回单日（今天或未来）再维护"
+        : "历史日期只读，请切回今天或未来日期");
       return;
     }
     state.editing = e.target.checked;
@@ -360,14 +379,36 @@
   $("copyW").onclick = function () { bulk("copy_last_week"); };
   $("clearAll").onclick = function () { bulk("clear"); };
 
-  $("viewDate").onchange = function (e) {
+  $("startDate").onchange = function (e) {
     if (!e.target.value) return;
-    state.date = e.target.value;
-    state.editing = false;
-    $("editToggle").checked = false;
-    syncTools();
-    load();
+    var s = e.target.value;
+    setRange(s, s > state.end ? s : state.end);
   };
+  $("endDate").onchange = function (e) {
+    if (!e.target.value) return;
+    var e2 = e.target.value;
+    setRange(e2 < state.start ? e2 : state.start, e2);
+  };
+  Array.prototype.forEach.call(
+    document.querySelectorAll("[data-range]"),
+    function (b) {
+      b.onclick = function () {
+        var mode = b.dataset.range, s, e2 = todayStr();
+        if (mode === "week") {
+          var d = new Date();
+          d.setDate(d.getDate() - (d.getDay() + 6) % 7); // 本周周一
+          s = fmtDate(d);
+        } else if (mode === "d7") {
+          var d7 = new Date();
+          d7.setDate(d7.getDate() - 6);
+          s = fmtDate(d7);
+        } else {
+          s = e2;
+        }
+        setRange(s, e2);
+      };
+    }
+  );
 
   $("rmClose").onclick = closeRes;
   $("resModal").onclick = function (e) { if (e.target.id === "resModal") closeRes(); };
@@ -389,7 +430,6 @@
     });
   }
 
-  $("viewDate").value = state.date;
   syncTools();
   tick();
   setInterval(tick, 1000);

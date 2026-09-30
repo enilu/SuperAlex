@@ -16,6 +16,7 @@ VALID_KINDS = ("in_school", "extra_school")
 VALID_STATUS = ("open", "done", "cancelled")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 SUBJECTS = ("语文", "数学", "英语", "物理", "化学", "生物", "历史", "地理", "道法", "其他")
+MAX_RANGE_DAYS = 92  # 时间段查询跨度上限（防止超大区间拖垮清单）
 
 
 def today_str() -> str:
@@ -154,12 +155,26 @@ def create_task(conn: sqlite3.Connection, data: dict, user_id: int | None) -> di
 
 def list_tasks(
     conn: sqlite3.Connection,
-    due_date: str,
+    due_date: str | None = None,
     kind: str | None = None,
     include_cancelled: bool = False,
+    start: str | None = None,
+    end: str | None = None,
 ) -> list[dict]:
-    where = ["due_date = ?"]
-    params: list = [due_date]
+    """按单日（due_date）或时间段（start/end）列出任务。
+
+    时间段按日期升序（同学日内 done 在前，与单日口径一致）；单日维持原排序。
+    """
+    where: list[str] = []
+    params: list = []
+    if start is not None and end is not None:
+        where.append("due_date BETWEEN ? AND ?")
+        params += [start, end]
+        order = "due_date, status, sort_order, id"
+    else:
+        where.append("due_date = ?")
+        params.append(due_date)
+        order = "status, sort_order, id"
     if kind:
         where.append("kind = ?")
         params.append(kind)
@@ -167,7 +182,7 @@ def list_tasks(
         where.append("status != 'cancelled'")
     rows = conn.execute(
         f"SELECT * FROM tasks WHERE {' AND '.join(where)} "
-        "ORDER BY status, sort_order, id",
+        f"ORDER BY {order}",
         params,
     ).fetchall()
     return [serialize(conn, row) for row in rows]
@@ -372,24 +387,49 @@ def series(conn: sqlite3.Connection, end_date: str, days: int = 7) -> list[dict]
 
 
 def overview(
-    conn: sqlite3.Connection, due_date: str, kind: str | None = None
+    conn: sqlite3.Connection,
+    due_date: str | None = None,
+    kind: str | None = None,
+    start: str | None = None,
+    end: str | None = None,
 ) -> dict:
-    due_date = check_date(due_date)
-    tasks = list_tasks(conn, due_date, kind=kind)
+    """单日或时间段总览。
+
+    due_date 与 start/end 二选一；只传其一时另一端自动对齐（兼容旧 ?date= 调用）。
+    返回保留旧字段 date/weekday（= end），新增 start/end/days。
+    maintainable 仅「单日且 ≥ 今天」为 True（复制/清空/连续添加都是单日语义）。
+    """
+    if start is None and end is None:
+        start = end = check_date(due_date)
+    else:
+        start = check_date(start or end)
+        end = check_date(end or start)
+        if start > end:
+            raise ValueError("起始日期不能晚于结束日期")
+        span = (
+            datetime.strptime(end, "%Y-%m-%d") - datetime.strptime(start, "%Y-%m-%d")
+        ).days + 1
+        if span > MAX_RANGE_DAYS:
+            raise ValueError(f"时间段最长 {MAX_RANGE_DAYS} 天")
+
+    tasks = list_tasks(conn, start=start, end=end, kind=kind)
     total = len(tasks)
     done = sum(1 for t in tasks if t["status"] == "done")
 
     groups: dict[str, list[dict]] = {}
-    for task in tasks:  # list_tasks 已按 status 排序，done 组内置后
+    for task in tasks:  # 单日按 status 排序；时间段先按日期升序
         groups.setdefault(task["subject"], []).append(task)
 
     kind_counts = {
         "in_school": sum(1 for t in tasks if t["kind"] == "in_school"),
         "extra_school": sum(1 for t in tasks if t["kind"] == "extra_school"),
     }
-    dt = datetime.strptime(due_date, "%Y-%m-%d")
+    dt = datetime.strptime(end, "%Y-%m-%d")
     return {
-        "date": due_date,
+        "start": start,
+        "end": end,
+        "days": (dt - datetime.strptime(start, "%Y-%m-%d")).days + 1,
+        "date": end,  # 兼容旧字段（单日视图即当天）
         "weekday": "星期" + "一二三四五六日"[dt.weekday()],
         "total": total,
         "done": done,
@@ -400,6 +440,6 @@ def overview(
              "done": sum(1 for t in items if t["status"] == "done")}
             for name, items in groups.items()
         ],
-        "series": series(conn, due_date, 7),
-        "maintainable": due_date >= today_str(),
+        "series": series(conn, end, 7),
+        "maintainable": start == end and start >= today_str(),
     }

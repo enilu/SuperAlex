@@ -7,7 +7,7 @@
 {% block content %}
 <div class="stats">
   <div class="stat">
-    <div class="label">今日确认完成</div>
+    <div class="label" id="doneStatLabel">今日确认完成</div>
     <div class="big"><span id="doneCount">0</span> <em>/ <span id="totalCount">0</span></em></div>
     <div class="sub">完成率 <span id="rate">0%</span></div>
   </div>
@@ -32,9 +32,14 @@
       </h2>
       <div class="meta" id="listMeta">加载中…</div>
     </div>
-    <label class="date-picker">查看日期
-      <input type="date" id="viewDate">
-    </label>
+    <div class="date-picker">查看日期
+      <input type="date" id="startDate" aria-label="开始日期">
+      <span>至</span>
+      <input type="date" id="endDate" aria-label="结束日期">
+      <button class="btn small" type="button" data-range="today">今天</button>
+      <button class="btn small" type="button" data-range="week">本周</button>
+      <button class="btn small" type="button" data-range="d7">近7天</button>
+    </div>
   </div>
 
   <div class="panel-tools">
@@ -100,5 +105,5 @@
     kind: {{ kind | tojson }}
   };
 </script>
-<script src="{{ url_for('views.static', filename='js/overview.js') }}?v=20260930-p1"></script>
+<script src="{{ url_for('views.static', filename='js/overview.js') }}?v=20260930-p2"></script>
 {% endblock %}

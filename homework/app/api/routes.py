@@ -152,7 +152,15 @@ def overview():
     kind = request.args.get("kind") or None
     if kind and kind not in tasks_mod.VALID_KINDS:
         return _err("非法 kind", 400)
+    start = request.args.get("start") or None
+    end = request.args.get("end") or None
     try:
+        if start or end:  # 时间段（缺省一端自动对齐）；与旧 ?date= 二选一
+            return jsonify(
+                tasks_mod.overview(
+                    get_db(), kind=kind, start=start or end, end=end or start
+                )
+            )
         return jsonify(tasks_mod.overview(get_db(), _date_arg(), kind=kind))
     except ValueError as exc:
         return _err(str(exc), 400)

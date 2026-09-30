@@ -261,10 +261,95 @@ def test_status_filter_chips(client, login):
         assert 'id="statusFilter"' in body, path
         assert 'data-status="done"' in body, path
         assert 'data-status="open"' in body, path
-        assert "overview.js?v=20260930-p1" in body, path
+        assert "overview.js?v=20260930-p2" in body, path
 
     home = client.get("/homework/").get_data(as_text=True)
     assert 'id="statusFilter"' not in home
+
+
+def test_overview_range(client, login):
+    """时间段查询：聚合、日期升序、兼容旧字段与维护口径。"""
+    login()
+    token = _csrf(client)
+    _post(client, "/homework/api/tasks", {
+        "title": "当天作业", "subject": "语文", "kind": "in_school",
+        "due_date": _today(),
+    }, token)
+    _post(client, "/homework/api/tasks", {
+        "title": "明日作业", "subject": "数学", "kind": "in_school",
+        "due_date": _shift(1),
+    }, token)
+    _post(client, "/homework/api/tasks", {
+        "title": "后日校外", "subject": "英语", "kind": "extra_school",
+        "due_date": _shift(2),
+    }, token)
+
+    ov = client.get(
+        f"/homework/api/overview?start={_today()}&end={_shift(2)}&kind=in_school"
+    ).get_json()
+    assert ov["start"] == _today()
+    assert ov["end"] == _shift(2)
+    assert ov["date"] == _shift(2)      # 旧字段兼容（= end）
+    assert ov["days"] == 3
+    assert ov["total"] == 2             # kind 过滤在区间内生效
+    assert ov["maintainable"] is False  # 多日不可维护
+    dates = [t["due_date"] for g in ov["groups"] for t in g["items"]]
+    assert dates == [_today(), _shift(1)]  # 日期升序
+
+    # 不限 kind 的全量区间
+    ov_all = client.get(
+        f"/homework/api/overview?start={_today()}&end={_shift(2)}"
+    ).get_json()
+    assert ov_all["total"] == 3
+    assert ov_all["kind_counts"] == {"in_school": 2, "extra_school": 1}
+
+    # 起=止（今天）仍是单日可维护
+    single = client.get(
+        f"/homework/api/overview?start={_today()}&end={_today()}"
+    ).get_json()
+    assert single["days"] == 1
+    assert single["maintainable"] is True
+
+
+def test_overview_range_validation(client, login):
+    """区间边界：起止顺序、格式、跨度上限、旧参数兼容。"""
+    login()
+
+    # 起始晚于结束 → 400
+    resp = client.get(f"/homework/api/overview?start={_shift(1)}&end={_today()}")
+    assert resp.status_code == 400
+    assert "起始日期" in resp.get_json()["error"]
+
+    # 非法日期 → 400
+    assert client.get(
+        "/homework/api/overview?start=2026-13-99&end=2026-12-01"
+    ).status_code == 400
+
+    # 跨度 > 92 天 → 400
+    resp = client.get(f"/homework/api/overview?start={_shift(-100)}&end={_today()}")
+    assert resp.status_code == 400
+    assert "92" in resp.get_json()["error"]
+
+    # 旧 ?date= 单日调用完全兼容
+    ov = client.get(f"/homework/api/overview?date={_today()}").get_json()
+    assert ov["start"] == ov["end"] == _today()
+    assert ov["days"] == 1
+
+    # 只给一端自动对齐为单日
+    ov = client.get(f"/homework/api/overview?start={_today()}").get_json()
+    assert ov["start"] == ov["end"] == _today()
+
+
+def test_range_picker_pages(client, login):
+    """三个总览类页面均提供时间段双输入与快捷按钮。"""
+    login()
+    for path in ("/homework/", "/homework/tasks/school", "/homework/tasks/extra"):
+        body = client.get(path).get_data(as_text=True)
+        assert 'id="startDate"' in body, path
+        assert 'id="endDate"' in body, path
+        assert 'data-range="week"' in body, path
+        assert "overview.js?v=20260930-p2" in body, path
+    assert 'id="viewDate"' not in client.get("/homework/").get_data(as_text=True)
 
 
 def test_api_requires_auth(client):

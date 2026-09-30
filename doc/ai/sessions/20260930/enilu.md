@@ -40,3 +40,12 @@
 - 部署（deploy-homework.sh）：服务器 `git pull --ff-only` 32bfac1→dc26de8（HEAD=origin/main 一致）；备份 `/root/backups/homework-20260930-090807`（保留 14 天）；迁移无待应用（schema 仍 003）；服务 09:08:09 重启 active；公网抽检 7 项全 PASS。
 - 功能核验：服务 WorkingDirectory=`/root/workspace/SuperAlex/homework`，其 `templates/overview.html` 含 `statusFilter` 与 `?v=20260930-p1`（grep=1/1）；`files/` 与 `assets/vendor/` 未覆盖，Nginx 未改动。
 - 注意：站点回滚副本目录 `/opt/microapp-store/site/homework` 只含静态回滚内容（assets/data/files/index），模板与 JS 以服务工作目录为准。
+
+## 2026-09-30 09:20 实现：查看日期改为时间段（A/B/C 完成）
+
+- 方案已确认，触碰 >3 文件按规则拆三个子任务：A 后端 / B 前端 / C 测试。
+- **A 后端**：`app/tasks.py` 新增 `MAX_RANGE_DAYS=92`；`list_tasks` 支持 `start/end`（时间段 `BETWEEN` + `due_date, status, sort_order, id` 排序，单日维持原排序）；`overview` 改签名 `due_date` 与 `start/end` 二选一（只传一端自动对齐），返回新增 `start/end/days`、保留 `date/weekday`（=end 兼容旧调用），`maintainable = 单日且 ≥ 今天`；起>止、格式错、跨度>92 天抛 ValueError。`app/api/routes.py` `/overview` 读 `start/end`，与旧 `?date=` 二选一，异常→400。
+- **B 前端**：`templates/overview.html` 双 date 输入（`startDate/endDate`）+ `今天/本周/近7天` 快捷按钮（`div.date-picker`），统计卡 label 加 `doneStatLabel`，`?v=20260930-p2`；`static/js/overview.js`：`state{start,end}` + `fmtDate/setRange/rangeMode`，load 传 `start/end`，区间 meta 显示"起~止（N天）"、统计卡 label 动态"当日/区间确认完成"，区间模式行内加 `M月D日 周X` 标签，打卡照常（区间内可补记/撤销），维护模式仅单日可开（区间开启时提示"切回单日再维护"），批量/连续添加用 `state.end`，7天卡片点击=缩为单日；恢复误删的 statusFilter 启动代码。
+- **C 测试**：新增 `test_overview_range`（聚合/kind 过滤/日期升序/兼容字段/口径）、`test_overview_range_validation`（起>止、格式、>92 天、旧 `?date=` 与单端参数兼容）、`test_range_picker_pages`（三页双输入与版本断言、`viewDate` 已移除）；`test_status_filter_chips` 版本断言升 p2。
+- 校验：`python -m pytest -q` **68 passed**；`node --check overview.js` 语法 OK。零 CSS 改动（`.btn.small`/`.date-picker` 复用）。
+- 未提交、未推送、未部署（待指示）。
