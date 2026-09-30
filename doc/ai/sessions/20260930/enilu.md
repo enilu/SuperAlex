@@ -33,3 +33,10 @@
   - `tests/test_tasks.py`：新增 `test_status_filter_chips`（school/extra 含 statusFilter 与 done/open、总览页不含、版本号断言）。
 - 校验：`python -m pytest -q` **65 passed**；`node --check overview.js` 语法 OK。
 - 未提交、未推送、未部署（待指示）。
+
+## 2026-09-30 09:08 提交推送与部署（快速筛选上线）
+
+- 本地提交 `dc26de8 feat: 校内校外作业支持已完成未完成快速筛选`（4 文件），已推送 `06f2257..dc26de8`，工作树干净。
+- 部署（deploy-homework.sh）：服务器 `git pull --ff-only` 32bfac1→dc26de8（HEAD=origin/main 一致）；备份 `/root/backups/homework-20260930-090807`（保留 14 天）；迁移无待应用（schema 仍 003）；服务 09:08:09 重启 active；公网抽检 7 项全 PASS。
+- 功能核验：服务 WorkingDirectory=`/root/workspace/SuperAlex/homework`，其 `templates/overview.html` 含 `statusFilter` 与 `?v=20260930-p1`（grep=1/1）；`files/` 与 `assets/vendor/` 未覆盖，Nginx 未改动。
+- 注意：站点回滚副本目录 `/opt/microapp-store/site/homework` 只含静态回滚内容（assets/data/files/index），模板与 JS 以服务工作目录为准。
