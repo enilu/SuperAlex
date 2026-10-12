@@ -2,10 +2,11 @@
   "title": "二年级4班周课表",
   "school": "浦东新区民办向未来外国语小学",
   "term": "2026学年第一学期",
-  "updated": "2026-09-28",
+  "updated": "2026-10-12",
   "source_image": "/homework/files/library/2026-2027/primary/grade-02/semester-1/class-affairs/schedules/images/%E5%91%A8%E8%AF%BE%E8%A1%A8.png",
   "days": ["星期一", "星期二", "星期三", "星期四", "星期五"],
   "rows": [
+    {"kind": "span", "label": "早读", "time": "7:40-8:10", "note": "周一至周五统一早读"},
     {"kind": "lesson", "label": "第一节", "time": "8:20-8:55",
      "cells": ["外语", "语文", "造型·美术", "体育与健康", "体育与健康"]},
     {"kind": "span", "label": "课间", "time": "8:55-9:10", "note": "微运动5分钟"},
@@ -30,8 +31,9 @@
     {"kind": "activity", "label": "第七节", "time": "14:30-15:05",
      "note": "开展各类活动（周一、周三开展两节体育活动课）"},
     {"kind": "span", "label": "大课间", "time": "15:05-15:30", "note": "室内操 体育活动 降旗"},
-    {"kind": "service", "label": "课后服务", "label_span": 3, "time": "15:30-16:30", "note": "第一时段"},
-    {"kind": "service", "label": "", "time": "16:30-17:30", "note": "第二时段"},
+    {"kind": "service", "label": "课后服务", "time": "15:30-16:30", "note": "第一时段"},
+    {"kind": "span", "label": "放学", "time": "16:30", "note": "周一至周五 16:30 放学"},
+    {"kind": "service", "label": "课后服务", "label_span": 2, "time": "16:30-17:30", "note": "第二时段"},
     {"kind": "service", "label": "", "time": "17:30-18:40", "note": "第三时段"}
   ],
   "notes": [
