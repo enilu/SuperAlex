@@ -15,3 +15,16 @@
 - 初次验证因日期临时目录不存在未完成，创建目录后重跑通过。
 - 影响仅限课程表数据，无模板、静态资源、localStorage 或数据库结构变更；不需更新静态资源缓存版本。
 - 尚未部署线上，也未进行浏览器视觉验证；原有校门批次表保持原样。
+
+## 2026-10-12 18:30:54 homework 课程表部署（已完成）
+
+- 用户明确要求部署，按 common/cloud-host-deploy 技能执行 Git 发布。
+- 同步 origin/main 已有更新，课程表改动无冲突；重新执行课程表定向测试，4 passed。
+- 功能提交：b3647e338964c8bdf29e97ca032cc33ff2861f9d，本地与服务器一致。
+- 服务器预检：仓库干净、Nginx 配置检查通过；dry-run 后执行 deploy-homework.sh。
+- 备份：/root/backups/homework-20261012-182945，含一致性数据库备份、上传件、资料硬链接、回滚页面与 Nginx 配置。
+- 数据库无待应用迁移；同步 homework 回滚页面 index.html、assets/css、assets/js、assets/img、data/homework.json；课程表由服务器仓库中的 Flask 应用读取。
+- homework-workbench 服务 active；公网登录 200、首页 302、health status=ok/db=ok、公开资料 200、私有直链未登录 401；游戏首页与 /game/ 均为 200。
+- 使用服务器已部署应用的测试客户端检查课程表渲染：早读时间、放学时间、行位置与跨行单元格均通过。未做浏览器视觉验收。
+- 未覆盖或删除 files/、assets/vendor/，未改 Nginx；保留线上额外文件。
+- 发布脚本读取二进制 PDF 时有空字节警告，资料 HTTP 200 检查通过，部署退出码 0。
