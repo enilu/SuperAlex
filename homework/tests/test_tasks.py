@@ -261,7 +261,7 @@ def test_status_filter_chips(client, login):
         assert 'id="statusFilter"' in body, path
         assert 'data-status="done"' in body, path
         assert 'data-status="open"' in body, path
-        assert "overview.js?v=20260930-p3" in body, path
+        assert "overview.js?v=20261013-p1" in body, path
 
     home = client.get("/homework/").get_data(as_text=True)
     assert 'id="statusFilter"' not in home
@@ -350,7 +350,10 @@ def test_range_picker_pages(client, login):
         assert 'id="startDate"' in body, path
         assert 'id="endDate"' in body, path
         assert 'data-range="week"' in body, path
-        assert "overview.js?v=20260930-p3" in body, path
+        assert 'data-range="month"' in body, path
+        assert 'data-range="nextMonth"' in body, path
+        assert 'data-range="today" aria-pressed="true"' in body, path
+        assert "overview.js?v=20261013-p1" in body, path
     assert 'id="viewDate"' not in client.get("/homework/").get_data(as_text=True)
 
 

@@ -12,8 +12,9 @@
   };
   var SUBJECTS = Object.keys(SUBJECT_COLORS);
 
-  // 默认时间段：7 天前 ~ 60 天后（快捷按钮/手动修改后覆盖）
-  var state = { start: offsetDays(-7), end: offsetDays(60), data: null,
+  // 默认查看今天，快捷按钮或手动修改后覆盖。
+  var initialDate = todayStr();
+  var state = { start: initialDate, end: initialDate, data: null,
                 editing: false, busy: false, statusFilter: "" };
 
   function fmtDate(d) {
@@ -21,10 +22,19 @@
     return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
   }
   function todayStr() { return fmtDate(new Date()); }
-  function offsetDays(n) {
-    var d = new Date();
-    d.setDate(d.getDate() + n);
-    return fmtDate(d);
+  function presetRange(mode) {
+    var now = new Date();
+    var start = new Date(now), end = new Date(now);
+    if (mode === "week") {
+      start.setDate(start.getDate() - (start.getDay() + 6) % 7);
+    } else if (mode === "d7") {
+      start.setDate(start.getDate() - 6);
+    } else if (mode === "month" || mode === "nextMonth") {
+      var month = now.getMonth() + (mode === "nextMonth" ? 1 : 0);
+      start = new Date(now.getFullYear(), month, 1);
+      end = new Date(now.getFullYear(), month + 1, 0);
+    }
+    return { start: fmtDate(start), end: fmtDate(end) };
   }
   function rangeMode() { return state.start !== state.end; }
   function colorOf(name) { return SUBJECT_COLORS[name] || "#64748b"; }
@@ -80,9 +90,20 @@
 
   function reloadQuiet() { load(); }
 
-  function setRange(start, end) {
+  function syncRangeButtons(mode) {
+    document.querySelectorAll("[data-range]").forEach(function (button) {
+      var selected = button.dataset.range === mode;
+      button.classList.toggle("is-active", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+  }
+
+  function setRange(start, end, preset) {
     state.start = start;
     state.end = end;
+    $("startDate").value = start;
+    $("endDate").value = end;
+    syncRangeButtons(preset || (start === end && start === todayStr() ? "today" : ""));
     state.editing = false;
     $("editToggle").checked = false;
     syncTools();
@@ -399,19 +420,9 @@
     document.querySelectorAll("[data-range]"),
     function (b) {
       b.onclick = function () {
-        var mode = b.dataset.range, s, e2 = todayStr();
-        if (mode === "week") {
-          var d = new Date();
-          d.setDate(d.getDate() - (d.getDay() + 6) % 7); // 本周周一
-          s = fmtDate(d);
-        } else if (mode === "d7") {
-          var d7 = new Date();
-          d7.setDate(d7.getDate() - 6);
-          s = fmtDate(d7);
-        } else {
-          s = e2;
-        }
-        setRange(s, e2);
+        var mode = b.dataset.range;
+        var range = presetRange(mode);
+        setRange(range.start, range.end, mode);
       };
     }
   );
@@ -436,6 +447,9 @@
     });
   }
 
+  $("startDate").value = state.start;
+  $("endDate").value = state.end;
+  syncRangeButtons("today");
   syncTools();
   tick();
   setInterval(tick, 1000);
