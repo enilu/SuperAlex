@@ -2,8 +2,13 @@
 from __future__ import annotations
 
 import json
+import copy
 import re
 from pathlib import Path
+
+import pytest
+
+from app import schedule as schedule_mod
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -85,3 +90,96 @@ def test_schedule_json_structure():
     assert service[1]["label"] == "课后服务" and service[1]["label_span"] == 2
     assert service[2]["label"] == ""
     assert len(data["notes"]) >= 2
+
+
+def _note_payload(**changes):
+    return {"scope": schedule_mod.load_schedule()["scope"], "lesson": "第一节",
+            "day": 3, "subject": "造型·美术", "note": "水彩笔\n剪刀、胶棒", **changes}
+
+
+def _token(client):
+    body = client.get("/homework/schedule").get_data(as_text=True)
+    return re.search(r'name="csrf-token" content="([^"]+)"', body).group(1)
+
+
+def _save(client, token, **changes):
+    return client.put("/homework/api/schedule/note", json=_note_payload(**changes),
+                      headers={"X-CSRF-Token": token})
+
+
+def _cell(body, lesson, day):
+    return re.search(r'<td data-day="' + str(day) + r'" data-lesson="' + lesson +
+                     r'".*?</td>', body, re.S).group(0)
+
+
+def test_material_notes_persist_independently_and_clear(client, login):
+    login()
+    token = _token(client)
+    assert _save(client, token).status_code == 200
+    assert _save(client, token, lesson="第四节", day=5, note="橡皮泥").status_code == 200
+    body = client.get("/homework/schedule").get_data(as_text=True)
+    assert "水彩笔\n剪刀、胶棒" in _cell(body, "第一节", 3)
+    assert "橡皮泥" not in _cell(body, "第一节", 3)
+    assert "橡皮泥" in _cell(body, "第四节", 5)
+    assert _save(client, token, note="  彩纸  ").get_json()["note"] == "彩纸"
+    assert _save(client, token, note=" \n ").get_json()["note"] == ""
+    body = client.get("/homework/schedule").get_data(as_text=True)
+    assert "添加备注" in _cell(body, "第一节", 3)
+    assert "水彩笔" not in _cell(body, "第一节", 3) and "彩纸" not in body
+    assert "橡皮泥" in _cell(body, "第四节", 5)
+
+
+def test_material_notes_require_login_and_csrf(client, login):
+    assert _save(client, "").status_code == 401
+    login()
+    assert _save(client, "").status_code == 400
+    assert _save(client, "wrong-token").status_code == 400
+    assert "水彩笔" not in _cell(client.get("/homework/schedule").get_data(as_text=True), "第一节", 3)
+
+
+@pytest.mark.parametrize("changes", [
+    {"day": 0}, {"day": 6}, {"day": True}, {"day": "3"},
+    {"lesson": "早读"}, {"subject": "数学"}, {"scope": "old-term"},
+    {"note": "字" * 1001}, {"note": None}, {"note": []},
+])
+def test_material_note_validation(client, login, changes):
+    login()
+    token = _token(client)
+    assert _save(client, token, **changes).status_code == 400
+
+
+def test_material_notes_escape_html_and_share_across_sessions(app, client, login):
+    login()
+    token = _token(client)
+    text = '<img src=x onerror="alert(1)">'
+    assert _save(client, token, note=text).status_code == 200
+    # 新浏览器会话读取相同服务端备注。
+    other = app.test_client()
+    with client.session_transaction() as source:
+        uid = source["uid"]
+    with other.session_transaction() as target:
+        target["uid"] = uid
+    body = other.get("/homework/schedule").get_data(as_text=True)
+    assert "&lt;img" in body and text not in body
+
+
+def test_material_notes_do_not_follow_changed_term_or_subject(client, login, monkeypatch):
+    login()
+    token = _token(client)
+    assert _save(client, token).status_code == 200
+    original = schedule_mod.load_schedule()
+    changed = {**copy.deepcopy(original), "scope": "next-term"}
+    monkeypatch.setattr("app.views.routes.load_schedule", lambda: changed)
+    assert "水彩笔" not in _cell(client.get("/homework/schedule").get_data(as_text=True), "第一节", 3)
+    original["rows"][1]["cells"][2] = "数学"
+    monkeypatch.setattr("app.views.routes.load_schedule", lambda: original)
+    assert "水彩笔" not in _cell(client.get("/homework/schedule").get_data(as_text=True), "第一节", 3)
+
+
+@pytest.mark.parametrize("payload", [None, [], "text"])
+def test_material_notes_reject_non_object_json(client, login, payload):
+    login()
+    token = _token(client)
+    resp = client.put("/homework/api/schedule/note", json=payload,
+                      headers={"X-CSRF-Token": token})
+    assert resp.status_code == 400

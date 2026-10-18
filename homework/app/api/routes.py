@@ -10,6 +10,7 @@ from .. import tasks as tasks_mod
 from .. import uploads as uploads_mod
 from ..auth import csrf_protect, current_user, login_required
 from ..db import get_db, schema_version
+from ..schedule import save_note
 from ..library import (
     current_school_year,
     facets,
@@ -19,6 +20,20 @@ from ..library import (
     serialize,
 )
 from . import bp
+
+
+@bp.put("/schedule/note")
+@login_required
+@csrf_protect
+def update_schedule_note():
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify(error="请求必须是 JSON 对象"), 400
+    try:
+        note = save_note(get_db(), data)
+    except ValueError as exc:
+        return jsonify(error=str(exc)), 400
+    return jsonify(note=note)
 
 
 @bp.get("/health")

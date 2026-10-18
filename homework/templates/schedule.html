@@ -5,6 +5,7 @@
 {% block crumb_sub %}{{ sch.term }} · {{ sch.school }} · {{ sch.title }}{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('views.static', filename='css/schedule.css') }}?v=20261018-notes">
 <section class="panel">
   <div class="panel-head">
     <div>
@@ -16,6 +17,7 @@
     </div>
   </div>
 
+  <p class="meta">点击课程下方的“添加备注”记录要带的材料。备注按每周课程保留，可随时修改或清空；同一学习工作台的登录账号共享。</p>
   <div class="sched-wrap">
     <table class="sched" id="schedTable">
       <thead>
@@ -36,7 +38,12 @@
           <td class="time-col">{{ row.time }}</td>
           {% if row.kind == "lesson" %}
             {% for c in row.cells %}
-            <td data-day="{{ loop.index }}"><span class="subj subj-{{ c.key }}">{{ c.name }}</span></td>
+            <td data-day="{{ loop.index }}" data-lesson="{{ row.label }}" data-subject="{{ c.name }}">
+              <span class="subj subj-{{ c.key }}">{{ c.name }}</span>
+              <div class="sched-material" {% if not c.note %}hidden{% endif %}>{{ c.note }}</div>
+              <button class="linklike sched-edit" type="button"
+                      aria-label="{{ sch.days[loop.index0] }}{{ row.label }}{{ c.name }}：编辑备注">{{ '编辑备注' if c.note else '添加备注' }}</button>
+            </td>
             {% endfor %}
           {% else %}
           <td colspan="5" class="span-note">
@@ -97,8 +104,36 @@
   </div>
 </section>
 {% endif %}
+
+<div class="modal" id="scheduleNoteModal" hidden>
+  <form class="modal-card" role="dialog" aria-modal="true" aria-labelledby="snHeading" id="scheduleNoteForm">
+    <div class="modal-head">
+      <b id="snHeading">编辑课程备注</b>
+      <button id="snClose" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="snNote">要带的材料 / 课程备注（最多 1000 字）</label>
+        <textarea id="snNote" maxlength="1000" rows="5" placeholder="例如：水彩笔、剪刀、胶棒；请提前装进书包。"></textarea>
+      </div>
+      <p class="meta">保存后每周显示，直到再次修改。清空内容并保存即可删除备注。</p>
+      <p id="snStatus" role="status" aria-live="polite"></p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" id="snCancel" type="button">取消</button>
+      <button class="btn primary" id="snSave" type="submit">保存</button>
+    </div>
+  </form>
+</div>
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('views.static', filename='js/schedule.js') }}?v=20260928-p6"></script>
+<script>
+  window.SCHEDULE = {
+    noteUrl: {{ url_for('api.update_schedule_note') | tojson }},
+    scope: {{ sch.scope | tojson }},
+    days: {{ sch.days | tojson }}
+  };
+</script>
+<script src="{{ url_for('views.static', filename='js/schedule.js') }}?v=20261018-notes"></script>
 {% endblock %}

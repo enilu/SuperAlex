@@ -1,7 +1,6 @@
 """页面路由。"""
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
 from flask import (
@@ -17,6 +16,7 @@ from flask import (
 from ..auth import login_required
 from ..db import get_db, schema_version
 from ..library import facet_counts, facets, search_resources
+from ..schedule import load_schedule, notes_for
 from . import bp
 
 
@@ -117,12 +117,14 @@ def _subject_key(name: str) -> str:
 @login_required
 def schedule():
     """周课表：数据来自 data/schedule.json（对照学校纸质课表人工核对录入）。"""
-    src = Path(current_app.root_path).resolve().parent / "data" / "schedule.json"
-    sch = json.loads(src.read_text(encoding="utf-8"))
+    sch = load_schedule()
+    notes = notes_for(get_db(), sch["scope"])
     for row in sch["rows"]:
         if row.get("cells"):
             row["cells"] = [
-                {"name": name, "key": _subject_key(name)} for name in row["cells"]
+                {"name": name, "key": _subject_key(name),
+                 "note": notes.get((row["label"], day, name), "")}
+                for day, name in enumerate(row["cells"], 1)
             ]
     dismissal = sch.get("dismissal")
     if dismissal:
