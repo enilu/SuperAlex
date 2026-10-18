@@ -5,7 +5,7 @@
 {% block crumb_sub %}{{ sch.term }} · {{ sch.school }} · {{ sch.title }}{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('views.static', filename='css/schedule.css') }}?v=20261018-notes">
+<link rel="stylesheet" href="{{ url_for('views.static', filename='css/schedule.css') }}?v=20261018-notes-hover">
 <section class="panel">
   <div class="panel-head">
     <div>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <p class="meta">点击课程下方的“添加备注”记录要带的材料。备注按每周课程保留，可随时修改或清空；同一学习工作台的登录账号共享。</p>
+  <p class="meta">鼠标移入课程格后可添加备注，已有备注可直接点击修改。备注按每周课程保留，可随时清空；同一学习工作台的登录账号共享。</p>
   <div class="sched-wrap">
     <table class="sched" id="schedTable">
       <thead>
@@ -40,9 +40,12 @@
             {% for c in row.cells %}
             <td data-day="{{ loop.index }}" data-lesson="{{ row.label }}" data-subject="{{ c.name }}">
               <span class="subj subj-{{ c.key }}">{{ c.name }}</span>
-              <div class="sched-material" {% if not c.note %}hidden{% endif %}>{{ c.note }}</div>
+              <button class="sched-material" type="button" title="点击可以编辑"
+                      aria-label="{{ sch.days[loop.index0] }}{{ row.label }}{{ c.name }}备注：{{ c.note }}，点击可以编辑"
+                      {% if not c.note %}hidden{% endif %}>{{ c.note }}</button>
               <button class="linklike sched-edit" type="button"
-                      aria-label="{{ sch.days[loop.index0] }}{{ row.label }}{{ c.name }}：编辑备注">{{ '编辑备注' if c.note else '添加备注' }}</button>
+                      aria-label="{{ sch.days[loop.index0] }}{{ row.label }}{{ c.name }}：添加备注"
+                      {% if c.note %}hidden{% endif %}>添加备注</button>
             </td>
             {% endfor %}
           {% else %}
@@ -135,5 +138,5 @@
     days: {{ sch.days | tojson }}
   };
 </script>
-<script src="{{ url_for('views.static', filename='js/schedule.js') }}?v=20261018-notes"></script>
+<script src="{{ url_for('views.static', filename='js/schedule.js') }}?v=20261018-notes-hover"></script>
 {% endblock %}

@@ -2,14 +2,20 @@
 #schedTable{table-layout:fixed}
 #schedTable .label-col{width:62px}
 #schedTable .time-col{width:86px}
-.sched-material{margin:8px 0 4px;padding:7px;border-radius:6px;background:#fff8dc;
-  color:#74420c;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.6}
-.sched-material[hidden]{display:none}
+.sched-material{display:block;width:100%;margin:8px 0 4px;padding:7px;border:0;
+  border-radius:6px;background:#fff8dc;color:#74420c;font:inherit;cursor:pointer;
+  text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.6}
+.sched-material[hidden],.sched-edit[hidden]{display:none}
 .sched-edit{display:block;margin:6px auto 0;min-height:30px;padding:4px 8px;
   border:0;border-radius:6px;background:transparent;color:var(--accent);font:inherit;
-  font-size:12px;cursor:pointer}
+  font-size:12px;cursor:pointer;opacity:0;pointer-events:none}
+#schedTable td:hover .sched-edit,#schedTable td:focus-within .sched-edit{
+  opacity:1;pointer-events:auto}
 .sched-edit:hover{background:#e6f4f0}
-.sched-edit:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sched-edit:focus-visible,.sched-material:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(hover:none){
+  .sched-edit{opacity:1;pointer-events:auto}
+}
 #scheduleNoteModal .modal-foot{display:flex;gap:10px;justify-content:flex-end}
 #snStatus{color:#b42318;font-size:13px;white-space:pre-wrap}
 @media(max-width:560px){

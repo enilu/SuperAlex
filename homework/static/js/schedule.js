@@ -34,7 +34,7 @@
     if (trigger) trigger.focus();
   }
 
-  document.querySelectorAll(".sched-edit").forEach(function (button) {
+  document.querySelectorAll(".sched-edit, .sched-material").forEach(function (button) {
     button.onclick = function () {
       trigger = button;
       editing = button.closest("td");
@@ -93,7 +93,11 @@
       var note = editing.querySelector(".sched-material");
       note.textContent = body.note;
       note.hidden = !body.note;
-      trigger.textContent = body.note ? "编辑备注" : "添加备注";
+      note.setAttribute("aria-label", cfg.days[Number(editing.dataset.day) - 1] +
+        editing.dataset.lesson + editing.dataset.subject + "备注：" + body.note + "，点击可以编辑");
+      var add = editing.querySelector(".sched-edit");
+      add.hidden = !!body.note;
+      trigger = body.note ? note : add;
       saving = false;
       close();
       toast(body.note ? "备注已保存" : "备注已清空");
