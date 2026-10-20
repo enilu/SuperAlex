@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FitLog 健身手记：我的健身减重计划、饮食、运动与身体变化。">
+  <title>FitLog · 健身手记</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=20261020-display">
+  <script src="data.js?v=20261020-display" defer></script>
+  <script src="manager.js?v=20261020-display" defer></script>
+  <script src="app.js?v=20261020-display" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <a class="brand" href="./"><span class="brand-icon">↗</span> FitLog<span class="brand-sub">健身手记</span></a>
+      <p class="eyebrow">一点一滴，记录改变</p>
+      <nav aria-label="内容导航">
+        <button data-tab="overview" aria-current="page">◈ <span>健康总览</span></button>
+        <button data-tab="plan">◎ <span>我的计划</span></button>
+        <button data-tab="diet">◷ <span>饮食记录</span></button>
+        <button data-tab="exercise">↗ <span>运动记录</span></button>
+        <button data-tab="history">≡ <span>身体趋势</span></button>
+        <button data-tab="review">↻ <span>每周复盘</span></button>
+      </nav>
+      <div class="aside-bottom"><span class="local-dot"></span> 我的健康记录<br><a href="../">← 返回 SuperAlex</a></div>
+    </aside>
+    <main>
+      <header><div><p class="eyebrow">MY PERSONAL HEALTH JOURNAL</p><h1 id="page-title">健康总览</h1></div><p id="updated" class="update-badge"></p></header>
+      <p id="status" role="status" aria-live="polite"></p>
+      <noscript><p>请启用 JavaScript 查看计划与记录。</p></noscript>
+      <section id="overview" class="panel">
+        <div class="hero"><div><p class="eyebrow">MAKE ROOM FOR A HEALTHIER YOU</p><h2>让改变，<br>发生在每一天。</h2><p>认真吃饭，好好运动。<br>用记录看见自己的节奏。</p><button class="primary" data-go="diet">查看饮食记录 →</button></div><div class="hero-art" aria-hidden="true"><div class="orbit"></div><div class="orbit second"></div><div class="art-center">↗</div><span class="art-label">KEEP GOING</span></div></div>
+        <div id="summary" class="stats"></div>
+        <div class="two-col"><article class="card"><div class="section-title"><h2>体重的变化</h2><button data-go="history" class="text-button">查看身体趋势 →</button></div><div id="overview-chart"></div></article><article class="card"><p class="eyebrow" id="week-label">LATEST RECORDED WEEK</p><h2>最近一周的积累</h2><div id="week-summary"></div><p class="muted">按最近有记录的一周汇总。只统计已知内容，空白不计为零。</p></article></div>
+        <article class="card"><p class="eyebrow">MY CURRENT FOCUS</p><h2>慢慢来，持续做</h2><div id="focus" class="preserve"></div><p class="muted">饮食热量为记录时的估算，保留份量与用油等不确定性；运动应用消耗单列，不从摄入中扣除。</p></article>
+      </section>
+      <section id="plan" class="panel" hidden>
+        <article class="card"><p class="eyebrow">A PLAN THAT FITS MY LIFE</p><h2>目标与节奏</h2><div id="plan-stats" class="facts"></div><p class="muted">自报起点与晨起实测分别展示；以下为现有个人计划的摘要。</p></article><div id="plan-content"></div>
+      </section>
+      <section id="diet" class="panel" hidden>
+        <article class="card"><div class="section-title"><div><p class="eyebrow">ONE DAY AT A TIME</p><h2>三餐之间的日常</h2></div><label>浏览日期<select id="diet-date" aria-label="选择饮食记录日期"></select></label></div><p class="muted">热量单位为千卡。区间保持原样，单值表示代表性估算；未报告的餐次与加餐不会按零计入。</p><div id="diet-detail"></div></article>
+        <article class="card"><h2>饮食记录一览</h2><div id="diet-table"></div></article>
+      </section>
+      <section id="exercise" class="panel" hidden>
+        <article class="card"><p class="eyebrow">MOVE AT MY OWN PACE</p><h2>每一步，都算数</h2><div id="exercise-stats" class="facts"></div><p class="muted">骑行全程可能包含停车，不自动计为中等强度有氧。应用显示的消耗属于估算，也不代表全天总消耗。</p></article><div id="exercise-records"></div>
+      </section>
+      <section id="history" class="panel" hidden>
+        <article class="card"><h2>看趋势，也看过程</h2><p class="muted">曲线仅使用晨起实测体重，按日期间隔排列。周平均值按当周实际测量次数计算，自报起点不参与统计。</p><div id="history-chart"></div><div id="weekly-weights"></div></article>
+        <article class="card"><div class="section-title"><h2>身体与日常档案</h2><label>浏览月份<select id="month-filter" aria-label="筛选记录月份"></select></label></div><div id="records"></div></article>
+      </section>
+      <section id="review" class="panel" hidden>
+        <article class="card"><p class="eyebrow">PAUSE, REFLECT, CONTINUE</p><h2>每周留五分钟给自己</h2><p class="muted">回看容易坚持的事、身体状态和实际困难，下一周只调整一项。</p></article><div id="reviews"></div>
+      </section>
+      <footer><a href="../">← SuperAlex</a> <span>FitLog · 持续记录，慢慢改变。</span></footer>
+    </main>
+  </div>
+</body>
+</html>

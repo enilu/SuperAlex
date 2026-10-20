@@ -84,7 +84,7 @@ remote_exec() {
 cd "$ROOT"
 
 payload=()
-for item in index.html favicon.svg README.md assets MornGo math20 TangPoem Kingdom3 PinyinMatch ColorMatch; do
+for item in index.html favicon.svg README.md assets MornGo math20 TangPoem Kingdom3 PinyinMatch ColorMatch fitlog; do
   if [[ -e "$item" ]]; then
     payload+=("$item")
   fi
