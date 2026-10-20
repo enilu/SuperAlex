@@ -38,3 +38,18 @@
 - 桌面与手机截图已检查；调整了餐次文本行距，清理笔记表格的 Markdown 加粗标记及未知热量的单位展示。无浏览器脚本错误。
 - node --check fitlog/data.js、manager.js、app.js 与 git diff --check 通过。现有资源部署清单已含 fitlog，无新增发布操作。
 - 尚未提交、push 或部署线上；保留所有既有无关改动，未更改生产环境与原始个人笔记。
+
+## 2026-10-20 15:40:07 +08:00 FitLog：线上部署与公网验收完成
+
+- 用户明确要求部署，按 doc/ai/skills/common/cloud-host-deploy/SKILL.md 执行 Git 拉取发布。
+- 已核对服务器站点说明、有效 SuperAlex 配置及 Nginx 启用关系，nginx -t 与部署脚本 bash -n 通过。服务器部署前工作树干净。
+- 通过选择性暂存，仅提交 FitLog 功能、根首页与 README 的 FitLog 段落、部署清单及当日会话；保留揭秘世界相关 README/index/RevealWorld 与旧会话变更。
+- 功能提交 14aba512df51bdd81569b5fe0ec8148be7c94507（feat: 添加只读健身手记展示站），已 push origin/main，服务器 fast-forward 拉取并确认 HEAD 等于 origin/main。
+- 在服务器仓库运行 deploy-superalex.sh --dry-run 核对后正式发布。备份路径 /root/backups/superalex-20261020-153856。
+- 同步路径：index.html、favicon.svg、README.md、MornGo/、math20/、TangPoem/、Kingdom3/、PinyinMatch/、ColorMatch/、fitlog/。发布不删除线上额外文件；未部署 doc/、templates/、运行日志或私人导入文件。
+- 未修改 Nginx、未重启服务，未改 homework/files/、homework 应用、/game/ 或任何生产数据库。
+- 公网：HTTPS 首页、/fitlog/、四个 JS/CSS 资源、MornGo、homework/login、homework/api/health、/game/ 均 200；/fitlog 自动 301 补尾斜杠，未登录 /homework/ 返回预期 302。HTTP 的 301 为预期 HTTPS 跳转。
+- 所有 FitLog JS/CSS 公网响应与本地文件逐字核对通过（统一换行）；线上首页与已提交版本一致，未带入未提交的揭秘世界入口。
+- Chromium 实测从线上首页点击健身手记入口进入 /fitlog/，七天记录与最近摄入显示正常，六个栏目可浏览，无编辑表单或浏览器脚本错误。
+- 公网校验脚本、JSON 结果和截图位于聚合工作区 runtime/20261020/check_fitlog_live.py、fitlog-live-verification.json、fitlog-live-desktop.png。
+- 本条部署记录补充提交并推送，服务器随后仅拉取文档更新，使本地、origin/main、服务器版本保持一致；文档不参与站点发布，不再覆盖站点文件。
