@@ -17,7 +17,9 @@
     $('#page-title').textContent = titles[tab];
   }
   function calorie(t) { return !t ? '未记录' : t.min === t.max ? `约 ${t.min}` : `${t.min}–${t.max}`; }
-  function mealCalorie(m) { return m.min === null ? '未记录' : `${calorie({min:m.min,max:m.max??m.min})}<small> 千卡</small>`; }
+  function mealValue(m) { return m.min === null ? (m.text ? '待估算' : '未记录') : calorie({min:m.min,max:m.max??m.min}); }
+  function mealCalorie(m) { return `${mealValue(m)}${m.min === null ? '' : '<small> 千卡</small>'}`; }
+  function pendingCalories(r) { return M.meals.some(k => r.meals[k].text && r.meals[k].min === null); }
   function num(v, unit='') { return v === null || v === undefined ? '未记录' : `${v}${unit}`; }
   function sum(items,key) { const vs = items.map(r => r[key]).filter(v => v !== null); return vs.length ? Math.round(vs.reduce((a,b)=>a+b,0)*100)/100 : null; }
   function facts(items) { return items.map(([k,v]) => `<div class="fact"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join(''); }
@@ -33,7 +35,7 @@
   function renderDiet() {
     const r = rows.find(r => r.date === $('#diet-date').value);
     if (!r) { $('#diet-detail').innerHTML = '<div class="empty">暂无饮食记录。</div>'; return; }
-    $('#diet-detail').innerHTML = `<div class="day-total"><div><span>${r.date} · ${r.foodComplete?'全天饮食已确认':'已报告摄入小计'}</span><strong>${calorie(M.totals(r))} <small>千卡</small></strong></div><span class="pill">${r.foodComplete?'完整记录':'尚有待补内容'}</span></div><div class="meal-grid">${M.meals.map(k=>{const m=r.meals[k];return `<article class="meal-card"><div class="section-title"><h3>${mealNames[k]}</h3><strong>${mealCalorie(m)}</strong></div><p class="preserve">${esc(m.text || '尚未报告')}</p></article>`;}).join('')}</div>${r.notes?`<details><summary>当日说明与待确认内容</summary><p class="preserve">${esc(r.notes)}</p></details>`:''}`;
+    $('#diet-detail').innerHTML = `<div class="day-total"><div><span>${r.date} · ${pendingCalories(r)?'已估算摄入小计（不含待估算餐次）':r.foodComplete?'全天饮食已确认':'已报告摄入小计'}</span><strong>${calorie(M.totals(r))} <small>千卡</small></strong></div><span class="pill">${r.foodComplete?'完整记录':'尚有待补内容'}</span></div><div class="meal-grid">${M.meals.map(k=>{const m=r.meals[k];return `<article class="meal-card"><div class="section-title"><h3>${mealNames[k]}</h3><strong>${mealCalorie(m)}</strong></div><p class="preserve">${esc(m.text || '尚未报告')}</p></article>`;}).join('')}</div>${r.notes?`<details><summary>当日说明与待确认内容</summary><p class="preserve">${esc(r.notes)}</p></details>`:''}`;
   }
   function renderRecords() {
     const month = $('#month-filter').value, filtered = rows.filter(r=>!month || r.date.startsWith(month)).slice().reverse();
@@ -55,7 +57,7 @@
   $('#plan-stats').innerHTML = facts([['自报起始体重',num(p.startWeight,' 公斤')],['目标体重',num(p.targetWeight,' 公斤')],['摄入参考',num(p.calorieTarget,' 千卡/天')],['实际开始日期',p.startDate || '待确认']]);
   $('#plan-content').innerHTML = [['阶段计划',p.phases],['每周运动安排',p.weeklyPlan],['饮食与作息',p.routine]].map(([title,text])=>`<article class="card"><h2>${title}</h2><p class="preserve plan-text">${esc(text || '待更新')}</p></article>`).join('');
   $('#diet-date').innerHTML = rows.slice().reverse().map(r=>`<option value="${r.date}">${r.date}</option>`).join('');
-  $('#diet-table').innerHTML = rows.length ? `<div class="table-wrap"><table><thead><tr><th>日期</th>${M.meals.map(k=>`<th>${mealNames[k]}</th>`).join('')}<th>已记合计</th><th>完整性</th></tr></thead><tbody>${rows.slice().reverse().map(r=>`<tr><td><button class="date-link" data-date="${r.date}">${r.date}</button></td>${M.meals.map(k=>{const m=r.meals[k];return `<td>${calorie(m.min===null?null:{min:m.min,max:m.max??m.min})}</td>`;}).join('')}<td>${calorie(M.totals(r))}</td><td>${r.foodComplete?'全天已确认':'已记小计'}</td></tr>`).join('')}</tbody></table></div>` : '<div class="empty">暂无饮食记录。</div>';
+  $('#diet-table').innerHTML = rows.length ? `<div class="table-wrap"><table><thead><tr><th>日期</th>${M.meals.map(k=>`<th>${mealNames[k]}</th>`).join('')}<th>已记合计</th><th>完整性</th></tr></thead><tbody>${rows.slice().reverse().map(r=>`<tr><td><button class="date-link" data-date="${r.date}">${r.date}</button></td>${M.meals.map(k=>{const m=r.meals[k];return `<td>${mealValue(m)}</td>`;}).join('')}<td>${calorie(M.totals(r))}</td><td>${pendingCalories(r)?'有餐次待估算':r.foodComplete?'全天已确认':'已记小计'}</td></tr>`).join('')}</tbody></table></div>` : '<div class="empty">暂无饮食记录。</div>';
   $('#exercise-stats').innerHTML = facts([['已记骑行',num(sum(rows,'cycling'),' 公里')],['骑行记录',`${rows.filter(r=>r.cycling!==null).length} 天`],['已记有氧',num(sum(rows,'aerobic'),' 分钟')],['力量训练',num(sum(rows,'strengthCount'),' 次')]]);
   const activityRows = rows.filter(r=>r.activity || ['steps','cycling','aerobic','strengthCount','exerciseCalories'].some(k=>r[k]!==null));
   $('#exercise-records').innerHTML = activityRows.length ? activityRows.slice().reverse().map(r=>`<article class="card"><h2>${r.date}</h2><div class="facts">${facts([['步数',num(r.steps)],['骑行',num(r.cycling,' 公里')],['确认有氧',num(r.aerobic,' 分钟')],['力量训练',num(r.strengthCount,' 次')],['应用估算消耗',num(r.exerciseCalories,' 千卡')]])}</div>${r.activity?`<p class="preserve">${esc(r.activity)}</p>`:''}</article>`).join('') : '<article class="card empty">暂无运动记录。</article>';
