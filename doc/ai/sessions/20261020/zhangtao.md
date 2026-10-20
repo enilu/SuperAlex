@@ -53,3 +53,16 @@
 - Chromium 实测从线上首页点击健身手记入口进入 /fitlog/，七天记录与最近摄入显示正常，六个栏目可浏览，无编辑表单或浏览器脚本错误。
 - 公网校验脚本、JSON 结果和截图位于聚合工作区 runtime/20261020/check_fitlog_live.py、fitlog-live-verification.json、fitlog-live-desktop.png。
 - 本条部署记录补充提交并推送，服务器随后仅拉取文档更新，使本地、origin/main、服务器版本保持一致；文档不参与站点发布，不再覆盖站点文件。
+
+## 2026-10-20 15:46:40 +08:00 FitLog：补记十月十九日晚餐并更新线上
+
+- 用户补报“昨日晚餐”为一份捞面条，主要是面条，配少量炒土豆丝；按本次会话日期将昨日记为 2026-10-19。
+- 更新 fitlog/data.js 对应晚餐描述与当日备注，热量因份量和用油未知保留 null，不估成零，不擅自确认全天饮食完整。
+- fitlog/app.js 区分未报告与已报告但热量待估算；当日 1265 千卡明确为不含待估算晚餐的小计，餐次卡片和汇总表显示待估算。fitlog/index.html 同步提升 data.js/app.js 缓存版本为 20261020-dinner-1019。
+- 本地定向验证通过：仅 10 月 19 日数据改变，其他日期保持不变，晚餐显示正确、当日小计不虚增、20 日晚餐仍未报告；JS 语法与 git diff --cached --check 通过。
+- 按已授权的上线维护流程执行 cloud-host-deploy 技能。功能提交 67071455baa0a8c5fb9bbb230ccc99fcfd0ff1f9 已推送，服务器工作树干净，拉取后 HEAD 与 origin/main 一致，Nginx 校验通过。
+- 服务器先 dry-run 再正式部署，备份 /root/backups/superalex-20261020-154526。同步标准静态清单：首页、favicon、README、既有六个游戏目录及 fitlog；不删除线上额外文件。
+- 未改 Nginx，未重启服务，未修改 homework/files/、homework 应用、/game/ 或数据库，原始 Obsidian 笔记未修改。
+- 公网浏览器定向验证通过：10 月 19 日晚餐文字与待估算状态、1265 千卡不含晚餐的小计、汇总表完整性提示均正确，无脚本错误。新版 JS 数据与本地逐字一致（统一换行）；首页、homework/login、/game/ 抽检 200。
+- 本轮校验脚本位于聚合工作区 runtime/20261020/check_fitlog_dinner.py。部署记录归档提交后，服务器仅拉取会话文档，保持版本一致，无须再次发布站点。
+- 保留根 README/index 的揭秘世界改动、RevealWorld/ 和既有会话目录，未混入提交或发布。
