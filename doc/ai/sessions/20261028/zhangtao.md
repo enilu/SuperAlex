@@ -39,3 +39,11 @@
 - 更新data.js及index.html版本20261028-dinner，历史所有记录及今日其他餐次保持一致。Node语法、manager合计、git diff --check以及runtime/20261028/check_dinner.py本地/公网浏览器检查通过，炸鸡腿描述、其他餐次和历史保护正确，手机无横向溢出、无脚本错误，公网数据一致；首页/homework登录/game均200。
 - 沿用cloud-host-deploy技能，提交8a6c870已push；读取服务器站点说明/有效配置，nginx -t通过，干净工作树fast-forward且HEAD=origin/main，dry-run后标准静态清单备份发布，备份/root/backups/superalex-20261028-203604。
 - 未改Nginx、未重启服务、未删除线上额外项，未动homework资料/game/数据库，保留其他无关改动。会话读回校验后单独归档，服务器仅拉取文档。
+
+## 2026-10-28 20:42:58 +08:00 FitLog：炸鸡腿全部吃完确认
+
+- 用户回答带骨、吃完、没有其他，按前述组合问题理解为3只带骨小腿连皮裹粉全部吃完，无其他食物、饮料或蘸酱；未据此强认具体菜单名称。
+- 清理晚餐食用完整性和搭配的待确认文字，晚餐代表值600、范围450—750不变，早240午520保持不变，已报告合计1360千卡，不重复新增餐次。无其他理解为本次晚餐搭配，尚未全天查漏，foodComplete=false。
+- data.js和index.html缓存版本20261028-dinner-confirmed更新，历史及今日其他餐次不变；Node语法、manager、git diff --check、本地/公网check_dinner_confirmed.py校验通过，三只吃完、无其他和600/1360正确显示，手机布局正常、无脚本错误，公网数据一致；首页/homework登录/game均200。
+- 复用刚核对的服务器站点和有效配置，按cloud-host-deploy技能提交ef36d46推送、服务器干净工作树fast-forward且HEAD=origin/main，nginx -t和dry-run通过后静态发布，备份/root/backups/superalex-20261028-204253。
+- 未改Nginx或重启服务、未删除额外文件、未动homework资料/game/数据库，保留无关改动。会话读回校验后单独归档推送，服务器仅拉取文档。
