@@ -29,3 +29,13 @@
 - data.js和index.html版本20261028-lunch-confirmed更新。Node语法、manager汇总、git diff --check、本地与公网check_lunch_confirmed.py通过：520/760和一碗描述正确，历史保护、手机布局、无脚本错误，公网数据一致；首页/homework登录/game均200。
 - 复用本会话已核对的服务器站点说明和有效配置，沿用cloud-host-deploy技能，功能提交fde23d9已push，服务器干净工作树fast-forward拉取且HEAD=origin/main，nginx -t和dry-run通过后标准静态清单备份发布；备份/root/backups/superalex-20261028-162545。
 - 未改Nginx、未重启服务、未删除额外文件，未动homework资料/game/数据库，保留无关改动。会话读回校验，单独归档推送后服务器仅拉取文档。
+
+## 2026-10-28 20:36:10 +08:00 FitLog：肯德基炸鸡腿晚餐暂估
+
+- 用户报告今日晚餐3个肯德基炸鸡腿并提供进食中照片；可见小腿骨及一只带裹粉的鸡腿，不能凭照片确认三只最终吃完或皮粉比例。已一次询问具体餐品、是否全吃完、皮粉及饮料蘸料搭配，暂未收到回答。
+- 暂按3只普通带骨炸小腿连皮和裹粉吃下，代表值600千卡，范围450—750。每只200为记账模型，不是已核验中国门店官方值。骨头不计可食重量，成品已含炸油皮粉，不重复加油；食用完整性是待确认假设，未报告的饮料和蘸料不擅自计入，也不冒认为确认没有。
+- 检索未找到与本次中国餐品完全匹配的官方营养标签；采用肯德基马来西亚官网Hot & Spicy Drumstick每只179千卡作为相似品参照，明确地区、配方、规格差异，不冒称中国本餐官方值。来源https://kfc.com.my/nutrition-facts。照片不公开。
+- 早240、午520保持不变，已报告暂估小计1360千卡，三餐已有不等于全天完整，foodComplete=false。收到补充后替换同一晚餐，不重复累计。
+- 更新data.js及index.html版本20261028-dinner，历史所有记录及今日其他餐次保持一致。Node语法、manager合计、git diff --check以及runtime/20261028/check_dinner.py本地/公网浏览器检查通过，炸鸡腿描述、其他餐次和历史保护正确，手机无横向溢出、无脚本错误，公网数据一致；首页/homework登录/game均200。
+- 沿用cloud-host-deploy技能，提交8a6c870已push；读取服务器站点说明/有效配置，nginx -t通过，干净工作树fast-forward且HEAD=origin/main，dry-run后标准静态清单备份发布，备份/root/backups/superalex-20261028-203604。
+- 未改Nginx、未重启服务、未删除线上额外项，未动homework资料/game/数据库，保留其他无关改动。会话读回校验后单独归档，服务器仅拉取文档。
