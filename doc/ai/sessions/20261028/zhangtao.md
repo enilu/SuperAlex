@@ -20,3 +20,12 @@
 - 修改data.js及index.html缓存版本20261028-lunch，历史记录和今日早餐保持不变。Node语法、manager合计、git diff --check通过；runtime/20261028/check_lunch.py本地/公网浏览器验证菜品和全部吃完、手机布局、历史保护，无脚本错误，公网数据与本地一致；首页/homework登录/game均200。
 - 沿用cloud-host-deploy技能，功能提交104db87已push，服务器站点说明及有效Nginx配置核对、nginx -t通过，干净工作树fast-forward拉取且HEAD=origin/main，dry-run后标准静态清单备份发布，备份/root/backups/superalex-20261028-162301。
 - 未改Nginx、未重启服务、未删除额外文件、未动homework资料/game/数据库，保留无关改动。会话读回校验后单独归档推送，服务器仅拉取文档。
+
+## 2026-10-28 16:25:50 +08:00 FitLog：确认鸡胸肉及饭菜份量
+
+- 用户确认肉为鸡胸肉，米饭普通饭碗一碗，盒饭约三分之一饭、三分之二菜；其余按常见饭盒估算。未要求精确称重，也未额外追问低影响信息。
+- 据确认把午餐600替换为520千卡，范围380—700：饭210、鸡胸180、蔬菜70、油调味60。熟米饭180克、鸡胸熟重110克对应生重135克、花菜胡萝卜250克、油6克、盒容量750毫升均为模型假设。体积不直接等同重量，菜占两成以上不反推肉菜比例；清淡不当无油。
+- 早餐240不变，今日已报告小计760千卡，未知午餐饮品/晚餐/加餐不当零，foodComplete=false。清理鸡胸肉和饭量待确认旧文本；历史所有记录及今日其他餐次保持不变。
+- data.js和index.html版本20261028-lunch-confirmed更新。Node语法、manager汇总、git diff --check、本地与公网check_lunch_confirmed.py通过：520/760和一碗描述正确，历史保护、手机布局、无脚本错误，公网数据一致；首页/homework登录/game均200。
+- 复用本会话已核对的服务器站点说明和有效配置，沿用cloud-host-deploy技能，功能提交fde23d9已push，服务器干净工作树fast-forward拉取且HEAD=origin/main，nginx -t和dry-run通过后标准静态清单备份发布；备份/root/backups/superalex-20261028-162545。
+- 未改Nginx、未重启服务、未删除额外文件，未动homework资料/game/数据库，保留无关改动。会话读回校验，单独归档推送后服务器仅拉取文档。
