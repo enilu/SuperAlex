@@ -48,3 +48,12 @@
 - data.js及index.html版本20261030-dinner更新，历史及今日其他餐次完全保护。Node语法、manager汇总、git diff --check、本地/公网runtime/20261030/check_today_dinner.py通过，砂锅米粉/肉末/喝完描述正确，无脚本错误，手机布局正常，公网数据一致；首页/homework登录/game均200。
 - 沿用cloud-host-deploy技能，功能提交145e1f0已push；服务器站点说明及有效配置核对、nginx -t通过，干净工作树fast-forward且HEAD=origin/main，dry-run后标准静态清单备份发布；备份/root/backups/superalex-20261030-205910。
 - 未改Nginx或重启服务、未删除额外项、未动homework资料/game/数据库，保留其他无关修改。会话读回校验后单独归档推送，服务器仅拉取文档。
+
+## 2026-10-30 21:01:13 +08:00 FitLog：砂锅份量油量及豆皮青菜确认
+
+- 用户确认油水略多、普通一人份，另有豆皮和一点青菜。食物全部吃完喝完沿用已确认事实；额外饮品仍未明确，不冒认为无。
+- 晚餐由750替换为850千卡，范围650—1150，原米粉380/肉末150/汤油180/其他汤底40不变，豆皮90、青菜10追加一次。豆皮按干料等价20—22克及约410千卡/100克作相似参照，实际种类及干湿状态未知，不能用同重干料热量套泡发重量。份量和油克数仍为模型假设，不凭普通份和油略多推导精确重量。
+- 今日170+700+850=1720千卡，foodComplete=false；没有重复记750和850两份晚餐，今日其他餐次及历史数据保护一致，骑行9.46/应用229不变。
+- data.js及index.html缓存版本20261030-dinner-confirmed更新，Node语法、manager汇总、git diff --check、本地/公网runtime/20261030/check_today_dinner_confirmed.py通过，豆皮/850/1720正确显示，无脚本错误、手机布局正常，公网数据一致；首页/homework登录/game均200。
+- 按cloud-host-deploy技能，复用刚核对服务器站点说明/有效配置，功能提交7f22d22已push，服务器干净工作树fast-forward且HEAD=origin/main，nginx -t与dry-run通过后标准静态清单备份发布；备份/root/backups/superalex-20261030-210107。
+- 未改Nginx或重启服务、未删除额外文件、未动homework资料/game/数据库，保留无关改动。会话读回校验后单独归档推送，服务器仅拉取文档。
