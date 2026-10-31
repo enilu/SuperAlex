@@ -16,3 +16,12 @@
 - 修改data.js及index.html缓存版本20261031-steps-1030。Node语法、manager数值/既有摄入、git diff --check，以及runtime/20261031/check_steps.py本地/公网浏览器校验通过，步数6858显示在10月30日并保留9.46/229，其他数值和历史餐次保护一致，公网数据一致；首页/homework登录/game均200。
 - 按cloud-host-deploy技能，复用本会话刚核对服务器站点说明/有效配置，功能提交4f157e8已push；服务器干净工作树fast-forward且HEAD=origin/main，nginx -t与dry-run通过后标准静态清单备份发布，备份/root/backups/superalex-20261031-103942。
 - 未改Nginx、未重启服务、未删除额外项、未动homework资料/game/数据库，保留无关修改。会话读回校验后单独归档推送，服务器仅拉取文档。
+
+## 2026-10-31 12:42:26 +08:00 FitLog：午餐照片待确认
+
+- 用户仅提供今日午餐照片。照片可见杂粮饭、多种蔬菜及肉菜、浅黄色块和橙黄色一碗食物。青菜/花菜/西兰花可见，番茄炒蛋仅为疑似，未凭照片强认肉类、浅黄块或碗中品种，未默认全部吃完。
+- 一次询问是否开吃前拍摄、饭菜食用比例、橙色碗是蒸蛋或汤、肉与浅黄色块是什么、额外饮品，暂未获答复。这些是影响整餐估算的关键未知，午餐min/max=null标待估算，不当零摄入，不编造总量。
+- 早餐340不变，已量化小计340不包含该午餐，foodComplete=false；后续在同一午餐修订，不重复累计。原照片不公开，不改私人笔记。
+- 更新data.js及index.html缓存版本20261031-lunch。Node语法、manager状态/小计、git diff --check及runtime/20261031/check_lunch.py本地/公网浏览器校验通过，待确认描述正确，无脚本错误、手机布局正常，历史记录与早餐保护一致，公网数据一致；首页/homework登录/game均200。
+- 按cloud-host-deploy技能，提交9172ed5已push，服务器站点说明和有效配置核对、nginx -t通过，干净工作树fast-forward且HEAD=origin/main，dry-run后标准静态清单备份发布；备份/root/backups/superalex-20261031-124221。
+- 未改Nginx或重启服务、未删除额外项、未动homework资料/game/数据库，保留无关修改。会话读回校验后单独归档推送，服务器仅拉取文档。
