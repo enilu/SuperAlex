@@ -25,3 +25,12 @@
 - 更新data.js及index.html缓存版本20261031-lunch。Node语法、manager状态/小计、git diff --check及runtime/20261031/check_lunch.py本地/公网浏览器校验通过，待确认描述正确，无脚本错误、手机布局正常，历史记录与早餐保护一致，公网数据一致；首页/homework登录/game均200。
 - 按cloud-host-deploy技能，提交9172ed5已push，服务器站点说明和有效配置核对、nginx -t通过，干净工作树fast-forward且HEAD=origin/main，dry-run后标准静态清单备份发布；备份/root/backups/superalex-20261031-124221。
 - 未改Nginx或重启服务、未删除额外项、未动homework资料/game/数据库，保留无关修改。会话读回校验后单独归档推送，服务器仅拉取文档。
+
+## 2026-10-31 12:49:52 +08:00 FitLog：午餐菜品及食用完整性确认
+
+- 用户确认开吃前拍摄、全部吃完喝完、无额外饮料，饭菜整体较少，主食糙米饭；肉为少量猪肉、浅黄块少量蒸蛋、橙色碗番茄蛋花汤。按用户确认优先，不把肉另认作鸡肉。
+- 替换待估算午餐为550千卡，范围400—750：糙米饭180、蔬菜含油140、番茄炒蛋70、猪肉80、蒸蛋30、番茄蛋花汤50。模型熟饭150克、蔬菜约200克、猪肉熟重25—30克、蒸蛋30—40克、汤200毫升等均是假设；不把三处鸡蛋各默认为整蛋，不因糙米自动降低同重能量，油计在各菜不重复。
+- 早餐340不变，早午餐已报告890千卡，其他餐次和全天查漏未完成，foodComplete=false，历史所有记录保持不变。原照片不公开，不改私人笔记。
+- 修改data.js和index.html版本20261031-lunch-confirmed。Node语法、manager合计、git diff --check、本地/公网runtime/20261031/check_lunch_confirmed.py通过，550/890和确认菜品正确，无脚本错误、手机布局正常，公网数据一致；首页/homework登录/game均200。
+- 按cloud-host-deploy技能，复用本会话刚核对服务器站点说明/有效配置，功能提交7594e51已push，服务器干净工作树fast-forward且HEAD=origin/main，nginx -t与dry-run通过后标准静态清单备份发布；备份/root/backups/superalex-20261031-124946。
+- 未改Nginx、未重启服务、未删除额外文件、未动homework资料/game/数据库，保留无关改动。会话读回校验后单独归档推送，服务器仅拉取文档。
