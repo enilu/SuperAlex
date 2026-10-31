@@ -8,3 +8,11 @@
 - 修改data.js及index.html缓存版本20261031-breakfast。Node语法、manager合计、git diff --check、本地/公网runtime/20261031/check_breakfast.py通过，土豆饼/150毫升米酒汤/荷包蛋显示正确，无脚本错误，手机布局正常，公网数据一致；首页/homework登录/game均200。
 - 按cloud-host-deploy技能，功能提交5d27c6f已push；服务器站点说明和有效Nginx配置核对、nginx -t通过，干净工作树fast-forward且HEAD=origin/main，dry-run后标准静态清单备份发布；备份/root/backups/superalex-20261031-103824。
 - 未改Nginx、未重启服务、未删除额外项、未动homework资料/game/数据库，保留README/index、RevealWorld及旧会话等无关改动。会话读回校验后单独归档推送，服务器仅拉取文档。
+
+## 2026-10-31 10:39:48 +08:00 FitLog：补记昨日6858步
+
+- 用户补报昨日步数6858，明确写入2026-10-30，非今日。步数时长、速度及当前体重未知，不伪造精确消耗，不与骑行应用值重复累计或抵扣饮食。
+- 当天骑行9.46公里、应用229千卡及饮食170+700+850=1720保持原样；其他日期完全不变，仅补步数及相关说明，页面仍只读。
+- 修改data.js及index.html缓存版本20261031-steps-1030。Node语法、manager数值/既有摄入、git diff --check，以及runtime/20261031/check_steps.py本地/公网浏览器校验通过，步数6858显示在10月30日并保留9.46/229，其他数值和历史餐次保护一致，公网数据一致；首页/homework登录/game均200。
+- 按cloud-host-deploy技能，复用本会话刚核对服务器站点说明/有效配置，功能提交4f157e8已push；服务器干净工作树fast-forward且HEAD=origin/main，nginx -t与dry-run通过后标准静态清单备份发布，备份/root/backups/superalex-20261031-103942。
+- 未改Nginx、未重启服务、未删除额外项、未动homework资料/game/数据库，保留无关修改。会话读回校验后单独归档推送，服务器仅拉取文档。
