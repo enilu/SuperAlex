@@ -8,3 +8,12 @@
 - Node语法、manager未知/完整性、git diff --check及runtime/20261104/check_breakfast.py本地/公网浏览器校验通过，待确认食物描述正确，无脚本错误、手机布局正常，公网数据一致；首页/homework登录/game均200。
 - 按cloud-host-deploy技能，功能提交9e5bffb已push；服务器站点说明和有效Nginx配置核对、nginx -t通过，干净工作树fast-forward且HEAD=origin/main，dry-run后标准静态清单备份发布；备份/root/backups/superalex-20261104-120053。
 - 未改Nginx、未重启服务、未删除额外项、未动homework资料/game/数据库，保留README/index、RevealWorld及旧会话等无关改动。会话读回校验后单独归档推送，服务器仅拉取文档。
+
+## 2026-11-04 12:09:35 +08:00 FitLog：早餐饼吐司及奶标签确认
+
+- 用户确认饼直径8厘米、厚约1厘米，无油，吃半个；原“一篇三明治”明确为吐司1片，无馅无酱。水牛奶确认此前327千焦/100毫升同款。
+- 替换待估算早餐为300千卡，范围250—370：半饼65、吐司80、水煮蛋75、奶80。模型半饼熟重25克/约260千卡每100克、吐司30克、蛋可食50克，均非称重；直径厚度不精确推导重量。不把半饼算整饼，不给原味吐司增加馅酱，不给无油饼加油，蛋只记1个。
+- 牛奶按用户确认标签327÷4.184≈78千卡，取整80，未套普通牛奶均值。今日已报告小计300，其他餐次未知，foodComplete=false；同日其他餐次及所有历史完全保护一致。
+- data.js及index.html版本20261104-breakfast-confirmed更新。Node语法、manager合计、git diff --check、本地/公网runtime/20261104/check_breakfast_confirmed.py通过，一片吐司/300/327和确认描述正确，无脚本错误、手机布局正常，公网数据一致；首页/homework登录/game均200。
+- 按cloud-host-deploy技能，复用本会话刚核对站点说明/有效配置，功能提交e926975已push；服务器干净工作树fast-forward且HEAD=origin/main，nginx -t和dry-run通过后标准静态清单备份发布；备份/root/backups/superalex-20261104-120929。
+- 未改Nginx、未重启服务、未删除额外项、未动homework资料/game/数据库，保留无关修改。会话读回校验后单独归档推送，服务器仅拉取文档。
