@@ -1,7 +1,7 @@
 /* 展示数据：定期更新本文件与 updatedAt，再发布站点。未知数值用 null。 */
 window.FITLOG_DATA = {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-04",
   "focus": "持续积累真实饮食与运动记录，补齐晨起体重和腰围。\n用周平均体重回看变化；让饮食、运动和睡眠保持可持续的节奏。",
   "profile": {
     "name": "我的健康计划",
@@ -588,6 +588,42 @@ window.FITLOG_DATA = {
           "min": 80,
           "max": null,
           "text": "本人报告午饭后约2小时吃橘子1个、橙子1个，两者个头都不大，没有其他本次加餐。水果单列加餐，不包含在午餐550千卡内，不重复计入两次。\n暂估80千卡，合理参考范围60—110千卡。分项：小橘子约30、小橙子约50；暂按橘子去皮可食约70克、橙子去皮可食约100克，果皮不计重量，实际品种和可食重量未知。来源：本人食物、份量及做法确认；蛋、蔬菜、水果等常见食物参考中国疾控中心营养与健康所 https://www.chinanutri.cn/yyj/wxpt/201603/t20160323_128003.html ，吐司、熟鸡肉、板栗及油等相似食物参考USDA https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf 。克重和配方为模型假设，非实测。"
+        }
+      }
+    },
+    {
+      "date": "2026-11-04",
+      "weight": null,
+      "waist": null,
+      "sleep": null,
+      "steps": null,
+      "aerobic": null,
+      "cycling": null,
+      "strengthCount": null,
+      "exerciseCalories": null,
+      "foodComplete": false,
+      "activity": "",
+      "notes": "11月4日早餐已报告半个饼、原描述一篇三明治、水煮蛋1个、水牛奶100毫升。饼种类份量、三明治实际指代及奶是否同款待确认，早餐整餐热量待估算，不当零摄入。其他餐次、饮品加餐及运动未知。",
+      "meals": {
+        "breakfast": {
+          "min": null,
+          "max": null,
+          "text": "2026-11-04早餐本人报告：半个饼、原描述“一篇三明治”、水煮蛋1个、水牛奶100毫升。已询问饼的种类/大小/厚度/用油、三明治是一个/一半或一片吐司及馅酱、奶是否仍为此前每100毫升327千焦那款，尚待补充。\n可以先参考的部分：普通水煮蛋暂约75千卡；若牛奶确为此前同款，100毫升327÷4.184约78千卡，记账取80。牛奶同款仅为待确认条件，不冒认为今日包装已核验，不套普通牛奶平均值。蛋奶条件性小计约155千卡，不是整餐总量。饼与三明治可能差异较大，当前不能形成有依据的整餐代表值，餐次热量留待估算，不当零摄入；补充后修订同一早餐，不新增重复餐次。\n来源：本人数量报告、此前水牛奶包装标签仅作条件性参考；蛋的相似食物成分 https://www.chinanutri.cn/yyj/wxpt/201603/t20160323_128003.html 。不擅自增加未报告配料或饮品。"
+        },
+        "lunch": {
+          "min": null,
+          "max": null,
+          "text": ""
+        },
+        "dinner": {
+          "min": null,
+          "max": null,
+          "text": ""
+        },
+        "snack": {
+          "min": null,
+          "max": null,
+          "text": ""
         }
       }
     }
