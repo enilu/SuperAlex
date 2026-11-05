@@ -9,3 +9,13 @@
 - Node语法、manager数值/未知饮食、git diff --check、本地/公网runtime/20261105/check_cycling.py通过，9.66/226/48:53/11.9/52/40.6显示正确，无脚本错误，公网数据一致；首页/homework登录/game均200。
 - 按cloud-host-deploy技能，提交e703ac4已push；服务器站点说明/有效Nginx配置核对、nginx -t通过，干净工作树fast-forward且HEAD=origin/main，dry-run后标准静态清单备份发布；备份/root/backups/superalex-20261105-133653。
 - 未改Nginx、未重启服务、未删除额外项、未动homework资料/game/数据库，保留README/index、RevealWorld及旧会话等无关修改。会话读回校验后单独归档推送，服务器仅拉取文档。
+
+## 2026-11-05 13:40:59 +08:00 FitLog：早餐暂估及午餐照片待确认
+
+- 用户报告今日早餐水煮鸡蛋1个、小块南瓜、80毫升水牛奶；午餐照片菜为香菇、胡萝卜、白菜、猪肉，饭为大米小米。用户未说明是否拍于开吃前、实际食用比例，照片可能进食中，不将照片全部默认已吃下。
+- 一次询问午餐食用量、米是否仍为1量米杯生米两人均分、菜用油及饮品，并问南瓜份量/做法、牛奶是否同款，暂未答复。
+- 早餐可在明确假设下暂估170千卡，范围140—220：蛋75、南瓜30（假设清蒸60—80克无糖油）、水牛奶65（同款327千焦/100毫升的条件假设，80毫升约62.5取65）。南瓜做法和同款未确认，不冒称标签已核验。
+- 午餐菜品事实已保存，实际摄入量关键未知，min/max=null待估算，不当零摄入，也不算整盒全吃。已量化小计170不含午餐，foodComplete=false；骑行9.66/应用226不变，其他日期保护一致。
+- data.js及index.html版本20261105-meals更新。Node语法、manager状态/合计/骑行、git diff --check、本地/公网runtime/20261105/check_meals.py通过，菜品描述正确，无脚本错误、手机布局正常，公网数据一致；首页/homework登录/game均200。
+- 按cloud-host-deploy技能，复用本会话已核对服务器站点说明/有效配置，提交d3640d3已push；服务器干净工作树fast-forward且HEAD=origin/main，nginx -t和dry-run通过后标准静态清单备份发布；备份/root/backups/superalex-20261105-134056。
+- 未改Nginx、未重启服务、未删除额外项、未动homework资料/game/数据库，原照片不公开，保留无关修改。会话读回校验后单独归档推送，服务器仅拉取文档。
